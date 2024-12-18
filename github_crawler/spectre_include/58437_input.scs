@@ -1,0 +1,347 @@
+// Generated for: spectre
+// Generated on: Apr 12 18:30:27 2023
+// Design library name: Design
+// Design cell name: lab9_Sim
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20N.m"
+include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20P.m"
+
+// Library name: Design
+// Cell name: lab9
+// View name: schematic
+subckt lab9 A0 A1 A2 A3 B0 B1 B2 B3 Cin Cout GND Sum0 Sum1 Sum2 Sum3 VDD
+    N71 (xor31Out_Inv xor31Out GND GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N70 (A3_Inv A3 GND GND) tsmc20N w=300n l=200n as=1.5e-13 ad=1.5e-13 \
+        ps=1.6u pd=1.6u m=1 region=sat
+    N69 (Sum3 xor31Out net0485 GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N68 (Sum3 xor31Out_Inv net0486 GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N67 (xor31Out A3 net0487 GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N66 (xor31Out A3_Inv net0488 GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N65 (net0485 Carry2 GND GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N64 (net0486 Carry2_Inv GND GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N63 (net0487 B3 GND GND) tsmc20N w=500n l=200n as=2.5e-13 ad=2.5e-13 \
+        ps=2u pd=2u m=1 region=sat
+    N62 (net0488 B3_Inv GND GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N61 (Carry2_Inv Carry2 GND GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N60 (B3_Inv B3 GND GND) tsmc20N w=300n l=200n as=1.5e-13 ad=1.5e-13 \
+        ps=1.6u pd=1.6u m=1 region=sat
+    N59 (Cout NAND32Out net0489 GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N58 (NAND31Out A3 net0491 GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N57 (NAND32Out Carry2 net0490 GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N56 (net0489 NAND31Out GND GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N55 (net0491 B3 GND GND) tsmc20N w=300n l=200n as=1.5e-13 ad=1.5e-13 \
+        ps=1.6u pd=1.6u m=1 region=sat
+    N54 (net0490 xor31Out GND GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N53 (xor21Out_Inv xor21Out GND GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N52 (A2_Inv A2 GND GND) tsmc20N w=300n l=200n as=1.5e-13 ad=1.5e-13 \
+        ps=1.6u pd=1.6u m=1 region=sat
+    N51 (Sum2 xor21Out net0389 GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N50 (Sum2 xor21Out_Inv net0390 GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N49 (xor21Out A2 net0391 GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N48 (xor21Out A2_Inv net0392 GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N47 (net0389 Carry1 GND GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N46 (net0390 Carry1_Inv GND GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N45 (net0391 B2 GND GND) tsmc20N w=500n l=200n as=2.5e-13 ad=2.5e-13 \
+        ps=2u pd=2u m=1 region=sat
+    N44 (net0392 B2_Inv GND GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N43 (Carry1_Inv Carry1 GND GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N42 (B2_Inv B2 GND GND) tsmc20N w=300n l=200n as=1.5e-13 ad=1.5e-13 \
+        ps=1.6u pd=1.6u m=1 region=sat
+    N41 (Carry2 NAND22Out net0393 GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N40 (NAND21Out A2 net0395 GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N39 (NAND22Out Carry1 net0394 GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N38 (net0393 NAND21Out GND GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N37 (net0395 B2 GND GND) tsmc20N w=300n l=200n as=1.5e-13 ad=1.5e-13 \
+        ps=1.6u pd=1.6u m=1 region=sat
+    N36 (net0394 xor21Out GND GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N35 (xor11Out_Inv xor11Out GND GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N34 (A1_Inv A1 GND GND) tsmc20N w=300n l=200n as=1.5e-13 ad=1.5e-13 \
+        ps=1.6u pd=1.6u m=1 region=sat
+    N33 (Sum1 xor11Out net0293 GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N32 (Sum1 xor11Out_Inv net0294 GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N31 (xor11Out A1 net0295 GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N30 (xor11Out A1_Inv net0296 GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N29 (net0293 Carry0 GND GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N28 (net0294 Carry0_Inv GND GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N27 (net0295 B1 GND GND) tsmc20N w=500n l=200n as=2.5e-13 ad=2.5e-13 \
+        ps=2u pd=2u m=1 region=sat
+    N26 (net0296 B1_Inv GND GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N25 (Carry0_Inv Carry0 GND GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N24 (B1_Inv B1 GND GND) tsmc20N w=300n l=200n as=1.5e-13 ad=1.5e-13 \
+        ps=1.6u pd=1.6u m=1 region=sat
+    N23 (Carry1 NAND12Out net0297 GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N22 (NAND11Out A1 net0299 GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N21 (NAND12Out Carry0 net0298 GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N20 (net0297 NAND11Out GND GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N19 (net0299 B1 GND GND) tsmc20N w=300n l=200n as=1.5e-13 ad=1.5e-13 \
+        ps=1.6u pd=1.6u m=1 region=sat
+    N18 (net0298 xor11Out GND GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N17 (Cin_Inv Cin GND GND) tsmc20N w=300n l=200n as=1.5e-13 ad=1.5e-13 \
+        ps=1.6u pd=1.6u m=1 region=sat
+    N16 (xor01Out_Inv xor01Out GND GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N15 (Sum0 xor01Out net0127 GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N14 (Sum0 xor01Out_Inv net0129 GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N13 (net0127 Cin GND GND) tsmc20N w=500n l=200n as=2.5e-13 ad=2.5e-13 \
+        ps=2u pd=2u m=1 region=sat
+    N12 (net0129 Cin_Inv GND GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N11 (Carry0 NAND02Out net082 GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N10 (net082 NAND01Out GND GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N7 (B0_Inv B0 GND GND) tsmc20N w=300n l=200n as=1.5e-13 ad=1.5e-13 \
+        ps=1.6u pd=1.6u m=1 region=sat
+    N6 (A0_Inv A0 GND GND) tsmc20N w=300n l=200n as=1.5e-13 ad=1.5e-13 \
+        ps=1.6u pd=1.6u m=1 region=sat
+    N9 (NAND01Out A0 net067 GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N5 (xor01Out A0 net108 GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N4 (xor01Out A0_Inv net110 GND) tsmc20N w=500n l=200n as=2.5e-13 \
+        ad=2.5e-13 ps=2u pd=2u m=1 region=sat
+    N3 (net108 B0 GND GND) tsmc20N w=500n l=200n as=2.5e-13 ad=2.5e-13 \
+        ps=2u pd=2u m=1 region=sat
+    N2 (net110 B0_Inv GND GND) tsmc20N w=500n l=200n as=2.5e-13 ad=2.5e-13 \
+        ps=2u pd=2u m=1 region=sat
+    N8 (net067 B0 GND GND) tsmc20N w=300n l=200n as=1.5e-13 ad=1.5e-13 \
+        ps=1.6u pd=1.6u m=1 region=sat
+    N0 (NAND02Out Cin net112 GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    N1 (net112 xor01Out GND GND) tsmc20N w=300n l=200n as=1.5e-13 \
+        ad=1.5e-13 ps=1.6u pd=1.6u m=1 region=sat
+    P71 (xor31Out_Inv xor31Out VDD VDD) tsmc20P w=4.5u l=200n as=2.25e-12 \
+        ad=2.25e-12 ps=10u pd=10u m=1 region=sat
+    P70 (A3_Inv A3 VDD VDD) tsmc20P w=900n l=200n as=4.5e-13 ad=4.5e-13 \
+        ps=2.8u pd=2.8u m=1 region=sat
+    P69 (net0481 Carry2_Inv VDD VDD) tsmc20P w=10u l=200n as=5e-12 \
+        ad=5e-12 ps=21.0u pd=21.0u m=1 region=sat
+    P68 (net0482 Carry2 VDD VDD) tsmc20P w=10u l=200n as=5e-12 ad=5e-12 \
+        ps=21.0u pd=21.0u m=1 region=sat
+    P67 (net0483 B3_Inv VDD VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 \
+        ps=5u pd=5u m=1 region=sat
+    P66 (net0484 B3 VDD VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 ps=5u \
+        pd=5u m=1 region=sat
+    P65 (Sum3 xor31Out net0481 VDD) tsmc20P w=10u l=200n as=5e-12 ad=5e-12 \
+        ps=21.0u pd=21.0u m=1 region=sat
+    P64 (Sum3 xor31Out_Inv net0482 VDD) tsmc20P w=10u l=200n as=5e-12 \
+        ad=5e-12 ps=21.0u pd=21.0u m=1 region=sat
+    P63 (xor31Out A3 net0483 VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 \
+        ps=5u pd=5u m=1 region=sat
+    P62 (xor31Out A3_Inv net0484 VDD) tsmc20P w=2u l=200n as=1e-12 \
+        ad=1e-12 ps=5u pd=5u m=1 region=sat
+    P61 (Carry2_Inv Carry2 VDD VDD) tsmc20P w=4.5u l=200n as=2.25e-12 \
+        ad=2.25e-12 ps=10u pd=10u m=1 region=sat
+    P60 (B3_Inv B3 VDD VDD) tsmc20P w=900n l=200n as=4.5e-13 ad=4.5e-13 \
+        ps=2.8u pd=2.8u m=1 region=sat
+    P59 (Cout NAND31Out VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P58 (Cout NAND32Out VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P57 (NAND31Out A3 VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P56 (NAND32Out xor31Out VDD VDD) tsmc20P w=600n l=200n as=3e-13 \
+        ad=3e-13 ps=2.2u pd=2.2u m=1 region=sat
+    P55 (NAND32Out Carry2 VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P54 (NAND31Out B3 VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P53 (xor21Out_Inv xor21Out VDD VDD) tsmc20P w=900n l=200n as=4.5e-13 \
+        ad=4.5e-13 ps=2.8u pd=2.8u m=1 region=sat
+    P52 (A2_Inv A2 VDD VDD) tsmc20P w=900n l=200n as=4.5e-13 ad=4.5e-13 \
+        ps=2.8u pd=2.8u m=1 region=sat
+    P51 (net0385 Carry1_Inv VDD VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 \
+        ps=5u pd=5u m=1 region=sat
+    P50 (net0386 Carry1 VDD VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 \
+        ps=5u pd=5u m=1 region=sat
+    P49 (net0387 B2_Inv VDD VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 \
+        ps=5u pd=5u m=1 region=sat
+    P48 (net0388 B2 VDD VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 ps=5u \
+        pd=5u m=1 region=sat
+    P47 (Sum2 xor21Out net0385 VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 \
+        ps=5u pd=5u m=1 region=sat
+    P46 (Sum2 xor21Out_Inv net0386 VDD) tsmc20P w=2u l=200n as=1e-12 \
+        ad=1e-12 ps=5u pd=5u m=1 region=sat
+    P45 (xor21Out A2 net0387 VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 \
+        ps=5u pd=5u m=1 region=sat
+    P44 (xor21Out A2_Inv net0388 VDD) tsmc20P w=2u l=200n as=1e-12 \
+        ad=1e-12 ps=5u pd=5u m=1 region=sat
+    P43 (Carry1_Inv Carry1 VDD VDD) tsmc20P w=900n l=200n as=4.5e-13 \
+        ad=4.5e-13 ps=2.8u pd=2.8u m=1 region=sat
+    P42 (B2_Inv B2 VDD VDD) tsmc20P w=900n l=200n as=4.5e-13 ad=4.5e-13 \
+        ps=2.8u pd=2.8u m=1 region=sat
+    P41 (Carry2 NAND21Out VDD VDD) tsmc20P w=1.1u l=200n as=5.5e-13 \
+        ad=5.5e-13 ps=3.2u pd=3.2u m=1 region=sat
+    P40 (Carry2 NAND22Out VDD VDD) tsmc20P w=1.1u l=200n as=5.5e-13 \
+        ad=5.5e-13 ps=3.2u pd=3.2u m=1 region=sat
+    P39 (NAND21Out A2 VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P38 (NAND22Out xor21Out VDD VDD) tsmc20P w=600n l=200n as=3e-13 \
+        ad=3e-13 ps=2.2u pd=2.2u m=1 region=sat
+    P37 (NAND22Out Carry1 VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P36 (NAND21Out B2 VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P35 (xor11Out_Inv xor11Out VDD VDD) tsmc20P w=900n l=200n as=4.5e-13 \
+        ad=4.5e-13 ps=2.8u pd=2.8u m=1 region=sat
+    P34 (A1_Inv A1 VDD VDD) tsmc20P w=900n l=200n as=4.5e-13 ad=4.5e-13 \
+        ps=2.8u pd=2.8u m=1 region=sat
+    P33 (net0289 Carry0_Inv VDD VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 \
+        ps=5u pd=5u m=1 region=sat
+    P32 (net0290 Carry0 VDD VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 \
+        ps=5u pd=5u m=1 region=sat
+    P31 (net0291 B1_Inv VDD VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 \
+        ps=5u pd=5u m=1 region=sat
+    P30 (net0292 B1 VDD VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 ps=5u \
+        pd=5u m=1 region=sat
+    P29 (Sum1 xor11Out net0289 VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 \
+        ps=5u pd=5u m=1 region=sat
+    P28 (Sum1 xor11Out_Inv net0290 VDD) tsmc20P w=2u l=200n as=1e-12 \
+        ad=1e-12 ps=5u pd=5u m=1 region=sat
+    P27 (xor11Out A1 net0291 VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 \
+        ps=5u pd=5u m=1 region=sat
+    P26 (xor11Out A1_Inv net0292 VDD) tsmc20P w=2u l=200n as=1e-12 \
+        ad=1e-12 ps=5u pd=5u m=1 region=sat
+    P25 (Carry0_Inv Carry0 VDD VDD) tsmc20P w=900n l=200n as=4.5e-13 \
+        ad=4.5e-13 ps=2.8u pd=2.8u m=1 region=sat
+    P24 (B1_Inv B1 VDD VDD) tsmc20P w=900n l=200n as=4.5e-13 ad=4.5e-13 \
+        ps=2.8u pd=2.8u m=1 region=sat
+    P23 (Carry1 NAND11Out VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P22 (Carry1 NAND12Out VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P21 (NAND11Out A1 VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P20 (NAND12Out xor11Out VDD VDD) tsmc20P w=600n l=200n as=3e-13 \
+        ad=3e-13 ps=2.2u pd=2.2u m=1 region=sat
+    P19 (NAND12Out Carry0 VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P18 (NAND11Out B1 VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P17 (xor01Out_Inv xor01Out VDD VDD) tsmc20P w=900n l=200n as=4.5e-13 \
+        ad=4.5e-13 ps=2.8u pd=2.8u m=1 region=sat
+    P16 (Cin_Inv Cin VDD VDD) tsmc20P w=900n l=200n as=4.5e-13 ad=4.5e-13 \
+        ps=2.8u pd=2.8u m=1 region=sat
+    P15 (net0128 Cin_Inv VDD VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 \
+        ps=5u pd=5u m=1 region=sat
+    P14 (net0130 Cin VDD VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 ps=5u \
+        pd=5u m=1 region=sat
+    P13 (Sum0 xor01Out net0128 VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 \
+        ps=5u pd=5u m=1 region=sat
+    P12 (Sum0 xor01Out_Inv net0130 VDD) tsmc20P w=2u l=200n as=1e-12 \
+        ad=1e-12 ps=5u pd=5u m=1 region=sat
+    P11 (Carry0 NAND01Out VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P10 (Carry0 NAND02Out VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P6 (A0_Inv A0 VDD VDD) tsmc20P w=900n l=200n as=4.5e-13 ad=4.5e-13 \
+        ps=2.8u pd=2.8u m=1 region=sat
+    P7 (B0_Inv B0 VDD VDD) tsmc20P w=900n l=200n as=4.5e-13 ad=4.5e-13 \
+        ps=2.8u pd=2.8u m=1 region=sat
+    P5 (net109 B0_Inv VDD VDD) tsmc20P w=10u l=200n as=5e-12 ad=5e-12 \
+        ps=21.0u pd=21.0u m=1 region=sat
+    P4 (net111 B0 VDD VDD) tsmc20P w=10u l=200n as=5e-12 ad=5e-12 ps=21.0u \
+        pd=21.0u m=1 region=sat
+    P3 (xor01Out A0 net109 VDD) tsmc20P w=10u l=200n as=5e-12 ad=5e-12 \
+        ps=21.0u pd=21.0u m=1 region=sat
+    P2 (xor01Out A0_Inv net111 VDD) tsmc20P w=10u l=200n as=5e-12 ad=5e-12 \
+        ps=21.0u pd=21.0u m=1 region=sat
+    P8 (NAND01Out A0 VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P1 (NAND02Out xor01Out VDD VDD) tsmc20P w=600n l=200n as=3e-13 \
+        ad=3e-13 ps=2.2u pd=2.2u m=1 region=sat
+    P0 (NAND02Out Cin VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+    P9 (NAND01Out B0 VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 \
+        ps=2.2u pd=2.2u m=1 region=sat
+ends lab9
+// End of subcircuit definition.
+
+// Library name: Design
+// Cell name: lab9_Sim
+// View name: schematic
+I0 (A0 A1 A2 A3 B0 B1 B2 B3 Cin Cout 0 Sum0 Sum1 Sum2 Sum3 vdd!) lab9
+V16 (A0 0) vsource type=pulse dc=1.8 val0=0 val1=1.8 period=12n delay=3n \
+        rise=100p fall=100p width=5n
+V15 (A1 0) vsource type=pulse dc=1.8 val0=0 val1=1.8 period=12n delay=3n \
+        rise=100p fall=100p width=5n
+V14 (A2 0) vsource type=pulse dc=1.8 val0=0 val1=1.8 period=12n delay=3n \
+        rise=100p fall=100p width=5n
+V13 (A3 0) vsource type=pulse dc=1.8 val0=0 val1=1.8 period=12n delay=3n \
+        rise=100p fall=100p width=5n
+V12 (B0 0) vsource type=pulse dc=1.8 val0=1.8 val1=0 period=12n delay=3n \
+        rise=100p fall=100p width=5n
+V11 (B1 0) vsource type=pulse dc=1.8 val0=1.8 val1=0 period=12n delay=3n \
+        rise=100p fall=100p width=5n
+V10 (B2 0) vsource type=pulse dc=1.8 val0=1.8 val1=0 period=12n delay=3n \
+        rise=100p fall=100p width=5n
+V9 (B3 0) vsource type=pulse dc=1.8 val0=1.8 val1=0 period=12n delay=3n \
+        rise=100p fall=100p width=5n
+V8 (Cin 0) vsource type=pulse dc=1.8 val0=1.8 val1=0 period=12n delay=3n \
+        rise=100p fall=100p width=5n
+V2 (vdd! 0) vsource type=dc dc=1.8
+C4 (Cout 0) capacitor c=50f m=1
+C3 (Sum0 0) capacitor c=50f m=1
+C2 (Sum1 0) capacitor c=50f m=1
+C1 (Sum2 0) capacitor c=50f m=1
+C0 (Sum3 0) capacitor c=50f m=1
+simulatorOptions options psfversion="1.1.0" reltol=1e-3 vabstol=1e-6 \
+    iabstol=1e-12 temp=27 tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+tran tran stop=30n write="spectre.ic" writefinal="spectre.fc" \
+    annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

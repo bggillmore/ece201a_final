@@ -1,0 +1,62 @@
+// Generated for: spectre
+// Generated on: Oct  2 17:37:11 2018
+// Design library name: Digial
+// Design cell name: DominoAndGate_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters p5vonly=0
+include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06N.m"
+include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06P.m"
+
+// Library name: Digial
+// Cell name: inv_min
+// View name: schematic
+subckt inv_min VIN VOUT
+    P0 (VOUT VIN vdd! vdd!) ami06P w=1.5 l=600n as=2.25e-06 ad=2.25e-06 \
+        ps=3 pd=3 m=1 region=sat
+    N0 (VOUT VIN 0 0) ami06N w=1.5u l=600n as=2.25e-12 ad=2.25e-12 ps=6u \
+        pd=6u m=1 region=sat
+ends inv_min
+// End of subcircuit definition.
+
+// Library name: Digial
+// Cell name: DominoAndGate
+// View name: schematic
+subckt DominoAndGate A B X phi
+    N3 (net015 phi 0 0) ami06N w=1.5u l=600n as=2.25e-12 ad=2.25e-12 ps=6u \
+        pd=6u m=1 region=sat
+    N2 (W B net014 0) ami06N w=1.5u l=600n as=2.25e-12 ad=2.25e-12 ps=6u \
+        pd=6u m=1 region=sat
+    N1 (net014 A net015 0) ami06N w=1.5u l=600n as=2.25e-12 ad=2.25e-12 \
+        ps=6u pd=6u m=1 region=sat
+    P0 (W phi vdd! vdd!) ami06P w=1.5u l=600n as=2.25e-12 ad=2.25e-12 \
+        ps=6u pd=6u m=1 region=sat
+    I11 (W X) inv_min
+ends DominoAndGate
+// End of subcircuit definition.
+
+// Library name: Digial
+// Cell name: DominoAndGate_tb
+// View name: schematic
+V0 (vdd! 0) vsource type=dc dc=3.3
+VB (B 0) vsource type=pulse val0=0 val1=3.3 period=320n width=160n
+VA (A 0) vsource type=pulse val0=0 val1=3.3 period=160n width=80n
+Vphi (phi 0) vsource type=pulse val0=0 val1=3.3 period=40n rise=50p \
+        width=20n
+CX (X 0) capacitor c=1p m=1
+I12 (B A X phi) DominoAndGate
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=25 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=1u write="spectre.ic" writefinal="spectre.fc" \
+    annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

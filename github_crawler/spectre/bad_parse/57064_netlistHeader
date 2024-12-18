@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Nov 15 10:46:07 2018
+// Design library name: ECE_6240_Digial
+// Design cell name: hw3_1_adder_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!

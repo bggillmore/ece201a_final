@@ -1,0 +1,131 @@
+// characterization single-ended opamp 'op9' in GPDK180-1V8
+
+simulator lang=spectre
+global 0
+
+include "nmos1.scs" section=stat
+include "pmos1.scs" section=stat
+
+parameters vs=500m vi=0 vsup=3.3 vcm=0 vo=0 vid=0 vicm=0                           \
+           cl=5p rl=100M i0=3u a0=1 fin=1k                                         \
+           Ld1=5.15 Lcm1=6.0 Lcm2=1.0 Lcm3=5.0  Lcm4=1.95 Lls1=1.0 Lr1=5.0 Lr2=2.0 \  
+           Wd1=3.0  Wcm1=5.0 Wcm2=6.0 Wcm3=14.0 Wcm4=2.55 Wls1=1.8 Wr1=1.0 Wr2=1.0 \
+           Md1=2    Mcm1=3   Mcm2=3   Mcm31=1   Mcm41=1   Mls1=3                   \
+                                      Mcm32=1   Mcm42=1                            \
+                                      Mcm33=4   Mcm43=4                            \
+                                      Mcm34=4   Mcm44=1                            \
+           A=Wcm3*Lcm3*(Mcm31+Mcm32+Mcm32+Mcm34) +                                 \
+             Wcm4*Lcm4*(Mcm41+Mcm42+Mcm43+Mcm44) +                                 \
+             Wls1*Wls1*2*Mls1 + Wcm2*Lcm2*2*Mcm2 +                                 \ 
+             Wcm1*Lcm1*2*Mcm1 + Wr1*Lr1 + Wr2*Lr2
+
+subckt ideal_balun d c p n
+    K0 (d 0 p c) transformer n1=2
+    K1 (d 0 c n) transformer n1=2
+ends ideal_balun
+
+// Biasing
+VSUPP (VDD CM)  vsource dc=vsup/2 type=dc
+VSUPN (CM  VSS) vsource dc=vsup/2 type=dc
+IREF  (VDD B)   isource dc=i0     type=dc
+VCM   (CM  0)   vsource dc=0      type=dc
+
+//DUT
+DUT (B INP INN OUT VDD VSS) op
+
+OUTIDEAL (OUT_IDEAL 0  INP 0) vcvs gain=1/a0
+
+INPSW (INP ICLPULSE ICLSIN INPOL) switch position=1
+INNSW (INN FBB             INNOL) switch position=1
+OUTSW (OF  OFL  OUT)              switch position=1
+
+IPRB0 (FBA FBB) iprobe
+FBNET (FBA CM  OUT CM) vcvs gain=a0
+
+VIPULSE (ICLPULSE CM) vsource type=pulse dc=vid \
+    val0=-vs/2 val1=vs/2 period=100u delay=5u rise=1n
+VISIN   (ICLSIN   CM) vsource type=sine  ampl=a0 freq=fin
+ 
+CL (OUT CM) capacitor c=cl
+RL (OUT CM) resistor  r=rl
+
+VO (OFI CM) vsource  dc=vo type=dc
+L2 (OFI OF) dcfeed   l=1u
+R2 (OFL CM) resistor r=1M
+
+BALUN (IND INCM INPOL INNOL) ideal_balun
+
+VID  (IND  CM) vsource type=dc dc=vid mag=1
+VICM (INCM CM) vsource type=dc dc=vicm
+
+subckt op B INP INN O VDD VSS
+    MND11  (V  INN CM  VSS) nmos1 m=Md1 w=Wd1 l=Ld1
+    MND12  (W  INP CM  VSS) nmos1 m=Md1 w=Wd1 l=Ld1
+  
+    MNCM11 (Y  X   VSS VSS) nmos1 m=Mcm1 w=Wcm1 l=Lcm1
+    MNCM12 (Z  X   VSS VSS) nmos1 m=Mcm1 w=Wcm1 l=Lcm1
+
+    MPCM21 (X  S   W   VDD) pmos1 m=Mcm2 w=Wcm2 l=Lcm2
+    MPCM22 (O  S   V   VDD) pmos1 m=Mcm2 w=Wcm2 l=Lcm2
+
+    MNCM41 (B  B   VSS VSS) nmos1 m=Mcm41 w=Wcm4 l=Lcm4
+    MNCM42 (U  B   VSS VSS) nmos1 m=Mcm42 w=Wcm4 l=Lcm4
+    MNCM43 (CM B   VSS VSS) nmos1 m=Mcm43 w=Wcm4 l=Lcm4
+    MNCM44 (S  B   VSS VSS) nmos1 m=Mcm44 w=Wcm4 l=Lcm4
+
+    MPCM31 (U  U   VDD VDD) pmos1 m=Mcm31 w=Wcm3 l=Lcm3
+    MPCM32 (T  U   VDD VDD) pmos1 m=Mcm32 w=Wcm3 l=Lcm3
+    MPCM33 (W  U   VDD VDD) pmos1 m=Mcm33 w=Wcm3 l=Lcm3
+    MPCM34 (V  U   VDD VDD) pmos1 m=Mcm34 w=Wcm3 l=Lcm3
+
+    MNLS12 (O  T   Z   VSS) nmos1 m=Mls1 w=Wls1 l=Lls1
+    MNLS11 (X  T   Y   VSS) nmos1 m=Mls1 w=Wls1 l=Lls1
+
+    MNR1   (T  T   VSS VSS) nmos1 m=1 w=Wr1 l=Lr1
+    MPR2   (S  S   VDD VDD) pmos1 m=1 w=Wr2 l=Lr2
+ends op
+
+simulatorOptions options reltol=100e-6 vabstol=1e-6 iabstol=1e-12         \
+                         temp=27 tnom=27 homotopy=all gmin=1e-12 rforce=1 \
+                         save=selected dc_pivot_check=yes scale=1u
+
+save DUT.M*:gm    DUT.M*:gds DUT.M*:gmb DUT.M*:fug DUT.M*:id  DUT.M*:gmoverid  \
+     DUT.M*:vdsat DUT.M*:vgs DUT.M*:vds DUT.M*:vth DUT.M*:vbs DUT.M*:self_gain \
+     DUT.X DUT.Y DUT.B DUT.CM DUT.U DUT.V DUT.W DUT.Z DUT.S DUT.T              \
+     DUT:VDD DUT:VSS DUT:O VDD VSS OUT OUT_IDEAL INN INP
+
+fb1 alter param=position value=1 dev=INPSW
+fb2 alter param=position value=1 dev=INNSW
+fb3 alter param=position value=1 dev=OUTSW
+fb4 alter param=vid      value=0
+fb5 alter param=vo       value=0
+fb6 alter param=a0       value=1
+
+dcop dc save=selected title="dcop"
+
+dcmatch (OUT CM) dcmatch mth=0.9 method=statistics nsigma=1 \
+    variations=mismatch where=rawfile prevoppoint=yes title="dcmatch"
+
+stb stb start=1 stop=100G probe=IPRB0 localgnd=0 dec=50 title="stb"
+tran tran stop=100u errpreset=conservative title="tran"
+
+noise (OUT CM) noise start=1e-3 stop=1G iprobe=VIPULSE \
+    separatenoise=no save=selected title="noise"
+
+fb7 alter param=a0 value=0.1
+dc1 dc param=vid start=-vsup*0.1 stop=vsup*0.1 lin=500 title="dc1"
+
+ol1 alter param=position value=2 dev=INNSW
+ol2 alter param=position value=3 dev=INPSW
+ol3 alter param=position value=2 dev=OUTSW
+
+xf (OUT CM) xf  start=1e-3 stop=1G dec=50 title="xf" annotate=no
+ac ac freq=1 param=vicm start=-vsup stop=vsup lin=1500 title="ac" annotate=no
+
+ol41 alter param=vid value=vs/2 
+ol42 alter param=vo  value=-vsup/2
+dc3 dc title="dc3"
+
+ol51 alter param=vid value=-vs/2
+ol52 alter param=vo  value=vsup/2
+dc4 dc title="dc4"

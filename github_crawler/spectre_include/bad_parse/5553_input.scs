@@ -1,0 +1,35 @@
+// characterization of a NAND gate with 4 inputs in GPDK 180nm
+
+simulator lang=spectre
+global 0
+
+include "nmos1.scs" section=nom
+include "pmos1.scs" section=nom
+
+parameters vdd=1.8 v0=vdd v1=vdd v2=vdd v3=vdd swpstep=500     \
+           Wn0=4.6 Wn1=7.7 Wn2=20 Wn3=18.5 Wp=10 Lp=0.18 Ln=0.18
+
+save I0,I1,I2,I3,O
+
+I4 (VDD 0) vsource type=dc dc=vdd
+I0 (I0  0) vsource type=dc dc=v0
+I1 (I1  0) vsource type=dc dc=v1
+I2 (I2  0) vsource type=dc dc=v2
+I3 (I3  0) vsource type=dc dc=v3
+
+MN3 (O I3 A 0) nmos1 m=1 w=Wn3 l=Ln
+MN2 (A I2 B 0) nmos1 m=1 w=Wn2 l=Ln
+MN1 (B I1 C 0) nmos1 m=1 w=Wn1 l=Ln
+MN0 (C I0 0 0) nmos1 m=1 w=Wn0 l=Ln
+MP0 (O I0 VDD VDD) pmos1 m=1 w=Wp l=Lp
+MP1 (O I1 VDD VDD) pmos1 m=1 w=Wp l=Lp
+MP2 (O I2 VDD VDD) pmos1 m=1 w=Wp l=Lp
+MP3 (O I3 VDD VDD) pmos1 m=1 w=Wp l=Lp
+
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 \
+                         gmin=0 rforce=1 temp=27 tnom=27 scalem=1.0 scale=1u
+
+dc0 dc param=v0 start=0 stop=vdd lin=swpstep
+dc1 dc param=v1 start=0 stop=vdd lin=swpstep
+dc2 dc param=v2 start=0 stop=vdd lin=swpstep
+dc3 dc param=v3 start=0 stop=vdd lin=swpstep

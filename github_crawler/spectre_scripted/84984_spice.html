@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>spice &mdash; TheSyDeKick 1.12_RC documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=d8314b78"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            TheSyDeKick
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction to TheSyDeKick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../thesdk/sections.html">Thesdk core classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rtl/sections.html">RTL interface classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spice/sections.html">Spice simulator interface classess</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inverter/sections.html">Inverter class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inverter_testbench/sections.html">Inverter testbench class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inverter_tests/sections.html">Inverter tests class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ads/sections.html">ADS interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ads_template/sections.html">ADS template class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bootcamp/bootcamp.html">Bootcamp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation_instructions.html">Documentation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../indices_and_tables.html">Indices and tables</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TheSyDeKick</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">spice</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for spice</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">=====</span>
+<span class="sd">Spice</span>
+<span class="sd">=====</span>
+
+<span class="sd">Analog simulation interface package for TheSyDeKick.</span>
+
+<span class="sd">Provides utilities to import spice-like modules to Python environment and</span>
+<span class="sd">generate testbenches for the various simulation cases.</span>
+
+<span class="sd">Initially written by Okko Järvinen, 2019</span>
+
+
+<span class="sd">Notes for developers</span>
+<span class="sd">--------------------</span>
+
+<span class="sd">There are now two ways to provide simulator dependent structures that are</span>
+<span class="sd">(most of the time) followed:</span>
+
+<span class="sd">    1. Simulator dependent *properties* are defined in packages </span>
+<span class="sd">    &lt;simulator&gt;/&lt;simulator&gt;.py that are used as `spice_simulator` instance</span>
+<span class="sd">    in this spice class inside *spice_simulator* property. Properties and </span>
+<span class="sd">    attributed of instance of *this class* (i.e. all TheSyDeKick Entitites)</span>
+<span class="sd">    are made visible to spice_simulators through passing the *self* as *parent* </span>
+<span class="sd">    argument in instance creation. Properties defined inside </span>
+<span class="sd">    *spice_simulator* are accessed and set through corresponding properties of</span>
+<span class="sd">    this class.</span>
+
+<span class="sd">    2. This is an interface package, generic spice simulation </span>
+<span class="sd">    related methods should be provided in *spice_methods* module.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">shlex</span>
+<span class="kn">import</span> <span class="nn">pdb</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">traceback</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">timeit</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="o">*</span> 
+<span class="kn">from</span> <span class="nn">thesdk</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">genfromtxt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+<span class="kn">from</span> <span class="nn">spice.spice_common</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">spice.testbench</span> <span class="kn">import</span> <span class="n">testbench</span> <span class="k">as</span> <span class="n">stb</span>
+<span class="kn">from</span> <span class="nn">spice.spice_simcmd</span> <span class="kn">import</span> <span class="n">spice_simcmd</span> <span class="k">as</span> <span class="n">spice_simcmd</span>
+<span class="kn">from</span> <span class="nn">spice.spice_iofile</span> <span class="kn">import</span> <span class="n">spice_iofile</span> <span class="k">as</span> <span class="n">spice_iofile</span>
+<span class="kn">from</span> <span class="nn">spice.spice_dcsource</span> <span class="kn">import</span> <span class="n">spice_dcsource</span> <span class="k">as</span> <span class="n">spice_dcsource</span>
+<span class="kn">from</span> <span class="nn">spice.spice_module</span> <span class="kn">import</span> <span class="n">spice_module</span> <span class="k">as</span> <span class="n">spice_module</span>
+<span class="c1"># Simulator modules</span>
+<span class="kn">from</span> <span class="nn">spice.ngspice.ngspice</span> <span class="kn">import</span> <span class="n">ngspice</span>
+<span class="kn">from</span> <span class="nn">spice.eldo.eldo</span> <span class="kn">import</span> <span class="n">eldo</span>
+<span class="kn">from</span> <span class="nn">spice.spectre.spectre</span> <span class="kn">import</span> <span class="n">spectre</span>
+
+<div class="viewcode-block" id="spice">
+<a class="viewcode-back" href="../spice/sections.html#spice.spice">[docs]</a>
+<span class="k">class</span> <span class="nc">spice</span><span class="p">(</span><span class="n">spice_common</span><span class="p">):</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">si_prefix_mult</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;dict : Dictionary mapping SI-prefixes to multipliers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_si_prefix_mult&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_si_prefix_mult</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_si_prefix_mult</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;E&#39;</span><span class="p">:</span><span class="mf">1e18</span><span class="p">,</span>
+                    <span class="s1">&#39;P&#39;</span><span class="p">:</span><span class="mf">1e15</span><span class="p">,</span>
+                    <span class="s1">&#39;T&#39;</span><span class="p">:</span><span class="mf">1e12</span><span class="p">,</span>
+                    <span class="s1">&#39;G&#39;</span><span class="p">:</span><span class="mf">1e9</span><span class="p">,</span>
+                    <span class="s1">&#39;M&#39;</span><span class="p">:</span><span class="mf">1e6</span><span class="p">,</span>
+                    <span class="s1">&#39;k&#39;</span><span class="p">:</span><span class="mf">1e3</span><span class="p">,</span>
+                    <span class="s1">&#39;m&#39;</span><span class="p">:</span><span class="mf">1e-3</span><span class="p">,</span>
+                    <span class="s1">&#39;u&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span>
+                    <span class="s1">&#39;n&#39;</span><span class="p">:</span><span class="mf">1e-9</span><span class="p">,</span>
+                    <span class="s1">&#39;p&#39;</span><span class="p">:</span><span class="mf">1e-12</span><span class="p">,</span>
+                    <span class="s1">&#39;f&#39;</span><span class="p">:</span><span class="mf">1e-15</span><span class="p">,</span>
+                    <span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mf">1e-18</span><span class="p">,</span>
+                    <span class="p">}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_si_prefix_mult</span>
+   
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">spice_simulator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The simulator specific operation is defined with an instance of </span>
+<span class="sd">        simulator specific class. Properties and methods return values from that class.</span>
+
+<span class="sd">        :type: ngspice</span>
+<span class="sd">        :type: eldo</span>
+<span class="sd">        :type: spectre</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_spice_simulator&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">==</span> <span class="s1">&#39;ngspice&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_spice_simulator</span><span class="o">=</span><span class="n">ngspice</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">==</span> <span class="s1">&#39;eldo&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_spice_simulator</span><span class="o">=</span><span class="n">eldo</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">==</span> <span class="s1">&#39;spectre&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_spice_simulator</span><span class="o">=</span><span class="n">spectre</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spice_simulator</span>
+   
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">syntaxdict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;dict : Internally used dictionary for common syntax conversions between</span>
+<span class="sd">        Spectre, Eldo, and Ngspice.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_syntaxdict&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_syntaxdict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">syntaxdict</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_syntaxdict</span>
+    <span class="nd">@syntaxdict</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">syntaxdict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spice_simulator</span><span class="o">.</span><span class="n">syntaxdict</span><span class="o">=</span><span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">preserve_spicefiles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;bool : If True, do not delete generated Spice files (testbench, subcircuit,</span>
+<span class="sd">        etc.) after simulations.  Useful for debugging.</span>
+
+<span class="sd">            (Default : False )</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_preserve_spicefiles&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_preserve_spicefiles</span><span class="o">=</span><span class="kc">False</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_preserve_spicefiles</span>
+    <span class="nd">@preserve_spicefiles</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">preserve_spicefiles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_preserve_spicefiles</span><span class="o">=</span><span class="n">value</span>
+
+
+    <span class="nd">@property</span> 
+    <span class="k">def</span> <span class="nf">spicesimpath</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; str : Path to the directory where the simulation results are stored.</span>
+
+<span class="sd">          ( Default : self.simpath )</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_spicesimpath&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_spicesimpath</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">simpath</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spicesimpath</span>
+
+<div class="viewcode-block" id="spice.delete_spicesimpath">
+<a class="viewcode-back" href="../spice/sections.html#spice.spice.delete_spicesimpath">[docs]</a>
+    <span class="k">def</span> <span class="nf">delete_spicesimpath</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Method to clean up files from spicesimpath.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spicesimpath</span><span class="p">):</span>
+            <span class="c1"># This is used to check if the waveform database would prevent the deletion of the directory</span>
+            <span class="n">keepdb</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="c1"># Collect iofile filepaths not to delete them</span>
+            <span class="n">iofilepaths</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span><span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">fpath</span> <span class="ow">in</span> <span class="n">val</span><span class="o">.</span><span class="n">file</span><span class="p">:</span>
+                    <span class="n">iofilepaths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>
+            <span class="c1"># Delete everything (conditionally skip iofiles or spicefiles)</span>
+            <span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spicesimpath</span><span class="p">):</span>
+                <span class="n">targetpath</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spicesimpath</span><span class="p">,</span><span class="n">target</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">targetpath</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">iofilepaths</span><span class="p">:</span>
+                        <span class="c1"># Target is a spicefile (anything that isn&#39;t an iofile)</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">preserve_spicefiles</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Preserving </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">targetpath</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">targetpath</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">spicedbpath</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">interactive_spice</span><span class="p">:</span>
+                                <span class="n">keepdb</span> <span class="o">=</span> <span class="kc">True</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Preserving </span><span class="si">%s</span><span class="s1"> due to interactive_spice&#39;</span> <span class="o">%</span> <span class="n">targetpath</span><span class="p">)</span>
+                                <span class="k">continue</span>
+                            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">targetpath</span><span class="p">):</span>
+                                <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">targetpath</span><span class="p">)</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">targetpath</span><span class="p">)</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Removing </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">targetpath</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Could not remove </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">targetpath</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">keepdb</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">preserve_iofiles</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">preserve_spicefiles</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># Eldo needs some time to disconnect from the jwdb server</span>
+                    <span class="c1"># Another dirty hack to check that the process is dead before cleaning</span>
+                    <span class="c1"># TODO: figure out if this can be prevented</span>
+                    <span class="c1"># This is exceptionally here as eldo is the only deviation from the rule</span>
+                    <span class="c1"># strictly it should be eldo&#39;s pecific module.</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">==</span> <span class="s1">&#39;eldo&#39;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Waiting for Eldo to exit...&#39;</span><span class="p">)</span>
+                        <span class="n">waittime</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="k">while</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;pgrep </span><span class="se">\&quot;</span><span class="s1">easynch_64.exe</span><span class="se">\&quot;</span><span class="s1"> &gt;/dev/null&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                            <span class="n">waittime</span> <span class="o">+=</span> <span class="mi">1</span>
+                            <span class="k">if</span> <span class="n">waittime</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">:</span>
+                                <span class="k">break</span>
+                    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spicesimpath</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Removing </span><span class="si">%s</span><span class="s1">/&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">spicesimpath</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Could not remove </span><span class="si">%s</span><span class="s1">/&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">spicesimpath</span><span class="p">)</span></div>
+
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">distributed_run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;bool : If True, distributes applicable simulations (currently DC sweep</span>
+<span class="sd">        supported) into the LSF cluster. The number of subprocesses launched is</span>
+<span class="sd">        set by self.num_processes.</span>
+
+<span class="sd">            (Default False)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_distributed_run&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_distributed_run</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_distributed_run</span><span class="o">=</span><span class="kc">False</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">distributed_run</span>
+    <span class="nd">@distributed_run</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">distributed_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_distributed_run</span><span class="o">=</span><span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">num_processes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;int :  Maximum number of spawned child processes for distributed runs.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_num_processes&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_processes</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_num_processes</span><span class="o">=</span><span class="mi">10</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_processes</span>
+    <span class="nd">@num_processes</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">num_processes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_num_processes</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">load_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;str : Feature for loading results of previous simulation. The Spice</span>
+<span class="sd">        simulation is not re-executed, but the outputs will be read from</span>
+<span class="sd">        existing files. The string value should be the `runname` of the desired</span>
+<span class="sd">        simulation.</span>
+
+<span class="sd">            ( Default &#39;&#39; ) </span>
+<span class="sd">        </span>
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+
+<span class="sd">            Loading the most recent result automatically::</span>
+
+<span class="sd">                self.load_state = &#39;last&#39;</span>
+<span class="sd">                # or</span>
+<span class="sd">                self.load_state = &#39;latest&#39;</span>
+
+<span class="sd">            Loading a specific past result using the `runname`::</span>
+
+<span class="sd">                self.load_state = &#39;20201002103638_tmpdbw11nr4&#39;</span>
+
+<span class="sd">            List available results by providing any non-existent `runname`::</span>
+
+<span class="sd">                self.load_state = &#39;this_does_not_exist&#39;</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_load_state&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_load_state</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_state</span>
+    <span class="nd">@load_state</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">load_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load_state</span><span class="o">=</span><span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">spicecorner</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;dict : Feature for specifying the &#39;section&#39; of the model library file and</span>
+<span class="sd">        simulation temperature. The path to model libraries should be set in</span>
+<span class="sd">        TheSDK.config as either ELDOLIBFILE, SPECTRELIBFILE or NGSPICELIBFILE</span>
+<span class="sd">        variable.</span>
+
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+<span class="sd">            ::</span>
+
+<span class="sd">                self.spicecorner = {</span>
+<span class="sd">                        &#39;temp&#39;: 27,</span>
+<span class="sd">                        &#39;corner&#39;: &#39;top_tt&#39;</span>
+<span class="sd">                        }</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_spicecorner&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spicecorner</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_spicecorner</span><span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;temp&#39;</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+                    <span class="s1">&#39;corner&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span>
+                    <span class="p">}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spicecorner</span>
+    <span class="nd">@spicecorner</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">spicecorner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spicecorner</span><span class="o">=</span><span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">spiceoptions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;dict : Feature for specifying options for spice simulation. The key is the</span>
+<span class="sd">        name of the option (as in simulator manual specifies), and the value is</span>
+<span class="sd">        the value given to said option. Valid key-value pairs can be found from</span>
+<span class="sd">        the manual of the simulator (Eldo, Spectre or Ngspice).</span>
+
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            self.spiceoptions = {</span>
+<span class="sd">                       &#39;save&#39;: &#39;lvlpub&#39;,</span>
+<span class="sd">                       &#39;nestlvl&#39;: &#39;1&#39;,</span>
+<span class="sd">                       &#39;pwr&#39;: &#39;subckts&#39;,</span>
+<span class="sd">                       &#39;digits&#39;: &#39;12&#39;</span>
+<span class="sd">                   }</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_spiceoptions&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spiceoptions</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_spiceoptions</span><span class="o">=</span><span class="p">{}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spiceoptions</span>
+    <span class="nd">@spiceoptions</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">spiceoptions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spiceoptions</span><span class="o">=</span><span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">spiceparameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;dict : Feature for specifying simulation parameters for spice simulation. The</span>
+<span class="sd">        key is the name of the parameter , and the value is the value given to</span>
+<span class="sd">        said parameter.</span>
+
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            self.spiceparameters = {</span>
+<span class="sd">                       &#39;nf_pmos&#39;: 8,</span>
+<span class="sd">                       &#39;nf_nmos&#39;: 4,</span>
+<span class="sd">                       &#39;ibias&#39;: 100e-6</span>
+<span class="sd">                   }</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_spiceparameters&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_spiceparameters</span> <span class="o">=</span><span class="nb">dict</span><span class="p">([])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spiceparameters</span>
+    <span class="nd">@spiceparameters</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">spiceparameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">_spiceparameters</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">interactive_spice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;bool : Launch simulator in interactive mode. A waveform viewer (ezwave by</span>
+<span class="sd">        default) is opened during the simulation for debugging. See</span>
+<span class="sd">        `plotprogram` for selecting waveform viewer program.</span>
+<span class="sd">         </span>
+<span class="sd">            ( Default : False )</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_interactive_spice&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interactive_spice</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_interactive_spice</span><span class="o">=</span><span class="kc">False</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interactive_spice</span>
+    <span class="nd">@interactive_spice</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">interactive_spice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_interactive_spice</span><span class="o">=</span><span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nproc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;int : Requested maximum number of threads for multithreaded simulations.</span>
+
+<span class="sd">        Eldo : maps to command line parameter &#39;-nproc&#39;</span>
+
+<span class="sd">        Spectre :  maps to command line parameter &#39;+mt&#39;.</span>
+
+<span class="sd">        Ngspice :  maps to &#39;set num_threads=&#39; line in testbench.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_nproc&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nproc</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_nproc</span><span class="o">=</span><span class="kc">False</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nproc</span>
+    <span class="nd">@nproc</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">nproc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nproc</span><span class="o">=</span><span class="n">value</span>
+
+    
+    <span class="c1"># DSPF filenames</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">postlayout_subckts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;[str] : List containing filenames for subcircuit DSPF-files to be included for </span>
+<span class="sd">        post-layout simulations. The names given in this list are matched to dspf-files in</span>
+<span class="sd">        &#39;./spice/&#39; -directory. A postfix &#39;.pex.dspf&#39; is automatically appended</span>
+<span class="sd">        to the given names (this will probably change later).</span>
+<span class="sd">        </span>
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            self.postlayout_subckts = [&#39;inv_v2&#39;,&#39;switch_v3&#39;]</span>
+
+<span class="sd">        would include files &#39;./spice/inv_v2.pex.dspf&#39; and</span>
+<span class="sd">        &#39;./spice/switch_v3.pex.dspf&#39; as postlayout_subckts-files in the testbench. If top level </span>
+<span class="sd">        dspf (self.dspf) is given these are omitted. Otherwise simulator will replace </span>
+<span class="sd">        subcircuits with corresponding name with the postlayout netlist defined in the </span>
+<span class="sd">        dspf file. </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_postlayout_subckts&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_postlayout_subckts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_postlayout_subckts</span>
+    <span class="nd">@postlayout_subckts</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">postlayout_subckts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_postlayout_subckts</span><span class="o">=</span><span class="n">value</span>
+    
+
+
+    <span class="c1"># DSPF filenames</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dspf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;[str] : List containing filenames for DSPF-files to be included for post-layout</span>
+<span class="sd">        simulations. The names given in this list are matched to dspf-files in</span>
+<span class="sd">        &#39;./spice/&#39; -directory. A postfix &#39;.pex.dspf&#39; is automatically appended</span>
+<span class="sd">        to the given names (this will probably change later).</span>
+<span class="sd">        </span>
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            self.dspf = [&#39;adc_top_level&#39;]</span>
+
+<span class="sd">        would include files &#39;./spice/adc_top_level.pex.dspf&#39; as </span>
+<span class="sd">        a top level dspf-file in the testbench. If the</span>
+<span class="sd">        dspf-file contains definition matching the original design name of the</span>
+<span class="sd">        top-level netlist, it gets also renamed to match the module name</span>
+<span class="sd">        (dspf-file for top-level instance is possible).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_dspf&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dspf</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dspf</span>
+    <span class="nd">@dspf</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">dspf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dspf</span><span class="o">=</span><span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">postlayout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;bool : Enables post-layout optimizations in the simulator command options. </span>
+<span class="sd">            (Default : False )</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_postlayout&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dspf</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Setting postlayout to True due to given dspf-files&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_postlayout</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> 
+                               <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;In release v1.9, automatic postlayout simulation detection from netlist has been removed. This warning will be removed in coming releases.&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">,</span> 
+                               <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Postlayout attribute accessed before defined. Defaulting to False.&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_postlayout</span><span class="o">=</span><span class="kc">False</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_postlayout</span>
+    <span class="nd">@postlayout</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">postlayout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_postlayout</span><span class="o">=</span><span class="n">value</span>
+    <span class="nd">@postlayout</span><span class="o">.</span><span class="n">deleter</span>
+    <span class="k">def</span> <span class="nf">postlayout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_postlayout</span><span class="o">=</span><span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">iofile_eventdict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;dict : Dictionary to store event type output from the simulations. This should</span>
+<span class="sd">        speed up reading the results.</span>
+
+<span class="sd">        NOTE: Eldo seems to force output names to uppercase, let&#39;s</span>
+<span class="sd">        uppercase everything here to avoid key mismatches. (This should be changed).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_iofile_eventdict&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_iofile_eventdict</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">dir</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s1">&#39;out&#39;</span> <span class="ow">or</span> <span class="n">val</span><span class="o">.</span><span class="n">dir</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s1">&#39;output&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">val</span><span class="o">.</span><span class="n">iotype</span><span class="o">==</span><span class="s1">&#39;event&#39;</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">val</span><span class="o">.</span><span class="n">ionames</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_iofile_eventdict</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iofile_eventdict</span>
+    <span class="nd">@iofile_eventdict</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">iofile_eventdict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_iofile_eventdict</span><span class="o">=</span><span class="n">val</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dcsource_bundle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Bundle : A thesdk.Bundle containing `spice_dcsource` objects. The `spice_dcsource`</span>
+<span class="sd">        objects are automatically added to this Bundle, nothing should be</span>
+<span class="sd">        manually added.</span>
+
+<span class="sd">        This is to automate biasing and operation conditions of the circuit.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_dcsource_bundle&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dcsource_bundle</span><span class="o">=</span><span class="n">Bundle</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dcsource_bundle</span>
+    <span class="nd">@dcsource_bundle</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">dcsource_bundle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dcsource_bundle</span><span class="o">=</span><span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">simcmd_bundle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Bundle : A thesdk.Bundle containing `spice_simcmd` objects. The `spice_simcmd`</span>
+<span class="sd">        objects are automatically added to this Bundle, nothing should be</span>
+<span class="sd">        manually added.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_simcmd_bundle&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_simcmd_bundle</span><span class="o">=</span><span class="n">Bundle</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_simcmd_bundle</span>
+    <span class="nd">@simcmd_bundle</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">simcmd_bundle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_simcmd_bundle</span><span class="o">=</span><span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">extracts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Bundle : A thesdk.Bundle containing extracted quantities.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">extracts</span>
+    <span class="nd">@extracts</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">extracts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">extracts</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span> 
+    <span class="k">def</span> <span class="nf">spice_submission</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;str : Defines spice submission prefix from thesdk.GLOBALS[&#39;LSFSUBMISSION&#39;]</span>
+<span class="sd">        and thesdk.GLOBALS[&#39;LSFINTERACTIVE&#39;] for LSF submissions.</span>
+
+<span class="sd">        Usually something like &#39;bsub -K&#39; or &#39;bsub -I&#39;.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_spice_submission&#39;</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_lsf</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;LSF not configured, running locally.&#39;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_spice_submission</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">interactive_spice</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">distributed_run</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_spice_submission</span> <span class="o">=</span> <span class="n">thesdk</span><span class="o">.</span><span class="n">GLOBALS</span><span class="p">[</span><span class="s1">&#39;LSFINTERACTIVE&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span>
+                        <span class="k">else</span><span class="p">:</span> <span class="c1"># Spectre LSF doesn&#39;t support interactive queues</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Cannot run in interactive mode if distributed mode is on!&#39;</span><span class="p">)</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_spice_submission</span> <span class="o">=</span> <span class="n">thesdk</span><span class="o">.</span><span class="n">GLOBALS</span><span class="p">[</span><span class="s1">&#39;LSFSUBMISSION&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; -o </span><span class="si">%s</span><span class="s1">/bsublog.txt &#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spicesimpath</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_spice_submission</span> <span class="o">=</span> <span class="n">thesdk</span><span class="o">.</span><span class="n">GLOBALS</span><span class="p">[</span><span class="s1">&#39;LSFSUBMISSION&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; -o </span><span class="si">%s</span><span class="s1">/bsublog.txt &#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spicesimpath</span><span class="p">)</span>
+
+            <span class="k">except</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Error while defining spice submission command. Running locally.&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_spice_submission</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spice_submission</span>
+    <span class="nd">@spice_submission</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">spice_submission</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spice_submission</span><span class="o">=</span><span class="n">value</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">spicemisc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; [str] : List of manual commands to be pasted to the testbench. The strings are</span>
+<span class="sd">        pasted to their own lines (no linebreaks needed), and the syntax is</span>
+<span class="sd">        unchanged.</span>
+
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+<span class="sd">        Setting initial voltages from testbench (Eldo)::</span>
+<span class="sd">        </span>
+<span class="sd">            for i in range(nodes):</span>
+
+<span class="sd">                self.spicemisc.append(&#39;.ic NODE&lt;%d&gt; 0&#39; % i)</span>
+
+<span class="sd">        The same example for Spectre::</span>
+
+<span class="sd">            self.spicemisc.append(&#39;simulator lang=spice&#39;)</span>
+<span class="sd">            for i in range(nodes):</span>
+<span class="sd">                self.spicemisc.append(&#39;.ic NODE&lt;%d&gt; 0&#39; % i)</span>
+<span class="sd">            self.spicemisc.append(&#39;simulator lang=spectre&#39;)</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_spicemisc&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_spicemisc</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spicemisc</span>
+    <span class="nd">@spicemisc</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">spicemisc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">_spicemisc</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;str : Name of the module.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_name&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_classfile</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">spicesrcpath</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;str : Path to the spice source of the entity. Can be set manually to desired location.</span>
+<span class="sd">        This variable provides the dspf-parasitic netlist filepath.</span>
+
+<span class="sd">            ( Default: &lt;entity path&gt;/spice )</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_spicesrcpath&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_spicesrcpath</span>  <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">entitypath</span> <span class="o">+</span> <span class="s1">&#39;/spice&#39;</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_spicesrcpath</span><span class="p">)):</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_spicesrcpath</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Creating </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spicesrcpath</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;E&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Failed to create </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spicesrcpath</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spicesrcpath</span>
+    <span class="nd">@spicesrcpath</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">spicesrcpath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spicesrcpath</span><span class="o">=</span><span class="n">val</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">spicesrc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;str : Path to the source netlist. Can be set manually to desired location.</span>
+<span class="sd">        </span>
+<span class="sd">            ( Default: &#39;spice/entityname.scs&#39; )</span>
+
+
+<span class="sd">        N.B!:</span>
+<span class="sd">            Netlist has to contain the top-level design as a subcircuit definition!</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_spicesrc&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_spicesrc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spicesrcpath</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">cmdfile_ext</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_spicesrc</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;No source circuit found in </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spicesrc</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spicesrc</span>
+    <span class="nd">@spicesrc</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">spicesrc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">_spicesrc</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">spicetbsrc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;str : Path to the spice testbench (&#39;&lt;spicesimpath&gt;/tb_entityname.&lt;suffix&gt;&#39;).</span>
+<span class="sd">        This shouldn&#39;t be set manually.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_spicetbsrc&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_spicetbsrc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spicesimpath</span> <span class="o">+</span> <span class="s1">&#39;/tb_&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">cmdfile_ext</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spicetbsrc</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">spicesubcktsrc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;str : Path to the parsed subcircuit file. (&#39;&lt;spicesimpath&gt;/subckt_entityname.&lt;suffix&gt;&#39;).</span>
+<span class="sd">        This shouldn&#39;t be set manually.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_spicesubcktsrc&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_spicesubcktsrc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spicesimpath</span> <span class="o">+</span> <span class="s1">&#39;/subckt_&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">cmdfile_ext</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spicesubcktsrc</span>
+
+    
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">plflag</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; str : Postlayout simulation accuracy/RC reduction flag.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_plflag&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_plflag</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">plflag</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plflag</span>
+    <span class="nd">@plflag</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">plflag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">plflag</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_plflag</span> <span class="o">=</span> <span class="n">val</span>
+            
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">spicecmd</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;str : Simulation command string to be executed on the command line.</span>
+<span class="sd">        Automatically generated.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_spicecmd&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_spicecmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">spicecmd</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spicecmd</span>
+    <span class="nd">@spicecmd</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">spicecmd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">spicecmd</span><span class="o">=</span><span class="n">value</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">spicedbpath</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;str : Path to output waveform database. (&lt;spicesimpath&gt;/tb_&lt;entityname&gt;.&lt;resultfile_ext&gt;)</span>
+<span class="sd">        (For now only for spectre. HOW? should work for Eldo too)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_spicedbpath&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_spicedbpath</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spicesimpath</span><span class="o">+</span><span class="s1">&#39;/tb_&#39;</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">resultfile_ext</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spicedbpath</span>
+    <span class="nd">@spicedbpath</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">spicedbpath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_spicedbpath</span><span class="o">=</span><span class="n">value</span>
+
+    <span class="c1">### To be relocated</span>
+    <span class="c1">### These are simuator related i.e. ezwave does not work for ngspice.</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">plotprogram</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;str : Sets the program to be used for visualizing waveform databases.</span>
+<span class="sd">        Options are ezwave (default) or viva.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_plotprogram&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_plotprogram</span><span class="o">=</span><span class="s1">&#39;ezwave&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plotprogram</span>
+    <span class="nd">@plotprogram</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">plotprogram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_plotprogram</span><span class="o">=</span><span class="n">value</span>
+    <span class="c1">### End to be relocated</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">plotprogcmd</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; str : Command to be run for interactive simulations.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">plotprogcmd</span>
+
+    <span class="nd">@plotprogcmd</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">plotprogcmd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">plotprogcmd</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">save_database</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;bool : Whether to save the waveform database (.wdb-file for eldo, raw-database</span>
+<span class="sd">        for spectre), when save_state=True.</span>
+
+<span class="sd">            ( Default : False)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_save_database&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_save_database</span><span class="o">=</span><span class="kc">False</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_save_database</span> 
+    <span class="nd">@save_database</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">save_database</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_save_database</span><span class="o">=</span><span class="n">value</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">save_output_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;bool : If True and save_state is True, copy the output file of simulator</span>
+<span class="sd">        to entity statedir. Useful for scavenging results if simulator exited</span>
+<span class="sd">        but state was not written to disk for some reason.</span>
+
+<span class="sd">           ( Default : False)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_save_output_file&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_save_output_file</span><span class="o">=</span><span class="kc">False</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_save_output_file</span>
+
+    <span class="nd">@save_output_file</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">save_output_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_save_output_file</span><span class="o">=</span><span class="n">val</span>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">load_output_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;bool : Whether to load the outputs from simulator output file.</span>
+<span class="sd">        This only works if the file exists in the state directory, i.e.</span>
+<span class="sd">        the simulator was run with save_output_file=True.</span>
+<span class="sd">        WARNING: This will read the IOS from the output file, and REWRITE</span>
+<span class="sd">        THE ENTITY STATE on disk.</span>
+
+<span class="sd">            ( Default : False )</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_load_output_file&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_load_output_file</span><span class="o">=</span><span class="kc">False</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_output_file</span> 
+    <span class="nd">@load_output_file</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">load_output_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span> 
+        <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;load_output_file set to True! This will rewrite the entity state on disk!&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load_output_file</span><span class="o">=</span><span class="n">value</span>
+
+<div class="viewcode-block" id="spice.connect_spice_inputs">
+<a class="viewcode-back" href="../spice/sections.html#spice.spice.connect_spice_inputs">[docs]</a>
+    <span class="k">def</span> <span class="nf">connect_spice_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Automatically called function to connect iofiles (inputs) to top</span>
+<span class="sd">        entity IOS Bundle items.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">ioname</span><span class="p">,</span><span class="n">io</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">IOS</span><span class="o">.</span><span class="n">Members</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">ioname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="p">:</span>
+                <span class="n">val</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="n">ioname</span><span class="p">]</span>
+                <span class="c1"># File type inputs are driven by the file.Data, not the input field</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">IOS</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="n">val</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">Data</span><span class="p">,</span><span class="n">spice_iofile</span><span class="p">)</span> \
+                        <span class="ow">and</span> <span class="n">val</span><span class="o">.</span><span class="n">dir</span> <span class="o">==</span> <span class="s1">&#39;in&#39;</span><span class="p">:</span>
+                    <span class="c1"># Data must be properly shaped</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="n">ioname</span><span class="p">]</span><span class="o">.</span><span class="n">Data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">IOS</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="n">ioname</span><span class="p">]</span><span class="o">.</span><span class="n">Data</span></div>
+
+
+<div class="viewcode-block" id="spice.connect_spice_outputs">
+<a class="viewcode-back" href="../spice/sections.html#spice.spice.connect_spice_outputs">[docs]</a>
+    <span class="k">def</span> <span class="nf">connect_spice_outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Automatically called function to connect iofiles (outputs) to top</span>
+<span class="sd">        entity IOS Bundle items.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span><span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">val</span><span class="o">.</span><span class="n">dir</span> <span class="o">==</span> <span class="s1">&#39;out&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">IOS</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">Data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">Data</span></div>
+
+
+<div class="viewcode-block" id="spice.write_spice_inputs">
+<a class="viewcode-back" href="../spice/sections.html#spice.spice.write_spice_inputs">[docs]</a>
+    <span class="k">def</span> <span class="nf">write_spice_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Automatically called function to call write() functions of each</span>
+<span class="sd">        iofile with direction &#39;input&#39;.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">val</span><span class="o">.</span><span class="n">dir</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s1">&#39;in&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">val</span><span class="o">.</span><span class="n">dir</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s1">&#39;input&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> 
+                    <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Direction indicator for </span><span class="si">%s</span><span class="s1"> of should be </span><span class="se">\&#39;</span><span class="s1">in</span><span class="se">\&#39;</span><span class="s1"> and you are the one to fix your code.&#39;</span> 
+                        <span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="n">name</span><span class="p">]))</span></div>
+
+
+
+<div class="viewcode-block" id="spice.read_spice_outputs">
+<a class="viewcode-back" href="../spice/sections.html#spice.spice.read_spice_outputs">[docs]</a>
+    <span class="k">def</span> <span class="nf">read_spice_outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Automatically called function to call read() functions of each</span>
+<span class="sd">        iofile with direction &#39;output&#39;.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">first</span><span class="o">=</span><span class="kc">True</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">val</span><span class="o">.</span><span class="n">dir</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s1">&#39;out&#39;</span> <span class="ow">or</span> <span class="n">val</span><span class="o">.</span><span class="n">dir</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s1">&#39;output&#39;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">val</span><span class="o">.</span><span class="n">iotype</span><span class="o">==</span><span class="s1">&#39;event&#39;</span><span class="p">:</span> <span class="c1"># Event type outs are in same file, read only once to speed up things</span>
+                    <span class="k">if</span> <span class="n">first</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                        <span class="n">first</span><span class="o">=</span><span class="kc">False</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">check_output_accuracy</span><span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">ionames</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># Time stamps are common to all, need to do only once</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">ionames</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">==</span> <span class="s1">&#39;spectre&#39;</span><span class="p">:</span>
+                                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_strobed</span><span class="p">:</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">Data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_strobed</span><span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">val</span><span class="o">.</span><span class="n">ionames</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                                <span class="k">else</span><span class="p">:</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">Data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iofile_eventdict</span><span class="p">[</span><span class="n">val</span><span class="o">.</span><span class="n">ionames</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">Data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iofile_eventdict</span><span class="p">[</span><span class="n">val</span><span class="o">.</span><span class="n">ionames</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span>
+                        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;E&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Invalid ioname </span><span class="si">%s</span><span class="s1"> for iofile </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">ionames</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">name</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span> <span class="c1"># Iofile is a bus?</span>
+                        <span class="n">data</span><span class="o">=</span><span class="p">[]</span>
+                        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">ionames</span><span class="p">):</span>
+                            <span class="k">try</span><span class="p">:</span>
+                                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                                    <span class="c1"># Parse the first member of bus</span>
+                                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">==</span> <span class="s1">&#39;spectre&#39;</span><span class="p">:</span>
+                                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_strobed</span><span class="p">:</span>
+                                            <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_strobed</span><span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+                                        <span class="k">else</span><span class="p">:</span>
+                                            <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iofile_eventdict</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span>
+                                    <span class="k">else</span><span class="p">:</span>
+                                        <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iofile_eventdict</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span>
+                                <span class="k">else</span><span class="p">:</span>
+                                    <span class="c1"># Next members are concatenated to array</span>
+                                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">==</span> <span class="s1">&#39;spectre&#39;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_strobed</span><span class="p">:</span>
+                                        <span class="nb">next</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_strobed</span><span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+                                    <span class="k">else</span><span class="p">:</span>
+                                        <span class="nb">next</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iofile_eventdict</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span>
+                                    <span class="k">try</span><span class="p">:</span>
+                                        <span class="n">data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="nb">next</span><span class="p">]</span>
+                                    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Invalid dimensions for concatenating arrays for IO </span><span class="si">%s</span><span class="s1">!&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+                            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Invalid ioname </span><span class="si">%s</span><span class="s1"> for iofile </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">Data</span><span class="o">=</span><span class="n">data</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">val</span><span class="o">.</span><span class="n">dir</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s1">&#39;output&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">,</span> 
+                    <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Direction indicator for </span><span class="si">%s</span><span class="s1"> of should be </span><span class="se">\&#39;</span><span class="s1">out</span><span class="se">\&#39;</span><span class="s1"> and you are the one to fix your code.&#39;</span> 
+                        <span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iofile_bundle</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="n">name</span><span class="p">]))</span></div>
+
+    
+<div class="viewcode-block" id="spice.execute_spice_sim">
+<a class="viewcode-back" href="../spice/sections.html#spice.spice.execute_spice_sim">[docs]</a>
+    <span class="k">def</span> <span class="nf">execute_spice_sim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Automatically called function to execute spice simulation.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Running external command </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spicecmd</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spicecmd</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Simulator (</span><span class="si">%s</span><span class="s2">) returned non-zero exit code.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="spice.run_plotprogram">
+<a class="viewcode-back" href="../spice/sections.html#spice.spice.run_plotprogram">[docs]</a>
+    <span class="k">def</span> <span class="nf">run_plotprogram</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39; Starting a parallel process for waveform viewer program.</span>
+
+<span class="sd">        The plotting program command can be set with &#39;plotprogram&#39;.</span>
+<span class="sd">        Tested for spectre and eldo.</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">distributed_run</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">run_plotprogram</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Waveform viewer </span><span class="si">%s</span><span class="s1"> not launched due to distributed run.&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">plotprogram</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="spice.extract_powers">
+<a class="viewcode-back" href="../spice/sections.html#spice.spice.extract_powers">[docs]</a>
+    <span class="k">def</span> <span class="nf">extract_powers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Automatically called function to extract transient power and current</span>
+<span class="sd">        consumptions. The consumptions are extracted for spice_dcsource objects</span>
+<span class="sd">        with the attribute extract=True.</span>
+<span class="sd">        </span>
+<span class="sd">        The extracted consumptions are accessible on the top-level after</span>
+<span class="sd">        simulation as::</span>
+<span class="sd">            </span>
+<span class="sd">            # Dictionary with averaged power of each supply + total</span>
+<span class="sd">            self.extracts.Members[&#39;powers&#39;]</span>
+<span class="sd">            # Dictionary with averaged current of each supply + total</span>
+<span class="sd">            self.extracts.Members[&#39;currents&#39;]</span>
+<span class="sd">            # Dictionary with transient current of each supply</span>
+<span class="sd">            self.extracts.Members[&#39;curr_tran&#39;]</span>
+
+<span class="sd">        The keys in the aforementioned dictionaries match the `name`-fields of</span>
+<span class="sd">        the respective `spice_dcsource` objects.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extracts</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="s1">&#39;powers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extracts</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="s1">&#39;currents&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extracts</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="s1">&#39;curr_tran&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">spice_tb</span><span class="o">.</span><span class="n">dcsources</span><span class="o">.</span><span class="n">Members</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="c1"># Read transient power consumption of the extracted source</span>
+                <span class="k">if</span> <span class="n">val</span><span class="o">.</span><span class="n">extract</span> <span class="ow">and</span> <span class="n">val</span><span class="o">.</span><span class="n">sourcetype</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span>
+                    <span class="n">sourcename</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">sourcetype</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span><span class="n">val</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+                    <span class="k">if</span> <span class="n">sourcename</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iofile_eventdict</span><span class="p">:</span>
+                        <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">iofile_eventdict</span><span class="p">[</span><span class="n">sourcename</span><span class="p">]</span>
+                        <span class="k">if</span> <span class="n">val</span><span class="o">.</span><span class="n">ext_start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="n">arr</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">val</span><span class="o">.</span><span class="n">ext_start</span><span class="p">)[</span><span class="mi">0</span><span class="p">],:]</span>
+                        <span class="k">if</span> <span class="n">val</span><span class="o">.</span><span class="n">ext_stop</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="n">arr</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">val</span><span class="o">.</span><span class="n">ext_stop</span><span class="p">)[</span><span class="mi">0</span><span class="p">],:]</span>
+                        <span class="c1"># The time points are non-uniform -&gt; use deltas as weights</span>
+                        <span class="n">dt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">arr</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+                        <span class="n">totaltime</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+                        <span class="n">meancurr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span><span class="o">/</span><span class="n">totaltime</span>
+                        <span class="n">meanpwr</span> <span class="o">=</span> <span class="n">meancurr</span><span class="o">*</span><span class="n">val</span><span class="o">.</span><span class="n">value</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">extracts</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="s1">&#39;currents&#39;</span><span class="p">][</span><span class="n">val</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">meancurr</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">extracts</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="s1">&#39;powers&#39;</span><span class="p">][</span><span class="n">val</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">meanpwr</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">extracts</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="s1">&#39;curr_tran&#39;</span><span class="p">][</span><span class="n">val</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extracts</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="s1">&#39;powers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Extracted power consumption from transient:&#39;</span><span class="p">)</span>
+                <span class="c1"># This is newer Python syntax</span>
+                <span class="n">maxlen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">max</span><span class="p">([</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">extracts</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="s1">&#39;powers&#39;</span><span class="p">],</span><span class="s1">&#39;total&#39;</span><span class="p">],</span><span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">))</span>
+                <span class="k">for</span> <span class="n">name</span><span class="p">,</span><span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">extracts</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="s1">&#39;currents&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1"> current = </span><span class="si">%.06f</span><span class="s1"> mA&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="o">*</span><span class="p">(</span><span class="n">maxlen</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)),</span><span class="mf">1e3</span><span class="o">*</span><span class="n">val</span><span class="p">))</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extracts</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="s1">&#39;currents&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Total</span><span class="si">%s</span><span class="s1"> current = </span><span class="si">%.06f</span><span class="s1"> mA&#39;</span><span class="o">%</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">*</span><span class="p">(</span><span class="n">maxlen</span><span class="o">-</span><span class="mi">5</span><span class="p">),</span><span class="mf">1e3</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extracts</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="s1">&#39;currents&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">())))</span>
+                <span class="k">for</span> <span class="n">name</span><span class="p">,</span><span class="n">val</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">extracts</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="s1">&#39;powers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1"> power   = </span><span class="si">%.06f</span><span class="s1"> mW&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="o">*</span><span class="p">(</span><span class="n">maxlen</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)),</span><span class="mf">1e3</span><span class="o">*</span><span class="n">val</span><span class="p">))</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extracts</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="s1">&#39;powers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;I&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Total</span><span class="si">%s</span><span class="s1"> power   = </span><span class="si">%.06f</span><span class="s1"> mW&#39;</span><span class="o">%</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">*</span><span class="p">(</span><span class="n">maxlen</span><span class="o">-</span><span class="mi">5</span><span class="p">),</span><span class="mf">1e3</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extracts</span><span class="o">.</span><span class="n">Members</span><span class="p">[</span><span class="s1">&#39;powers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">())))</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Something went wrong while extracting power consumptions.&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="spice.read_oppts">
+<a class="viewcode-back" href="../spice/sections.html#spice.spice.read_oppts">[docs]</a>
+    <span class="k">def</span> <span class="nf">read_oppts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Internally called function to read the DC operating points of the circuit</span>
+<span class="sd">            TODO: Implement for Eldo as well.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">read_oppts</span><span class="p">()</span></div>
+
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">spice_tb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;spice_module : Testbench instance. You can set the attributes of the testbench and dut below it before you execute run_spice.</span>
+<span class="sd">        if </span>
+
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+
+<span class="sd">        ::</span>
+<span class="sd">            self.spice_tb.dut.custom_subckt_name=&#39;custom_inverter&#39;</span>
+<span class="sd">            self.run_spice()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_spice_tb&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_tb&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> 
+                        <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Propagating self.tb to self.spice_tb property. You should use spice_tb for spice simulations.&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_spice_tb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tb</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_spice_tb</span> <span class="o">=</span> <span class="n">stb</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spice_tb</span>
+    <span class="nd">@spice_tb</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">spice_tb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_spice_tb</span> <span class="o">=</span> <span class="n">value</span>
+
+<div class="viewcode-block" id="spice.run_spice">
+<a class="viewcode-back" href="../spice/sections.html#spice.spice.run_spice">[docs]</a>
+    <span class="k">def</span> <span class="nf">run_spice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Externally called function to execute spice simulation.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_state</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span> 
+            <span class="c1"># Loading a previously stored state</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_output_file</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">read_spice_outputs</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">connect_spice_outputs</span><span class="p">()</span>
+                <span class="c1"># Are these really something to be part of</span>
+                <span class="c1"># default execution</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">extract_powers</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">read_oppts</span><span class="p">()</span>
+                <span class="c1">###</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_write_state</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_read_state</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Normal execution of full simulation</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connect_spice_inputs</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spice_tb</span><span class="o">.</span><span class="n">generate_contents</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spice_tb</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_spice_inputs</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">interactive_spice</span><span class="p">:</span>
+                <span class="n">plotthread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">run_plotprogram</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;plotting&#39;</span><span class="p">)</span>
+                <span class="n">plotthread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">execute_spice_sim</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">read_spice_outputs</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connect_spice_outputs</span><span class="p">()</span>
+            <span class="c1"># Are these really something to be part of</span>
+            <span class="c1"># default execution</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">extract_powers</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">read_oppts</span><span class="p">()</span>
+            <span class="c1">###</span>
+            <span class="c1"># Save entity state</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_state</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_write_state</span><span class="p">()</span>
+                <span class="c1"># If this is generic enough between simulators, it can be moved</span>
+                <span class="c1"># to thesdk (basically if spicedbpath has an equivalent in</span>
+                <span class="c1"># other simulators too)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_database</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">dbname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spicedbpath</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spicedbpath</span><span class="p">):</span>
+                            <span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spicedbpath</span><span class="p">,</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">statedir</span><span class="p">,</span><span class="n">dbname</span><span class="p">))</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spicedbpath</span><span class="p">,</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">statedir</span><span class="p">,</span><span class="n">dbname</span><span class="p">))</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Saving waveform database to </span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">statedir</span><span class="p">,</span><span class="n">dbname</span><span class="p">))</span>
+                    <span class="k">except</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;E&#39;</span><span class="p">,</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Failed saving waveform database to </span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">statedir</span><span class="p">,</span><span class="n">dbname</span><span class="p">))</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_output_file</span><span class="p">:</span>
+                    <span class="n">output_name</span> <span class="o">=</span> <span class="s1">&#39;tb_</span><span class="si">%s</span><span class="s1">.print&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+                    <span class="n">filepath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spicesimpath</span>
+                    <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">output_name</span><span class="p">)</span>
+                    <span class="n">targ_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">statedir</span><span class="p">,</span> <span class="n">output_name</span><span class="p">)</span>
+                    <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">targ_path</span><span class="p">)</span>
+            <span class="c1"># Clean simulation results</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">delete_iofile_bundle</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">delete_spicesimpath</span><span class="p">()</span></div>
+
+
+    <span class="c1"># Obsolete stuff</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">plotlist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; [ str ] : List of net names to be saved in the waveform database.</span>
+
+<span class="sd">        .. note:: </span>
+<span class="sd">            Obsolete! Moved to `spice_simcmd` as a keyword argument.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Plotlist has been relocated as an argument to spice_simcmd!&#39;</span><span class="p">)</span> 
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_plotlist&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_plotlist</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plotlist</span> 
+    <span class="nd">@plotlist</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">plotlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Plotlist has been relocated as an argument to spice_simcmd!&#39;</span><span class="p">)</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_plotlist</span><span class="o">=</span><span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">errpreset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;str : Global accuracy parameter for Spectre simulations. Options include</span>
+<span class="sd">        &#39;liberal&#39;, &#39;moderate&#39; and &#39;conservative&#39;, in order of rising accuracy.</span>
+
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            self.spice_simulator.errpreset=&#39;conservative&#39;</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;_errpreset&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_errpreset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">errpreset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Errpreset is obsoleted as spectre specific command line argument&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_log</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s1">&#39;Alternative method for handling simulator specific command line arguments should be developed.&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">errpreset</span>
+    <span class="nd">@errpreset</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">errpreset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spice_simulator</span><span class="o">.</span><span class="n">errpreset</span><span class="o">=</span><span class="n">value</span></div>
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019 TheSyDeKick Community.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

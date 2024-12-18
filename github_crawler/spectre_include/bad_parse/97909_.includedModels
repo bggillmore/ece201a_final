@@ -1,0 +1,3 @@
+simulator lang=spectre
+include "modn.scs"
+include "modp.scs"

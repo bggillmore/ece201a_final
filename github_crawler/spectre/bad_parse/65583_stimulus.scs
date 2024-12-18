@@ -1,0 +1,204 @@
+simulator lang=spectre
+parameters VDD = 1.8
+//tr is (transition time)/2
+parameters tr = 50p
+//f is the fall time
+//parameters f = 100p
+//K is the signal period
+parameters K = 2n
+
+
+vVdd (vdd 0) vsource dc=VDD
+vGnd (gnd 0) vsource dc=0
+
+
+vA0 (A0 0) vsource type=pwl wave=\[
++ ( 0*K   ) 0    ( 1*K-tr) 0
++ ( 1*K+tr) 0    ( 2*K-tr) 0
++ ( 2*K+tr) 0    ( 3*K-tr) 0
++ ( 3*K+tr) 0    ( 4*K-tr) 0
++ ( 4*K+tr) 0    ( 5*K-tr) 0
++ ( 5*K+tr) VDD  ( 6*K-tr) VDD
++ ( 6*K+tr) 0    ( 7*K-tr) 0
++ ( 7*K+tr) VDD  ( 8*K-tr) VDD
++ ( 8*K+tr) 0    ( 9*K-tr) 0
++ ( 9*K+tr) VDD  (10*K-tr) VDD
++ (10*K+tr) 0    (11*K-tr) 0
++ (11*K+tr) VDD  (12*K-tr) VDD
++ (12*K+tr) 0    (13*K-tr) 0
++ (13*K+tr) VDD  (14*K-tr) VDD
++ (14*K+tr) 0    (15*K-tr) 0
++ (15*K+tr) VDD  (16*K-tr) VDD
++ (16*K+tr) 0    (17*K-tr) 0
++ (17*K+tr) VDD  (18*K-tr) VDD
++ (18*K+tr) 0    (19*K-tr) 0
++ (19*K+tr) VDD  (20*K-tr) VDD
++ (20*K+tr) 0    (21*K-tr) 0
++ (21*K+tr) VDD  (22*K-tr) VDD
++ (22*K+tr) 0    (23*K-tr) 0
++ (23*K+tr) VDD  (24*K-tr) VDD
++ (24*K+tr) 0    (25*K-tr) 0
++ (25*K+tr) VDD  (26*K-tr) VDD
++ (26*K+tr) 0    (27*K-tr) 0
++ (27*K+tr) VDD  (28*K-tr) VDD
++ (28*K+tr) 0    (29*K-tr) 0
++ (29*K+tr) VDD  (30*K-tr) VDD
++ (30*K+tr) 0    (31*K-tr) 0
++ (31*K+tr) VDD  (32*K-tr) VDD
++ (32*K+tr) 0    (33*K-tr) 0
++ (33*K+tr) VDD  (34*K-tr) VDD
++ (34*K+tr) 0    (35*K-tr) 0
++ (35*K+tr) VDD  (36*K-tr) VDD
++ ]
+vA1 (A1 0) vsource type=pwl wave=\[
++ ( 0*K   ) 0    ( 1*K-tr) 0
++ ( 1*K+tr) 0    ( 2*K-tr) 0
++ ( 2*K+tr) 0    ( 3*K-tr) 0
++ ( 3*K+tr) 0    ( 4*K-tr) 0
++ ( 4*K+tr) 0    ( 5*K-tr) 0
++ ( 5*K+tr) 0    ( 6*K-tr) 0
++ ( 6*K+tr) VDD  ( 7*K-tr) VDD
++ ( 7*K+tr) VDD  ( 8*K-tr) VDD
++ ( 8*K+tr) 0    ( 9*K-tr) 0
++ ( 9*K+tr) 0    (10*K-tr) 0
++ (10*K+tr) VDD  (11*K-tr) VDD
++ (11*K+tr) VDD  (12*K-tr) VDD
++ (12*K+tr) 0    (13*K-tr) 0
++ (13*K+tr) 0    (14*K-tr) 0
++ (14*K+tr) VDD  (15*K-tr) VDD
++ (15*K+tr) VDD  (16*K-tr) VDD
++ (16*K+tr) 0    (17*K-tr) 0
++ (17*K+tr) 0    (18*K-tr) 0
++ (18*K+tr) VDD  (19*K-tr) VDD
++ (19*K+tr) VDD  (20*K-tr) VDD
++ (20*K+tr) 0    (21*K-tr) 0
++ (21*K+tr) 0    (22*K-tr) 0
++ (22*K+tr) VDD  (23*K-tr) VDD
++ (23*K+tr) VDD  (24*K-tr) VDD
++ (24*K+tr) 0    (25*K-tr) 0
++ (25*K+tr) 0    (26*K-tr) 0
++ (26*K+tr) VDD  (27*K-tr) VDD
++ (27*K+tr) VDD  (28*K-tr) VDD
++ (28*K+tr) 0    (29*K-tr) 0
++ (29*K+tr) 0    (30*K-tr) 0
++ (30*K+tr) VDD  (31*K-tr) VDD
++ (31*K+tr) VDD  (32*K-tr) VDD
++ (32*K+tr) 0    (33*K-tr) 0
++ (33*K+tr) 0    (34*K-tr) 0
++ (34*K+tr) VDD  (35*K-tr) VDD
++ (35*K+tr) VDD  (36*K-tr) VDD
++ ]
+vA2 (A2 0) vsource type=pwl wave=\[
++ ( 0*K   ) 0    ( 1*K-tr) 0
++ ( 1*K+tr) 0    ( 2*K-tr) 0
++ ( 2*K+tr) 0    ( 3*K-tr) 0
++ ( 3*K+tr) 0    ( 4*K-tr) 0
++ ( 4*K+tr) 0    ( 5*K-tr) 0
++ ( 5*K+tr) 0    ( 6*K-tr) 0
++ ( 6*K+tr) 0    ( 7*K-tr) 0
++ ( 7*K+tr) 0    ( 8*K-tr) 0
++ ( 8*K+tr) VDD  ( 9*K-tr) VDD
++ ( 9*K+tr) VDD  (10*K-tr) VDD
++ (10*K+tr) VDD  (11*K-tr) VDD
++ (11*K+tr) VDD  (12*K-tr) VDD
++ (12*K+tr) 0    (13*K-tr) 0
++ (13*K+tr) 0    (14*K-tr) 0
++ (14*K+tr) 0    (15*K-tr) 0
++ (15*K+tr) 0    (16*K-tr) 0
++ (16*K+tr) VDD  (17*K-tr) VDD
++ (17*K+tr) VDD  (18*K-tr) VDD
++ (18*K+tr) VDD  (19*K-tr) VDD
++ (19*K+tr) VDD  (20*K-tr) VDD
++ (20*K+tr) 0    (21*K-tr) 0
++ (21*K+tr) 0    (22*K-tr) 0
++ (22*K+tr) 0    (23*K-tr) 0
++ (23*K+tr) 0    (24*K-tr) 0
++ (24*K+tr) VDD  (25*K-tr) VDD
++ (25*K+tr) VDD  (26*K-tr) VDD
++ (26*K+tr) VDD  (27*K-tr) VDD
++ (27*K+tr) VDD  (28*K-tr) VDD
++ (28*K+tr) 0    (29*K-tr) 0
++ (29*K+tr) 0    (30*K-tr) 0
++ (30*K+tr) 0    (31*K-tr) 0
++ (31*K+tr) 0    (32*K-tr) 0
++ (32*K+tr) VDD  (33*K-tr) VDD
++ (33*K+tr) VDD  (34*K-tr) VDD
++ (34*K+tr) VDD  (35*K-tr) VDD
++ (35*K+tr) VDD  (36*K-tr) VDD
++ ]
+vA3 (A3 0) vsource type=pwl wave=\[
++ ( 0*K   ) 0    ( 1*K-tr) 0
++ ( 1*K+tr) 0    ( 2*K-tr) 0
++ ( 2*K+tr) 0    ( 3*K-tr) 0
++ ( 3*K+tr) 0    ( 4*K-tr) 0
++ ( 4*K+tr) 0    ( 5*K-tr) 0
++ ( 5*K+tr) 0    ( 6*K-tr) 0
++ ( 6*K+tr) 0    ( 7*K-tr) 0
++ ( 7*K+tr) 0    ( 8*K-tr) 0
++ ( 8*K+tr) 0    ( 9*K-tr) 0
++ ( 9*K+tr) 0    (10*K-tr) 0
++ (10*K+tr) 0    (11*K-tr) 0
++ (11*K+tr) 0    (12*K-tr) 0
++ (12*K+tr) VDD  (13*K-tr) VDD
++ (13*K+tr) VDD  (14*K-tr) VDD
++ (14*K+tr) VDD  (15*K-tr) VDD
++ (15*K+tr) VDD  (16*K-tr) VDD
++ (16*K+tr) VDD  (17*K-tr) VDD
++ (17*K+tr) VDD  (18*K-tr) VDD
++ (18*K+tr) VDD  (19*K-tr) VDD
++ (19*K+tr) VDD  (20*K-tr) VDD
++ (20*K+tr) 0    (21*K-tr) 0
++ (21*K+tr) 0    (22*K-tr) 0
++ (22*K+tr) 0    (23*K-tr) 0
++ (23*K+tr) 0    (24*K-tr) 0
++ (24*K+tr) 0    (25*K-tr) 0
++ (25*K+tr) 0    (26*K-tr) 0
++ (26*K+tr) 0    (27*K-tr) 0
++ (27*K+tr) 0    (28*K-tr) 0
++ (28*K+tr) VDD  (29*K-tr) VDD
++ (29*K+tr) VDD  (30*K-tr) VDD
++ (30*K+tr) VDD  (31*K-tr) VDD
++ (31*K+tr) VDD  (32*K-tr) VDD
++ (32*K+tr) VDD  (33*K-tr) VDD
++ (33*K+tr) VDD  (34*K-tr) VDD
++ (34*K+tr) VDD  (35*K-tr) VDD
++ (35*K+tr) VDD  (36*K-tr) VDD
++ ]
+vA4 (A4 0) vsource type=pwl wave=\[
++ ( 0*K   ) 0    ( 1*K-tr) 0
++ ( 1*K+tr) 0    ( 2*K-tr) 0
++ ( 2*K+tr) 0    ( 3*K-tr) 0
++ ( 3*K+tr) 0    ( 4*K-tr) 0
++ ( 4*K+tr) 0    ( 5*K-tr) 0
++ ( 5*K+tr) 0    ( 6*K-tr) 0
++ ( 6*K+tr) 0    ( 7*K-tr) 0
++ ( 7*K+tr) 0    ( 8*K-tr) 0
++ ( 8*K+tr) 0    ( 9*K-tr) 0
++ ( 9*K+tr) 0    (10*K-tr) 0
++ (10*K+tr) 0    (11*K-tr) 0
++ (11*K+tr) 0    (12*K-tr) 0
++ (12*K+tr) 0    (13*K-tr) 0
++ (13*K+tr) 0    (14*K-tr) 0
++ (14*K+tr) 0    (15*K-tr) 0
++ (15*K+tr) 0    (16*K-tr) 0
++ (16*K+tr) 0    (17*K-tr) 0
++ (17*K+tr) 0    (18*K-tr) 0
++ (18*K+tr) 0    (19*K-tr) 0
++ (19*K+tr) 0    (20*K-tr) 0
++ (20*K+tr) VDD  (21*K-tr) VDD
++ (21*K+tr) VDD  (22*K-tr) VDD
++ (22*K+tr) VDD  (23*K-tr) VDD
++ (23*K+tr) VDD  (24*K-tr) VDD
++ (24*K+tr) VDD  (25*K-tr) VDD
++ (25*K+tr) VDD  (26*K-tr) VDD
++ (26*K+tr) VDD  (27*K-tr) VDD
++ (27*K+tr) VDD  (28*K-tr) VDD
++ (28*K+tr) VDD  (29*K-tr) VDD
++ (29*K+tr) VDD  (30*K-tr) VDD
++ (30*K+tr) VDD  (31*K-tr) VDD
++ (31*K+tr) VDD  (32*K-tr) VDD
++ (32*K+tr) VDD  (33*K-tr) VDD
++ (33*K+tr) VDD  (34*K-tr) VDD
++ (34*K+tr) VDD  (35*K-tr) VDD
++ (35*K+tr) VDD  (36*K-tr) VDD
++ ]

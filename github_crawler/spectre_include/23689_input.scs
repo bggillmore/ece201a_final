@@ -1,0 +1,33 @@
+// Generated for: spectre
+// Generated on: Feb 17 00:29:03 2018
+// Design library name: ajgrosze_scratch
+// Design cell name: pmos_vth
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters len=32n vds_sweep=-1.2 Vbsweep=0 Vsweep=1
+include "/home/ecelrc/students/agroszewski/lpr/schematics/models/32nm_LP.pm"
+
+// Library name: ajgrosze_scratch
+// Cell name: pmos_vth
+// View name: schematic
+M0 (net03 Vg 0 net07) pmos w=320.00n l=len
+V1 (net07 0) vsource dc=Vbsweep type=dc
+Vds (net03 0) vsource dc=vds_sweep type=dc
+include "./_graphical_stimuli.scs"
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+dcOp dc write="spectre.dc" maxiters=150 maxsteps=10000 annotate=status
+dcOpInfo info what=oppoint where=rawfile
+dc dc param=Vsweep start=0 stop=-1.2 oppoint=rawfile maxiters=150 \
+    maxsteps=10000 annotate=status
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save M0:s M0:d 
+saveOptions options save=allpub

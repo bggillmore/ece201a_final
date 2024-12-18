@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Dec  1 19:32:17 2018
+// Design library name: project_g01
+// Design cell name: Mini_Frame_trial2_V01_tb
+// Design view name: config
+simulator lang=spectre binding=vlog  
+global 0 vdd!

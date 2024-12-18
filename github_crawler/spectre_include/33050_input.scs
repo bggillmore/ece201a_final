@@ -1,0 +1,32 @@
+// Generated for: spectre
+// Generated on: Feb 17 00:44:53 2018
+// Design library name: ajgrosze_scratch
+// Design cell name: nmos_stack_compare
+// Design view name: schematic
+simulator lang=spectre
+global 0 vss!
+parameters vgs=0
+include "/home/ecelrc/students/agroszewski/lpr/schematics/models/32nm_LP.pm"
+
+// Library name: ajgrosze_scratch
+// Cell name: nmos_stack_compare
+// View name: schematic
+Mstack_top (net07 net03 net04 vss!) nmos w=320n l=32n
+Mstack_bot (vss! net03 net07 vss!) nmos w=320n l=32n
+Msingle (vss! net03 net04 vss!) nmos w=320n l=32n
+V1 (net03 vss!) vsource dc=vgs type=dc
+V0 (net04 vss!) vsource dc=1.2 type=dc
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+dc dc param=vgs start=0 stop=1.2 write="spectre.dc" oppoint=rawfile \
+    maxiters=150 maxsteps=10000 annotate=status 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save Msingle:d Mstack_bot:d Msingle:s Mstack_bot:s 
+saveOptions options save=allpub

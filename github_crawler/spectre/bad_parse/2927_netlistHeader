@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Nov 29 10:59:48 2018
+// Design library name: ECE_6240_Digital
+// Design cell name: hw3_1_mirror_adder_4bit_tb
+// Design view name: config
+simulator lang=spectre binding=vlog  
+global 0 vdd!

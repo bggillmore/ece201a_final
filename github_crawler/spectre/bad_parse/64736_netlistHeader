@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Sep 25 16:10:51 2018
+// Design library name: Digial
+// Design cell name: nand2_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!

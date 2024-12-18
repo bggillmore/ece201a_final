@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Nov 13 17:36:05 2018
+// Design library name: ECE_6240_Digial
+// Design cell name: hw2_2_XNOR
+// Design view name: extracted
+simulator lang=spectre
+global 0

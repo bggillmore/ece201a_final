@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Nov 30 12:09:47 2018
+// Design library name: ECE_6240_Digital
+// Design cell name: hw3_2_dynamic_cmos_4_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0 gnda! vdd!

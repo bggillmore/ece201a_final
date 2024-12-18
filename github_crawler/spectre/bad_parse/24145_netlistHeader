@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Oct 18 10:53:18 2018
+// Design library name: ECE_6240_Digial
+// Design cell name: hw1_3_CMOS_3_Input_NOR_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!

@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Feb 26 12:14:25 2024
+// Design library name: lab2024
+// Design cell name: tb_nand3
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!

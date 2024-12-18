@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Feb 16 10:22:10 2015
+// Design library name: MYLIB
+// Design cell name: tutorial3
+// Design view name: config
+simulator lang=spectre
+global 0 vdd!

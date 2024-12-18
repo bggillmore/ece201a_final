@@ -1,0 +1,61 @@
+// Generated for: spectre
+// Generated on: Oct 31 22:18:33 2017
+// Design library name: ee315_wrk
+// Design cell name: comparator_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters vdd=1.8 vic=0.9 vid=100m
+include "/afs/ir.stanford.edu/class/ee315/models/ee315.mod"
+
+// Library name: ee315
+// Cell name: ideal_balun
+// View name: schematic
+subckt ideal_balun d c p n
+    K0 (d 0 p c) transformer n1=2
+    K1 (d 0 c n) transformer n1=2
+ends ideal_balun
+// End of subcircuit definition.
+
+// Library name: ee315
+// Cell name: comparator
+// View name: schematic
+subckt comparator str vdd vim vip vom vop vss inh_bulk_n
+    I0 (net9 vss) isource dc=20u type=dc
+    M0 (vom vip net9 inh_bulk_n) nmos w=3u l=0.18u
+    M1 (vop vim net9 inh_bulk_n) nmos w=3u l=0.18u
+    M2 (vop vom vdd vdd) pmos w=3u l=0.18u
+    M3 (vom vop vdd vdd) pmos w=3u l=0.18u
+    M4 (vop str vom vdd) pmos w=0.5u l=0.18u
+    M5 (vom str vop vdd) pmos w=0.5u l=0.18u
+ends comparator
+// End of subcircuit definition.
+
+// Library name: ee315_wrk
+// Cell name: comparator_tb
+// View name: schematic
+V2 (vic 0) vsource dc=vic type=dc
+V3 (vid 0) vsource dc=vid mag=0 type=dc
+V0 (vdd 0) vsource dc=vdd type=dc
+I4 (vid vic vip vim) ideal_balun
+I7 (vod net012 vop vom) ideal_balun
+V5 (str 0) vsource type=pwl wave=[ 5n 0 5.2n vdd ]
+I3 (str vdd vim vip vom vop 0 0) comparator
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=15n errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+dcOp dc write="spectre.dc" maxiters=150 maxsteps=10000 annotate=status
+capInfo_dc info what=captab where=rawfile threshold=0.0 detail=node \
+    sort=name
+dcOpInfo info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts  where=rawfile
+saveOptions options save=allpub

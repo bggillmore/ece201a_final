@@ -1,0 +1,233 @@
+ROOT_DIR = /package/eda/cadence/LIBERATE181
+exepath = /package/eda/cadence/LIBERATE181/tools/bin
+Host : asicfab.ecn.purdue.edu x86_64 Linux 2.6.32-754.23.1.el6.x86_64
+2019/10/14 15:27:19 WARNING This OS does not appear to be a Cadence supported Linux configuration.
+2019/10/14 15:27:19 For more info, please run CheckSysConf in <cdsRoot/tools.lnx86/bin/checkSysConf <productId>
+LIBERATE Library Characterization Platform (x86_64) 
+Release dev, compiled by vficcm on Thu Jun 14 07:00:50 PDT 2018
+
+
+    ********************************************************************
+    *   Copyright (c)  Cadence Design Systems, Inc.  2006 - 2019.      *
+    *             All rights reserved.                                 *
+    *                                                                  *
+    *                                                                  *
+    *                                                                  *
+    * This program contains confidential and trade secret information  *
+    * of Cadence Design Systems, Inc. and is protected by copyright    *
+    * law and international treaties.  Any reproduction, use,          *
+    * distribution or disclosure of this program or any portion of it, *
+    * or any attempt to obtain a human-readable version of this        *
+    * program, without the express, prior written consent of           *
+    * Cadence Design Systems, Inc., is strictly prohibited.            *
+    *                                                                  *
+    *         Cadence Design Systems, Inc.                             *
+    *           2655 Seely Avenue                                      *
+    *           San Jose, CA 95134,  USA                               *
+    *                                                                  *
+    *                                                                  *
+    ********************************************************************
+    
+    
+    Copyright notices for Open Source and Third Party Tools used by this 
+    software can be viewed at <cds_inst_dir>/doc/liberate/thirdpartyinfo/Notices.txt
+
+LIBERATE started on asicfab.ecn.purdue.edu at Mon Oct 14 15:27:19 2019
+
+Command line arguments: 'tcl/char.tcl'.
+ALTOSHOME set to '/package/eda/cadence/LIBERATE181'.
+Server ID : T20191014152719677134S0002346
+INFO:
+    SRC_DIR              = /local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly
+    RUN_DIR              = /local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly
+    LIBNAME              = Polymorphic
+    PVT                  = tt,1.2,25
+    SETTINGS_FILE        = /local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly/tcl/settings.tcl
+    TEMPLATE_FILE        = /local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly/template/template.tcl
+    CELLS_FILE           = /local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly/cells.tcl
+    MODEL_INCLUDE_FILE   = /local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly/models/spectre/all_models.scs
+    NETLIST_DIR          = /local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly/netlist
+    USERDATA             = /local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly/userdata/userdata.lib
+
+    THREAD               = 1
+
+INFO: Read settings file /local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly/tcl/settings.tcl
+LIBERATE parameter "extsim_cmd_option" set to "+aps +spice -mt +liberate +rcopt=2"
+LIBERATE parameter "extsim_deck_header" set to "simulator lang=spectre
+Opt1 options reltol=1e-4 
+simulator lang=spice"
+LIBERATE parameter "extsim_option" set to "redefinedparams=ignore hier_ambiguity=lower limit=delta "
+LIBERATE parameter "extsim_leakage_option" set to "redefinedparams=ignore hier_ambiguity=lower limit=delta "
+LIBERATE parameter "ski_enable" set to "1"
+LIBERATE parameter "ski_clean_mode" set to "1"
+LIBERATE parameter "ski_compatibility_mode" set to "1"
+LIBERATE parameter "parse_auto_define_leafcell" set to "0"
+LIBERATE parameter "tmpdir" set to "/dev/shm"
+LIBERATE parameter "extsim_deck_dir" set to "/local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly/decks"
+LIBERATE parameter "predriver_waveform" set to "2"
+LIBERATE parameter "force_condition" set to "4"
+LIBERATE parameter "min_capacitance_for_outputs" set to "1"
+LIBERATE parameter "nochange_mode" set to "1"
+LIBERATE parameter "conditional_mpw" set to "0"
+LIBERATE parameter "max_leakage_vector" set to "1024"
+LIBERATE parameter "leakage_float_internal_supply" set to "0"
+LIBERATE parameter "reset_negative_leakage_power" set to "1"
+LIBERATE parameter "voltage_map" set to "1"
+LIBERATE parameter "pin_based_power" set to "0"
+LIBERATE parameter "power_multi_output_binning_mode" set to "1"
+LIBERATE parameter "power_subtract_leakage" set to "4"
+LIBERATE parameter "subtract_hidden_power" set to "2"
+LIBERATE parameter "subtract_hidden_power_use_default" set to "2"
+LIBERATE parameter "max_hidden_vector" set to "1024"
+LIBERATE parameter "ccsn_include_passgate_attr" set to "1"
+LIBERATE parameter "em_char_arcs_mode" set to "1"
+LIBERATE parameter "write_library_is_unbuffered" set to "1"
+LIBERATE parameter "cell_use_both_ff_latch_groups" set to "2"
+LIBERATE parameter "user_data_override" set to " power_down_function pg_pin "
+LIBERATE parameter "sdf_cond_style" set to "1"
+LIBERATE parameter "parenthesize_not" set to "0"
+LIBERATE parameter "driver_type_model_pad_check" set to "1"
+INFO: Read template file /local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly/template/template.tcl
+LIBERATE parameter "slew_lower_rise" set to "0.2"
+LIBERATE parameter "slew_lower_fall" set to "0.2"
+LIBERATE parameter "slew_upper_rise" set to "0.8"
+LIBERATE parameter "slew_upper_fall" set to "0.8"
+LIBERATE parameter "measure_slew_lower_rise" set to "0.2"
+LIBERATE parameter "measure_slew_lower_fall" set to "0.2"
+LIBERATE parameter "measure_slew_upper_rise" set to "0.8"
+LIBERATE parameter "measure_slew_upper_fall" set to "0.8"
+LIBERATE parameter "delay_inp_rise" set to "0.5"
+LIBERATE parameter "delay_inp_fall" set to "0.5"
+LIBERATE parameter "delay_out_rise" set to "0.5"
+LIBERATE parameter "delay_out_fall" set to "0.5"
+LIBERATE parameter "def_arc_msg_level" set to "0"
+LIBERATE parameter "process_match_pins_to_ports" set to "1"
+LIBERATE parameter "max_transition" set to "3e-10"
+LIBERATE parameter "min_transition" set to "1e-11"
+LIBERATE parameter "min_output_cap" set to "1e-15"
+LIBERATE parameter "keep_dcap_leakage" set to "1"
+INFO: Read cell list file
+INFO: Set Operating Condition
+INFO: Define device models (spectre, define_leafcell).
+LIBERATE parameter "extsim_model_include" set to "/local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly/models/spectre/all_models.scs"
+INFO (LIB-511): (define_leafcell): Leafcell 'nsoi1' (instance) has been identified with pin_position (0 1 2 3) mapped to (D G S B).
+LIBERATE parameter "extsim_exclusive" set to "1"
+INFO: Read cell netlist 
+INFO (LIB-511): (define_leafcell): Leafcell 'psoi1' (instance) has been identified with pin_position (0 1 2 3) mapped to (D G S B).
+INFO: Run Characterization
+LIBERATE parameter "simulator" set to "spectre"
+LIBERATE parameter "char_library_skip_var_list" set to ""
+Start Characterizing Library at (Mon Oct 14 15:27:22 EDT 2019)
+
+*Info* Removing all types
+*Info* Max Shared Memory Segments : 4096
+*Info* No Shared Memory Segments
+*Info* Max Semaphore Arrays : 128
+*Info* No unattached Semaphore Arrays belonging to socet15 out of 1 total.
+*Info* Max Message Queues : 32768
+*Info* No Message Queues
+*Info* No Zombie Processes
+*Info* Removing all types
+*Info* Max Shared Memory Segments : 4096
+*Info* No Shared Memory Segments
+*Info* Max Semaphore Arrays : 128
+*Info* No unattached Semaphore Arrays belonging to socet15 out of 1 total.
+*Info* Max Message Queues : 32768
+*Info* No Message Queues
+*Info* No Zombie Processes
+INFO (LIB-943): Finished reading netlist(s) at Oct 14 15:27:23.
+INFO (LIB-711): Feature 'Spectre_char_opt' exists in the license pool. The parameter 'spectre_use_char_opt_license' will be set to '1'.
+INFO (LIB-1008): (char_library): This LIBERATE release was qualified with MMSIM version '' but newer version '15.1.0.801.isr17' was detected. If MMSIM-related issues are found, update to the qualified MMSIM version and re-run.
+*Info* (char_library) : SKI process child signal handler enabled.
+
+INFO (LIB-966): Using Spectre version 15.1.0.801.isr17 located at: /package/eda/cadence/MMSIM151/tools/bin/spectre.
+*Info* Use temporary directory '/dev/shm'.
+
+*Info* : Initializing SKI environment...
+Initializing Spice
+*Info* Adding 4 global models to Spice.
+Building library database
+Processing cell: dig_poly_XOR_BUF2_x1
+WARNING (LIB-97): (char_library): Only leakage and pin capacitance has been characterized for cell 'dig_poly_XOR_BUF2_x1' because it does not have a template. Specify one or more templates in the 'define_cell' command (see -delay, -power, -constraint, -mpw) and rerun.
+INFO (LIB-500): (char_library): Cannot determine VDD/VSS for port 'A' in cell 'dig_poly_XOR_BUF2_x1', use default values 1.200V and 0.000V.
+INFO (LIB-500): (char_library): Cannot determine VDD/VSS for port 'B' in cell 'dig_poly_XOR_BUF2_x1', use default values 1.200V and 0.000V.
+INFO (LIB-500): (char_library): Cannot determine VDD/VSS for port 'X' in cell 'dig_poly_XOR_BUF2_x1', use default values 1.200V and 0.000V.
+INFO (LIB-500): (char_library): Cannot determine VDD/VSS for port 'orient' in cell 'dig_poly_XOR_BUF2_x1', use default values 1.200V and 0.000V.
+*Info* (char_library) : Cell dig_poly_XOR_BUF2_x1 found in file /local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly/netlist/dig_poly_XOR_BUF2_x1.sp
+*Info* (char_library) : Cell dig_poly_XOR_BUF2_x1 found in file /local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly/netlist/dig_poly_XOR_BUF2_x1.sp
+  MEM=413 MB
+  MEM=413 MB
+(Oct 14 15:27:25) Generating vectors: dig_poly_XOR_BUF2_x1
+  MEM=413 MB
+(Oct 14 15:27:25) Begin of pre-driver matching trans.
+Generating CCST predriver for 1 unique input transition times .
+(Oct 14 15:27:25) End of pre-driver matching trans.
+
+Characterizing dig_poly_XOR_BUF2_x1 (1)
+Oct 14 15:27:25 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (0%) Pin=     Related=     combinational  leakage_power   ... 
+Oct 14 15:27:29 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (0%) Pin=     Related=     combinational  leakage_power   ... 
+Oct 14 15:27:29 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (0%) Pin=     Related=     combinational  leakage_power   ... 
+Oct 14 15:27:29 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (0%) Pin=     Related=     combinational  leakage_power   ... 
+Oct 14 15:27:29 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (0%) Pin=     Related=     combinational  leakage_power   ... 
+Oct 14 15:27:29 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (0%) Pin=     Related=     combinational  leakage_power   ... 
+Oct 14 15:27:30 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (0%) Pin=     Related=     combinational  leakage_power   ... 
+Oct 14 15:27:30 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (0%) Pin=     Related=     combinational  leakage_power   ... 
+Oct 14 15:27:30 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (0%) Pin=     Related=     combinational  leakage_power   ... 
+Oct 14 15:27:30 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (0%) Pin=     Related=     combinational  leakage_power   ... 
+Oct 14 15:27:30 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (0%) Pin=     Related=     combinational  leakage_power   ... 
+Oct 14 15:27:30 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (0%) Pin=     Related=     combinational  leakage_power   ... 
+Oct 14 15:27:30 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (0%) Pin=     Related=     combinational  leakage_power   ... 
+Oct 14 15:27:30 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (0%) Pin=     Related=     combinational  leakage_power   ... 
+Oct 14 15:27:30 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (0%) Pin=     Related=     combinational  leakage_power   ... 
+Oct 14 15:27:30 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (0%) Pin=     Related=     combinational  leakage_power   ... 
+Oct 14 15:27:30 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (16%) Pin=A    Related=A    rising_edge    input_capacitance  ... 
+Oct 14 15:27:30 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (33%) Pin=A    Related=A    falling_edge   input_capacitance  ... 
+Oct 14 15:27:31 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (50%) Pin=B    Related=B    rising_edge    input_capacitance  ... 
+Oct 14 15:27:31 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (66%) Pin=B    Related=B    falling_edge   input_capacitance  ... 
+Oct 14 15:27:31 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (83%) Pin=orient Related=orient rising_edge    input_capacitance  ... 
+Oct 14 15:27:31 Thread 0: Cell=dig_poly_XOR_BUF2_x1 (100%) Pin=orient Related=orient falling_edge   input_capacitance  ... 
+Performance statistics for dig_poly_XOR_BUF2_x1: Spectre cpu time = 1.9 seconds, total cpu time = 2.0 seconds, wall clock time = 8.0 seconds.
+*Info* (char_library) : SKI process child signal handler disabled.
+
+
+  MEM=502 MB
+Performance statistics (1 thread(s)):
+       Spectre cpu time =     0.00 hours (1.94 seconds)
+         Total PreProcessing time =     0.00 hours (0.00 seconds)
+         Total cpu time =     0.00 hours (2.04 seconds)
+        Wall clock time =     0.00 hours (8.00 seconds)
+
+Characterization finished at Mon Oct 14 15:27:31 2019
+
+Characterization statistics:
+
+Number of cells to characterize =    1
+Number of define_cell commands  =   98
+Number of passing cells         =    1
+Number of failing cells         =    0
+List of failing cells {}
+Finished Liberate Execution.
+INFO: Write ldb
+LIBERATE parameter "overwrite_ldb" set to "1"
+Updating library database /local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly/ldb/Polymorphic.ldb.gz
+Memory usage: 414 Mbytes
+
+INFO: Write Liberty
+LIBERATE parameter "mx_format_expand_buses" set to "0"
+LIBERATE parameter "ecsm_multi_stage_cap_mode" set to "0"
+LIBERATE parameter "ccsp_mode" set to "0"
+Writing library to /local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly/lib/Polymorphic_nldm.lib, started at Mon Oct 14 15:27:32 EDT 2019
+Writing .lib for cell dig_poly_XOR_BUF2_x1
+LIBERATE parameter "sdf_cond_warning" set to "0"
+LIBERATE parameter "ccsp_table_reduction" set to "1"
+Number of passing cells = 1
+Number of failing cells = 0
+List of failing cells {}
+Finished writing 1 cells to library /local/scratch/a/socet15/mitll90_june2018_all_socet15/run_poly/lib/Polymorphic_nldm.lib at Mon Oct 14 15:27:32 EDT 2019
+LIBERATE parameter "write_sens_nochange" set to "1"
+Peak memory usage:          502 MB
+Peak virtual memory usage:  445 MB
+Peak physical memory usage: 59 MB
+Wall time      :    0.00 hours (13.00 seconds)
+LIBERATE exited on asicfab.ecn.purdue.edu at Mon Oct 14 15:27:32 2019
+

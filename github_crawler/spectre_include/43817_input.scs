@@ -1,0 +1,62 @@
+// Point Netlist Generated on: Mar  8 13:50:26 2024
+// Generated for: spectre
+// Design Netlist Generated on: Mar  8 13:50:26 2024
+// Design library name: lab2024
+// Design cell name: tb_invParam
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+parameters temperature=27 Vsupply=3.3
+include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+
+// Library name: lab2024
+// Cell name: invParam
+// View name: schematic
+subckt invParam in out
+parameters Wn=1u Wp=1u
+    MN0 (out in 0 0) modn w=Wn/1 l=0.35u \
+        as=(8.5e-07*Wn/1*(2-fmod(1,2))+int((1-1)/2)*2*5e-07*Wn/1)/1 \
+        ad=(8.5e-07*Wn/1*fmod(1,2)+int(1/2)*2*5e-07*Wn/1)/1 \
+        ps=((2*8.5e-07+Wn/1)*(2-fmod(1,2))+int((1-1)/2)*4*5e-07)/1 \
+        pd=((2*8.5e-07+Wn/1)*fmod(1,2)+int(1/2)*4*5e-07)/1 nrd=5e-07/Wn/1 \
+        nrs=5e-07/Wn/1 ng=1
+    MP0 (out in vdd! vdd!) modp w=Wp/1 l=0.35u \
+        as=(8.5e-07*Wp/1*(2-fmod(1,2))+int((1-1)/2)*2*5e-07*Wp/1)/1 \
+        ad=(8.5e-07*Wp/1*fmod(1,2)+int(1/2)*2*5e-07*Wp/1)/1 \
+        ps=((2*8.5e-07+Wp/1)*(2-fmod(1,2))+int((1-1)/2)*4*5e-07)/1 \
+        pd=((2*8.5e-07+Wp/1)*fmod(1,2)+int(1/2)*4*5e-07)/1 nrd=5e-07/Wp/1 \
+        nrs=5e-07/Wp/1 ng=1
+ends invParam
+// End of subcircuit definition.
+
+// Library name: lab2024
+// Cell name: tb_invParam
+// View name: schematic
+V0 (vdd! 0) vsource dc=3.3 type=dc
+C0 (net3 0) capacitor c=10f
+V1 (net2 0) vsource type=pulse val0=0 val1=3.3 period=2n rise=100p \
+        fall=100p width=1n
+I0 (net2 net3) invParam Wn=1u Wp=2u
+simulatorOptions options psfversion="1.4.0" reltol=100e-6 vabstol=1e-6 \
+    iabstol=1e-12 temp=27 tnom=27 homotopy=all limit=delta scalem=1.0 \
+    scale=1.0 compatible=spice2 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf enable_pre_ver=yes ignorezerovar=yes 
+tran tran stop=10n errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save V0:p 
+saveOptions options save=allpub

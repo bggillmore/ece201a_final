@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Jul 27 17:50:24 2024
+// Design library name: CMOSinverter_001
+// Design cell name: CMOSinverter_Simulation
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!

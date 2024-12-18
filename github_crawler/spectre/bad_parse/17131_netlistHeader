@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Mar  8 21:02:48 2018
+// Design library name: ajgrosze_scratch
+// Design cell name: single_inv_sim
+// Design view name: schematic
+simulator lang=spectre
+global 0

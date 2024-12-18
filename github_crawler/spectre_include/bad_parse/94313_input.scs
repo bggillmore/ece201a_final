@@ -1,0 +1,118 @@
+// Generated for: spectre
+// Generated on: Mar  3 00:06:55 2023
+// Design library name: Design
+// Design cell name: singlebitadder_schematic
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters _gpar0
+include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20N.m"
+include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20P.m"
+
+// Library name: Design
+// Cell name: singlebitadder
+// View name: extracted
+// View type: maskLayout
+subckt singlebitadder A B C Carry GND Sum VDD
+    \+35 (VDD 13 21 VDD) tsmc20P w=2e-06 l=2e-07 as=1e-12 ad=1e-12 \
+        ps=3e-06 pd=3e-06 m=1 region=sat
+    \+34 (24 21 Sum VDD) tsmc20P w=2e-06 l=2e-07 as=6e-13 ad=1e-12 \
+        ps=6e-07 pd=3e-06 m=1 region=sat
+    \+33 (Sum 13 25 VDD) tsmc20P w=2e-06 l=2e-07 as=6e-13 ad=6e-13 \
+        ps=6e-07 pd=6e-07 m=1 region=sat
+    \+32 (25 17 VDD VDD) tsmc20P w=2e-06 l=2e-07 as=6e-13 ad=6e-13 \
+        ps=6e-07 pd=6e-07 m=1 region=sat
+    \+30 (VDD C 24 VDD) tsmc20P w=2e-06 l=2e-07 as=1e-12 ad=6e-13 ps=3e-06 \
+        pd=6e-07 m=1 region=sat
+    \+28 (17 C VDD VDD) tsmc20P w=2e-06 l=2e-07 as=1e-12 ad=1e-12 ps=3e-06 \
+        pd=3e-06 m=1 region=sat
+    \+26 (VDD A 15 VDD) tsmc20P w=2e-06 l=2e-07 as=1e-12 ad=1e-12 ps=3e-06 \
+        pd=3e-06 m=1 region=sat
+    \+24 (22 15 13 VDD) tsmc20P w=2e-06 l=2e-07 as=6e-13 ad=1e-12 ps=6e-07 \
+        pd=3e-06 m=1 region=sat
+    \+23 (13 A 23 VDD) tsmc20P w=2e-06 l=2e-07 as=6e-13 ad=6e-13 ps=6e-07 \
+        pd=6e-07 m=1 region=sat
+    \+22 (23 10 VDD VDD) tsmc20P w=2e-06 l=2e-07 as=6e-13 ad=6e-13 \
+        ps=6e-07 pd=6e-07 m=1 region=sat
+    \+21 (VDD B 22 VDD) tsmc20P w=2e-06 l=2e-07 as=1e-12 ad=6e-13 ps=3e-06 \
+        pd=6e-07 m=1 region=sat
+    \+20 (10 B VDD VDD) tsmc20P w=2e-06 l=2e-07 as=1e-12 ad=1e-12 ps=3e-06 \
+        pd=3e-06 m=1 region=sat
+    \+17 (GND 13 21 GND) tsmc20N w=5e-07 l=2e-07 as=2.5e-13 ad=2.5e-13 \
+        ps=1.5e-06 pd=1.5e-06 m=1 region=sat
+    \+16 (18 21 Sum GND) tsmc20N w=5e-07 l=2e-07 as=1.5e-13 ad=2.5e-13 \
+        ps=6e-07 pd=1.5e-06 m=1 region=sat
+    \+15 (Sum 13 20 GND) tsmc20N w=5e-07 l=2e-07 as=1.5e-13 ad=1.5e-13 \
+        ps=6e-07 pd=6e-07 m=1 region=sat
+    \+14 (20 C GND GND) tsmc20N w=5e-07 l=2e-07 as=1.5e-13 ad=1.5e-13 \
+        ps=6e-07 pd=6e-07 m=1 region=sat
+    \+12 (GND 17 18 GND) tsmc20N w=5e-07 l=2e-07 as=2.5e-13 ad=1.5e-13 \
+        ps=1.5e-06 pd=6e-07 m=1 region=sat
+    \+10 (17 C GND GND) tsmc20N w=5e-07 l=2e-07 as=2.5e-13 ad=2.5e-13 \
+        ps=1.5e-06 pd=1.5e-06 m=1 region=sat
+    \+8 (GND A 15 GND) tsmc20N w=5e-07 l=2e-07 as=2.5e-13 ad=2.5e-13 \
+        ps=1.5e-06 pd=1.5e-06 m=1 region=sat
+    \+6 (11 15 13 GND) tsmc20N w=5e-07 l=2e-07 as=1.5e-13 ad=2.5e-13 \
+        ps=6e-07 pd=1.5e-06 m=1 region=sat
+    \+5 (13 A 12 GND) tsmc20N w=5e-07 l=2e-07 as=1.5e-13 ad=1.5e-13 \
+        ps=6e-07 pd=6e-07 m=1 region=sat
+    \+4 (12 B GND GND) tsmc20N w=5e-07 l=2e-07 as=1.5e-13 ad=1.5e-13 \
+        ps=6e-07 pd=6e-07 m=1 region=sat
+    \+3 (GND 10 11 GND) tsmc20N w=5e-07 l=2e-07 as=2.5e-13 ad=1.5e-13 \
+        ps=1.5e-06 pd=6e-07 m=1 region=sat
+    \+2 (10 B GND GND) tsmc20N w=5e-07 l=2e-07 as=2.5e-13 ad=2.5e-13 \
+        ps=1.5e-06 pd=1.5e-06 m=1 region=sat
+    \+13 (GND 8 19 GND) tsmc20N w=3e-07 l=2e-07 as=1.1e-13 ad=1.9e-13 \
+        ps=7e-07 pd=1.5e-06 m=1 region=sat
+    \+11 (19 14 Carry GND) tsmc20N w=3e-07 l=2e-07 as=1.9e-13 ad=1.1e-13 \
+        ps=1.5e-06 pd=7e-07 m=1 region=sat
+    \+9 (GND C 16 GND) tsmc20N w=3e-07 l=2e-07 as=1.1e-13 ad=1.9e-13 \
+        ps=7e-07 pd=1.5e-06 m=1 region=sat
+    \+7 (16 13 14 GND) tsmc20N w=3e-07 l=2e-07 as=1.9e-13 ad=1.1e-13 \
+        ps=1.5e-06 pd=7e-07 m=1 region=sat
+    \+1 (GND B 9 GND) tsmc20N w=3e-07 l=2e-07 as=1.1e-13 ad=1.9e-13 \
+        ps=7e-07 pd=1.5e-06 m=1 region=sat
+    \+0 (9 A 8 GND) tsmc20N w=3e-07 l=2e-07 as=1.9e-13 ad=1.1e-13 \
+        ps=1.5e-06 pd=7e-07 m=1 region=sat
+    \+31 (Carry 8 VDD VDD) tsmc20P w=6.5e-07 l=2e-07 as=1.95e-13 \
+        ad=3.25e-13 ps=6e-07 pd=1.65e-06 m=1 region=sat
+    \+29 (VDD 14 Carry VDD) tsmc20P w=6.5e-07 l=2e-07 as=3.25e-13 \
+        ad=1.95e-13 ps=1.65e-06 pd=6e-07 m=1 region=sat
+    \+27 (14 C VDD VDD) tsmc20P w=6.5e-07 l=2e-07 as=1.95e-13 ad=3.25e-13 \
+        ps=6e-07 pd=1.65e-06 m=1 region=sat
+    \+25 (VDD 13 14 VDD) tsmc20P w=6.5e-07 l=2e-07 as=3.25e-13 ad=1.95e-13 \
+        ps=1.65e-06 pd=6e-07 m=1 region=sat
+    \+19 (8 B VDD VDD) tsmc20P w=6.5e-07 l=2e-07 as=1.95e-13 ad=3.25e-13 \
+        ps=6e-07 pd=1.65e-06 m=1 region=sat
+    \+18 (VDD A 8 VDD) tsmc20P w=6.5e-07 l=2e-07 as=3.25e-13 ad=1.95e-13 \
+        ps=1.65e-06 pd=6e-07 m=1 region=sat
+ends singlebitadder
+// End of subcircuit definition.
+
+// Library name: Design
+// Cell name: singlebitadder_schematic
+// View name: schematic
+I11 (A B C Carry 0 Sum vdd!) singlebitadder
+C1 (Carry 0) capacitor c=50fF m=1
+C0 (Sum 0) capacitor c=50fF m=1
+V0 (vdd! 0) vsource type=dc dc=1.8
+V3 (C 0) vsource type=pulse dc=1.8 val0=0 val1=1.8 period=5.6n delay=3n \
+        rise=100p fall=100p width=2.8n
+V2 (B 0) vsource type=pulse dc=1.8 val0=0 val1=1.8 period=24n delay=3n \
+        rise=100p fall=100p width=10n
+V1 (A 0) vsource type=pulse dc=1.8 val0=0 val1=1.8V period=48n delay=3n \
+        rise=100p fall=100p width=20n
+simulatorOptions options psfversion="1.1.0" reltol=1e-3 vabstol=1e-6 \
+    iabstol=1e-12 temp=27 tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+tran tran stop=30n write="spectre.ic" writefinal="spectre.fc" \
+    annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

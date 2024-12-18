@@ -1,0 +1,5 @@
+simulator lang=spectre
+vdd (vdd! 0) vsource dc=5
+v1  (VIN 0) vsource type=pulse val0=0 val1=5 rise=500f fall=500f width=25u period=50u
+c   (VOut 0) capacitor c=4p
+ 

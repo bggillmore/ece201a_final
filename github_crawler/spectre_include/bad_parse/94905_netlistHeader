@@ -1,0 +1,8 @@
+// Generated for: spectre
+// Generated on: Oct 27 16:28:01 2010
+// Design library name: sigmadelta_local
+// Design cell name: test_i_diff_i_diff
+// Design view name: schematic
+simulator lang=spectre
+global 0
+include "/home/ic5.1/tools/dfII/samples/artist/ahdlLib/quantity.spectre"

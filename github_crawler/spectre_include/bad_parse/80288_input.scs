@@ -1,0 +1,2097 @@
+// Generated for: spectre
+// Generated on: Oct 19 13:53:37 2012
+// Design library name: Neural_Net_Proj
+// Design cell name: Top_V2_file_adc
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters ltchDelay=8.75e-10 ltchPer=1e-09 ltchPw=2e-10 txsw_wid_3=1 \
+    v_d_d=1.2 diffamp_biasI=1e-05 diffpair_biasI=1e-05 res_add=9375.0 \
+    res_ntwk=1.16 res_dac_dmp=512 Vbias_diffpair=0.2 txsw_wid_1=7 \
+    txsw_wid_2=1 currentRes=1e-05 DAC_b0=1 DAC_b1=2 DAC_b2=4 DAC_b3=8 \
+    DAC_b4=16 DAC_b5=32 DAC_b6=64 DAC_b7=128 Len=4.5e-08 N=1 P=2 Wid=2e-07 \
+    txsw_wid_4=7 res_adc=10000
+include "/home/ecelrc/students/st/cadence/models/spectre/nmos.m"
+include "/home/ecelrc/students/st/cadence/models/spectre/pmos.m"
+// vnc test
+// Library name: Neural_Net_Proj
+// Cell name: inputs_weights_file_8pe_i6w8
+// View name: schematic
+// <RMS 07-27-13> edit to i6 from i5. starting with net5600
+subckt inputs_weights_file_8pe_i6w8 i0b0 i0b1 i0b2 i0b3 i0b4 net5600 \ 
+	i1b0 i1b1 i1b2 i1b3 i1b4 net5601 \ 
+	i2b0 i2b1 i2b2 i2b3 i2b4 net5602 \ 
+	i3b0 i3b1 i3b2 i3b3 i3b4 net5603 \ 
+	i4b0 i4b1 i4b2 i4b3 i4b4 net5604 \ 
+	i5b0 i5b1 i5b2 i5b3 i5b4 net5605 \ 
+	i6b0 i6b1 i6b2 i6b3 i6b4 net5606 \
+	i7b0 i7b1 i7b2 i7b3 i7b4 net5607 \
+	w0b0 w0b1 w0b2 w0b3 w0b4 w0b5 w0b6 w0b7 \
+	w1b0 w1b1 w1b2 w1b3 w1b4 w1b5 w1b6 w1b7 \        
+ 	w2b0 w2b1 w2b2 w2b3 w2b4 w2b5 w2b6 w2b7 \
+	w3b0 w3b1 w3b2 w3b3 w3b4 w3b5 w3b6 w3b7 \
+	w4b0 w4b1 w4b2 w4b3 w4b4 w4b5 w4b6 w4b7 \
+        w5b0 w5b1 w5b2 w5b3 w5b4 w5b5 w5b6 w5b7 \
+	w6b0 w6b1 w6b2 w6b3 w6b4 w6b5 w6b6 w6b7 \
+	w7b0 w7b1 w7b2 w7b3 w7b4 w7b5 w7b6 w7b7 
+    V200 (net5600 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i0b5"
+    V201 (net5601 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i1b5"
+    V202 (net5602 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i2b5"
+    V203 (net5603 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i3b5"
+    V204 (net5604 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i4b5"
+    V205 (net5605 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i5b5"
+    V206 (net5606 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i6b5"
+    V207 (net5607 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i7b5"
+    V84 (i5b0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i5b0"
+    V83 (i5b3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i5b3"
+    V82 (i5b2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i5b2"
+    V81 (i5b1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i5b1"
+    V80 (i5b4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i5b4"
+    V79 (i4b0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i4b0"
+    V78 (i4b1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i4b1"
+    V77 (i4b2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i4b2"
+    V76 (i4b3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i4b3"
+    V75 (i4b4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i4b4"
+    V74 (i3b0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i3b0"
+    V73 (i3b3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i3b3"
+    V68 (i3b2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i3b2"
+    V67 (i3b1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i3b1"
+    V66 (i3b4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i3b4"
+    V65 (i2b0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i2b0"
+    V64 (i2b1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i2b1"
+    V57 (i2b2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i2b2"
+    V55 (i2b3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i2b3"
+    V48 (i2b4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i2b4"
+    V21 (i0b2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i0b2"
+    V19 (i0b1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i0b1"
+    V11 (i0b0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i0b0"
+    V30 (i1b3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i1b3"
+    V28 (i1b4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i1b4"
+    V2 (i0b4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i0b4"
+    V95 (i7b4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i7b4"
+    V94 (i6b3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i6b3"
+    V42 (w3b3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w3b3"
+    V33 (w4b3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w4b3"
+    V24 (w5b3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w5b3"
+    V14 (w6b3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w6b3"
+    V5 (w7b3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w7b3"
+    V43 (w3b2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w3b2"
+    V34 (w4b2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w4b2"
+    V25 (w5b2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w5b2"
+    V15 (w6b2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w6b2"
+    V7 (w7b2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w7b2"
+    V44 (w3b1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w3b1"
+    V35 (w4b1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w4b1"
+    V26 (w5b1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w5b1"
+    V16 (w6b1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w6b1"
+    V8 (w7b1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w7b1"
+    V45 (w3b0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w3b0"
+    V36 (w4b0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w4b0"
+    V27 (w5b0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w5b0"
+    V18 (w6b0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w6b0"
+    V17 (w7b0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w7b0"
+    V88 (i7b1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i7b1"
+    V93 (i6b2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i6b2"
+    V0 (i0b3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i0b3"
+    V89 (i7b0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i7b0"
+    V90 (i6b4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i6b4"
+    V86 (i7b3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i7b3"
+    V91 (i6b0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i6b0"
+    V87 (i7b2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i7b2"
+    V92 (i6b1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i6b1"
+    V63 (w1b0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w1b0"
+    V54 (w2b0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w2b0"
+    V72 (w0b0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w0b0"
+    V62 (w1b1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w1b1"
+    V53 (w2b1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w2b1"
+    V71 (w0b1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w0b1"
+    V46 (i1b0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i1b0"
+    V60 (w1b3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w1b3"
+    V51 (w2b3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w2b3"
+    V69 (w0b3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w0b3"
+    V61 (w1b2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w1b2"
+    V52 (w2b2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w2b2"
+    V70 (w0b2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w0b2"
+    V37 (i1b2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i1b2"
+    V39 (i1b1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/i1b1"
+	// new code added
+    V108 (w7b4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w7b4"
+    V109 (w6b4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w6b4"
+    V110 (w5b4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w5b4"
+    V111 (w4b4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w4b4"
+    V112 (w3b4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w3b4"
+    V113 (w2b4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w2b4"
+    V114 (w1b4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w1b4"
+    V115 (w0b4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w0b4"
+    V116 (w7b5 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w7b5"
+    V117 (w6b5 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w6b5"
+    V118 (w5b5 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w5b5"
+    V119 (w4b5 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w4b5"
+    V120 (w3b5 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w3b5"
+    V121 (w2b5 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w2b5"
+    V122 (w1b5 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w1b5"
+    V123 (w0b5 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w0b5"
+    V124 (w7b6 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w7b6"
+    V125 (w6b6 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w6b6"
+    V126 (w5b6 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w5b6"
+    V127 (w4b6 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w4b6"
+    V128 (w3b6 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w3b6"
+    V129 (w2b6 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w2b6"
+    V130 (w1b6 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w1b6"
+    V131 (w0b6 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w0b6"
+    V132 (w7b7 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w7b7"
+    V133 (w6b7 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w6b7"
+    V134 (w5b7 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w5b7"
+    V135 (w4b7 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w4b7"
+    V136 (w3b7 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w3b7"
+    V137 (w2b7 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w2b7"
+    V138 (w1b7 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w1b7"
+    V139 (w0b7 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/w0b7"
+ends inputs_weights_file_8pe_i6w8
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: PmosCurrentMirror5b
+// View name: schematic
+subckt PmosCurrentMirror5b b0Iout b1Iout b2Iout b3Iout b4Iout
+    I0 (net8 0) isource type=dc dc=currentRes m=1
+    P0 (b0Iout net8 vdd! vdd!) pmos w=P*Wid*DAC_b0 l=Len m=1 region=sat
+    P1 (b1Iout net8 vdd! vdd!) pmos w=P*Wid*DAC_b1 l=Len m=1 region=sat
+    P2 (b2Iout net8 vdd! vdd!) pmos w=P*Wid*DAC_b2 l=Len m=1 region=sat
+    P3 (b3Iout net8 vdd! vdd!) pmos w=P*Wid*DAC_b3 l=Len m=1 region=sat
+    P4 (b4Iout net8 vdd! vdd!) pmos w=P*Wid*DAC_b4 l=Len m=1 region=sat
+    P8 (net8 net8 vdd! vdd!) pmos w=P*Wid l=Len m=1 region=sat
+ends PmosCurrentMirror5b
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: PmosCurrentMirror6b
+// View name: schematic
+subckt PmosCurrentMirror6b b0Iout b1Iout b2Iout b3Iout b4Iout b5Iout
+    I0 (net8 0) isource type=dc dc=currentRes m=1
+    P0 (b0Iout net8 vdd! vdd!) pmos w=P*Wid*DAC_b0 l=Len m=1 region=sat
+    P1 (b1Iout net8 vdd! vdd!) pmos w=P*Wid*DAC_b1 l=Len m=1 region=sat
+    P2 (b2Iout net8 vdd! vdd!) pmos w=P*Wid*DAC_b2 l=Len m=1 region=sat
+    P3 (b3Iout net8 vdd! vdd!) pmos w=P*Wid*DAC_b3 l=Len m=1 region=sat
+    P4 (b4Iout net8 vdd! vdd!) pmos w=P*Wid*DAC_b4 l=Len m=1 region=sat
+    P5 (b5Iout net8 vdd! vdd!) pmos w=P*Wid*DAC_b5 l=Len m=1 region=sat
+    P8 (net8 net8 vdd! vdd!) pmos w=P*Wid l=Len m=1 region=sat
+ends PmosCurrentMirror6b
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: Inverter
+// View name: schematic
+subckt Inverter Vin Vout
+    P0 (Vout Vin vdd! vdd!) pmos w=P*Wid l=Len m=1 region=sat
+    N0 (Vout Vin 0 0) nmos w=N*Wid l=Len m=1 region=sat
+ends Inverter
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: TxSwitch1to2
+// View name: schematic
+subckt TxSwitch1to2 Iin Iout Select \~Iout
+    N2 (Iin net9 \~Iout \~Iout) nmos w=N*txsw_wid_1*Wid l=Len m=1 \
+        region=sat
+    N3 (Iin Select Iout Iout) nmos w=N*txsw_wid_1*Wid l=Len m=1 region=sat
+    P2 (\~Iout Select Iin Iin) pmos w=P*txsw_wid_1*Wid l=Len m=1 \
+        region=sat
+    P3 (Iout net9 Iin Iin) pmos w=P*txsw_wid_1*Wid l=Len m=1 region=sat
+    I4 (Select net9) Inverter
+ends TxSwitch1to2
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: TxSwitch2to1_V3
+// View name: schematic
+subckt TxSwitch2to1_V3 Iin Iin\~ Iout sel Iout_n
+    I0 (Iin\~ Iout_n sel Iout) TxSwitch1to2_3
+    I19 (Iin Iout sel Iout_n) TxSwitch1to2_3
+ends TxSwitch2to1_V3
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: CurrentSteering5b
+// View name: schematic
+subckt CurrentSteering5b Iout_DAC b0 b0Iin b1 b1Iin b2 b2Iin b3 b3Iin b4 \
+        b4Iin \~Iout_DAC
+    I4 (b0Iin Iout_DAC b0 \~Iout_DAC) TxSwitch1to2
+    I5 (b1Iin Iout_DAC b1 \~Iout_DAC) TxSwitch1to2
+    I6 (b2Iin Iout_DAC b2 \~Iout_DAC) TxSwitch1to2
+    I7 (b3Iin Iout_DAC b3 \~Iout_DAC) TxSwitch1to2
+    I8 (b4Iin Iout_DAC b4 \~Iout_DAC) TxSwitch1to2
+ends CurrentSteering5b
+// End of subcircuit definition.
+
+
+// Library name: Neural_Net_Proj
+// Cell name: CurrentSteering6b
+// View name: schematic
+subckt CurrentSteering6b Iout_DAC b0 b0Iin b1 b1Iin b2 b2Iin b3 b3Iin b4 \
+        b4Iin b5 b5Iin \~Iout_DAC
+    I4 (b0Iin Iout_DAC b0 \~Iout_DAC) TxSwitch1to2
+    I5 (b1Iin Iout_DAC b1 \~Iout_DAC) TxSwitch1to2
+    I6 (b2Iin Iout_DAC b2 \~Iout_DAC) TxSwitch1to2
+    I7 (b3Iin Iout_DAC b3 \~Iout_DAC) TxSwitch1to2
+    I8 (b4Iin Iout_DAC b4 \~Iout_DAC) TxSwitch1to2
+    I9 (b5Iin Iout_DAC b5 \~Iout_DAC) TxSwitch1to2
+ends CurrentSteering6b
+// End of subcircuit definition.
+
+
+
+// Library name: Neural_Net_Proj
+// Cell name: TxSwitch1to2_2
+// View name: schematic
+subckt TxSwitch1to2_2 Iin Iout Select \~Iout
+    N2 (Iin net9 \~Iout \~Iout) nmos w=N*txsw_wid_2*Wid l=Len m=1 \
+        region=sat
+    N3 (Iin Select Iout Iout) nmos w=N*txsw_wid_2*Wid l=Len m=1 region=sat
+    P2 (\~Iout Select Iin Iin) pmos w=P*txsw_wid_2*Wid l=Len m=1 \
+        region=sat
+    P3 (Iout net9 Iin Iin) pmos w=P*txsw_wid_2*Wid l=Len m=1 region=sat
+    I4 (Select net9) Inverter
+ends TxSwitch1to2_2
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: ResNetwork4b
+// View name: schematic
+subckt ResNetwork4b Iout_resDAC dacIin w0in w1in w2in w3in
+    R15 (net8 net0135) resistor r=res_ntwk m=1
+    R14 (net10 net8) resistor r=res_ntwk m=1
+    R13 (net12 net10) resistor r=res_ntwk m=1
+    R12 (net14 net12) resistor r=res_ntwk m=1
+    R11 (net16 net14) resistor r=res_ntwk m=1
+    R10 (net18 net16) resistor r=res_ntwk m=1
+    R9 (net20 net18) resistor r=res_ntwk m=1
+    R8 (net22 net20) resistor r=res_ntwk m=1
+    R7 (net24 net22) resistor r=res_ntwk m=1
+    R6 (net26 net24) resistor r=res_ntwk m=1
+    R5 (net28 net26) resistor r=res_ntwk m=1
+    R4 (net30 net28) resistor r=res_ntwk m=1
+    R3 (net32 net30) resistor r=res_ntwk m=1
+    R2 (net34 net32) resistor r=res_ntwk m=1
+    R1 (net36 net34) resistor r=res_ntwk m=1
+    R0 (dacIin net36) resistor r=res_ntwk m=1
+    V0 (net0135 0) vsource type=dc dc=600.0m
+    I15 (Iout_resDAC net48 w3in net44) TxSwitch1to2_2
+    I14 (net44 net52 w2in net56) TxSwitch1to2_2
+    I13 (net48 net64 w2in net60) TxSwitch1to2_2
+    I12 (net52 net80 w1in net76) TxSwitch1to2_2
+    I11 (net56 net68 w1in net72) TxSwitch1to2_2
+    I10 (net60 net88 w1in net84) TxSwitch1to2_2
+    I9 (net64 net96 w1in net92) TxSwitch1to2_2
+    I8 (net68 net12 w0in net10) TxSwitch1to2_2
+    I7 (net72 net8 w0in net0135) TxSwitch1to2_2
+    I6 (net76 net16 w0in net14) TxSwitch1to2_2
+    I5 (net80 net20 w0in net18) TxSwitch1to2_2
+    I4 (net84 net24 w0in net22) TxSwitch1to2_2
+    I3 (net88 net28 w0in net26) TxSwitch1to2_2
+    I2 (net92 net32 w0in net30) TxSwitch1to2_2
+    I1 (net96 net36 w0in net34) TxSwitch1to2_2
+ends ResNetwork4b
+// End of subcircuit definition.
+
+
+// Library name: Neural_Net_Proj
+// Cell name: ResNetwork5b
+// View name: schematic
+subckt ResNetwork5b Iout_resDAC dacIin w0in w1in w2in w3in w4in
+R31 (net0106 net0136) resistor r=res_ntwk m=1
+R30 (net0108 net0106) resistor r=res_ntwk m=1
+R29 (net0110 net0108) resistor r=res_ntwk m=1
+R28 (net0137 net0110) resistor r=res_ntwk m=1
+R27 (net0114 net0169) resistor r=res_ntwk m=1
+R26 (net0116 net0114) resistor r=res_ntwk m=1
+R25 (net0118 net0116) resistor r=res_ntwk m=1
+R24 (net0120 net0118) resistor r=res_ntwk m=1
+R23 (net0122 net0120) resistor r=res_ntwk m=1
+R22 (net0124 net0122) resistor r=res_ntwk m=1
+R21 (net0126 net0124) resistor r=res_ntwk m=1
+R20 (net0128 net0126) resistor r=res_ntwk m=1
+R19 (net0130 net0128) resistor r=res_ntwk m=1
+R18 (net0132 net0130) resistor r=res_ntwk m=1
+R17 (net0134 net0132) resistor r=res_ntwk m=1
+R16 (net0136 net0134) resistor r=res_ntwk m=1
+R15 (net0138 net0137) resistor r=res_ntwk m=1
+R14 (net0140 net0138) resistor r=res_ntwk m=1
+R13 (net0142 net0140) resistor r=res_ntwk m=1
+R12 (net0144 net0142) resistor r=res_ntwk m=1
+R11 (net0146 net0144) resistor r=res_ntwk m=1
+R10 (net0148 net0146) resistor r=res_ntwk m=1
+R9 (net0150 net0148) resistor r=res_ntwk m=1
+R8 (net0152 net0150) resistor r=res_ntwk m=1
+R7 (net0154 net0152) resistor r=res_ntwk m=1
+R6 (net0156 net0154) resistor r=res_ntwk m=1
+R5 (net0158 net0156) resistor r=res_ntwk m=1
+R4 (net0160 net0158) resistor r=res_ntwk m=1
+R3 (net0162 net0160) resistor r=res_ntwk m=1
+R2 (net0164 net0162) resistor r=res_ntwk m=1
+R1 (net0166 net0164) resistor r=res_ntwk m=1
+R0 (dacIin net0166) resistor r=res_ntwk m=1
+V1 (net0169 0) vsource type=dc dc=600.0m
+I18 (net32 net0158 w0in net0156) TxSwitch1to2_2
+I32 (net20 net0110 w0in net0108) TxSwitch1to2_2
+I31 (net8 net0118 w0in net0116) TxSwitch1to2_2
+I30 (net0135 net0114 w0in net0169) TxSwitch1to2_2
+I29 (net10 net0122 w0in net0120) TxSwitch1to2_2
+I28 (net12 net0126 w0in net0124) TxSwitch1to2_2
+I27 (net14 net0130 w0in net0128) TxSwitch1to2_2
+I26 (net16 net0134 w0in net0132) TxSwitch1to2_2
+I25 (net18 net0106 w0in net0136) TxSwitch1to2_2
+I24 (net36 net0166 w0in net0164) TxSwitch1to2_2
+I23 (net24 net0142 w0in net0140) TxSwitch1to2_2
+I22 (net22 net0138 w0in net0137) TxSwitch1to2_2
+I21 (net26 net0146 w0in net0144) TxSwitch1to2_2
+I20 (net28 net0150 w0in net0148) TxSwitch1to2_2
+I19 (net30 net0154 w0in net0152) TxSwitch1to2_2
+I17 (net34 net0162 w0in net0160) TxSwitch1to2_2
+I15 (Iout_resDAC net48 w4in net44) TxSwitch1to2_2
+I14 (net44 net52 w3in net56) TxSwitch1to2_2
+I13 (net48 net64 w3in net60) TxSwitch1to2_2
+I12 (net52 net80 w2in net76) TxSwitch1to2_2
+I11 (net56 net68 w2in net72) TxSwitch1to2_2
+I10 (net60 net88 w2in net84) TxSwitch1to2_2
+I9 (net64 net96 w2in net92) TxSwitch1to2_2
+I8 (net68 net12 w1in net10) TxSwitch1to2_2
+I7 (net72 net8 w1in net0135) TxSwitch1to2_2
+I6 (net76 net16 w1in net14) TxSwitch1to2_2
+I5 (net80 net20 w1in net18) TxSwitch1to2_2
+I4 (net84 net24 w1in net22) TxSwitch1to2_2
+I3 (net88 net28 w1in net26) TxSwitch1to2_2
+I2 (net92 net32 w1in net30) TxSwitch1to2_2
+I1 (net96 net36 w1in net34) TxSwitch1to2_2
+ends ResNetwork5b
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: ResNetwork6b
+// View name: schematic
+subckt ResNetwork6b Iout_resDAC dacIin w0in w1in w2in w3in w4in w5in
+R95 (net0209 net0211) resistor r=res_ntwk m=1
+R94 (net0211 net0213) resistor r=res_ntwk m=1
+R93 (net0213 net0215) resistor r=res_ntwk m=1
+R92 (net0215 net0217) resistor r=res_ntwk m=1
+R91 (net0217 net0219) resistor r=res_ntwk m=1
+R90 (net0219 net0221) resistor r=res_ntwk m=1
+R89 (net0221 net0223) resistor r=res_ntwk m=1
+R88 (net0223 net0225) resistor r=res_ntwk m=1
+R87 (net0225 net0224) resistor r=res_ntwk m=1
+R86 (net0227 net0229) resistor r=res_ntwk m=1
+R85 (net0229 net0231) resistor r=res_ntwk m=1
+R84 (net0231 net0233) resistor r=res_ntwk m=1
+R83 (net0233 net0235) resistor r=res_ntwk m=1
+R82 (net0235 net0237) resistor r=res_ntwk m=1
+R81 (net0237 net0239) resistor r=res_ntwk m=1
+R80 (net0239 net0241) resistor r=res_ntwk m=1
+R79 (net0241 net0243) resistor r=res_ntwk m=1
+R78 (net0243 net0245) resistor r=res_ntwk m=1
+R77 (net0245 net0247) resistor r=res_ntwk m=1
+R76 (net0247 net0249) resistor r=res_ntwk m=1
+R75 (net0249 net0336) resistor r=res_ntwk m=1
+R74 (net0224 net0253) resistor r=res_ntwk m=1
+R73 (net0253 net0255) resistor r=res_ntwk m=1
+R72 (net0255 net0257) resistor r=res_ntwk m=1
+R71 (net0257 net0227) resistor r=res_ntwk m=1
+R70 (net0259 net0261) resistor r=res_ntwk m=1
+R69 (net0261 net0263) resistor r=res_ntwk m=1
+R68 (net0263 net0265) resistor r=res_ntwk m=1
+R67 (net0265 net0267) resistor r=res_ntwk m=1
+R66 (net0267 net0269) resistor r=res_ntwk m=1
+R65 (net0269 net0271) resistor r=res_ntwk m=1
+R64 (net0271 net0209) resistor r=res_ntwk m=1
+R63 (net0273 net0335) resistor r=res_ntwk m=1
+R62 (net0275 net0273) resistor r=res_ntwk m=1
+R61 (net0277 net0275) resistor r=res_ntwk m=1
+R60 (net0279 net0277) resistor r=res_ntwk m=1
+R59 (net0281 net0279) resistor r=res_ntwk m=1
+R58 (net0283 net0281) resistor r=res_ntwk m=1
+R57 (dacIin net0283) resistor r=res_ntwk m=1
+R56 (net0287 net0317) resistor r=res_ntwk m=1
+R55 (net0289 net0287) resistor r=res_ntwk m=1
+R54 (net0291 net0289) resistor r=res_ntwk m=1
+R53 (net0318 net0291) resistor r=res_ntwk m=1
+R52 (net0295 net0259) resistor r=res_ntwk m=1
+R51 (net0297 net0295) resistor r=res_ntwk m=1
+R50 (net0299 net0297) resistor r=res_ntwk m=1
+R49 (net0301 net0299) resistor r=res_ntwk m=1
+R48 (net0303 net0301) resistor r=res_ntwk m=1
+R47 (net0305 net0303) resistor r=res_ntwk m=1
+R46 (net0307 net0305) resistor r=res_ntwk m=1
+R45 (net0309 net0307) resistor r=res_ntwk m=1
+R44 (net0311 net0309) resistor r=res_ntwk m=1
+R43 (net0313 net0311) resistor r=res_ntwk m=1
+R42 (net0315 net0313) resistor r=res_ntwk m=1
+R41 (net0317 net0315) resistor r=res_ntwk m=1
+R40 (net0319 net0318) resistor r=res_ntwk m=1
+R39 (net0321 net0319) resistor r=res_ntwk m=1
+R38 (net0323 net0321) resistor r=res_ntwk m=1
+R37 (net0325 net0323) resistor r=res_ntwk m=1
+R36 (net0327 net0325) resistor r=res_ntwk m=1
+R35 (net0329 net0327) resistor r=res_ntwk m=1
+R34 (net0331 net0329) resistor r=res_ntwk m=1
+R33 (net0333 net0331) resistor r=res_ntwk m=1
+R32 (net0335 net0333) resistor r=res_ntwk m=1
+//V3 (net0336 0) vsource type=dc dc=600.0m
+V0 (net0336 0) vsource type=dc dc=Vbias_diffpair
+I37 (net0158 net0331 w0in net0329) TxSwitch1to2_2
+I67 (net0136 net0209 w0in net0211) TxSwitch1to2_2
+I66 (net0134 net0213 w0in net0215) TxSwitch1to2_2
+I65 (net0132 net0217 w0in net0219) TxSwitch1to2_2
+I64 (net0128 net0225 w0in net0224) TxSwitch1to2_2
+I63 (net0130 net0221 w0in net0223) TxSwitch1to2_2
+I62 (net0124 net0257 w0in net0227) TxSwitch1to2_2
+I61 (net0122 net0229 w0in net0231) TxSwitch1to2_2
+I60 (net0120 net0233 w0in net0235) TxSwitch1to2_2
+I59 (net0118 net0237 w0in net0239) TxSwitch1to2_2
+I58 (net0116 net0241 w0in net0243) TxSwitch1to2_2
+I57 (net0169 net0249 w0in net0336) TxSwitch1to2_2
+I56 (net0114 net0245 w0in net0247) TxSwitch1to2_2
+I55 (net0126 net0253 w0in net0255) TxSwitch1to2_2
+I54 (net0108 net0265 w0in net0267) TxSwitch1to2_2
+I53 (net0106 net0269 w0in net0271) TxSwitch1to2_2
+I52 (net0110 net0261 w0in net0263) TxSwitch1to2_2
+I51 (net0166 net0283 w0in net0281) TxSwitch1to2_2
+I50 (net0162 net0275 w0in net0273) TxSwitch1to2_2
+I49 (net0164 net0279 w0in net0277) TxSwitch1to2_2
+I48 (net0150 net0291 w0in net0289) TxSwitch1to2_2
+I47 (net0138 net0299 w0in net0297) TxSwitch1to2_2
+I46 (net0137 net0295 w0in net0259) TxSwitch1to2_2
+I45 (net0140 net0303 w0in net0301) TxSwitch1to2_2
+I44 (net0142 net0307 w0in net0305) TxSwitch1to2_2
+I43 (net0144 net0311 w0in net0309) TxSwitch1to2_2
+I42 (net0146 net0315 w0in net0313) TxSwitch1to2_2
+I41 (net0148 net0287 w0in net0317) TxSwitch1to2_2
+I40 (net0154 net0323 w0in net0321) TxSwitch1to2_2
+I39 (net0152 net0319 w0in net0318) TxSwitch1to2_2
+I38 (net0156 net0327 w0in net0325) TxSwitch1to2_2
+I36 (net0160 net0335 w0in net0333) TxSwitch1to2_2
+I32 (net20 net0110 w1in net0108) TxSwitch1to2_2
+I31 (net8 net0118 w1in net0116) TxSwitch1to2_2
+I30 (net0135 net0114 w1in net0169) TxSwitch1to2_2
+I29 (net10 net0122 w1in net0120) TxSwitch1to2_2
+I28 (net12 net0126 w1in net0124) TxSwitch1to2_2
+I27 (net14 net0130 w1in net0128) TxSwitch1to2_2
+I26 (net16 net0134 w1in net0132) TxSwitch1to2_2
+I25 (net18 net0106 w1in net0136) TxSwitch1to2_2
+I24 (net36 net0166 w1in net0164) TxSwitch1to2_2
+I23 (net24 net0142 w1in net0140) TxSwitch1to2_2
+I22 (net22 net0138 w1in net0137) TxSwitch1to2_2
+I21 (net26 net0146 w1in net0144) TxSwitch1to2_2
+I20 (net28 net0150 w1in net0148) TxSwitch1to2_2
+I19 (net30 net0154 w1in net0152) TxSwitch1to2_2
+I18 (net32 net0158 w1in net0156) TxSwitch1to2_2
+I17 (net34 net0162 w1in net0160) TxSwitch1to2_2
+I15 (Iout_resDAC net48 w5in net44) TxSwitch1to2_2
+I14 (net44 net52 w4in net56) TxSwitch1to2_2
+I13 (net48 net64 w4in net60) TxSwitch1to2_2
+I12 (net52 net80 w3in net76) TxSwitch1to2_2
+I11 (net56 net68 w3in net72) TxSwitch1to2_2
+I10 (net60 net88 w3in net84) TxSwitch1to2_2
+I9 (net64 net96 w3in net92) TxSwitch1to2_2
+I8 (net68 net12 w2in net10) TxSwitch1to2_2
+I7 (net72 net8 w2in net0135) TxSwitch1to2_2
+I6 (net76 net16 w2in net14) TxSwitch1to2_2
+I5 (net80 net20 w2in net18) TxSwitch1to2_2
+I4 (net84 net24 w2in net22) TxSwitch1to2_2
+I3 (net88 net28 w2in net26) TxSwitch1to2_2
+I2 (net92 net32 w2in net30) TxSwitch1to2_2
+I1 (net96 net36 w2in net34) TxSwitch1to2_2
+ends ResNetwork6b
+// End of subcircuit definition.
+
+
+// Library name: Neural_Net_Proj
+// Cell name: ResNetwork7b
+// View name: schematic
+subckt ResNetwork7b Iout_resDAC dacIin w0in w1in w2in w3in w4in w5in w6in
+R0 (dacIin net2240) resistor r=res_ntwk m=1
+R1 (net2240 net2241) resistor r=res_ntwk m=1
+R2 (net2241 net2242) resistor r=res_ntwk m=1
+R3 (net2242 net2243) resistor r=res_ntwk m=1
+R4 (net2243 net2244) resistor r=res_ntwk m=1
+R5 (net2244 net2245) resistor r=res_ntwk m=1
+R6 (net2245 net2246) resistor r=res_ntwk m=1
+R7 (net2246 net2247) resistor r=res_ntwk m=1
+R8 (net2247 net2248) resistor r=res_ntwk m=1
+R9 (net2248 net2249) resistor r=res_ntwk m=1
+R10 (net2249 net2250) resistor r=res_ntwk m=1
+R11 (net2250 net2251) resistor r=res_ntwk m=1
+R12 (net2251 net2252) resistor r=res_ntwk m=1
+R13 (net2252 net2253) resistor r=res_ntwk m=1
+R14 (net2253 net2254) resistor r=res_ntwk m=1
+R15 (net2254 net2255) resistor r=res_ntwk m=1
+R16 (net2255 net2256) resistor r=res_ntwk m=1
+R17 (net2256 net2257) resistor r=res_ntwk m=1
+R18 (net2257 net2258) resistor r=res_ntwk m=1
+R19 (net2258 net2259) resistor r=res_ntwk m=1
+R20 (net2259 net2260) resistor r=res_ntwk m=1
+R21 (net2260 net2261) resistor r=res_ntwk m=1
+R22 (net2261 net2262) resistor r=res_ntwk m=1
+R23 (net2262 net2263) resistor r=res_ntwk m=1
+R24 (net2263 net2264) resistor r=res_ntwk m=1
+R25 (net2264 net2265) resistor r=res_ntwk m=1
+R26 (net2265 net2266) resistor r=res_ntwk m=1
+R27 (net2266 net2267) resistor r=res_ntwk m=1
+R28 (net2267 net2268) resistor r=res_ntwk m=1
+R29 (net2268 net2269) resistor r=res_ntwk m=1
+R30 (net2269 net2270) resistor r=res_ntwk m=1
+R31 (net2270 net2271) resistor r=res_ntwk m=1
+R32 (net2271 net2272) resistor r=res_ntwk m=1
+R33 (net2272 net2273) resistor r=res_ntwk m=1
+R34 (net2273 net2274) resistor r=res_ntwk m=1
+R35 (net2274 net2275) resistor r=res_ntwk m=1
+R36 (net2275 net2276) resistor r=res_ntwk m=1
+R37 (net2276 net2277) resistor r=res_ntwk m=1
+R38 (net2277 net2278) resistor r=res_ntwk m=1
+R39 (net2278 net2279) resistor r=res_ntwk m=1
+R40 (net2279 net2280) resistor r=res_ntwk m=1
+R41 (net2280 net2281) resistor r=res_ntwk m=1
+R42 (net2281 net2282) resistor r=res_ntwk m=1
+R43 (net2282 net2283) resistor r=res_ntwk m=1
+R44 (net2283 net2284) resistor r=res_ntwk m=1
+R45 (net2284 net2285) resistor r=res_ntwk m=1
+R46 (net2285 net2286) resistor r=res_ntwk m=1
+R47 (net2286 net2287) resistor r=res_ntwk m=1
+R48 (net2287 net2288) resistor r=res_ntwk m=1
+R49 (net2288 net2289) resistor r=res_ntwk m=1
+R50 (net2289 net2290) resistor r=res_ntwk m=1
+R51 (net2290 net2291) resistor r=res_ntwk m=1
+R52 (net2291 net2292) resistor r=res_ntwk m=1
+R53 (net2292 net2293) resistor r=res_ntwk m=1
+R54 (net2293 net2294) resistor r=res_ntwk m=1
+R55 (net2294 net2295) resistor r=res_ntwk m=1
+R56 (net2295 net2296) resistor r=res_ntwk m=1
+R57 (net2296 net2297) resistor r=res_ntwk m=1
+R58 (net2297 net2298) resistor r=res_ntwk m=1
+R59 (net2298 net2299) resistor r=res_ntwk m=1
+R60 (net2299 net2300) resistor r=res_ntwk m=1
+R61 (net2300 net2301) resistor r=res_ntwk m=1
+R62 (net2301 net2302) resistor r=res_ntwk m=1
+R63 (net2302 net2303) resistor r=res_ntwk m=1
+R64 (net2303 net2304) resistor r=res_ntwk m=1
+R65 (net2304 net2305) resistor r=res_ntwk m=1
+R66 (net2305 net2306) resistor r=res_ntwk m=1
+R67 (net2306 net2307) resistor r=res_ntwk m=1
+R68 (net2307 net2308) resistor r=res_ntwk m=1
+R69 (net2308 net2309) resistor r=res_ntwk m=1
+R70 (net2309 net2310) resistor r=res_ntwk m=1
+R71 (net2310 net2311) resistor r=res_ntwk m=1
+R72 (net2311 net2312) resistor r=res_ntwk m=1
+R73 (net2312 net2313) resistor r=res_ntwk m=1
+R74 (net2313 net2314) resistor r=res_ntwk m=1
+R75 (net2314 net2315) resistor r=res_ntwk m=1
+R76 (net2315 net2316) resistor r=res_ntwk m=1
+R77 (net2316 net2317) resistor r=res_ntwk m=1
+R78 (net2317 net2318) resistor r=res_ntwk m=1
+R79 (net2318 net2319) resistor r=res_ntwk m=1
+R80 (net2319 net2320) resistor r=res_ntwk m=1
+R81 (net2320 net2321) resistor r=res_ntwk m=1
+R82 (net2321 net2322) resistor r=res_ntwk m=1
+R83 (net2322 net2323) resistor r=res_ntwk m=1
+R84 (net2323 net2324) resistor r=res_ntwk m=1
+R85 (net2324 net2325) resistor r=res_ntwk m=1
+R86 (net2325 net2326) resistor r=res_ntwk m=1
+R87 (net2326 net2327) resistor r=res_ntwk m=1
+R88 (net2327 net2328) resistor r=res_ntwk m=1
+R89 (net2328 net2329) resistor r=res_ntwk m=1
+R90 (net2329 net2330) resistor r=res_ntwk m=1
+R91 (net2330 net2331) resistor r=res_ntwk m=1
+R92 (net2331 net2332) resistor r=res_ntwk m=1
+R93 (net2332 net2333) resistor r=res_ntwk m=1
+R94 (net2333 net2334) resistor r=res_ntwk m=1
+R95 (net2334 net2335) resistor r=res_ntwk m=1
+R96 (net2335 net2336) resistor r=res_ntwk m=1
+R97 (net2336 net2337) resistor r=res_ntwk m=1
+R98 (net2337 net2338) resistor r=res_ntwk m=1
+R99 (net2338 net2339) resistor r=res_ntwk m=1
+R100 (net2339 net2340) resistor r=res_ntwk m=1
+R101 (net2340 net2341) resistor r=res_ntwk m=1
+R102 (net2341 net2342) resistor r=res_ntwk m=1
+R103 (net2342 net2343) resistor r=res_ntwk m=1
+R104 (net2343 net2344) resistor r=res_ntwk m=1
+R105 (net2344 net2345) resistor r=res_ntwk m=1
+R106 (net2345 net2346) resistor r=res_ntwk m=1
+R107 (net2346 net2347) resistor r=res_ntwk m=1
+R108 (net2347 net2348) resistor r=res_ntwk m=1
+R109 (net2348 net2349) resistor r=res_ntwk m=1
+R110 (net2349 net2350) resistor r=res_ntwk m=1
+R111 (net2350 net2351) resistor r=res_ntwk m=1
+R112 (net2351 net2352) resistor r=res_ntwk m=1
+R113 (net2352 net2353) resistor r=res_ntwk m=1
+R114 (net2353 net2354) resistor r=res_ntwk m=1
+R115 (net2354 net2355) resistor r=res_ntwk m=1
+R116 (net2355 net2356) resistor r=res_ntwk m=1
+R117 (net2356 net2357) resistor r=res_ntwk m=1
+R118 (net2357 net2358) resistor r=res_ntwk m=1
+R119 (net2358 net2359) resistor r=res_ntwk m=1
+R120 (net2359 net2360) resistor r=res_ntwk m=1
+R121 (net2360 net2361) resistor r=res_ntwk m=1
+R122 (net2361 net2362) resistor r=res_ntwk m=1
+R123 (net2362 net2363) resistor r=res_ntwk m=1
+R124 (net2363 net2364) resistor r=res_ntwk m=1
+R125 (net2364 net2365) resistor r=res_ntwk m=1
+R126 (net2365 net2366) resistor r=res_ntwk m=1
+R127 (net2366 net2367) resistor r=res_ntwk m=1
+//V3 (net2367 0) vsource type=dc dc=600.0m
+V0 (net2367 0) vsource type=dc dc=Vbias_diffpair
+I0(net2368 net2240 w0in net2241) TxSwitch1to2_2
+I1(net2369 net2242 w0in net2243) TxSwitch1to2_2
+I2(net2370 net2244 w0in net2245) TxSwitch1to2_2
+I3(net2371 net2246 w0in net2247) TxSwitch1to2_2
+I4(net2372 net2248 w0in net2249) TxSwitch1to2_2
+I5(net2373 net2250 w0in net2251) TxSwitch1to2_2
+I6(net2374 net2252 w0in net2253) TxSwitch1to2_2
+I7(net2375 net2254 w0in net2255) TxSwitch1to2_2
+I8(net2376 net2256 w0in net2257) TxSwitch1to2_2
+I9(net2377 net2258 w0in net2259) TxSwitch1to2_2
+I10(net2378 net2260 w0in net2261) TxSwitch1to2_2
+I11(net2379 net2262 w0in net2263) TxSwitch1to2_2
+I12(net2380 net2264 w0in net2265) TxSwitch1to2_2
+I13(net2381 net2266 w0in net2267) TxSwitch1to2_2
+I14(net2382 net2268 w0in net2269) TxSwitch1to2_2
+I15(net2383 net2270 w0in net2271) TxSwitch1to2_2
+I16(net2384 net2272 w0in net2273) TxSwitch1to2_2
+I17(net2385 net2274 w0in net2275) TxSwitch1to2_2
+I18(net2386 net2276 w0in net2277) TxSwitch1to2_2
+I19(net2387 net2278 w0in net2279) TxSwitch1to2_2
+I20(net2388 net2280 w0in net2281) TxSwitch1to2_2
+I21(net2389 net2282 w0in net2283) TxSwitch1to2_2
+I22(net2390 net2284 w0in net2285) TxSwitch1to2_2
+I23(net2391 net2286 w0in net2287) TxSwitch1to2_2
+I24(net2392 net2288 w0in net2289) TxSwitch1to2_2
+I25(net2393 net2290 w0in net2291) TxSwitch1to2_2
+I26(net2394 net2292 w0in net2293) TxSwitch1to2_2
+I27(net2395 net2294 w0in net2295) TxSwitch1to2_2
+I28(net2396 net2296 w0in net2297) TxSwitch1to2_2
+I29(net2397 net2298 w0in net2299) TxSwitch1to2_2
+I30(net2398 net2300 w0in net2301) TxSwitch1to2_2
+I31(net2399 net2302 w0in net2303) TxSwitch1to2_2
+I32(net2400 net2304 w0in net2305) TxSwitch1to2_2
+I33(net2401 net2306 w0in net2307) TxSwitch1to2_2
+I34(net2402 net2308 w0in net2309) TxSwitch1to2_2
+I35(net2403 net2310 w0in net2311) TxSwitch1to2_2
+I36(net2404 net2312 w0in net2313) TxSwitch1to2_2
+I37(net2405 net2314 w0in net2315) TxSwitch1to2_2
+I38(net2406 net2316 w0in net2317) TxSwitch1to2_2
+I39(net2407 net2318 w0in net2319) TxSwitch1to2_2
+I40(net2408 net2320 w0in net2321) TxSwitch1to2_2
+I41(net2409 net2322 w0in net2323) TxSwitch1to2_2
+I42(net2410 net2324 w0in net2325) TxSwitch1to2_2
+I43(net2411 net2326 w0in net2327) TxSwitch1to2_2
+I44(net2412 net2328 w0in net2329) TxSwitch1to2_2
+I45(net2413 net2330 w0in net2331) TxSwitch1to2_2
+I46(net2414 net2332 w0in net2333) TxSwitch1to2_2
+I47(net2415 net2334 w0in net2335) TxSwitch1to2_2
+I48(net2416 net2336 w0in net2337) TxSwitch1to2_2
+I49(net2417 net2338 w0in net2339) TxSwitch1to2_2
+I50(net2418 net2340 w0in net2341) TxSwitch1to2_2
+I51(net2419 net2342 w0in net2343) TxSwitch1to2_2
+I52(net2420 net2344 w0in net2345) TxSwitch1to2_2
+I53(net2421 net2346 w0in net2347) TxSwitch1to2_2
+I54(net2422 net2348 w0in net2349) TxSwitch1to2_2
+I55(net2423 net2350 w0in net2351) TxSwitch1to2_2
+I56(net2424 net2352 w0in net2353) TxSwitch1to2_2
+I57(net2425 net2354 w0in net2355) TxSwitch1to2_2
+I58(net2426 net2356 w0in net2357) TxSwitch1to2_2
+I59(net2427 net2358 w0in net2359) TxSwitch1to2_2
+I60(net2428 net2360 w0in net2361) TxSwitch1to2_2
+I61(net2429 net2362 w0in net2363) TxSwitch1to2_2
+I62(net2430 net2364 w0in net2365) TxSwitch1to2_2
+I63(net2431 net2366 w0in net2367) TxSwitch1to2_2
+I64(net2432 net2368 w1in net2369) TxSwitch1to2_2
+I65(net2433 net2370 w1in net2371) TxSwitch1to2_2
+I66(net2434 net2372 w1in net2373) TxSwitch1to2_2
+I67(net2435 net2374 w1in net2375) TxSwitch1to2_2
+I68(net2436 net2376 w1in net2377) TxSwitch1to2_2
+I69(net2437 net2378 w1in net2379) TxSwitch1to2_2
+I70(net2438 net2380 w1in net2381) TxSwitch1to2_2
+I71(net2439 net2382 w1in net2383) TxSwitch1to2_2
+I72(net2440 net2384 w1in net2385) TxSwitch1to2_2
+I73(net2441 net2386 w1in net2387) TxSwitch1to2_2
+I74(net2442 net2388 w1in net2389) TxSwitch1to2_2
+I75(net2443 net2390 w1in net2391) TxSwitch1to2_2
+I76(net2444 net2392 w1in net2393) TxSwitch1to2_2
+I77(net2445 net2394 w1in net2395) TxSwitch1to2_2
+I78(net2446 net2396 w1in net2397) TxSwitch1to2_2
+I79(net2447 net2398 w1in net2399) TxSwitch1to2_2
+I80(net2448 net2400 w1in net2401) TxSwitch1to2_2
+I81(net2449 net2402 w1in net2403) TxSwitch1to2_2
+I82(net2450 net2404 w1in net2405) TxSwitch1to2_2
+I83(net2451 net2406 w1in net2407) TxSwitch1to2_2
+I84(net2452 net2408 w1in net2409) TxSwitch1to2_2
+I85(net2453 net2410 w1in net2411) TxSwitch1to2_2
+I86(net2454 net2412 w1in net2413) TxSwitch1to2_2
+I87(net2455 net2414 w1in net2415) TxSwitch1to2_2
+I88(net2456 net2416 w1in net2417) TxSwitch1to2_2
+I89(net2457 net2418 w1in net2419) TxSwitch1to2_2
+I90(net2458 net2420 w1in net2421) TxSwitch1to2_2
+I91(net2459 net2422 w1in net2423) TxSwitch1to2_2
+I92(net2460 net2424 w1in net2425) TxSwitch1to2_2
+I93(net2461 net2426 w1in net2427) TxSwitch1to2_2
+I94(net2462 net2428 w1in net2429) TxSwitch1to2_2
+I95(net2463 net2430 w1in net2431) TxSwitch1to2_2
+I96(net2464 net2432 w2in net2433) TxSwitch1to2_2
+I97(net2465 net2434 w2in net2435) TxSwitch1to2_2
+I98(net2466 net2436 w2in net2437) TxSwitch1to2_2
+I99(net2467 net2438 w2in net2439) TxSwitch1to2_2
+I100(net2468 net2440 w2in net2441) TxSwitch1to2_2
+I101(net2469 net2442 w2in net2443) TxSwitch1to2_2
+I102(net2470 net2444 w2in net2445) TxSwitch1to2_2
+I103(net2471 net2446 w2in net2447) TxSwitch1to2_2
+I104(net2472 net2448 w2in net2449) TxSwitch1to2_2
+I105(net2473 net2450 w2in net2451) TxSwitch1to2_2
+I106(net2474 net2452 w2in net2453) TxSwitch1to2_2
+I107(net2475 net2454 w2in net2455) TxSwitch1to2_2
+I108(net2476 net2456 w2in net2457) TxSwitch1to2_2
+I109(net2477 net2458 w2in net2459) TxSwitch1to2_2
+I110(net2478 net2460 w2in net2461) TxSwitch1to2_2
+I111(net2479 net2462 w2in net2463) TxSwitch1to2_2
+I112(net2480 net2464 w3in net2465) TxSwitch1to2_2
+I113(net2481 net2466 w3in net2467) TxSwitch1to2_2
+I114(net2482 net2468 w3in net2469) TxSwitch1to2_2
+I115(net2483 net2470 w3in net2471) TxSwitch1to2_2
+I116(net2484 net2472 w3in net2473) TxSwitch1to2_2
+I117(net2485 net2474 w3in net2475) TxSwitch1to2_2
+I118(net2486 net2476 w3in net2477) TxSwitch1to2_2
+I119(net2487 net2478 w3in net2479) TxSwitch1to2_2
+I120(net2488 net2480 w4in net2481) TxSwitch1to2_2
+I121(net2489 net2482 w4in net2483) TxSwitch1to2_2
+I122(net2490 net2484 w4in net2485) TxSwitch1to2_2
+I123(net2491 net2486 w4in net2487) TxSwitch1to2_2
+I124(net2492 net2488 w5in net2489) TxSwitch1to2_2
+I125(net2493 net2490 w5in net2491) TxSwitch1to2_2
+I126(Iout_resDAC net2492 w6in net2493) TxSwitch1to2_2
+ends ResNetwork7b
+// End of subcircuit definition.
+// <RMS> Nets: 2240 - 2493       
+
+// Library name: Neural_Net_Proj
+// Cell name: ResNetwork8b
+// View name: schematic
+subckt ResNetwork8b Iout_resDAC dacIin w0in w1in w2in w3in w4in w5in w6in w7in
+R0 (dacIin net2240) resistor r=res_ntwk m=1
+R1 (net2240 net2241) resistor r=res_ntwk m=1
+R2 (net2241 net2242) resistor r=res_ntwk m=1
+R3 (net2242 net2243) resistor r=res_ntwk m=1
+R4 (net2243 net2244) resistor r=res_ntwk m=1
+R5 (net2244 net2245) resistor r=res_ntwk m=1
+R6 (net2245 net2246) resistor r=res_ntwk m=1
+R7 (net2246 net2247) resistor r=res_ntwk m=1
+R8 (net2247 net2248) resistor r=res_ntwk m=1
+R9 (net2248 net2249) resistor r=res_ntwk m=1
+R10 (net2249 net2250) resistor r=res_ntwk m=1
+R11 (net2250 net2251) resistor r=res_ntwk m=1
+R12 (net2251 net2252) resistor r=res_ntwk m=1
+R13 (net2252 net2253) resistor r=res_ntwk m=1
+R14 (net2253 net2254) resistor r=res_ntwk m=1
+R15 (net2254 net2255) resistor r=res_ntwk m=1
+R16 (net2255 net2256) resistor r=res_ntwk m=1
+R17 (net2256 net2257) resistor r=res_ntwk m=1
+R18 (net2257 net2258) resistor r=res_ntwk m=1
+R19 (net2258 net2259) resistor r=res_ntwk m=1
+R20 (net2259 net2260) resistor r=res_ntwk m=1
+R21 (net2260 net2261) resistor r=res_ntwk m=1
+R22 (net2261 net2262) resistor r=res_ntwk m=1
+R23 (net2262 net2263) resistor r=res_ntwk m=1
+R24 (net2263 net2264) resistor r=res_ntwk m=1
+R25 (net2264 net2265) resistor r=res_ntwk m=1
+R26 (net2265 net2266) resistor r=res_ntwk m=1
+R27 (net2266 net2267) resistor r=res_ntwk m=1
+R28 (net2267 net2268) resistor r=res_ntwk m=1
+R29 (net2268 net2269) resistor r=res_ntwk m=1
+R30 (net2269 net2270) resistor r=res_ntwk m=1
+R31 (net2270 net2271) resistor r=res_ntwk m=1
+R32 (net2271 net2272) resistor r=res_ntwk m=1
+R33 (net2272 net2273) resistor r=res_ntwk m=1
+R34 (net2273 net2274) resistor r=res_ntwk m=1
+R35 (net2274 net2275) resistor r=res_ntwk m=1
+R36 (net2275 net2276) resistor r=res_ntwk m=1
+R37 (net2276 net2277) resistor r=res_ntwk m=1
+R38 (net2277 net2278) resistor r=res_ntwk m=1
+R39 (net2278 net2279) resistor r=res_ntwk m=1
+R40 (net2279 net2280) resistor r=res_ntwk m=1
+R41 (net2280 net2281) resistor r=res_ntwk m=1
+R42 (net2281 net2282) resistor r=res_ntwk m=1
+R43 (net2282 net2283) resistor r=res_ntwk m=1
+R44 (net2283 net2284) resistor r=res_ntwk m=1
+R45 (net2284 net2285) resistor r=res_ntwk m=1
+R46 (net2285 net2286) resistor r=res_ntwk m=1
+R47 (net2286 net2287) resistor r=res_ntwk m=1
+R48 (net2287 net2288) resistor r=res_ntwk m=1
+R49 (net2288 net2289) resistor r=res_ntwk m=1
+R50 (net2289 net2290) resistor r=res_ntwk m=1
+R51 (net2290 net2291) resistor r=res_ntwk m=1
+R52 (net2291 net2292) resistor r=res_ntwk m=1
+R53 (net2292 net2293) resistor r=res_ntwk m=1
+R54 (net2293 net2294) resistor r=res_ntwk m=1
+R55 (net2294 net2295) resistor r=res_ntwk m=1
+R56 (net2295 net2296) resistor r=res_ntwk m=1
+R57 (net2296 net2297) resistor r=res_ntwk m=1
+R58 (net2297 net2298) resistor r=res_ntwk m=1
+R59 (net2298 net2299) resistor r=res_ntwk m=1
+R60 (net2299 net2300) resistor r=res_ntwk m=1
+R61 (net2300 net2301) resistor r=res_ntwk m=1
+R62 (net2301 net2302) resistor r=res_ntwk m=1
+R63 (net2302 net2303) resistor r=res_ntwk m=1
+R64 (net2303 net2304) resistor r=res_ntwk m=1
+R65 (net2304 net2305) resistor r=res_ntwk m=1
+R66 (net2305 net2306) resistor r=res_ntwk m=1
+R67 (net2306 net2307) resistor r=res_ntwk m=1
+R68 (net2307 net2308) resistor r=res_ntwk m=1
+R69 (net2308 net2309) resistor r=res_ntwk m=1
+R70 (net2309 net2310) resistor r=res_ntwk m=1
+R71 (net2310 net2311) resistor r=res_ntwk m=1
+R72 (net2311 net2312) resistor r=res_ntwk m=1
+R73 (net2312 net2313) resistor r=res_ntwk m=1
+R74 (net2313 net2314) resistor r=res_ntwk m=1
+R75 (net2314 net2315) resistor r=res_ntwk m=1
+R76 (net2315 net2316) resistor r=res_ntwk m=1
+R77 (net2316 net2317) resistor r=res_ntwk m=1
+R78 (net2317 net2318) resistor r=res_ntwk m=1
+R79 (net2318 net2319) resistor r=res_ntwk m=1
+R80 (net2319 net2320) resistor r=res_ntwk m=1
+R81 (net2320 net2321) resistor r=res_ntwk m=1
+R82 (net2321 net2322) resistor r=res_ntwk m=1
+R83 (net2322 net2323) resistor r=res_ntwk m=1
+R84 (net2323 net2324) resistor r=res_ntwk m=1
+R85 (net2324 net2325) resistor r=res_ntwk m=1
+R86 (net2325 net2326) resistor r=res_ntwk m=1
+R87 (net2326 net2327) resistor r=res_ntwk m=1
+R88 (net2327 net2328) resistor r=res_ntwk m=1
+R89 (net2328 net2329) resistor r=res_ntwk m=1
+R90 (net2329 net2330) resistor r=res_ntwk m=1
+R91 (net2330 net2331) resistor r=res_ntwk m=1
+R92 (net2331 net2332) resistor r=res_ntwk m=1
+R93 (net2332 net2333) resistor r=res_ntwk m=1
+R94 (net2333 net2334) resistor r=res_ntwk m=1
+R95 (net2334 net2335) resistor r=res_ntwk m=1
+R96 (net2335 net2336) resistor r=res_ntwk m=1
+R97 (net2336 net2337) resistor r=res_ntwk m=1
+R98 (net2337 net2338) resistor r=res_ntwk m=1
+R99 (net2338 net2339) resistor r=res_ntwk m=1
+R100 (net2339 net2340) resistor r=res_ntwk m=1
+R101 (net2340 net2341) resistor r=res_ntwk m=1
+R102 (net2341 net2342) resistor r=res_ntwk m=1
+R103 (net2342 net2343) resistor r=res_ntwk m=1
+R104 (net2343 net2344) resistor r=res_ntwk m=1
+R105 (net2344 net2345) resistor r=res_ntwk m=1
+R106 (net2345 net2346) resistor r=res_ntwk m=1
+R107 (net2346 net2347) resistor r=res_ntwk m=1
+R108 (net2347 net2348) resistor r=res_ntwk m=1
+R109 (net2348 net2349) resistor r=res_ntwk m=1
+R110 (net2349 net2350) resistor r=res_ntwk m=1
+R111 (net2350 net2351) resistor r=res_ntwk m=1
+R112 (net2351 net2352) resistor r=res_ntwk m=1
+R113 (net2352 net2353) resistor r=res_ntwk m=1
+R114 (net2353 net2354) resistor r=res_ntwk m=1
+R115 (net2354 net2355) resistor r=res_ntwk m=1
+R116 (net2355 net2356) resistor r=res_ntwk m=1
+R117 (net2356 net2357) resistor r=res_ntwk m=1
+R118 (net2357 net2358) resistor r=res_ntwk m=1
+R119 (net2358 net2359) resistor r=res_ntwk m=1
+R120 (net2359 net2360) resistor r=res_ntwk m=1
+R121 (net2360 net2361) resistor r=res_ntwk m=1
+R122 (net2361 net2362) resistor r=res_ntwk m=1
+R123 (net2362 net2363) resistor r=res_ntwk m=1
+R124 (net2363 net2364) resistor r=res_ntwk m=1
+R125 (net2364 net2365) resistor r=res_ntwk m=1
+R126 (net2365 net2366) resistor r=res_ntwk m=1
+R127 (net2366 net2367) resistor r=res_ntwk m=1
+R128 (net2367 net2368) resistor r=res_ntwk m=1
+R129 (net2368 net2369) resistor r=res_ntwk m=1
+R130 (net2369 net2370) resistor r=res_ntwk m=1
+R131 (net2370 net2371) resistor r=res_ntwk m=1
+R132 (net2371 net2372) resistor r=res_ntwk m=1
+R133 (net2372 net2373) resistor r=res_ntwk m=1
+R134 (net2373 net2374) resistor r=res_ntwk m=1
+R135 (net2374 net2375) resistor r=res_ntwk m=1
+R136 (net2375 net2376) resistor r=res_ntwk m=1
+R137 (net2376 net2377) resistor r=res_ntwk m=1
+R138 (net2377 net2378) resistor r=res_ntwk m=1
+R139 (net2378 net2379) resistor r=res_ntwk m=1
+R140 (net2379 net2380) resistor r=res_ntwk m=1
+R141 (net2380 net2381) resistor r=res_ntwk m=1
+R142 (net2381 net2382) resistor r=res_ntwk m=1
+R143 (net2382 net2383) resistor r=res_ntwk m=1
+R144 (net2383 net2384) resistor r=res_ntwk m=1
+R145 (net2384 net2385) resistor r=res_ntwk m=1
+R146 (net2385 net2386) resistor r=res_ntwk m=1
+R147 (net2386 net2387) resistor r=res_ntwk m=1
+R148 (net2387 net2388) resistor r=res_ntwk m=1
+R149 (net2388 net2389) resistor r=res_ntwk m=1
+R150 (net2389 net2390) resistor r=res_ntwk m=1
+R151 (net2390 net2391) resistor r=res_ntwk m=1
+R152 (net2391 net2392) resistor r=res_ntwk m=1
+R153 (net2392 net2393) resistor r=res_ntwk m=1
+R154 (net2393 net2394) resistor r=res_ntwk m=1
+R155 (net2394 net2395) resistor r=res_ntwk m=1
+R156 (net2395 net2396) resistor r=res_ntwk m=1
+R157 (net2396 net2397) resistor r=res_ntwk m=1
+R158 (net2397 net2398) resistor r=res_ntwk m=1
+R159 (net2398 net2399) resistor r=res_ntwk m=1
+R160 (net2399 net2400) resistor r=res_ntwk m=1
+R161 (net2400 net2401) resistor r=res_ntwk m=1
+R162 (net2401 net2402) resistor r=res_ntwk m=1
+R163 (net2402 net2403) resistor r=res_ntwk m=1
+R164 (net2403 net2404) resistor r=res_ntwk m=1
+R165 (net2404 net2405) resistor r=res_ntwk m=1
+R166 (net2405 net2406) resistor r=res_ntwk m=1
+R167 (net2406 net2407) resistor r=res_ntwk m=1
+R168 (net2407 net2408) resistor r=res_ntwk m=1
+R169 (net2408 net2409) resistor r=res_ntwk m=1
+R170 (net2409 net2410) resistor r=res_ntwk m=1
+R171 (net2410 net2411) resistor r=res_ntwk m=1
+R172 (net2411 net2412) resistor r=res_ntwk m=1
+R173 (net2412 net2413) resistor r=res_ntwk m=1
+R174 (net2413 net2414) resistor r=res_ntwk m=1
+R175 (net2414 net2415) resistor r=res_ntwk m=1
+R176 (net2415 net2416) resistor r=res_ntwk m=1
+R177 (net2416 net2417) resistor r=res_ntwk m=1
+R178 (net2417 net2418) resistor r=res_ntwk m=1
+R179 (net2418 net2419) resistor r=res_ntwk m=1
+R180 (net2419 net2420) resistor r=res_ntwk m=1
+R181 (net2420 net2421) resistor r=res_ntwk m=1
+R182 (net2421 net2422) resistor r=res_ntwk m=1
+R183 (net2422 net2423) resistor r=res_ntwk m=1
+R184 (net2423 net2424) resistor r=res_ntwk m=1
+R185 (net2424 net2425) resistor r=res_ntwk m=1
+R186 (net2425 net2426) resistor r=res_ntwk m=1
+R187 (net2426 net2427) resistor r=res_ntwk m=1
+R188 (net2427 net2428) resistor r=res_ntwk m=1
+R189 (net2428 net2429) resistor r=res_ntwk m=1
+R190 (net2429 net2430) resistor r=res_ntwk m=1
+R191 (net2430 net2431) resistor r=res_ntwk m=1
+R192 (net2431 net2432) resistor r=res_ntwk m=1
+R193 (net2432 net2433) resistor r=res_ntwk m=1
+R194 (net2433 net2434) resistor r=res_ntwk m=1
+R195 (net2434 net2435) resistor r=res_ntwk m=1
+R196 (net2435 net2436) resistor r=res_ntwk m=1
+R197 (net2436 net2437) resistor r=res_ntwk m=1
+R198 (net2437 net2438) resistor r=res_ntwk m=1
+R199 (net2438 net2439) resistor r=res_ntwk m=1
+R200 (net2439 net2440) resistor r=res_ntwk m=1
+R201 (net2440 net2441) resistor r=res_ntwk m=1
+R202 (net2441 net2442) resistor r=res_ntwk m=1
+R203 (net2442 net2443) resistor r=res_ntwk m=1
+R204 (net2443 net2444) resistor r=res_ntwk m=1
+R205 (net2444 net2445) resistor r=res_ntwk m=1
+R206 (net2445 net2446) resistor r=res_ntwk m=1
+R207 (net2446 net2447) resistor r=res_ntwk m=1
+R208 (net2447 net2448) resistor r=res_ntwk m=1
+R209 (net2448 net2449) resistor r=res_ntwk m=1
+R210 (net2449 net2450) resistor r=res_ntwk m=1
+R211 (net2450 net2451) resistor r=res_ntwk m=1
+R212 (net2451 net2452) resistor r=res_ntwk m=1
+R213 (net2452 net2453) resistor r=res_ntwk m=1
+R214 (net2453 net2454) resistor r=res_ntwk m=1
+R215 (net2454 net2455) resistor r=res_ntwk m=1
+R216 (net2455 net2456) resistor r=res_ntwk m=1
+R217 (net2456 net2457) resistor r=res_ntwk m=1
+R218 (net2457 net2458) resistor r=res_ntwk m=1
+R219 (net2458 net2459) resistor r=res_ntwk m=1
+R220 (net2459 net2460) resistor r=res_ntwk m=1
+R221 (net2460 net2461) resistor r=res_ntwk m=1
+R222 (net2461 net2462) resistor r=res_ntwk m=1
+R223 (net2462 net2463) resistor r=res_ntwk m=1
+R224 (net2463 net2464) resistor r=res_ntwk m=1
+R225 (net2464 net2465) resistor r=res_ntwk m=1
+R226 (net2465 net2466) resistor r=res_ntwk m=1
+R227 (net2466 net2467) resistor r=res_ntwk m=1
+R228 (net2467 net2468) resistor r=res_ntwk m=1
+R229 (net2468 net2469) resistor r=res_ntwk m=1
+R230 (net2469 net2470) resistor r=res_ntwk m=1
+R231 (net2470 net2471) resistor r=res_ntwk m=1
+R232 (net2471 net2472) resistor r=res_ntwk m=1
+R233 (net2472 net2473) resistor r=res_ntwk m=1
+R234 (net2473 net2474) resistor r=res_ntwk m=1
+R235 (net2474 net2475) resistor r=res_ntwk m=1
+R236 (net2475 net2476) resistor r=res_ntwk m=1
+R237 (net2476 net2477) resistor r=res_ntwk m=1
+R238 (net2477 net2478) resistor r=res_ntwk m=1
+R239 (net2478 net2479) resistor r=res_ntwk m=1
+R240 (net2479 net2480) resistor r=res_ntwk m=1
+R241 (net2480 net2481) resistor r=res_ntwk m=1
+R242 (net2481 net2482) resistor r=res_ntwk m=1
+R243 (net2482 net2483) resistor r=res_ntwk m=1
+R244 (net2483 net2484) resistor r=res_ntwk m=1
+R245 (net2484 net2485) resistor r=res_ntwk m=1
+R246 (net2485 net2486) resistor r=res_ntwk m=1
+R247 (net2486 net2487) resistor r=res_ntwk m=1
+R248 (net2487 net2488) resistor r=res_ntwk m=1
+R249 (net2488 net2489) resistor r=res_ntwk m=1
+R250 (net2489 net2490) resistor r=res_ntwk m=1
+R251 (net2490 net2491) resistor r=res_ntwk m=1
+R252 (net2491 net2492) resistor r=res_ntwk m=1
+R253 (net2492 net2493) resistor r=res_ntwk m=1
+R254 (net2493 net2494) resistor r=res_ntwk m=1
+R255 (net2494 net2495) resistor r=res_ntwk m=1
+//V3 (net2495 0) vsource type=dc dc=600.0m
+V0 (net2495 0) vsource type=dc dc=Vbias_diffpair
+I0(net2496 net2240 w0in net2241) TxSwitch1to2_2
+I1(net2497 net2242 w0in net2243) TxSwitch1to2_2
+I2(net2498 net2244 w0in net2245) TxSwitch1to2_2
+I3(net2499 net2246 w0in net2247) TxSwitch1to2_2
+I4(net2500 net2248 w0in net2249) TxSwitch1to2_2
+I5(net2501 net2250 w0in net2251) TxSwitch1to2_2
+I6(net2502 net2252 w0in net2253) TxSwitch1to2_2
+I7(net2503 net2254 w0in net2255) TxSwitch1to2_2
+I8(net2504 net2256 w0in net2257) TxSwitch1to2_2
+I9(net2505 net2258 w0in net2259) TxSwitch1to2_2
+I10(net2506 net2260 w0in net2261) TxSwitch1to2_2
+I11(net2507 net2262 w0in net2263) TxSwitch1to2_2
+I12(net2508 net2264 w0in net2265) TxSwitch1to2_2
+I13(net2509 net2266 w0in net2267) TxSwitch1to2_2
+I14(net2510 net2268 w0in net2269) TxSwitch1to2_2
+I15(net2511 net2270 w0in net2271) TxSwitch1to2_2
+I16(net2512 net2272 w0in net2273) TxSwitch1to2_2
+I17(net2513 net2274 w0in net2275) TxSwitch1to2_2
+I18(net2514 net2276 w0in net2277) TxSwitch1to2_2
+I19(net2515 net2278 w0in net2279) TxSwitch1to2_2
+I20(net2516 net2280 w0in net2281) TxSwitch1to2_2
+I21(net2517 net2282 w0in net2283) TxSwitch1to2_2
+I22(net2518 net2284 w0in net2285) TxSwitch1to2_2
+I23(net2519 net2286 w0in net2287) TxSwitch1to2_2
+I24(net2520 net2288 w0in net2289) TxSwitch1to2_2
+I25(net2521 net2290 w0in net2291) TxSwitch1to2_2
+I26(net2522 net2292 w0in net2293) TxSwitch1to2_2
+I27(net2523 net2294 w0in net2295) TxSwitch1to2_2
+I28(net2524 net2296 w0in net2297) TxSwitch1to2_2
+I29(net2525 net2298 w0in net2299) TxSwitch1to2_2
+I30(net2526 net2300 w0in net2301) TxSwitch1to2_2
+I31(net2527 net2302 w0in net2303) TxSwitch1to2_2
+I32(net2528 net2304 w0in net2305) TxSwitch1to2_2
+I33(net2529 net2306 w0in net2307) TxSwitch1to2_2
+I34(net2530 net2308 w0in net2309) TxSwitch1to2_2
+I35(net2531 net2310 w0in net2311) TxSwitch1to2_2
+I36(net2532 net2312 w0in net2313) TxSwitch1to2_2
+I37(net2533 net2314 w0in net2315) TxSwitch1to2_2
+I38(net2534 net2316 w0in net2317) TxSwitch1to2_2
+I39(net2535 net2318 w0in net2319) TxSwitch1to2_2
+I40(net2536 net2320 w0in net2321) TxSwitch1to2_2
+I41(net2537 net2322 w0in net2323) TxSwitch1to2_2
+I42(net2538 net2324 w0in net2325) TxSwitch1to2_2
+I43(net2539 net2326 w0in net2327) TxSwitch1to2_2
+I44(net2540 net2328 w0in net2329) TxSwitch1to2_2
+I45(net2541 net2330 w0in net2331) TxSwitch1to2_2
+I46(net2542 net2332 w0in net2333) TxSwitch1to2_2
+I47(net2543 net2334 w0in net2335) TxSwitch1to2_2
+I48(net2544 net2336 w0in net2337) TxSwitch1to2_2
+I49(net2545 net2338 w0in net2339) TxSwitch1to2_2
+I50(net2546 net2340 w0in net2341) TxSwitch1to2_2
+I51(net2547 net2342 w0in net2343) TxSwitch1to2_2
+I52(net2548 net2344 w0in net2345) TxSwitch1to2_2
+I53(net2549 net2346 w0in net2347) TxSwitch1to2_2
+I54(net2550 net2348 w0in net2349) TxSwitch1to2_2
+I55(net2551 net2350 w0in net2351) TxSwitch1to2_2
+I56(net2552 net2352 w0in net2353) TxSwitch1to2_2
+I57(net2553 net2354 w0in net2355) TxSwitch1to2_2
+I58(net2554 net2356 w0in net2357) TxSwitch1to2_2
+I59(net2555 net2358 w0in net2359) TxSwitch1to2_2
+I60(net2556 net2360 w0in net2361) TxSwitch1to2_2
+I61(net2557 net2362 w0in net2363) TxSwitch1to2_2
+I62(net2558 net2364 w0in net2365) TxSwitch1to2_2
+I63(net2559 net2366 w0in net2367) TxSwitch1to2_2
+I64(net2560 net2368 w0in net2369) TxSwitch1to2_2
+I65(net2561 net2370 w0in net2371) TxSwitch1to2_2
+I66(net2562 net2372 w0in net2373) TxSwitch1to2_2
+I67(net2563 net2374 w0in net2375) TxSwitch1to2_2
+I68(net2564 net2376 w0in net2377) TxSwitch1to2_2
+I69(net2565 net2378 w0in net2379) TxSwitch1to2_2
+I70(net2566 net2380 w0in net2381) TxSwitch1to2_2
+I71(net2567 net2382 w0in net2383) TxSwitch1to2_2
+I72(net2568 net2384 w0in net2385) TxSwitch1to2_2
+I73(net2569 net2386 w0in net2387) TxSwitch1to2_2
+I74(net2570 net2388 w0in net2389) TxSwitch1to2_2
+I75(net2571 net2390 w0in net2391) TxSwitch1to2_2
+I76(net2572 net2392 w0in net2393) TxSwitch1to2_2
+I77(net2573 net2394 w0in net2395) TxSwitch1to2_2
+I78(net2574 net2396 w0in net2397) TxSwitch1to2_2
+I79(net2575 net2398 w0in net2399) TxSwitch1to2_2
+I80(net2576 net2400 w0in net2401) TxSwitch1to2_2
+I81(net2577 net2402 w0in net2403) TxSwitch1to2_2
+I82(net2578 net2404 w0in net2405) TxSwitch1to2_2
+I83(net2579 net2406 w0in net2407) TxSwitch1to2_2
+I84(net2580 net2408 w0in net2409) TxSwitch1to2_2
+I85(net2581 net2410 w0in net2411) TxSwitch1to2_2
+I86(net2582 net2412 w0in net2413) TxSwitch1to2_2
+I87(net2583 net2414 w0in net2415) TxSwitch1to2_2
+I88(net2584 net2416 w0in net2417) TxSwitch1to2_2
+I89(net2585 net2418 w0in net2419) TxSwitch1to2_2
+I90(net2586 net2420 w0in net2421) TxSwitch1to2_2
+I91(net2587 net2422 w0in net2423) TxSwitch1to2_2
+I92(net2588 net2424 w0in net2425) TxSwitch1to2_2
+I93(net2589 net2426 w0in net2427) TxSwitch1to2_2
+I94(net2590 net2428 w0in net2429) TxSwitch1to2_2
+I95(net2591 net2430 w0in net2431) TxSwitch1to2_2
+I96(net2592 net2432 w0in net2433) TxSwitch1to2_2
+I97(net2593 net2434 w0in net2435) TxSwitch1to2_2
+I98(net2594 net2436 w0in net2437) TxSwitch1to2_2
+I99(net2595 net2438 w0in net2439) TxSwitch1to2_2
+I100(net2596 net2440 w0in net2441) TxSwitch1to2_2
+I101(net2597 net2442 w0in net2443) TxSwitch1to2_2
+I102(net2598 net2444 w0in net2445) TxSwitch1to2_2
+I103(net2599 net2446 w0in net2447) TxSwitch1to2_2
+I104(net2600 net2448 w0in net2449) TxSwitch1to2_2
+I105(net2601 net2450 w0in net2451) TxSwitch1to2_2
+I106(net2602 net2452 w0in net2453) TxSwitch1to2_2
+I107(net2603 net2454 w0in net2455) TxSwitch1to2_2
+I108(net2604 net2456 w0in net2457) TxSwitch1to2_2
+I109(net2605 net2458 w0in net2459) TxSwitch1to2_2
+I110(net2606 net2460 w0in net2461) TxSwitch1to2_2
+I111(net2607 net2462 w0in net2463) TxSwitch1to2_2
+I112(net2608 net2464 w0in net2465) TxSwitch1to2_2
+I113(net2609 net2466 w0in net2467) TxSwitch1to2_2
+I114(net2610 net2468 w0in net2469) TxSwitch1to2_2
+I115(net2611 net2470 w0in net2471) TxSwitch1to2_2
+I116(net2612 net2472 w0in net2473) TxSwitch1to2_2
+I117(net2613 net2474 w0in net2475) TxSwitch1to2_2
+I118(net2614 net2476 w0in net2477) TxSwitch1to2_2
+I119(net2615 net2478 w0in net2479) TxSwitch1to2_2
+I120(net2616 net2480 w0in net2481) TxSwitch1to2_2
+I121(net2617 net2482 w0in net2483) TxSwitch1to2_2
+I122(net2618 net2484 w0in net2485) TxSwitch1to2_2
+I123(net2619 net2486 w0in net2487) TxSwitch1to2_2
+I124(net2620 net2488 w0in net2489) TxSwitch1to2_2
+I125(net2621 net2490 w0in net2491) TxSwitch1to2_2
+I126(net2622 net2492 w0in net2493) TxSwitch1to2_2
+I127(net2623 net2494 w0in net2495) TxSwitch1to2_2
+I128(net2624 net2496 w1in net2497) TxSwitch1to2_2
+I129(net2625 net2498 w1in net2499) TxSwitch1to2_2
+I130(net2626 net2500 w1in net2501) TxSwitch1to2_2
+I131(net2627 net2502 w1in net2503) TxSwitch1to2_2
+I132(net2628 net2504 w1in net2505) TxSwitch1to2_2
+I133(net2629 net2506 w1in net2507) TxSwitch1to2_2
+I134(net2630 net2508 w1in net2509) TxSwitch1to2_2
+I135(net2631 net2510 w1in net2511) TxSwitch1to2_2
+I136(net2632 net2512 w1in net2513) TxSwitch1to2_2
+I137(net2633 net2514 w1in net2515) TxSwitch1to2_2
+I138(net2634 net2516 w1in net2517) TxSwitch1to2_2
+I139(net2635 net2518 w1in net2519) TxSwitch1to2_2
+I140(net2636 net2520 w1in net2521) TxSwitch1to2_2
+I141(net2637 net2522 w1in net2523) TxSwitch1to2_2
+I142(net2638 net2524 w1in net2525) TxSwitch1to2_2
+I143(net2639 net2526 w1in net2527) TxSwitch1to2_2
+I144(net2640 net2528 w1in net2529) TxSwitch1to2_2
+I145(net2641 net2530 w1in net2531) TxSwitch1to2_2
+I146(net2642 net2532 w1in net2533) TxSwitch1to2_2
+I147(net2643 net2534 w1in net2535) TxSwitch1to2_2
+I148(net2644 net2536 w1in net2537) TxSwitch1to2_2
+I149(net2645 net2538 w1in net2539) TxSwitch1to2_2
+I150(net2646 net2540 w1in net2541) TxSwitch1to2_2
+I151(net2647 net2542 w1in net2543) TxSwitch1to2_2
+I152(net2648 net2544 w1in net2545) TxSwitch1to2_2
+I153(net2649 net2546 w1in net2547) TxSwitch1to2_2
+I154(net2650 net2548 w1in net2549) TxSwitch1to2_2
+I155(net2651 net2550 w1in net2551) TxSwitch1to2_2
+I156(net2652 net2552 w1in net2553) TxSwitch1to2_2
+I157(net2653 net2554 w1in net2555) TxSwitch1to2_2
+I158(net2654 net2556 w1in net2557) TxSwitch1to2_2
+I159(net2655 net2558 w1in net2559) TxSwitch1to2_2
+I160(net2656 net2560 w1in net2561) TxSwitch1to2_2
+I161(net2657 net2562 w1in net2563) TxSwitch1to2_2
+I162(net2658 net2564 w1in net2565) TxSwitch1to2_2
+I163(net2659 net2566 w1in net2567) TxSwitch1to2_2
+I164(net2660 net2568 w1in net2569) TxSwitch1to2_2
+I165(net2661 net2570 w1in net2571) TxSwitch1to2_2
+I166(net2662 net2572 w1in net2573) TxSwitch1to2_2
+I167(net2663 net2574 w1in net2575) TxSwitch1to2_2
+I168(net2664 net2576 w1in net2577) TxSwitch1to2_2
+I169(net2665 net2578 w1in net2579) TxSwitch1to2_2
+I170(net2666 net2580 w1in net2581) TxSwitch1to2_2
+I171(net2667 net2582 w1in net2583) TxSwitch1to2_2
+I172(net2668 net2584 w1in net2585) TxSwitch1to2_2
+I173(net2669 net2586 w1in net2587) TxSwitch1to2_2
+I174(net2670 net2588 w1in net2589) TxSwitch1to2_2
+I175(net2671 net2590 w1in net2591) TxSwitch1to2_2
+I176(net2672 net2592 w1in net2593) TxSwitch1to2_2
+I177(net2673 net2594 w1in net2595) TxSwitch1to2_2
+I178(net2674 net2596 w1in net2597) TxSwitch1to2_2
+I179(net2675 net2598 w1in net2599) TxSwitch1to2_2
+I180(net2676 net2600 w1in net2601) TxSwitch1to2_2
+I181(net2677 net2602 w1in net2603) TxSwitch1to2_2
+I182(net2678 net2604 w1in net2605) TxSwitch1to2_2
+I183(net2679 net2606 w1in net2607) TxSwitch1to2_2
+I184(net2680 net2608 w1in net2609) TxSwitch1to2_2
+I185(net2681 net2610 w1in net2611) TxSwitch1to2_2
+I186(net2682 net2612 w1in net2613) TxSwitch1to2_2
+I187(net2683 net2614 w1in net2615) TxSwitch1to2_2
+I188(net2684 net2616 w1in net2617) TxSwitch1to2_2
+I189(net2685 net2618 w1in net2619) TxSwitch1to2_2
+I190(net2686 net2620 w1in net2621) TxSwitch1to2_2
+I191(net2687 net2622 w1in net2623) TxSwitch1to2_2
+I192(net2688 net2624 w2in net2625) TxSwitch1to2_2
+I193(net2689 net2626 w2in net2627) TxSwitch1to2_2
+I194(net2690 net2628 w2in net2629) TxSwitch1to2_2
+I195(net2691 net2630 w2in net2631) TxSwitch1to2_2
+I196(net2692 net2632 w2in net2633) TxSwitch1to2_2
+I197(net2693 net2634 w2in net2635) TxSwitch1to2_2
+I198(net2694 net2636 w2in net2637) TxSwitch1to2_2
+I199(net2695 net2638 w2in net2639) TxSwitch1to2_2
+I200(net2696 net2640 w2in net2641) TxSwitch1to2_2
+I201(net2697 net2642 w2in net2643) TxSwitch1to2_2
+I202(net2698 net2644 w2in net2645) TxSwitch1to2_2
+I203(net2699 net2646 w2in net2647) TxSwitch1to2_2
+I204(net2700 net2648 w2in net2649) TxSwitch1to2_2
+I205(net2701 net2650 w2in net2651) TxSwitch1to2_2
+I206(net2702 net2652 w2in net2653) TxSwitch1to2_2
+I207(net2703 net2654 w2in net2655) TxSwitch1to2_2
+I208(net2704 net2656 w2in net2657) TxSwitch1to2_2
+I209(net2705 net2658 w2in net2659) TxSwitch1to2_2
+I210(net2706 net2660 w2in net2661) TxSwitch1to2_2
+I211(net2707 net2662 w2in net2663) TxSwitch1to2_2
+I212(net2708 net2664 w2in net2665) TxSwitch1to2_2
+I213(net2709 net2666 w2in net2667) TxSwitch1to2_2
+I214(net2710 net2668 w2in net2669) TxSwitch1to2_2
+I215(net2711 net2670 w2in net2671) TxSwitch1to2_2
+I216(net2712 net2672 w2in net2673) TxSwitch1to2_2
+I217(net2713 net2674 w2in net2675) TxSwitch1to2_2
+I218(net2714 net2676 w2in net2677) TxSwitch1to2_2
+I219(net2715 net2678 w2in net2679) TxSwitch1to2_2
+I220(net2716 net2680 w2in net2681) TxSwitch1to2_2
+I221(net2717 net2682 w2in net2683) TxSwitch1to2_2
+I222(net2718 net2684 w2in net2685) TxSwitch1to2_2
+I223(net2719 net2686 w2in net2687) TxSwitch1to2_2
+I224(net2720 net2688 w3in net2689) TxSwitch1to2_2
+I225(net2721 net2690 w3in net2691) TxSwitch1to2_2
+I226(net2722 net2692 w3in net2693) TxSwitch1to2_2
+I227(net2723 net2694 w3in net2695) TxSwitch1to2_2
+I228(net2724 net2696 w3in net2697) TxSwitch1to2_2
+I229(net2725 net2698 w3in net2699) TxSwitch1to2_2
+I230(net2726 net2700 w3in net2701) TxSwitch1to2_2
+I231(net2727 net2702 w3in net2703) TxSwitch1to2_2
+I232(net2728 net2704 w3in net2705) TxSwitch1to2_2
+I233(net2729 net2706 w3in net2707) TxSwitch1to2_2
+I234(net2730 net2708 w3in net2709) TxSwitch1to2_2
+I235(net2731 net2710 w3in net2711) TxSwitch1to2_2
+I236(net2732 net2712 w3in net2713) TxSwitch1to2_2
+I237(net2733 net2714 w3in net2715) TxSwitch1to2_2
+I238(net2734 net2716 w3in net2717) TxSwitch1to2_2
+I239(net2735 net2718 w3in net2719) TxSwitch1to2_2
+I240(net2736 net2720 w4in net2721) TxSwitch1to2_2
+I241(net2737 net2722 w4in net2723) TxSwitch1to2_2
+I242(net2738 net2724 w4in net2725) TxSwitch1to2_2
+I243(net2739 net2726 w4in net2727) TxSwitch1to2_2
+I244(net2740 net2728 w4in net2729) TxSwitch1to2_2
+I245(net2741 net2730 w4in net2731) TxSwitch1to2_2
+I246(net2742 net2732 w4in net2733) TxSwitch1to2_2
+I247(net2743 net2734 w4in net2735) TxSwitch1to2_2
+I248(net2744 net2736 w5in net2737) TxSwitch1to2_2
+I249(net2745 net2738 w5in net2739) TxSwitch1to2_2
+I250(net2746 net2740 w5in net2741) TxSwitch1to2_2
+I251(net2747 net2742 w5in net2743) TxSwitch1to2_2
+I252(net2748 net2744 w6in net2745) TxSwitch1to2_2
+I253(net2749 net2746 w6in net2747) TxSwitch1to2_2
+I254(Iout_resDAC net2748 w7in net2749) TxSwitch1to2_2
+ends ResNetwork8b
+// End of subcircuit definition.
+// <RMS> Nets: 2240 - 2749
+
+
+// Library name: Neural_Net_Proj
+// Cell name: Synapse_file
+// View name: schematic
+subckt Synapse_file ResNet_out ResNet_out\~ B0 B1 B2 B3 B4 w0 w1 w2 w3 w4 w5
+    I2 (net1 net2 net3 net4 net5) PmosCurrentMirror5b
+    I1 (OUT_P B0 net1 B1 net2 B2 net3 B3 net4 B4 net5 OUT_N) \
+        CurrentSteering5b
+    I11 (ResNet_out\~ OUT_N w0 w1 w2 w3 w4 w5) ResNetwork6b
+    I8 (ResNet_out OUT_P w0 w1 w2 w3 w4 w5) ResNetwork6b
+    I13 (OUT_N 0) isource type=dc dc=450u m=1
+ends Synapse_file
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: Synapse_V3_file_i6w8
+// View name: schematic
+subckt Synapse_V3_file_i6w6 ResNet_out ResNet_out\~ B0 B1 B2 B3 B4 net7 w0 w1 w2 w3 w4 w5 w6 w7
+    I2 (net1 net2 net3 net4 net5 net6) PmosCurrentMirror6b
+    I1 (OUT_P B0 net1 B1 net2 B2 net3 B3 net4 B4 net5 net7 net6 OUT_N) \
+        CurrentSteering6b
+    I8 (ResNet_out OUT_P w0 w1 w2 w3 w4 w5 w6 w7) ResNetwork8b
+    R1 (OUT_N 0) resistor r=res_dac_dmp m=1
+    V4 (ResNet_out\~ 0) vsource type=dc dc=Vbias_diffpair
+ends Synapse_V3_file_i6w8
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: Synapse_V3_file_i6w8
+// View name: schematic
+subckt Synapse_V3_file_i6w8 ResNet_out ResNet_out\~ B0 B1 B2 B3 B4 net7 w0 w1 w2 w3 w4 w5 w6 w7
+    I2 (net1 net2 net3 net4 net5 net6) PmosCurrentMirror6b
+    I1 (OUT_P B0 net1 B1 net2 B2 net3 B3 net4 B4 net5 net7 net6 OUT_N) \
+        CurrentSteering6b
+    I8 (ResNet_out OUT_P w0 w1 w2 w3 w4 w5 w6 w7) ResNetwork8b
+    R1 (OUT_N 0) resistor r=res_dac_dmp m=1
+    V4 (ResNet_out\~ 0) vsource type=dc dc=Vbias_diffpair
+ends Synapse_V3_file_i6w8
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: Synapse_V3_file_i6w7
+// View name: schematic
+subckt Synapse_V3_file_i6w7 ResNet_out ResNet_out\~ B0 B1 B2 B3 B4 net7 w0 w1 w2 w3 w4 w5 w6
+    I2 (net1 net2 net3 net4 net5 net6) PmosCurrentMirror6b
+    I1 (OUT_P B0 net1 B1 net2 B2 net3 B3 net4 B4 net5 net7 net6 OUT_N) \
+        CurrentSteering6b
+    I8 (ResNet_out OUT_P w0 w1 w2 w3 w4 w5 w6) ResNetwork7b
+    R1 (OUT_N 0) resistor r=res_dac_dmp m=1
+    V4 (ResNet_out\~ 0) vsource type=dc dc=Vbias_diffpair
+ends Synapse_V3_file_i6w7
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: Synapse_V3_file_i5w7
+// View name: schematic
+subckt Synapse_V3_file_i5w7 ResNet_out ResNet_out\~ B0 B1 B2 B3 B4 w0 w1 w2 w3 w4 w5 w6
+    I2 (net1 net2 net3 net4 net5) PmosCurrentMirror5b
+    I1 (OUT_P B0 net1 B1 net2 B2 net3 B3 net4 B4 net5 OUT_N) \
+        CurrentSteering5b
+    I8 (ResNet_out OUT_P w0 w1 w2 w3 w4 w5 w6) ResNetwork7b
+    R1 (OUT_N 0) resistor r=res_dac_dmp m=1
+    V4 (ResNet_out\~ 0) vsource type=dc dc=Vbias_diffpair
+ends Synapse_V3_file_i5w7
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: Synapse_V3_file_i5w6
+// View name: schematic
+subckt Synapse_V3_file ResNet_out ResNet_out\~ B0 B1 B2 B3 B4 w0 w1 w2 w3 w4 w5
+    I2 (net1 net2 net3 net4 net5) PmosCurrentMirror5b
+    I1 (OUT_P B0 net1 B1 net2 B2 net3 B3 net4 B4 net5 OUT_N) \
+        CurrentSteering5b
+    I8 (ResNet_out OUT_P w0 w1 w2 w3 w4 w5) ResNetwork6b
+    R1 (OUT_N 0) resistor r=res_dac_dmp m=1
+    V4 (ResNet_out\~ 0) vsource type=dc dc=Vbias_diffpair
+ends Synapse_V3_file_i5w6
+// End of subcircuit definition.
+
+
+// Library name: Neural_Net_Proj
+// Cell name: TxSwitch1to2_3
+// View name: schematic
+subckt TxSwitch1to2_3 Iin Iout Select \~Iout
+    N2 (Iin net9 \~Iout \~Iout) nmos w=N*txsw_wid_3*Wid l=Len m=1 \
+        region=sat
+    N3 (Iin Select Iout Iout) nmos w=N*txsw_wid_3*Wid l=Len m=1 region=sat
+    P2 (\~Iout Select Iin Iin) pmos w=P*txsw_wid_3*Wid l=Len m=1 \
+        region=sat
+    P3 (Iout net9 Iin Iin) pmos w=P*txsw_wid_3*Wid l=Len m=1 region=sat
+    I4 (Select net9) Inverter
+ends TxSwitch1to2_3
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: TxSwitch2to1
+// View name: schematic
+subckt TxSwitch2to1 Iin Iin\~ Iout sel
+    I0 (Iin\~ net11 sel Iout) TxSwitch1to2_3
+    I19 (Iin Iout sel net11) TxSwitch1to2_3
+    R0 (net11 0) resistor r=10K m=1
+ends TxSwitch2to1
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: Add8_V2
+// View name: schematic
+subckt Add8_V2 AddOut0 PE0_sign PE1_sign PE2_sign PE3_sign PE4_sign \
+        PE5_sign PE6_sign PE7_sign V0in V1in V2in V3in V4in V5in V6in V7in \
+        \~V0in \~V1in \~V2in \~V3in \~V4in \~V5in \~V6in \~V7in
+    P15 (net0149 V5in net18 net18) pmos w=P*Wid l=Len m=1 region=sat
+    P14 (net0208 \~V5in net18 net18) pmos w=P*Wid l=Len m=1 region=sat
+    P13 (net0204 V6in net26 net26) pmos w=P*Wid l=Len m=1 region=sat
+    P12 (net0201 \~V6in net26 net26) pmos w=P*Wid l=Len m=1 region=sat
+    P11 (net0197 \~V7in net38 net38) pmos w=P*Wid l=Len m=1 region=sat
+    P10 (net0200 V7in net38 net38) pmos w=P*Wid l=Len m=1 region=sat
+    P9 (net0209 \~V4in net46 net46) pmos w=P*Wid l=Len m=1 region=sat
+    P7 (net0215 V4in net46 net46) pmos w=P*Wid l=Len m=1 region=sat
+    P6 (net0133 V3in net50 net50) pmos w=P*Wid l=Len m=1 region=sat
+    P5 (net0217 \~V3in net50 net50) pmos w=P*Wid l=Len m=1 region=sat
+    P3 (net083 \~V2in net62 net62) pmos w=P*Wid l=Len m=1 region=sat
+    P2 (net0220 V2in net62 net62) pmos w=P*Wid l=Len m=1 region=sat
+    P1 (net0221 \~V1in net70 net70) pmos w=P*Wid l=Len m=1 region=sat
+    P0 (net0224 V1in net70 net70) pmos w=P*Wid l=Len m=1 region=sat
+    P4 (net0228 V0in net74 net74) pmos w=P*Wid l=Len m=1 region=sat
+    P8 (net0193 \~V0in net74 net74) pmos w=P*Wid l=Len m=1 region=sat
+    I12 (vdd! net18) isource type=dc dc=diffamp_biasI m=1
+    I11 (vdd! net26) isource type=dc dc=diffamp_biasI m=1
+    I10 (vdd! net38) isource type=dc dc=diffamp_biasI m=1
+    I8 (vdd! net46) isource type=dc dc=diffamp_biasI m=1
+    I6 (vdd! net50) isource type=dc dc=diffamp_biasI m=1
+    I4 (vdd! net62) isource type=dc dc=diffamp_biasI m=1
+    I1 (vdd! net70) isource type=dc dc=diffamp_biasI m=1
+    I0 (vdd! net74) isource type=dc dc=diffamp_biasI m=1
+    I25 (net0197 net0200 AddOut0 PE7_sign) TxSwitch2to1
+    I24 (net0201 net0204 AddOut0 PE6_sign) TxSwitch2to1
+    I23 (net0208 net0149 AddOut0 PE5_sign) TxSwitch2to1
+    I22 (net0209 net0215 AddOut0 PE4_sign) TxSwitch2to1
+    I21 (net0217 net0133 AddOut0 PE3_sign) TxSwitch2to1
+    I20 (net083 net0220 AddOut0 PE2_sign) TxSwitch2to1
+    I19 (net0221 net0224 AddOut0 PE1_sign) TxSwitch2to1
+    I18 (net0193 net0228 AddOut0 PE0_sign) TxSwitch2to1
+ends Add8_V2
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: Add8_V3
+// View name: schematic
+subckt Add8_V3 AddOut0 AddOut0_n PE0_sign PE1_sign PE2_sign PE3_sign \
+        PE4_sign PE5_sign PE6_sign PE7_sign V0in V1in V2in V3in V4in V5in \
+        V6in V7in \~V0in \~V1in \~V2in \~V3in \~V4in \~V5in \~V6in \~V7in
+    P15 (net0149 V5in net18 net18) pmos w=P*Wid l=Len m=1 region=sat
+    P14 (net0208 \~V5in net18 net18) pmos w=P*Wid l=Len m=1 region=sat
+    P13 (net0204 V6in net26 net26) pmos w=P*Wid l=Len m=1 region=sat
+    P12 (net0201 \~V6in net26 net26) pmos w=P*Wid l=Len m=1 region=sat
+    P11 (net0197 \~V7in net38 net38) pmos w=P*Wid l=Len m=1 region=sat
+    P10 (net0200 V7in net38 net38) pmos w=P*Wid l=Len m=1 region=sat
+    P9 (net0209 \~V4in net46 net46) pmos w=P*Wid l=Len m=1 region=sat
+    P7 (net0215 V4in net46 net46) pmos w=P*Wid l=Len m=1 region=sat
+    P6 (net0133 V3in net50 net50) pmos w=P*Wid l=Len m=1 region=sat
+    P5 (net0217 \~V3in net50 net50) pmos w=P*Wid l=Len m=1 region=sat
+    P3 (net083 \~V2in net62 net62) pmos w=P*Wid l=Len m=1 region=sat
+    P2 (net0220 V2in net62 net62) pmos w=P*Wid l=Len m=1 region=sat
+    P1 (net0221 \~V1in net70 net70) pmos w=P*Wid l=Len m=1 region=sat
+    P0 (net0224 V1in net70 net70) pmos w=P*Wid l=Len m=1 region=sat
+    P4 (net0228 V0in net74 net74) pmos w=P*Wid l=Len m=1 region=sat
+    P8 (net0193 \~V0in net74 net74) pmos w=P*Wid l=Len m=1 region=sat
+    I12 (vdd! net18) isource type=dc dc=diffpair_biasI m=1
+    I11 (vdd! net26) isource type=dc dc=diffpair_biasI m=1
+    I10 (vdd! net38) isource type=dc dc=diffpair_biasI m=1
+    I8 (vdd! net46) isource type=dc dc=diffpair_biasI m=1
+    I6 (vdd! net50) isource type=dc dc=diffpair_biasI m=1
+    I4 (vdd! net62) isource type=dc dc=diffpair_biasI m=1
+    I1 (vdd! net70) isource type=dc dc=diffpair_biasI m=1
+    I0 (vdd! net74) isource type=dc dc=diffpair_biasI m=1
+    I25 (net0197 net0200 AddOut0 PE7_sign AddOut0_n) TxSwitch2to1_V3
+    I24 (net0201 net0204 AddOut0 PE6_sign AddOut0_n) TxSwitch2to1_V3
+    I23 (net0208 net0149 AddOut0 PE5_sign AddOut0_n) TxSwitch2to1_V3
+    I22 (net0209 net0215 AddOut0 PE4_sign AddOut0_n) TxSwitch2to1_V3
+    I21 (net0217 net0133 AddOut0 PE3_sign AddOut0_n) TxSwitch2to1_V3
+    I20 (net083 net0220 AddOut0 PE2_sign AddOut0_n) TxSwitch2to1_V3
+    I19 (net0221 net0224 AddOut0 PE1_sign AddOut0_n) TxSwitch2to1_V3
+    I18 (net0193 net0228 AddOut0 PE0_sign AddOut0_n) TxSwitch2to1_V3
+ends Add8_V3
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: Preamp
+// View name: schematic
+// <rms 11.17.13> changed preamp values
+subckt Preamp Vin\+ Vin\- Vout\+ Vout\-
+    P2 (Vout\+ Vin\- net18 net18) pmos w=P*Wid l=Len m=1 region=sat
+    P3 (Vout\- Vin\+ net18 net18) pmos w=P*Wid l=Len m=1 region=sat
+    R0 (Vout\- 0) resistor r=80K m=1
+    R1 (Vout\+ 0) resistor r=80K m=1
+    I0 (vdd! net18) isource type=dc dc=10u m=1
+ends Preamp
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: TrackAndLatch
+// View name: schematic
+subckt TrackAndLatch Vin\+ Vin\- Vltch Vout\+ Vout\-
+    I6 (net068 Vout\+) Inverter
+    I7 (net070 Vout\-) Inverter
+    N6 (net25 Vin\- 0 0) nmos w=N*Wid l=Len m=1 region=sat
+    N7 (net23 Vin\+ 0 0) nmos w=N*Wid l=Len m=1 region=sat
+    N8 (net23 net25 0 0) nmos w=N*Wid l=Len m=1 region=sat
+    N9 (net25 net23 0 0) nmos w=N*Wid l=Len m=1 region=sat
+    N10 (net070 Vltch net25 net25) nmos w=N*Wid l=Len m=1 region=sat
+    N11 (net068 Vltch net23 net23) nmos w=N*Wid l=Len m=1 region=sat
+    P5 (net068 Vltch vdd! vdd!) pmos w=P*Wid l=Len m=1 region=sat
+    P6 (net068 net070 vdd! vdd!) pmos w=P*Wid l=Len m=1 region=sat
+    P7 (net070 net068 vdd! vdd!) pmos w=P*Wid l=Len m=1 region=sat
+    P4 (net070 Vltch vdd! vdd!) pmos w=P*Wid l=Len m=1 region=sat
+ends TrackAndLatch
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: Comparator
+// View name: schematic
+subckt Comparator Vin\+ Vin\- Vltch Vout\+ Vout\-
+    I16 (Vin\+ Vin\- net10 net9) Preamp
+    I20 (net10 net9 Vltch Vout\+ Vout\-) TrackAndLatch
+ends Comparator
+// End of subcircuit definition.
+
+// Library name: Neural_Net_Proj
+// Cell name: FlashADC6b_Vsrc_comp
+// View name: schematic
+subckt FlashADC6b_Vsrc_comp Vin_ADC Finalvout\+0 Finalvout\+1 Finalvout\+2 \
+        Finalvout\+3 Finalvout\+4 Finalvout\+5 Finalvout\+6 Finalvout\+7 \
+        Finalvout\+8 Finalvout\+9 Finalvout\+10 Finalvout\+11 \
+        Finalvout\+12 Finalvout\+13 Finalvout\+14 Finalvout\+15 \
+        Finalvout\+16 Finalvout\+17 Finalvout\+18 Finalvout\+19 \
+        Finalvout\+20 Finalvout\+21 Finalvout\+22 Finalvout\+23 \
+        Finalvout\+24 Finalvout\+25 Finalvout\+26 Finalvout\+27 \
+        Finalvout\+28 Finalvout\+29 Finalvout\+30 Finalvout\+31 \
+        Finalvout\+32 Finalvout\+33 Finalvout\+34 Finalvout\+35 \
+        Finalvout\+36 Finalvout\+37 Finalvout\+38 Finalvout\+39 \
+        Finalvout\+40 Finalvout\+41 Finalvout\+42 Finalvout\+43 \
+        Finalvout\+44 Finalvout\+45 Finalvout\+46 Finalvout\+47 \
+        Finalvout\+48 Finalvout\+49 Finalvout\+50 Finalvout\+51 \
+        Finalvout\+52 Finalvout\+53 Finalvout\+54 Finalvout\+55 \
+        Finalvout\+56 Finalvout\+57 Finalvout\+58 Finalvout\+59 \
+        Finalvout\+60 Finalvout\+61 net3200 \
+	Finalvout\-0 Finalvout\-1 Finalvout\-2 \
+        Finalvout\-3 Finalvout\-4 Finalvout\-5 Finalvout\-6 Finalvout\-7 \
+        Finalvout\-8 Finalvout\-9 Finalvout\-10 Finalvout\-11 \
+        Finalvout\-12 Finalvout\-13 Finalvout\-14 Finalvout\-15 \
+        Finalvout\-16 Finalvout\-17 Finalvout\-18 Finalvout\-19 \
+        Finalvout\-20 Finalvout\-21 Finalvout\-22 Finalvout\-23 \
+        Finalvout\-24 Finalvout\-25 Finalvout\-26 Finalvout\-27 \
+        Finalvout\-28 Finalvout\-29 Finalvout\-30 Finalvout\-31 \
+        Finalvout\-32 Finalvout\-33 Finalvout\-34 Finalvout\-35 \
+        Finalvout\-36 Finalvout\-37 Finalvout\-38 Finalvout\-39 \
+        Finalvout\-40 Finalvout\-41 Finalvout\-42 Finalvout\-43 \
+        Finalvout\-44 Finalvout\-45 Finalvout\-46 Finalvout\-47 \
+        Finalvout\-48 Finalvout\-49 Finalvout\-50 Finalvout\-51 \
+        Finalvout\-52 Finalvout\-53 Finalvout\-54 Finalvout\-55 \
+        Finalvout\-56 Finalvout\-57 Finalvout\-58 Finalvout\-59 \
+        Finalvout\-60 Finalvout\-61 net3201 Vltch_In
+    I122 (Vin_ADC Vref16 Vltch_In Finalvout\+16 Finalvout\-16) Comparator
+    I121 (Vin_ADC Vref17 Vltch_In Finalvout\+17 Finalvout\-17) Comparator
+    I200 (Vin_ADC net0636 Vltch_In net3200 net3201) Comparator //  Finalvout\+62 Finalvout\-62
+    I127 (Vin_ADC net348 Vltch_In Finalvout\+61 Finalvout\-61) Comparator
+    I128 (Vin_ADC net0635 Vltch_In Finalvout\+60 Finalvout\-60) Comparator
+    I129 (Vin_ADC net346 Vltch_In Finalvout\+59 Finalvout\-59) Comparator
+    I130 (Vin_ADC net342 Vltch_In Finalvout\+58 Finalvout\-58) Comparator
+    I131 (Vin_ADC net340 Vltch_In Finalvout\+57 Finalvout\-57) Comparator
+    I132 (Vin_ADC net338 Vltch_In Finalvout\+56 Finalvout\-56) Comparator
+    I133 (Vin_ADC net360 Vltch_In Finalvout\+55 Finalvout\-55) Comparator
+    I134 (Vin_ADC net358 Vltch_In Finalvout\+54 Finalvout\-54) Comparator
+    I135 (Vin_ADC net356 Vltch_In Finalvout\+53 Finalvout\-53) Comparator
+    I136 (Vin_ADC net354 Vltch_In Finalvout\+52 Finalvout\-52) Comparator
+    I137 (Vin_ADC net352 Vltch_In Finalvout\+51 Finalvout\-51) Comparator
+    I138 (Vin_ADC net350 Vltch_In Finalvout\+50 Finalvout\-50) Comparator
+    I101 (Vin_ADC Vref18 Vltch_In Finalvout\+18 Finalvout\-18) Comparator
+    I100 (Vin_ADC Vref19 Vltch_In Finalvout\+19 Finalvout\-19) Comparator
+    I99 (Vin_ADC Vref20 Vltch_In Finalvout\+20 Finalvout\-20) Comparator
+    I98 (Vin_ADC Vref21 Vltch_In Finalvout\+21 Finalvout\-21) Comparator
+    I97 (Vin_ADC Vref22 Vltch_In Finalvout\+22 Finalvout\-22) Comparator
+    I96 (Vin_ADC Vref23 Vltch_In Finalvout\+23 Finalvout\-23) Comparator
+    I76 (Vin_ADC Vref24 Vltch_In Finalvout\+24 Finalvout\-24) Comparator
+    I75 (Vin_ADC Vref25 Vltch_In Finalvout\+25 Finalvout\-25) Comparator
+    I74 (Vin_ADC Vref26 Vltch_In Finalvout\+26 Finalvout\-26) Comparator
+    I73 (Vin_ADC Vref27 Vltch_In Finalvout\+27 Finalvout\-27) Comparator
+    I72 (Vin_ADC Vref28 Vltch_In Finalvout\+28 Finalvout\-28) Comparator
+    I71 (Vin_ADC Vref29 Vltch_In Finalvout\+29 Finalvout\-29) Comparator
+    I67 (Vin_ADC Vref30 Vltch_In Finalvout\+30 Finalvout\-30) Comparator
+    I66 (Vin_ADC Vref15 Vltch_In Finalvout\+15 Finalvout\-15) Comparator
+    I59 (Vin_ADC Vref14 Vltch_In Finalvout\+14 Finalvout\-14) Comparator
+    I58 (Vin_ADC Vref13 Vltch_In Finalvout\+13 Finalvout\-13) Comparator
+    I51 (Vin_ADC Vref12 Vltch_In Finalvout\+12 Finalvout\-12) Comparator
+    I50 (Vin_ADC Vref11 Vltch_In Finalvout\+11 Finalvout\-11) Comparator
+    I43 (Vin_ADC Vref10 Vltch_In Finalvout\+10 Finalvout\-10) Comparator
+    I42 (Vin_ADC Vref9 Vltch_In Finalvout\+9 Finalvout\-9) Comparator
+    I35 (Vin_ADC Vref8 Vltch_In Finalvout\+8 Finalvout\-8) Comparator
+    I33 (Vin_ADC Vref7 Vltch_In Finalvout\+7 Finalvout\-7) Comparator
+    I25 (Vin_ADC Vref6 Vltch_In Finalvout\+6 Finalvout\-6) Comparator
+    I22 (Vin_ADC Vref5 Vltch_In Finalvout\+5 Finalvout\-5) Comparator
+    I156 (Vin_ADC net330 Vltch_In Finalvout\+42 Finalvout\-42) Comparator
+    I157 (Vin_ADC net328 Vltch_In Finalvout\+43 Finalvout\-43) Comparator
+    I158 (Vin_ADC net326 Vltch_In Finalvout\+44 Finalvout\-44) Comparator
+    I159 (Vin_ADC net302 Vltch_In Finalvout\+45 Finalvout\-45) Comparator
+    I160 (Vin_ADC net300 Vltch_In Finalvout\+46 Finalvout\-46) Comparator
+    I194 (Vin_ADC net322 Vltch_In Finalvout\+33 Finalvout\-33) Comparator
+    I162 (Vin_ADC net320 Vltch_In Finalvout\+34 Finalvout\-34) Comparator
+    I163 (Vin_ADC net318 Vltch_In Finalvout\+32 Finalvout\-32) Comparator
+    I164 (Vin_ADC net314 Vltch_In Finalvout\+35 Finalvout\-35) Comparator
+    I165 (Vin_ADC net312 Vltch_In Finalvout\+36 Finalvout\-36) Comparator
+    I17 (Vin_ADC Vref4 Vltch_In Finalvout\+4 Finalvout\-4) Comparator
+    I166 (Vin_ADC net310 Vltch_In Finalvout\+37 Finalvout\-37) Comparator
+    I167 (Vin_ADC net308 Vltch_In Finalvout\+38 Finalvout\-38) Comparator
+    I168 (Vin_ADC net336 Vltch_In Finalvout\+39 Finalvout\-39) Comparator
+    I169 (Vin_ADC net334 Vltch_In Finalvout\+40 Finalvout\-40) Comparator
+    I170 (Vin_ADC net332 Vltch_In Finalvout\+41 Finalvout\-41) Comparator
+    I171 (Vin_ADC net324 Vltch_In Finalvout\+49 Finalvout\-49) Comparator
+    I172 (Vin_ADC net306 Vltch_In Finalvout\+48 Finalvout\-48) Comparator
+    I173 (Vin_ADC net304 Vltch_In Finalvout\+47 Finalvout\-47) Comparator
+    I174 (Vin_ADC net316 Vltch_In Finalvout\+31 Finalvout\-31) Comparator
+    I5 (Vin_ADC Vref1 Vltch_In Finalvout\+1 Finalvout\-1) Comparator
+    I193 (Vin_ADC Vref0 Vltch_In Finalvout\+0 Finalvout\-0) Comparator
+    I13 (Vin_ADC Vref3 Vltch_In Finalvout\+3 Finalvout\-3) Comparator
+    I9 (Vin_ADC Vref2 Vltch_In Finalvout\+2 Finalvout\-2) Comparator
+    V32 (net360 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc55"
+    V33 (net358 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc54"
+    V34 (net356 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc53"
+    V35 (net354 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc52"
+    V36 (net352 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc51"
+    V31 (Vref16 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc16"
+    V30 (Vref17 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc17"
+    V37 (net350 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc50"
+    V63 (net0636 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc62"
+    V38 (net348 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc61"
+    V39 (net346 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc59"
+    V40 (net0635 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc60"
+    V41 (net342 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc58"
+    V29 (Vref18 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc18"
+    V28 (Vref19 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc19"
+    V27 (Vref20 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc20"
+    V26 (Vref21 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc21"
+    V25 (Vref22 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc22"
+    V24 (Vref23 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc23"
+    V23 (Vref29 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc29"
+    V22 (Vref24 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc24"
+    V21 (Vref25 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc25"
+    V20 (Vref26 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc26"
+    V19 (Vref27 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc27"
+    V18 (Vref28 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc28"
+    V17 (Vref30 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc30"
+    V16 (Vref15 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc15"
+    V42 (net340 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc57"
+    V43 (net338 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc56"
+    V15 (Vref14 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc14"
+    V14 (Vref13 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc13"
+    V13 (Vref12 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc12"
+    V12 (Vref11 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc11"
+    V11 (Vref10 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc10"
+    V10 (Vref9 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc9"
+    V44 (net336 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc39"
+    V45 (net334 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc40"
+    V46 (net332 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc41"
+    V47 (net330 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc42"
+    V48 (net328 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc43"
+    V49 (net326 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc44"
+    V50 (net324 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc49"
+    V51 (net322 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc33"
+    V52 (net320 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc34"
+    V9 (Vref8 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc8"
+    V7 (Vref7 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc7"
+    V53 (net318 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc32"
+    V54 (net316 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc31"
+    V55 (net314 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc35"
+    V56 (net312 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc36"
+    V57 (net310 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc37"
+    V58 (net308 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc38"
+    V59 (net306 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc48"
+    V60 (net304 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc47"
+    V6 (Vref6 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc6"
+    V5 (Vref5 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc5"
+    V4 (Vref4 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc4"
+    V0 (Vref0 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc0"
+    V61 (net302 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc45"
+    V62 (net300 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc46"
+    V1 (Vref1 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc1"
+    V3 (Vref3 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc3"
+    V2 (Vref2 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/adcinputs_i6w8_2k_512/adc2"
+ends FlashADC6b_Vsrc_comp
+// End of subcircuit definition.
+
+
+// Library name: Neural_Net_Proj
+// Cell name: Top_V3_file_adc
+// View name: schematic
+V7 (net0274 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/s5"
+V8 (net0271 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/s6"
+V6 (net0277 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/s4"
+V3 (net0286 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/s1"
+V4 (net0283 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/s2"
+V9 (net0268 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/s7"
+V17 (net0289 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/s0"
+V5 (net0280 0) vsource type=pwl \
+        file="/home/ecelrc/students/st/neural_net_proj/inputs-1n-i6w8part/s3"
+I46 (net067 net068 net069 net070 net071 net5608 \
+	net072 net077 net078 net079 net080 net5609 \  
+	net085 net086 net087 net088 net089 net5610 \
+	net094 net095 net096 net097 net098 net5611 \  
+	net0103 net0104 net0105 net0106 net0107 net5612 \ 
+	net0112 net0113 net0114 net0115 net0116 net5613 \
+	net0121 net0122 net0123 net0124 net0125 net5614 \
+	net0130 net0131 net0132 net0133 net0134 net5615 \
+        net073 net074 net075 net076 net2200 net2208 net2216 net2224 \
+	net081 net082 net083 net084 net2201 net2209 net2217 net2225 \
+	net090 net091 net092 net093 net2202 net2210 net2218 net2226 \
+	net099 net0100 net0101 net0102 net2203 net2211 net2219 net2227 \
+	net0108 net0109 net0110 net0111 net2204 net2212 net2220 net2228 \
+	net0117 net0118 net0119 net0120 net2205 net2213 net2221 net2229 \
+	net0126 net0127 net0128 net0129 net2206 net2214 net2222 net2230 \
+        net0135 net0136 net0137 net0138 net2207 net2215 net2223 net2231) inputs_weights_file_8pe_i6w8
+R153 (Vout14 0) resistor r=res_adc m=1
+R152 (net0781 0) resistor r=res_adc m=1
+R151 (Vout13 0) resistor r=res_adc m=1
+R150 (net0779 0) resistor r=res_adc m=1
+R149 (Vout12 0) resistor r=res_adc m=1
+R148 (net0777 0) resistor r=res_adc m=1
+R147 (Vout11 0) resistor r=res_adc m=1
+R146 (net0775 0) resistor r=res_adc m=1
+R145 (Vout10 0) resistor r=res_adc m=1
+R136 (net0765 0) resistor r=res_adc m=1
+R144 (net0773 0) resistor r=res_adc m=1
+R135 (Vout5 0) resistor r=res_adc m=1
+R143 (Vout9 0) resistor r=res_adc m=1
+R134 (net0763 0) resistor r=res_adc m=1
+R142 (net0771 0) resistor r=res_adc m=1
+R133 (Vout4 0) resistor r=res_adc m=1
+R1 (Vout0\- 0) resistor r=res_adc m=1
+R126 (Vout0 0) resistor r=res_adc m=1
+R204 (net0833 0) resistor r=res_adc m=1
+R203 (Vout39 0) resistor r=res_adc m=1
+R202 (net0831 0) resistor r=res_adc m=1
+R201 (Vout38 0) resistor r=res_adc m=1
+R200 (net0829 0) resistor r=res_adc m=1
+R199 (Vout37 0) resistor r=res_adc m=1
+R198 (net0827 0) resistor r=res_adc m=1
+R197 (Vout36 0) resistor r=res_adc m=1
+R196 (net0825 0) resistor r=res_adc m=1
+R195 (Vout35 0) resistor r=res_adc m=1
+R194 (net0823 0) resistor r=res_adc m=1
+R193 (Vout34 0) resistor r=res_adc m=1
+R192 (net0821 0) resistor r=res_adc m=1
+R191 (Vout33 0) resistor r=res_adc m=1
+R190 (net0819 0) resistor r=res_adc m=1
+R189 (Vout32 0) resistor r=res_adc m=1
+R188 (net0817 0) resistor r=res_adc m=1
+R187 (Vout31 0) resistor r=res_adc m=1
+R186 (net0815 0) resistor r=res_adc m=1
+R248 (net0877 0) resistor r=res_adc m=1
+R301 (net0878 0) resistor r=res_adc m=1  // Vout62-
+R300 (net0879 0) resistor r=res_adc m=1  // Vout62
+R247 (Vout61 0) resistor r=res_adc m=1
+R246 (net0875 0) resistor r=res_adc m=1
+R245 (Vout60 0) resistor r=res_adc m=1
+R244 (net0873 0) resistor r=res_adc m=1
+R243 (Vout59 0) resistor r=res_adc m=1
+R242 (net0871 0) resistor r=res_adc m=1
+R241 (Vout58 0) resistor r=res_adc m=1
+R240 (net0869 0) resistor r=res_adc m=1
+R239 (Vout57 0) resistor r=res_adc m=1
+R238 (net0867 0) resistor r=res_adc m=1
+R237 (Vout56 0) resistor r=res_adc m=1
+R236 (net0865 0) resistor r=res_adc m=1
+R235 (Vout55 0) resistor r=res_adc m=1
+R234 (net0863 0) resistor r=res_adc m=1
+R233 (Vout54 0) resistor r=res_adc m=1
+R232 (net0861 0) resistor r=res_adc m=1
+R231 (Vout53 0) resistor r=res_adc m=1
+R230 (net0859 0) resistor r=res_adc m=1
+R229 (Vout52 0) resistor r=res_adc m=1
+R228 (net0857 0) resistor r=res_adc m=1
+R227 (Vout51 0) resistor r=res_adc m=1
+R226 (net0855 0) resistor r=res_adc m=1
+R185 (Vout30 0) resistor r=res_adc m=1
+R184 (net0813 0) resistor r=res_adc m=1
+R183 (Vout29 0) resistor r=res_adc m=1
+R225 (Vout50 0) resistor r=res_adc m=1
+R132 (Vout3\- 0) resistor r=res_adc m=1
+R131 (Vout3 0) resistor r=res_adc m=1
+R130 (Vout2\- 0) resistor r=res_adc m=1
+R129 (Vout2 0) resistor r=res_adc m=1
+R128 (Vout1\- 0) resistor r=res_adc m=1
+R127 (Vout1 0) resistor r=res_adc m=1
+R224 (net0853 0) resistor r=res_adc m=1
+R223 (Vout49 0) resistor r=res_adc m=1
+R222 (net0851 0) resistor r=res_adc m=1
+R221 (Vout48 0) resistor r=res_adc m=1
+R220 (net0849 0) resistor r=res_adc m=1
+R219 (Vout47 0) resistor r=res_adc m=1
+R218 (net0847 0) resistor r=res_adc m=1
+R217 (Vout46 0) resistor r=res_adc m=1
+R216 (net0845 0) resistor r=res_adc m=1
+R215 (Vout45 0) resistor r=res_adc m=1
+R214 (net0843 0) resistor r=res_adc m=1
+R213 (Vout44 0) resistor r=res_adc m=1
+R212 (net0841 0) resistor r=res_adc m=1
+R211 (Vout43 0) resistor r=res_adc m=1
+R210 (net0839 0) resistor r=res_adc m=1
+R209 (Vout42 0) resistor r=res_adc m=1
+R208 (net0837 0) resistor r=res_adc m=1
+R207 (Vout41 0) resistor r=res_adc m=1
+R206 (net0835 0) resistor r=res_adc m=1
+R205 (Vout40 0) resistor r=res_adc m=1
+R182 (net0811 0) resistor r=res_adc m=1
+R181 (Vout28 0) resistor r=res_adc m=1
+R180 (net0809 0) resistor r=res_adc m=1
+R179 (Vout27 0) resistor r=res_adc m=1
+R178 (net0807 0) resistor r=res_adc m=1
+R177 (Vout26 0) resistor r=res_adc m=1
+R176 (net0805 0) resistor r=res_adc m=1
+R175 (Vout25 0) resistor r=res_adc m=1
+R174 (net0803 0) resistor r=res_adc m=1
+R173 (Vout24 0) resistor r=res_adc m=1
+R172 (net0801 0) resistor r=res_adc m=1
+R171 (Vout23 0) resistor r=res_adc m=1
+R170 (net0799 0) resistor r=res_adc m=1
+R169 (Vout22 0) resistor r=res_adc m=1
+R168 (net0797 0) resistor r=res_adc m=1
+R167 (Vout21 0) resistor r=res_adc m=1
+R166 (net0795 0) resistor r=res_adc m=1
+R165 (Vout20 0) resistor r=res_adc m=1
+R164 (net0793 0) resistor r=res_adc m=1
+R163 (Vout19 0) resistor r=res_adc m=1
+R162 (net0791 0) resistor r=res_adc m=1
+R161 (Vout18 0) resistor r=res_adc m=1
+R141 (Vout8 0) resistor r=res_adc m=1
+R140 (net0769 0) resistor r=res_adc m=1
+R139 (Vout7 0) resistor r=res_adc m=1
+R138 (net0767 0) resistor r=res_adc m=1
+R137 (Vout6 0) resistor r=res_adc m=1
+R160 (net0789 0) resistor r=res_adc m=1
+R159 (Vout17 0) resistor r=res_adc m=1
+R158 (net0787 0) resistor r=res_adc m=1
+R157 (Vout16 0) resistor r=res_adc m=1
+R156 (net0785 0) resistor r=res_adc m=1
+R155 (Vout15 0) resistor r=res_adc m=1
+R154 (net0783 0) resistor r=res_adc m=1
+V0 (vdd! 0) vsource type=dc dc=v_d_d
+// <11.17.13> changed names Vin_adc to AddOut
+I10 (AddOut0 AddOut0_n net0289 net0286 net0283 net0280 net0277 net0274 \
+        net0271 net0268 V0in net0284 net0281 net0278 net0275 net0272 \
+        net0269 net0266 \~V0in net0285 net0282 net0279 net0276 net0273 \
+        net0270 net0267) Add8_V3
+V2 (Vltch 0) vsource type=pulse val0=0 val1=1.2 period=ltchPer \
+        delay=ltchDelay rise=100p fall=100p width=ltchPw
+// DiffAmp parts
+R252 (AddOut0_n 0) resistor r=res_add m=1 // Vin_sig_n
+R251 (AddOut0 0) resistor r=res_add m=1 // Vin_sig
+//R0 (net0579 net0580) resistor r=1K m=1
+R2 (Vin_adc 0) resistor r=40K m=1
+////V4 (net0573 0) vsource type=sine delay=500.0m sinedc=400m ampl=40m  freq=1
+////V1 (net0575 0) vsource type=sine sinedc=400m ampl=40m  freq=1
+//I1 (net0580 0) isource type=dc dc=diffamp_biasI m=1
+//I0 (net0579 0) isource type=dc dc=diffamp_biasI m=1
+I0 (net0579 0) isource type=dc dc=200u m=1
+//N0 (Vin_adc  AddOut0_n net0580 net0580) nmos w=122*Wid l=Len m=1 region=sat
+N0 (Vin_adc  AddOut0_n net0579 net0579) nmos w=122*Wid l=Len m=1 region=sat
+N3 (net0585 AddOut0 net0579 net0579) nmos w=122*Wid l=Len m=1 region=sat
+P4 (Vin_adc net0585 vdd! vdd!) pmos w=P*Wid l=Len m=1 region=sat
+P8 (net0585 net0585 vdd! vdd!) pmos w=P*Wid l=Len m=1 region=sat
+// end DiffAmp parts
+I42 (net0266 net0267 net0130 net0131 net0132 net0133 net0134 net5615 \ 
+	net0135 net0136 net0137 net0138 net2207 net2215 net2223 net2231) Synapse_V3_file_i6w8
+I43 (net0269 net0270 net0121 net0122 net0123 net0124 net0125 net5614 \ 
+	net0126 net0127 net0128 net0129 net2206 net2214 net2222 net2230) Synapse_V3_file_i6w8
+I44 (net0272 net0273 net0112 net0113 net0114 net0115 net0116 net5613 \ 
+	net0117 net0118 net0119 net0120 net2205 net2213 net2221 net2229) Synapse_V3_file_i6w8
+I6 (net0275 net0276 net0103 net0104 net0105 net0106 net0107 net5612 \ 
+	net0108 net0109 net0110 net0111 net2204 net2212 net2220 net2228) Synapse_V3_file_i6w8
+I5 (net0278 net0279 net094 net095 net096 net097 net098 net5611 \ 
+	net099 net0100 net0101 net0102 net2203 net2211 net2219 net2227) Synapse_V3_file_i6w8
+I4 (net0281 net0282 net085 net086 net087 net088 net089 net5610 \ 
+	net090 net091 net092 net093 net2202 net2210 net2218 net2226) Synapse_V3_file_i6w8
+I3 (net0284 net0285 net072 net077 net078 net079 net080 net5609 \
+	net081 net082 net083 net084 net2201 net2209 net2217 net2225) Synapse_V3_file_i6w8
+I2 (V0in \~V0in net067 net068 net069 net070 net071 net5608 \ 
+	net073 net074 net075 net076 net2200 net2208 net2216 net2224) Synapse_V3_file_i6w8
+I55 (Vin_adc Vout0 Vout1 Vout2 Vout3 Vout4 Vout5 Vout6 \
+        Vout7 Vout8 Vout9 Vout10 Vout11 Vout12 Vout13 \
+        Vout14 Vout15 Vout16 Vout17 Vout18 Vout19 Vout20 \
+        Vout21 Vout22 Vout23 Vout24 Vout25 Vout26 Vout27 \
+        Vout28 Vout29 Vout30 Vout31 Vout32 Vout33 Vout34 \
+        Vout35 Vout36 Vout37 Vout38 Vout39 Vout40 Vout41 \
+        Vout42 Vout43 Vout44 Vout45 Vout46 Vout47 Vout48 \
+        Vout49 Vout50 Vout51 Vout52 Vout53 Vout54 Vout55 \
+        Vout56 Vout57 Vout58 Vout59 Vout60 Vout61 net0879 Vout0\- \
+        Vout1\- Vout2\- Vout3\- net0763 net0765 net0767 net0769 net0771 \
+        net0773 net0775 net0777 net0779 net0781 net0783 net0785 net0787 \
+        net0789 net0791 net0793 net0795 net0797 net0799 net0801 net0803 \
+        net0805 net0807 net0809 net0811 net0813 net0815 net0817 net0819 \
+        net0821 net0823 net0825 net0827 net0829 net0831 net0833 net0835 \
+        net0837 net0839 net0841 net0843 net0845 net0847 net0849 net0851 \
+        net0853 net0855 net0857 net0859 net0861 net0863 net0865 net0867 \
+        net0869 net0871 net0873 net0875 net0877 net0878 Vltch) \
+        FlashADC6b_Vsrc_comp
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../../../../../tmp/Top_V2_file_adc/spectre/schematic/psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=8n errpreset=liberal start=0n write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts  where=rawfile
+save Vin_adc Vout30 Vout29 Vout28 Vout27 Vout26 Vout25 Vout24 Vout23 \
+    Vout22 Vout21 Vout20 Vout19 Vout18 Vout17 Vout16 Vout15 Vout14 Vout13 \
+    Vout12 Vout11 Vout10 Vout9 Vout8 Vout7 Vout6 Vout5 Vout4 Vout3 Vout2 \
+    Vout1 Vout0 I10.V0in I10.AddOut0_n I10.AddOut0 V0:1 I42.I8.R0:1 \
+    I10.P8:d I10.P4:d 
+saveOptions options save=allpub

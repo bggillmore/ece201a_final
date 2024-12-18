@@ -1,0 +1,48 @@
+// Generated for: spectre
+// Generated on: Jul 27 17:50:24 2024
+// Design library name: CMOSinverter_001
+// Design cell name: CMOSinverter_Simulation
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters _gpar0
+include "/home/work/gpdk090_v4.6/libs.oa22/gpdk090/../../models/spectre/gpdk090.scs" section=NN
+include "/home/work/gpdk045_v_5_0/gpdk045/../models/spectre/gpdk045.scs" section=mc
+
+// Library name: CMOSinverter_001
+// Cell name: CMOSinverter
+// View name: schematic
+subckt CMOSinverter GND VDD Vin Vout
+    FirstINV (Vout Vin GND GND) gpdk090_nmos1v w=(120n) l=100n as=69.6f \
+        ad=69.6f ps=1.16u pd=1.16u m=(1)*(1) simM=(1)*(1)
+    FirstPMOS (Vout Vin VDD VDD) gpdk090_pmos1v w=(120n) l=100n as=69.6f \
+        ad=69.6f ps=1.16u pd=1.16u m=(1)*(1) simM=(1)*(1)
+ends CMOSinverter
+// End of subcircuit definition.
+
+// Library name: CMOSinverter_001
+// Cell name: CMOSinverter_Simulation
+// View name: schematic
+I0 (0 vdd! Vin Vout) CMOSinverter
+V0 (vdd! 0) vsource dc=1 type=dc
+V1 (Vin 0) vsource type=pulse val0=1 val1=0 period=20n rise=50p \
+        fall=_gpar0 width=10n
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=100n errpreset=moderate write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+dcOp dc write="spectre.dc" maxiters=150 maxsteps=10000 annotate=status
+dcOpInfo info what=oppoint where=rawfile
+dc dc dev=V1 param=dc start=0 stop=1 oppoint=rawfile maxiters=150 \
+    maxsteps=10000 annotate=status
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save I0:2 
+saveOptions options save=allpub

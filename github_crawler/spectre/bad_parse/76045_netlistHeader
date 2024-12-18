@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Oct  5 21:18:49 2017
+// Design library name: example
+// Design cell name: rc_lpf
+// Design view name: schematic
+simulator lang=spectre
+global 0

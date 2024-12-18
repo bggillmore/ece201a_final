@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Oct 17 00:35:10 2024
+// Design library name: lab3_khup
+// Design cell name: sim_part2_circuit
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!

@@ -1,0 +1,35 @@
+simulator lang=spectre
+
+*spectre 459_lab4.scs +log 459_lab4.log
+*spectremdl -batch 459_lab4.mdl -design  459_lab4.scs +log 459_lab4.log   
+*simple inverter
+
+include "YOUR_GPDK_LIBRARY.scs" section=tt
+parameters w_p=600n w_n=300n l_p=100n l_n=100n
+
+parameters vdd=1.1 vs=0
+parameters init_a=vdd
+parameters term_a=vdd
+
+global 0 vdd!
+*tranname drain gate source body modulename W L
+mp0 (inv_out inv_in vdd! vdd!)	g45p1svt w=w_p l=l_p 
+mn0 (inv_out inv_in 0 0) 		g45n1svt w=w_n l=l_n
+
+
+vdd_s (vdd! 0) vsource dc=vdd type=dc 
+simOptions options temp=25
+
+v1 (inv_in 0) vsource dc=vs type=pulse val0=init_a val1=term_a period=10u rise=5p fall=5p width=5u 
+trans1 tran stop=50u method =trap 
+
+outputInfo info what=output where=logfile 
+element info what=inst where=logfile
+
+init_val  paramset{
+init_a term_a 
+0 0 
+0 vdd
+vdd 0
+vdd vdd
+}

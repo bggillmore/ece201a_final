@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Apr 27 21:43:22 2018
+// Design library name: 6218_Final_Project
+// Design cell name: Neural_Amp
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!

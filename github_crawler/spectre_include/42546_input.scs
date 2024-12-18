@@ -1,0 +1,35 @@
+// Generated for: spectre
+// Generated on: Oct 17 23:13:51 2017
+// Design library name: hw3_p3
+// Design cell name: p3
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters vin=0
+include "/afs/ir.stanford.edu/class/ee315/models/ee315.mod"
+include "/afs/.ir.stanford.edu/users/l/e/lenius/ee315/cadence/opus/hw3_save_op.scs"
+
+// Library name: hw3_p3
+// Cell name: p3
+// View name: schematic
+MN (out vdd! in 0) nmos w=10u l=0.18u
+V1 (in 0) vsource dc=vin type=dc
+V0 (vdd! 0) vsource dc=1.8 type=dc
+MP (out 0 in vdd!) pmos w=35.2u l=0.18u
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+dcOp dc write="spectre.dc" save=all print=yes maxiters=150 maxsteps=10000 \
+    annotate=status
+dcOpInfo info what=oppoint where=rawfile
+dc dc param=vin start=0 stop=1.8 save=all print=yes oppoint=rawfile \
+    maxiters=150 maxsteps=10000 annotate=status
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts  where=rawfile
+save in out 
+saveOptions options save=all currents=all

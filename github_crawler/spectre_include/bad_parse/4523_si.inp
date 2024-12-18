@@ -1,0 +1,96 @@
+// Default Spectre Simulation run title card.
+
+
+// Generated for: spectre
+// Generated on: Oct 27 14:04:27 2024
+// Design library name: lab4_khup
+// Design cell name: ring_osc
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+
+
+// Included Model Files
+
+include "$CDK_DIR/models/spectre/standalone/ami06N.m"
+
+include "$CDK_DIR/models/spectre/standalone/ami06P.m"
+
+
+
+// Library name: lab4_khup
+// Cell name: PMOS_IV_3
+// View name: schematic
+subckt PMOS_IV_3 D G S
+    P0 (D G S vdd!) ami06P w=6u l=600n as=9e-12 ad=9e-12 ps=15.0u pd=15.0u \
+        m=1 region=sat
+ends PMOS_IV_3
+// End of subcircuit definition.
+
+// Library name: lab4_khup
+// Cell name: NMOS_IV_3
+// View name: schematic
+subckt NMOS_IV_3 D G S
+    N0 (D G S 0) ami06N w=2.4u l=600n as=3.6e-12 ad=3.6e-12 ps=7.8u \
+        pd=7.8u m=1 region=sat
+ends NMOS_IV_3
+// End of subcircuit definition.
+
+// Library name: lab4_khup
+// Cell name: inv
+// View name: schematic
+subckt inv in out
+    I6 (out in vdd!) PMOS_IV_3
+    V2 (0 0) vsource type=dc dc=0
+    V0 (vdd! 0) vsource type=dc dc=5
+    I7 (out in 0) NMOS_IV_3
+ends inv
+// End of subcircuit definition.
+
+// Library name: lab4_khup
+// Cell name: ring_osc
+// View name: schematic
+I20 (net3 Out) inv
+I19 (net4 net3) inv
+I18 (net5 net4) inv
+I17 (net6 net5) inv
+I16 (net7 net6) inv
+I15 (net9 net7) inv
+I14 (net8 net9) inv
+I13 (net11 net8) inv
+I12 (net10 net11) inv
+I11 (net12 net10) inv
+I10 (net13 net12) inv
+I9 (net14 net13) inv
+I8 (net15 net14) inv
+I7 (net16 net15) inv
+I6 (net17 net16) inv
+I5 (net18 net17) inv
+I4 (net19 net18) inv
+I3 (net20 net19) inv
+I2 (net21 net20) inv
+I1 (net22 net21) inv
+I0 (Out net22) inv
+V0 (vdd! 0) vsource type=dc dc=5
+
+// Spectre Source Statements
+
+// Spectre Analyses and Output Options Statements
+
+// Output Options
+simOptions options
+//+      reltol = 1.00000000E-03
+//+      vabstol = 1.00000000E-06
+//+      iabstol = 1.00000000E-12
+//+      temp = 27
+//+      save = allpub
+//+      currents = selected
+
+// Analyses
+// dc1 dc oppoint=logfile homotopy=all
+tran1 tran start=0 stop=80n step=0.1n errpreset=moderate
+
+
+
+
+// End of Netlist

@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Oct 30 16:41:51 2018
+// Design library name: ECE_6240_Digial
+// Design cell name: lab9_b_inv_tb2
+// Design view name: config
+simulator lang=spectre binding=vlog  
+global 0 vdd!

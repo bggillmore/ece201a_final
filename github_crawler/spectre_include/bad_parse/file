@@ -1,0 +1,1715 @@
+91723_inv1x2.scs:include "libs/spectre/7nm_TT.scs"
+56048_1t1r_g_idx_1_loads_subcircuit.scs:ahdl_include "1t1r_g_idx_1_analog_mux.va"
+58624_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+58624_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+58624_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+58624_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+58624_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+58624_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+58624_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmosws
+58624_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+30701_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+30701_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+30701_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+30701_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+30701_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+30701_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+30701_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+30701_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+45631_mtj_lib.scs:include "mtj_subcircuit.scs"
+78394_include_tt.scs:// include process libraries
+78394_include_tt.scs:include "KTH_P20_FET_v1.scs"
+26097_VM_pss.scs:include "/cad/library/TSMC/65/lp/tsmcN65/../models/spectre/toplevel.scs" section=tt_lib 
+26097_VM_pss.scs:ahdl_include "/cad/tools/cadencetools/IC618/tools/dfII/samples/artist/rfLib/balun/veriloga/veriloga.va"
+50556_sdc.sp:include "/home/grads/dharx027/All_research/model_files/nmosedu_50nm/model_file_50nm.inc"
+50556_sdc.sp:include "./save_param.scs"
+50556_sdc.sp:include "./7nm_TT_160803.pm"
+69826_TB_comp.scs:include "/home/techfile/IBM65nm/IBM_PDK/cmos10lpe/V1.6.0.0RF/Spectre/models/design.scs"
+1803_vga.sp:.include "7nm_TT_160803.pm"
+1803_vga.sp:.include "save.scs"
+71079_reset_comparator_module.scs:// include "/opt/technology/tsmc40nm_18/tsmcN40/../models/spectre/toplevel.scs" section=top_tt
+28321_test_netlist.scs:include "/cad/library/TSMC/65/lp/tsmcN65/../models/spectre/toplevel.scs" section=tt_lib
+26494_vga.sp:include "./model_file_50nm.inc"
+10115_netlist:.include '../../../../../../library.sp'
+1674_statistics_line.cir.spectre://include "/usr/local/cadence/ic-5.1.41usr5/tools/dfII/samples/artist/ahdlLib/quantity.spectre"
+5979_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+5979_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+5979_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+5979_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+5979_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+5979_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+5979_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+5979_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+37036_.includedModels:include "nfet.scs"
+37036_.includedModels:include "pfet.scs"
+8471_input.scs:include "/home/ic5.1/tools/dfII/samples/artist/ahdlLib/quantity.spectre"
+8471_input.scs:include "/home/AMS_3.70/spectre/s35/mcparams.scs"
+8471_input.scs:include "/home/AMS_3.70/spectre/s35/cmos53.scs" section=cmostm
+8471_input.scs:include "/home/AMS_3.70/spectre/s35/res.scs" section=restm
+8471_input.scs:include "/home/AMS_3.70/spectre/s35/cap.scs" section=captm
+8471_input.scs:include "/home/AMS_3.70/spectre/s35/vbic.scs" section=biptm
+8471_input.scs:include "/home/AMS_3.70/spectre/s35/ind.scs" section=indtm
+65693_.includedModels:include "modn.scs"
+65693_.includedModels:include "modp.scs"
+85155_ctle.sp:.include "7nm_TT_160803.pm"
+85155_ctle.sp:.include "save.scs"
+59493_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20N.m"
+59493_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20P.m"
+92624_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06N.m"
+92624_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06P.m"
+94313_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20N.m"
+94313_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20P.m"
+30222_NAND2.spi:include "~/cadence/cellcharacs/model18.spi"
+30222_NAND2.spi:include "~/cadence/cellcharacs/cell18.spi"
+13671_RankingR3_r1to8_fo8.scs:include "<path/to/model/files>"
+73048_input.scs:include "/home/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+64150_input.scs:include "/root/Desktop/Cadence/ncsu-FreePDK15/hspice_16nm_lstp.include"
+49971_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+49971_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+49971_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+49971_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+49971_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+49971_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+49971_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmoswz
+49971_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+76827_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20N.m"
+76827_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20P.m"
+5959_subckt.cir.spectre://include "/usr/local/cadence/ic-5.1.41usr5/tools/dfII/samples/artist/ahdlLib/quantity.spectre"
+83905_netlist.txt:include "/home/apps/cadence/save_only_net.sp"
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_lvt050
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_sp_7v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_sp_10v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmls_35v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmls_6v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_6v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_10v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmlsn_24v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhsn_20v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_7v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_10v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldm_iso_7v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldm_iso_10v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_dio_esd
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_svt050
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_dea_nbl_40v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_dea_nbl_30v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_dea_nbl_20v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_dea_nbl_7v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_40v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_30v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_20v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_18v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_7v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=typ_cap
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_svt018
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_40v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_30v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_20v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_7v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmls_40v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmls_30v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmls_24v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhsn_12v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_35v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_30v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_24v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_20v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_16v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_12v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldm_iso_20v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldm_iso_16v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_bip
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_mom
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_ecel
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_eecel
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=setup
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_dea_nbl_12v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_12v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_des_ftr_18v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_iso_7v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_iso_20v
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_esd
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=typ_res
+83905_netlist.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_dio
+56753_gpdk045_inductor.scs:include "gpdk045_inductor.scs" section=ind
+56753_gpdk045_inductor.scs:include "gpdk045_inductor.scs" section=ind
+56753_gpdk045_inductor.scs:include "gpdk045_inductor.scs" section=ind
+56753_gpdk045_inductor.scs:include "gpdk045_inductor.scs" section=stat_ind
+56753_gpdk045_inductor.scs:include "gpdk045_inductor.scs" section=ind
+94234_rram_synapse.scs:ahdl_include "/opt/technology/rram/arizona_imec/rram.va"
+68199_Leung_NMCNR_Pin_3:include "/home/soc/zhihc21/0_Cadence_Lib/T22/PDK/tsmcN22/../models/spectre/toplevel.scs" section=top_tt
+35862_459_lab4.scs:include "YOUR_GPDK_LIBRARY.scs" section=tt
+5553_input.scs:include "nmos1.scs" section=nom
+5553_input.scs:include "pmos1.scs" section=nom
+98998_.includedModels:include "gpdk090_nmos1v.scs"
+98998_.includedModels:include "gpdk090_pmos1v.scs"
+95173_nand2.spi:include "~/cadence/cellcharacs/model18.spi"
+95173_nand2.spi:include "~/cadence/cellcharacs/cell18.spi"
+37965_.includedModels:include "tsmc20N.scs"
+37965_.includedModels:include "tsmc20P.scs"
+21544_.includedModels:include "tsmc18dN.scs"
+21544_.includedModels:include "tsmc18dP.scs"
+30504_ac_mf_log_vbc.sc:include "model-card-hicumL2V2p2.lib"
+30504_ac_mf_log_vbc.sc:ahdl_include "hicumL2V2p2.va"
+24919_testbench_implyv2.scs:include "imply/imply.scs"
+24919_testbench_implyv2.scs:include "../cmos/transmission.scs"
+98904_netlist_incorrect.txt:include "/home/apps/cadence/save_only_net.sp"
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_lvt050
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_sp_7v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_sp_10v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmls_35v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmls_6v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_6v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_10v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmlsn_24v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhsn_20v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_7v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_10v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldm_iso_7v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldm_iso_10v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_dio_esd
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_svt050
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_dea_nbl_40v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_dea_nbl_30v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_dea_nbl_20v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_dea_nbl_7v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_40v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_30v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_20v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_18v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_7v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=typ_cap
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_svt018
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_40v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_30v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_20v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_7v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmls_40v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmls_30v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmls_24v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhsn_12v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_35v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_30v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_24v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_20v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_16v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_12v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldm_iso_20v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldm_iso_16v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_bip
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_mom
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_ecel
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_eecel
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=setup
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_dea_nbl_12v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_12v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_des_ftr_18v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_iso_7v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_iso_20v
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_esd
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=typ_res
+98904_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_dio
+89296_typical_D0001_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/BUFX4.design/simulate/subckt"
+89296_typical_D0001_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/AMI06N.device/simulate/model"
+89296_typical_D0001_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/AMI06P.device/simulate/model"
+42676_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+42676_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+42676_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+42676_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+42676_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+42676_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+42676_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmoswp
+42676_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+17698_7nmLib.scs:    include "TT.scs"
+17698_7nmLib.scs://    include "7nm_FF.scs"
+17698_7nmLib.scs://    include "7nm_SS.scs"
+17698_7nmLib.scs://    include "7nm_FS.scs"
+17698_7nmLib.scs://    include "7nm_SF.scs"
+33050_input.scs:include "/home/ecelrc/students/agroszewski/lpr/schematics/models/32nm_LP.pm"
+75215_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+75215_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+75215_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+75215_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+75215_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+75215_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+75215_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+75215_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+35570_RankingR3_jtlchain_nonamplifying.scs:include "<path/to/model/files>"
+54007_tb_presized_OTA.netlist:include "/homes/user/stud/spring20/pk171/Cadence/models/tsmc025.scs"
+15107_si.inp:include "/usr/local/cadence/IC618/tools.lnx86/dfII/local/ncsu-cdk-1.6.0.beta/models/spectre/standalone/ami06N.m"
+15107_si.inp:include "/usr/local/cadence/IC618/tools.lnx86/dfII/local/ncsu-cdk-1.6.0.beta/models/spectre/standalone/ami06P.m"
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=tt
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=tt_hvt
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=tt_lvt
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=tt_na
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=tt_18
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=tt_na18
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=tt_mos_var
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=tt_mos18_var
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=tt_dio
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=tt_dio_hvt
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=tt_dio_lvt
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=tt_dio_na
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=tt_dio_18
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=tt_dio_na18
+91979_gpdk045.scs:include "gpdk045_bipolar.scs" section=tt_bjt_pnp
+91979_gpdk045.scs:include "gpdk045_bipolar.scs" section=tt_bjt_npn
+91979_gpdk045.scs:include "gpdk045_mimcap.scs" section=tt3_mim
+91979_gpdk045.scs:include "gpdk045_moscap.scs" section=ttcap
+91979_gpdk045.scs:include "gpdk045_moscap.scs" section=ttcap_18
+91979_gpdk045.scs:include "gpdk045_resistor.scs" section=tt_res
+91979_gpdk045.scs:include "gpdk045_resistor.scs" section=tt_res3
+91979_gpdk045.scs:include "gpdk045_inductor.scs" section=tt_ind
+91979_gpdk045.scs:include "gpdk045_soa.scs" section=OFF
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ff
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ff_hvt
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ff_lvt
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ff_na
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ff_18
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ff_na18
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ff_mos_var
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ff_mos18_var
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ff_dio
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ff_dio_hvt
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ff_dio_lvt
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ff_dio_na
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ff_dio_18
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ff_dio_na18
+91979_gpdk045.scs:include "gpdk045_bipolar.scs" section=ff_bjt_pnp
+91979_gpdk045.scs:include "gpdk045_bipolar.scs" section=ff_bjt_npn
+91979_gpdk045.scs:include "gpdk045_mimcap.scs" section=ff3_mim
+91979_gpdk045.scs:include "gpdk045_moscap.scs" section=ffcap
+91979_gpdk045.scs:include "gpdk045_moscap.scs" section=ffcap_18
+91979_gpdk045.scs:include "gpdk045_resistor.scs" section=ff_res
+91979_gpdk045.scs:include "gpdk045_resistor.scs" section=ff_res3
+91979_gpdk045.scs:include "gpdk045_inductor.scs" section=ff_ind
+91979_gpdk045.scs:include "gpdk045_soa.scs" section=OFF
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ss
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ss_hvt
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ss_lvt
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ss_na
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ss_18
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ss_na18
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ss_mos_var
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ss_mos18_var
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio_hvt
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio_lvt
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio_na
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio_18
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio_na18
+91979_gpdk045.scs:include "gpdk045_bipolar.scs" section=ss_bjt_pnp
+91979_gpdk045.scs:include "gpdk045_bipolar.scs" section=ss_bjt_npn
+91979_gpdk045.scs:include "gpdk045_mimcap.scs" section=ss3_mim
+91979_gpdk045.scs:include "gpdk045_moscap.scs" section=sscap
+91979_gpdk045.scs:include "gpdk045_moscap.scs" section=sscap_18
+91979_gpdk045.scs:include "gpdk045_resistor.scs" section=ss_res
+91979_gpdk045.scs:include "gpdk045_resistor.scs" section=ss_res3
+91979_gpdk045.scs:include "gpdk045_inductor.scs" section=ss_ind
+91979_gpdk045.scs:include "gpdk045_soa.scs" section=OFF
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=fs
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=fs_hvt
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=fs_lvt
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=fs_na
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=fs_18
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=fs_na18
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ss_mos_var
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ss_mos18_var
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio_hvt
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio_lvt
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio_na
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio_18
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio_na18
+91979_gpdk045.scs:include "gpdk045_bipolar.scs" section=ss_bjt_pnp
+91979_gpdk045.scs:include "gpdk045_bipolar.scs" section=ss_bjt_npn
+91979_gpdk045.scs:include "gpdk045_mimcap.scs" section=ss3_mim
+91979_gpdk045.scs:include "gpdk045_moscap.scs" section=fscap
+91979_gpdk045.scs:include "gpdk045_moscap.scs" section=fscap_18
+91979_gpdk045.scs:include "gpdk045_resistor.scs" section=ss_res
+91979_gpdk045.scs:include "gpdk045_resistor.scs" section=ss_res3
+91979_gpdk045.scs:include "gpdk045_inductor.scs" section=ss_ind
+91979_gpdk045.scs:include "gpdk045_soa.scs" section=OFF
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=sf
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=sf_hvt
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=sf_lvt
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=sf_na
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=sf_18
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=sf_na18
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ss_mos_var
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=ss_mos18_var
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio_hvt
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio_lvt
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio_na
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio_18
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=ss_dio_na18
+91979_gpdk045.scs:include "gpdk045_bipolar.scs" section=ss_bjt_pnp
+91979_gpdk045.scs:include "gpdk045_bipolar.scs" section=ss_bjt_npn
+91979_gpdk045.scs:include "gpdk045_mimcap.scs" section=ss3_mim
+91979_gpdk045.scs:include "gpdk045_moscap.scs" section=sfcap
+91979_gpdk045.scs:include "gpdk045_moscap.scs" section=sfcap_18
+91979_gpdk045.scs:include "gpdk045_resistor.scs" section=ss_res
+91979_gpdk045.scs:include "gpdk045_resistor.scs" section=ss_res3
+91979_gpdk045.scs:include "gpdk045_inductor.scs" section=ss_ind
+91979_gpdk045.scs:include "gpdk045_soa.scs" section=OFF
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=stat
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=mc
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=mc_hvt
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=mc_lvt
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=mc_na
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=mc_18
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=mc_na18
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=mc_mos_var
+91979_gpdk045.scs:include "gpdk045_mos.scs" section=mc_mos18_var
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=mc_dio
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=mc_dio_hvt
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=mc_dio_lvt
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=mc_dio_na
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=mc_dio_18
+91979_gpdk045.scs:include "gpdk045_diode.scs" section=mc_dio_na18
+91979_gpdk045.scs:include "gpdk045_bipolar.scs" section=mc_bjt_pnp
+91979_gpdk045.scs:include "gpdk045_bipolar.scs" section=mc_bjt_npn
+91979_gpdk045.scs:include "gpdk045_mimcap.scs" section=mc3_mim
+91979_gpdk045.scs:include "gpdk045_moscap.scs" section=mccap
+91979_gpdk045.scs:include "gpdk045_moscap.scs" section=mccap_18
+91979_gpdk045.scs:include "gpdk045_resistor.scs" section=mc_res
+91979_gpdk045.scs:include "gpdk045_resistor.scs" section=mc_res3
+91979_gpdk045.scs:include "gpdk045_inductor.scs" section=mc_ind
+91979_gpdk045.scs:include "gpdk045_soa.scs" section=OFF
+76894_testbench.scs:include "./op.scs"
+40666_.includedModels:include "tsmc20N.scs"
+40666_.includedModels:include "tsmc20P.scs"
+93491_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06N.m"
+93491_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06P.m"
+64165_simcap.spi:include "~/cadence/cellcharacs/model18.spi"
+64165_simcap.spi:include "~/cadence/cellcharacs/cell18.spi"
+90405_.includedModels:include "nfet.scs"
+90405_.includedModels:include "pfet.scs"
+22449_fg_vce.sc:include "model-card-hicumL2V2p2.lib"
+22449_fg_vce.sc:ahdl_include "hicumL2V2p2.va"
+51195_include_ss.scs:// include process libraries
+51195_include_ss.scs:include "ami06.scs" section=SS
+48289_tb_step_sch.sp:include "/home/ff/ee241/spring20-labs/asap7PDK_r1p5/models/hspice/7nm_TT.pm"
+48289_tb_step_sch.sp:ahdl_include "bin2therm4to16.va"
+48289_tb_step_sch.sp:ahdl_include "bin2therm3to8.va"
+48289_tb_step_sch.sp:ahdl_include "adc_3bit.va"
+48289_tb_step_sch.sp:ahdl_include "adc_8bit.va"
+10424_netlist:.include '../../../../library.sp'
+11940_foldedcascode_cmfb_PTM14nm.scs:include "/shares/techfile/PTM/Finfet14nm/Finfet_HP_14nm.scs"
+58638_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06N.m"
+58638_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06P.m"
+29579_459_lab2.scs:include "YOUR_GPDK_LIBRARY.scs" section=tt
+48390_spiceModels.scs:include "/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" amsd_subckt_bind=yes
+2918_arizona_rram_1t1r.scs:include "/opt/technology/tsmc40nm_18/tsmcN40/../models/spectre/toplevel.scs" section=top_localmconly
+2918_arizona_rram_1t1r.scs:include "../ommit/arizona_rram_cells.scs"
+2918_arizona_rram_1t1r.scs:include "rram_characterization_simulation.scs"
+72844_RankingR3_Fig11_r6to8_FO3.scs:include "<path/to/model/files>"
+94413_AP-CNFET.netlist:ahdl_include "../lib/AP-CNFET/veriloga/veriloga.va"
+94413_AP-CNFET.netlist:ahdl_include "/opt/IC617/tools/dfII/samples/artist/ahdlLib/analog_mux/veriloga/veriloga.va"
+3048_Peng_TCFC_Pin_3:include "/home/soc/zhihc21/0_Cadence_Lib/T22/PDK/tsmcN22/../models/spectre/toplevel.scs" section=top_tt
+43091_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=res
+43091_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=res
+43091_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=res
+43091_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=stat_res
+43091_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=res
+43091_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=res_3t       
+43091_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=res_3t
+43091_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=res_3t
+43091_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=stat_res3  
+43091_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=res_3t                                 
+71168_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+71168_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+71168_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+71168_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+71168_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+71168_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+71168_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+71168_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+90377_nor6.sp:include "st65.scs"
+75866_VM_S11.scs:include "/cad/library/TSMC/65/lp/tsmcN65/../models/spectre/toplevel.scs" section=tt_lib 
+91657_NAND2_delaytable.spi:include "~/cadence/cellcharacs/model18.spi"
+91657_NAND2_delaytable.spi:include "~/cadence/cellcharacs/cell18.spi"
+49474_RankingR3_Fig10_amplJTLchain_r6to8.scs:include "<path/to/model/files>"
+94713_LDO_netlist.scs:include "/home/centos/path/to/example/model.scs" section=tt
+57056_input.scs:include "/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/Spectre/FinFETS.scs"
+61508_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+61508_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+61508_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+61508_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+61508_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+61508_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+61508_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+61508_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+15762_testbench_implyv2.scs:include "imply/imply.scs"
+15762_testbench_implyv2.scs:include "../cmos/transmission.scs"
+77747_spiceModels.scs:include "/software/cadence/ncsu-FreePDK15/PTM-MG/Spectre/FinFETS.scs" amsd_subckt_bind=yes
+1434__includedModels:include "ami06N.scs"
+1434__includedModels:include "ami06P.scs"
+3856_input.scs:include "/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+11481_1t1r_g_idx_0_loads_subcircuit.scs:ahdl_include "1t1r_g_idx_0_analog_mux.va"
+65470_netlist:.include '../../../../library.sp'
+99071_include_ss.scs:// include process libraries
+99071_include_ss.scs:include "ami06.scs" section=SS
+84274_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+84274_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+84274_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+84274_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+84274_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+84274_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+84274_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmosws
+84274_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+12509_input.scs:include "/tools/tstech16/CLN16FFC/PDK/tsmcN16/../models/toplevel.scs" section=top_tt
+36300_1t1r_g_idx_3_loads_subcircuit.scs:ahdl_include "1t1r_g_idx_3_analog_mux.va"
+70474_inverter_delaytable.spi:include "~/cadence/cellcharacs/model18.spi"
+70474_inverter_delaytable.spi:include "~/cadence/cellcharacs/cell18.spi"
+90368_nand2.spi:include "~/cadence/cellcharacs/model18.spi"
+90368_nand2.spi:include "~/cadence/cellcharacs/cell18.spi"
+14291_include_ff.scs:// include process libraries
+14291_include_ff.scs:include "ami06.scs" section=FF
+20316_input.scs:include "/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+55012_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+55012_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+55012_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+55012_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+55012_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+55012_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+55012_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+55012_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+40100_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/mismatch.scs" section=no
+40100_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/mismatch_switch.scs" section=alignment
+40100_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/rgateswitch_all.scs" section=no
+40100_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/common_go1.scs" section=TT
+40100_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/common_poly_cd.scs" section=TT
+40100_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/common_poly_res.scs" section=TT
+40100_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/common_active_cd.scs" section=TT
+40100_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/common_active_res.scs" section=TT
+40100_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/svtgp.scs" section=TT
+40100_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/svtlp.scs" section=TT
+40100_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/diodeiso.scs" section=typ
+10587_nmos.scs:include "nmos1.scs" section=stat
+19851_tb_step_sch.sp:include "/home/ff/ee241/spring20-labs/asap7PDK_r1p5/models/hspice/7nm_TT.pm"
+19851_tb_step_sch.sp:ahdl_include "bin2therm4to16.va"
+19851_tb_step_sch.sp:ahdl_include "bin2therm3to8.va"
+19851_tb_step_sch.sp:ahdl_include "adc_3bit.va"
+19851_tb_step_sch.sp:ahdl_include "adc_8bit.va"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "userDisciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "userDisciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "userDisciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "userDisciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "userDisciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "userDisciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "userDisciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "userDisciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "userDisciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "userDisciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:// Updated:  09/08/06 (jlz)  - Added include disciplines.vams so electrical
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "disciplines.vams"
+21625_completeDesignInfo.ckt:`include "userDisciplines.vams"
+14223_input.scs:include "/tools/tstech16/CLN16FFC/PDK/tsmcN16/../models/toplevel.scs" section=top_tt
+96837_rram_1t1r_nch_11_cell_custom_parasitics.scs:ahdl_include "/opt/technology/rram/arizona_imec/rram.va"
+83840_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+83840_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+83840_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+83840_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+83840_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+83840_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+83840_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+83840_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+77272_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=res
+77272_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=res
+77272_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=res
+77272_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=stat_res
+77272_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=res
+77272_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=res_3t       
+77272_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=res_3t
+77272_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=res_3t
+77272_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=stat_res3  
+77272_gpdk045_resistor.scs:include "gpdk045_resistor.scs" section=res_3t                                 
+35154_out_0.scs:include "/mnt/tools/projects/erichang/cds_ff_mpt/ddr_cds_ff_mpt/cds_ff_mpt/netlist_setup/spectre_prim.scs"
+237_out_2.scs:include "/scratch/projects/erichang/cds_ff_mpt/ddr_cds_ff_mpt/cds_ff_mpt/netlist_setup/spectre_prim.scs"
+11931_input.scs:include "/uusoc/facility/cad_common/local/class/6710/F13/cadence/Spectre/T89Y.scs"
+9438_tb_step_sch_meas.sp:include "/home/ff/ee241/spring20-labs/asap7PDK_r1p5/models/hspice/7nm_TT.pm"
+9438_tb_step_sch_meas.sp:ahdl_include "bin2therm4to16.va"
+9438_tb_step_sch_meas.sp:ahdl_include "bin2therm3to8.va"
+9438_tb_step_sch_meas.sp:ahdl_include "adc_3bit.va"
+9438_tb_step_sch_meas.sp:ahdl_include "adc_8bit.va"
+77450_input.scs:include "/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+24920_CM_iip3.scs:include "/cad/library/TSMC/65/lp/tsmcN65/../models/spectre/toplevel.scs" section=tt_lib
+2487_include_tt.scs:// include process libraries
+2487_include_tt.scs:include "KTH_P20_FET_v1.scs"
+42546_input.scs:include "/afs/ir.stanford.edu/class/ee315/models/ee315.mod"
+42546_input.scs:include "/afs/.ir.stanford.edu/users/l/e/lenius/ee315/cadence/opus/hw3_save_op.scs"
+45542_.includedModels:include "nmos.scs"
+45542_.includedModels:include "pmos.scs"
+14064_.includedModels:include "nfet.scs"
+14064_.includedModels:include "pfet.scs"
+36994_testbench_imply.scs:include "pershin-current-threshold/imply/imply.scs"
+36994_testbench_imply.scs:include "../cmos/transmission.scs"
+64835_memristor_rtn.scs:include "variability.scs"
+52737_spectre_test0.scs:include "./ptm_hspice/130nm_bulk.pm"
+63818_foldedcascode_cmfb_PTM45nm.scs:include "/shares/techfile/PTM/45nm/Techfile_45nm.scs"
+76691_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+76691_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+76691_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+76691_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+76691_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+76691_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+76691_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+76691_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+62533_tb.scs:ahdl_include "../mram_lib/mtj_structure.va"
+91153_ctle.sp:include "./model_file_50nm.inc"
+12309_fo_vce.sc:include "model-card-hicumL2V2p2.lib"
+12309_fo_vce.sc:ahdl_include "hicumL2V2p2.va"
+36609_si.inp:include "/usr/local/cadence/IC618/tools.lnx86/dfII/local/ncsu-cdk-1.6.0.beta/models/spectre/standalone/ami06N.m"
+36609_si.inp:include "/usr/local/cadence/IC618/tools.lnx86/dfII/local/ncsu-cdk-1.6.0.beta/models/spectre/standalone/ami06P.m"
+56219_OTA_XT_MAGICAL_test.sp:include "toplevel.scs" section=top_tt
+56219_OTA_XT_MAGICAL_test.sp:include "OTA_XT_MAGICAL.sp"
+46122_typical_D0000_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/BUFX8.design/simulate/subckt"
+46122_typical_D0000_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/AMI06N.device/simulate/model"
+46122_typical_D0000_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/AMI06P.device/simulate/model"
+33109_.includedModels:include "tsmc20N.scs"
+33109_.includedModels:include "tsmc20P.scs"
+59892_simcap.spi:include "~/cadence/cellcharacs/model18.spi"
+59892_simcap.spi:include "~/cadence/cellcharacs/cell18.spi"
+41224_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+41224_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+41224_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+41224_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+41224_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+41224_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+41224_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+41224_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+77623_example_loads.scs:ahdl_include "1t1r_g_idx_5_analog_mux.va"
+52312_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20P.m"
+52312_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20N.m"
+86485_include_ff.scs:// include process libraries
+86485_include_ff.scs:include "ami06.scs" section=FF
+76264_input.scs:include "./Techfile_45nm.scs"
+76264_input.scs:ahdl_include "/home/Cadence/IC616/tools/dfII/samples/artist/ahdlLib/dac_8bit_ideal/veriloga/veriloga.va"
+47613_inverter.spi:include "~/lchenjie/cadence/lab3/model18.spi"
+47613_inverter.spi:include "~/lchenjie/cadence/lab3/cell18.spi"
+64424_cadence_tutorial.pdftxt:model file that we made is included.  A sub-circuit of our inverter is listed.  Since it 
+64424_cadence_tutorial.pdftxt:is a subcircuit we can include the exact same circuit many times in the overall file. 
+1266_input.scs:include "/auto/ee2/Cadence/local/designkits/BYU/lib/AMI12/models/spectre/allModels.scs"
+4823_Telescopic_Three_stage_flow.sp://include "/usr/local/packages/tsmc_40/pdk/tsmcN40/../models/spectre/toplevel.scs" section=top_tt
+53020_TH.scs:include "PDK_lib.scs" section=SS
+53020_TH.scs:include "./TH_stimuli.scs"
+3200_amsControlSpectre.scs://include "../../../models/tsmc13.scs"
+3200_amsControlSpectre.scs://include "../../../model1/"
+85794_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+85794_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+85794_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+85794_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+85794_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+85794_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+85794_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmoswp
+85794_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+38408_demo.spi:include "~/cadence/cellcharacs/model18.spi"
+38408_demo.spi:include "~/cadence/cellcharacs/cell18.spi"
+86015_input.scs:include "/tools/tstech16/CLN16FFC/PDK/tsmcN16/../models/toplevel.scs" section=top_tt
+78815_COMP_GM_STAGE_0415_test.sp:include "toplevel.scs" section=top_tt
+78815_COMP_GM_STAGE_0415_test.sp:include "COMP_GM_STAGE_0415.sp"
+83235_ESD_MM.scs:ahdl_include "../models/BESD_1_0_0.va"
+66621_out_2.scs:include "/mnt/tools/projects/erichang/cds_ff_mpt/ddr_cds_ff_mpt/cds_ff_mpt/netlist_setup/spectre_prim.scs"
+58515_vga.sp:include "./model_file_50nm.inc"
+30397_.includedModels:include "modn.scs"
+30397_.includedModels:include "modp.scs"
+25045_input.scs:include "/tools/tstech16/CLN16FFC/PDK/tsmcN16/../models/toplevel.scs" section=top_tt
+10878_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+10878_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+10878_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+10878_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+10878_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+10878_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+10878_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmoswo
+10878_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+28580_459_lab1.scs:include "YOUR_GPDK_LIBRARY.scs" section=tt
+27340_mtj_subcircuit.scs:ahdl_include "llg_spherical_solver.va"
+98187_inverter.spi:include "~/cadence/cellcharacs/model18.spi"
+98187_inverter.spi:include "~/cadence/cellcharacs/cell18.spi"
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_rvt12
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_hvt12
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_lvt12
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_io18
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_io25od33
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_io33
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_nvt12
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_nvt12_bpw
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_nvt18
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_nvt18_bpw
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_nvt25od33
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_nvt25od33_bpw
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_nvt33
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_nvt33_bpw
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_bjt
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_diode
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_momcaps
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_ncap12
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_ncap18
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_ncap25
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_ncap33
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_pcap12
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_pcap18
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_pcap25
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_pcap33
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/l65ll_v181.lib.scs" section=tt_ll_res
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/L65LL_RVT12_V101_RF.lib.scs" section=tt
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/L65LL_HVT12_V101_RF.lib.scs" section=tt
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/L65LL_LVT12_V101_RF.lib.scs" section=tt
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/L65LL_IO18_V101_RF.lib.scs" section=tt
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/L65LL_IO25_V101_RF.lib.scs" section=tt
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/L65LL_IO33_V111_RF.lib.scs" section=tt
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/L65LL_VARMIS12_V111_RF.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/L65LL_VARMIS18_V111_RF.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/L65LL_VARMIS25_V121_RF.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/L65LL_VARMIS33_V111_RF.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/L65LL_VARDIOP_V101_RF.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/momcaps_array_vp3_rfvcl_V101.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/momcaps_array_vp4_rfvcl_V101.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/momcaps_array_vp5_rfvcl_V101.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/L65_MIMCAPS_20F_KF_V101_RF.lib.scs" section=tt
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/L65LL_RNPPO_V101_RF.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/L65LL_RNNPO_V101_RF.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/L65LL_RNHR_V101_RF.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/L65_pad_rf_V101.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/VIL/1P8M1T1U/l_sy30k_vil_V111_RF.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/VIL/1P8M1T1U/l_syct30k_vil_V111_RF.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/VIL/1P8M1T1U/l_slcr30k_vil_V111_RF.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/VIL/1P8M1T1U/l_sqsk_vil_V111_RF.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/VTL/1P8M1T1U/l_occtout_trans_rfvil_V101.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/VTL/1P8M1T1U/l_sq_trans_rfvil_V101.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/VTL/1P8M1T1U/l_sqctin_trans_rfvil_V101.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/VTL/1P8M1T1U/l_sqctinout_trans_rfvil_V101.lib.scs" section=typ
+71443_preamble.scs:include "/usr/pack/umc-65-kgf/umc/ll/tech/Designkits/Cadence_6.1/B11_PB/umc65ll/../Models/Spectre/VTL/1P8M1T1U/l_sqctout_trans_rfvil_V101.lib.scs" section=typ
+59895_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+59895_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+59895_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+59895_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+59895_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+59895_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+59895_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmoswo
+59895_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+9221_pnoise.scs:ahdl_include "resistor.va"
+65271_include_tt.scs:// include process libraries
+65271_include_tt.scs:include "KTH_P20_FET_v1.scs"
+82126_netlist:.include '../../../../../../library.sp'
+68442_arizona_rram_1t1r.scs:// include "/opt/technology/tsmc40nm_18/tsmcN40/../models/spectre/toplevel.scs" section=top_globalmc_localmc
+68442_arizona_rram_1t1r.scs:include "/opt/technology/tsmc40nm_18/tsmcN40/../models/spectre/toplevel.scs" section=top_tt
+68442_arizona_rram_1t1r.scs:include "../ommit/arizona_rram_cells.scs"
+68442_arizona_rram_1t1r.scs:include "../ommit/driver_circuitry/full_range/1t1r_g_idx_5_loads_subcircuit.scs"
+68442_arizona_rram_1t1r.scs:include "montecarlo_simulation_intra_device_variability.scs"
+60746_memristor_rtn.scs:include "variability.scs"
+74251_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+74251_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+74251_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+74251_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+74251_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+74251_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+74251_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+74251_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+33576_.includedModels:include "modn.scs"
+33576_.includedModels:include "modp.scs"
+92629_testbench.scs:include "./op.scs"
+35726_tb_presized_OTA.netlist:include "/homes/user/stud/spring20/pk171/Cadence/models/tsmc025.scs"
+17819_input.scs:include "/home/ecelrc/students/agroszewski/lpr/schematics/models/32nm_LP.pm"
+17819_input.scs:include "./_graphical_stimuli.scs"
+61272_.includedModels:include "tsmc20N.scs"
+61272_.includedModels:include "tsmc20P.scs"
+50369_XOR2.spi:include "~/cadence/cellcharacs/model18.spi"
+50369_XOR2.spi:include "~/cadence/cellcharacs/cell18.spi"
+64395_input.scs:include "/home/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+75344_Fan_SMC_Pin_3:include "/home/soc/zhihc21/0_Cadence_Lib/T22/PDK/tsmcN22/../models/spectre/toplevel.scs" section=top_tt
+42450_classab_PTM45nm.scs:include "/shares/techfile/PTM/45nm/Techfile_45nm.scs"
+47847_tb.scs:ahdl_include "../mram_lib/mtj_structure.va"
+48395_xor2.spi:include "~/cadence/cellcharacs/model18.spi"
+48395_xor2.spi:include "~/cadence/cellcharacs/cell18.spi"
+652_Comparator_1to7_0p7_lvt_test.sp:include "toplevel.scs" section=top_tt
+652_Comparator_1to7_0p7_lvt_test.sp:include "Comparator_1to7_0p7_lvt.sp"
+97909_.includedModels:include "modn.scs"
+97909_.includedModels:include "modp.scs"
+15423_demo.spi:include "~/cadence/cellcharacs/model18.spi"
+15423_demo.spi:include "~/cadence/cellcharacs/cell18.spi"
+75074_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06N.m"
+75074_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06P.m"
+75074_input.scs:include "/home/seas/jwcrandall/cadence/simulation/hw2_2_XOR/spectre/extracted/netlist/stimuli/test.txt"
+30022_unsupported_lines_options.cir.spectre://include "/usr/local/cadence/ic-5.1.41usr5/tools/dfII/samples/artist/ahdlLib/quantity.spectre"
+30401_RankingR3_r1to8_fo8.scs:include "<path/to/model/files>"
+41723_inverter.spi:include "~/cadence/cellcharacs/model18.spi"
+41723_inverter.spi:include "~/cadence/cellcharacs/cell18.spi"
+82080_ESD_TLP_equiv.scs:ahdl_include "../models/BESD_1_0_0.va"
+74183_.includedModels:include "nmos.scs"
+74183_.includedModels:include "pmos.scs"
+50621_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06N.m"
+50621_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06P.m"
+87751_input.scs:include "/home/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+39358_foldedcascode_cmfb_PTM14nm.scs:include "/shares/techfile/PTM/Finfet14nm/Finfet_HP_14nm.scs"
+23689_input.scs:include "/home/ecelrc/students/agroszewski/lpr/schematics/models/32nm_LP.pm"
+23689_input.scs:include "./_graphical_stimuli.scs"
+6518_tb_single_SAR.scs:include "/home/qiaochuz/workarea_ee536a/Techfile_45nm.scs"
+6518_tb_single_SAR.scs:ahdl_include "/home/Cadence/IC616/tools/dfII/samples/artist/ahdlLib/dac_8bit_ideal/veriloga/veriloga.va"
+50268_netlist_incorrect.txt:include "/home/apps/cadence/save_only_net.sp"
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_lvt050
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_sp_7v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_sp_10v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmls_35v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmls_6v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_6v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_10v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmlsn_24v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhsn_20v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_7v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_10v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldm_iso_7v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldm_iso_10v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_dio_esd
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_svt050
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_dea_nbl_40v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_dea_nbl_30v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_dea_nbl_20v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_dea_nbl_7v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_40v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_30v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_20v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_18v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_7v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=typ_cap
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_svt018
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_40v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_30v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_20v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_ldm_7v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmls_40v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmls_30v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmls_24v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhsn_12v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_35v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_30v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_24v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_20v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_16v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldmhs_12v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldm_iso_20v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_ldm_iso_16v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_bip
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_mom
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_ecel
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_eecel
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=setup
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_dea_nbl_12v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_12v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_p_des_ftr_18v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_iso_7v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_n_dea_iso_20v
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_esd
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=typ_res
+50268_netlist_incorrect.txt:include "/home/foundry/dongbu/BD180LVA/PDK/IC6.1/DPDK_IC6p1_1830bd15ba_Rev2p2_0_1P4M_Thick_KTSH41_lic26_stu_07ab2/1830bd15ba/../models/Spectre_lib/1830BD15BA_Rev2p2.scs" section=tt_dio
+45067_include_ff.scs:// include process libraries
+45067_include_ff.scs:include "ami06.scs" section=FF
+92240_input.scs:include "/uusoc/facility/cad_common/local/class/6710/F13/cadence/Spectre/T89Y.scs"
+74897_demo.spi:include "~/cadence/cellcharacs/model18.spi"
+74897_demo.spi:include "~/cadence/cellcharacs/cell18.spi"
+40373_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+40373_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+40373_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+40373_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+40373_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+40373_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+40373_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmoswz
+40373_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+79355_XOR2_delaytable.spi:include "~/cadence/cellcharacs/model18.spi"
+79355_XOR2_delaytable.spi:include "~/cadence/cellcharacs/cell18.spi"
+78318_tb_DTC_PNinj.scs:include "/home/qiaochuz/workarea_TSMC65_9M/tsmcN65_mc_mcdell0.scs" section=MC_TT
+78318_tb_DTC_PNinj.scs:ahdl_include "/home/qiaochuz/workarea_TSMC65_9M/chengruhlib_DPLL2017_mcdell0/AtoD_6bit_thermometer_code/veriloga/veriloga.va"
+78318_tb_DTC_PNinj.scs:ahdl_include "/home/jexone/X_LIB_commonIP/basic_mcgroup/AtoD_6bit/veriloga/veriloga.va"
+78318_tb_DTC_PNinj.scs:ahdl_include "/home/qiaochuz/workarea_TSMC65_9M/posh_test_circuits/AtoD_8bit_t_b_hybrid/veriloga/veriloga.va"
+41284_netlistHeader:include "/home/ic5.1/tools/dfII/samples/artist/ahdlLib/quantity.spectre"
+404_input.scs:include "/tools/tstech16/CLN16FFC/PDK/tsmcN16/../models/toplevel.scs" section=top_tt
+63717_netlist:.include '../../../../library.sp'
+57191_netlist:.include '../../../../../../library.sp'
+57292_ESD_HBM.scs:ahdl_include "../models/BESD_1_0_0.va"
+99571_si.inp:include "$CDK_DIR/models/spectre/standalone/ami06N.m"
+99571_si.inp:include "$CDK_DIR/models/spectre/standalone/ami06P.m"
+40325_netlist:.include '../../../../../../library.sp'
+22809_input.scs:include "/tools/tstech16/CLN16FFC/PDK/tsmcN16/../models/toplevel.scs" section=top_tt
+89213_tran.scs:.include 'pll.spi'
+21287_input.scs:include "/tools/tstech16/CLN16FFC/PDK/tsmcN16/../models/toplevel.scs" section=top_tt
+3577_tb_inv.scs:include "/home/qiaochuz/workarea_ee536a/Techfile_45nm.scs"
+62415_.includedModels:include "modn.scs"
+62415_.includedModels:include "modp.scs"
+82870_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+82870_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+82870_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+82870_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+82870_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+82870_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+82870_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmosws
+82870_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+37938_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+37938_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+37938_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+37938_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+37938_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+37938_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+37938_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+37938_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+42757_memristor.scs:include "idealDiode.scs"
+42757_memristor.scs:  // Variability can be included here
+49355_input.scs:include "/root/Desktop/Cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+46519_classab_PTM14nm.scs:include "/shares/techfile/PTM/Finfet14nm/Finfet_HP_14nm.scs"
+20858_mtj_lib.scs:include "mtj_subcircuit.scs"
+5292_include_ss.scs:// include process libraries
+5292_include_ss.scs:include "ami06.scs" section=SS
+75251_pmos.scs:include "pmos1.scs" section=stat
+4287_include_ss.scs:// include process libraries
+4287_include_ss.scs:include "ami06.scs" section=SS
+89052_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_pnp
+89052_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_pnp
+89052_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_pnp
+89052_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_pnp
+89052_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_npn
+89052_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_npn
+89052_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_npn
+89052_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_npn
+62661_testbench_verilog_pmtj.scs:include "model/mtj_subcircuit.scs"
+34035_netlist:.include '../../../../../../library.sp'
+45075_si.inp:include "/usr/local/cadence/IC618/tools.lnx86/dfII/local/ncsu-cdk-1.6.0.beta/models/spectre/standalone/ami06N.m"
+45075_si.inp:include "/usr/local/cadence/IC618/tools.lnx86/dfII/local/ncsu-cdk-1.6.0.beta/models/spectre/standalone/ami06P.m"
+33839_inverter.spi:include "~/cadence/cellcharacs/model18.spi"
+33839_inverter.spi:include "~/cadence/cellcharacs/cell18.spi"
+1612_dut.scs%7E:include "/uusoc/facility/cad_common/local/class/6710/F13/cadence/Spectre/T89Y.scs"
+50081_xor2.spi:include "~/cadence/cellcharacs/model18.spi"
+50081_xor2.spi:include "~/cadence/cellcharacs/cell18.spi"
+8543_nand6.sp:include "st65.scs"
+7206__includedModels:include "ami16N.scs"
+7206__includedModels:include "ami16P.scs"
+30736_memristor_full_variability.scs:include "variability.scs"
+3507_rram_1t1r_nch_11_cell_custom_parasitics.scs:ahdl_include "/opt/technology/rram/arizona_imec/rram.va"
+88292_out_2.scs:include "/mnt/tools/projects/erichang/cds_ff_mpt/ddr_cds_ff_mpt/cds_ff_mpt/netlist_setup/spectre_prim.scs"
+96406_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_pnp
+96406_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_pnp
+96406_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_pnp
+96406_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_pnp
+96406_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_npn
+96406_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_npn
+96406_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_npn
+96406_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_npn
+58126_input.scs:include "/root/Desktop/Cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+48564_foldedcascode_cmfb_PTM32nm.scs:include "/shares/techfile/PTM/32nm/Techfile_32nm.scs"
+47355_adder.sp:include "./save_param.scs"
+47355_adder.sp:include "./7nm_TT_160803.pm"
+11286_arizona_rram_1t1r.scs:// include "/opt/technology/tsmc40nm_18/models/spectre/toplevel.scs" section=top_localmconly
+11286_arizona_rram_1t1r.scs:include "/opt/technology/tsmc40nm_18/tsmcN40/../models/spectre/toplevel.scs" section=top_localmconly
+11286_arizona_rram_1t1r.scs:include "../ommit/arizona_rram_cells.scs"
+11286_arizona_rram_1t1r.scs:include "../ommit/driver_circuitry/clip_range/1t1r_g_idx_5_loads_subcircuit.scs"
+11286_arizona_rram_1t1r.scs:include "montecarlo_simulation_inter_intra_device_variability.scs"
+16339_input.scs:include "/CMC/tools/cadence/IC5141USR6_lnx86/tools/dfII/samples/artist/ahdlLib/quantity.spectre"
+16339_input.scs:include "$CMOSP18_DIR/models/spectre/rf018.scs" section=tt
+16339_input.scs:include "/home/student1/gcascian/ELE734/saveop.scs"
+12690__includedModels:include "ami06N.scs"
+12690__includedModels:include "ami06P.scs"
+74726_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06N.m"
+74726_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06P.m"
+48054_tb_vco_c2mos_ctrlbw_SCH.sp:include "/home/ff/ee241/spring20-labs/asap7PDK_r1p5/models/hspice/7nm_TT.pm"
+48054_tb_vco_c2mos_ctrlbw_SCH.sp:ahdl_include "bin2therm4to16.va"
+48054_tb_vco_c2mos_ctrlbw_SCH.sp:ahdl_include "bin2therm3to8.va"
+48054_tb_vco_c2mos_ctrlbw_SCH.sp:ahdl_include "adc_3bit.va"
+48054_tb_vco_c2mos_ctrlbw_SCH.sp:ahdl_include "adc_8bit.va"
+42238_inverter_delaytable.spi:include "~/lchenjie/cadence/lab3/model18.spi"
+42238_inverter_delaytable.spi:include "~/lchenjie/cadence/lab3/cell18.spi"
+56334_input.scs:include "/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/Spectre/FinFETS.scs"
+91229_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+91229_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+91229_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+91229_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+91229_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+91229_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+91229_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+91229_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+38692_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+38692_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+38692_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+38692_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+38692_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+38692_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+38692_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+38692_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+19701_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+19701_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+19701_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+19701_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+19701_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+19701_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+19701_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+19701_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+77318_Peng_ACBC_Pin_3:include "/home/soc/zhihc21/0_Cadence_Lib/T22/PDK/tsmcN22/../models/spectre/toplevel.scs" section=top_tt
+60910_netlistHeader:include "/usr/local/cadence/IC5141USR5-copied-from-share-instsww/tools/dfII/samples/artist/ahdlLib/quantity.spectre"
+1857_unsupported_lines_options.cir.spectre://include "/usr/local/cadence/ic-5.1.41usr5/tools/dfII/samples/artist/ahdlLib/quantity.spectre"
+40099_netlist:.include '../../../../../../library.sp'
+26504_input.scs:include "/afs/ir.stanford.edu/class/ee315/models/ee315.mod"
+5872_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+5872_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+5872_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+5872_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+5872_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+5872_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+5872_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+5872_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+72319_netlist:.include '../../../../../../library.sp'
+2527_complatch_v2_65_PTM.scs:include "/shares/techfile/PTM/65nm/ptm65_nmos.sp"
+2527_complatch_v2_65_PTM.scs:include "/shares/techfile/PTM/65nm/ptm65_pmos.sp"
+36679_complatch_v2_65_PTM.scs%7E:include "/shares/techfile/PTM/65nm/ptm65_nmos.sp"
+36679_complatch_v2_65_PTM.scs%7E:include "/shares/techfile/PTM/65nm/ptm65_pmos.sp"
+61963_spiceModels.scs:include "/software/cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" amsd_subckt_bind=yes
+58106_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+58106_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+58106_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+58106_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+58106_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+58106_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+58106_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+58106_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+90876_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20N.m"
+90876_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20P.m"
+24874_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+24874_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+24874_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+24874_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+24874_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+24874_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+24874_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+24874_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+32114_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_pnp
+32114_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_pnp
+32114_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_pnp
+32114_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_pnp
+32114_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_npn
+32114_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_npn
+32114_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_npn
+32114_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_npn
+36893_CP.scs:include "/home/centos/path/to/example/model.scs" section=tt
+9247_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_pnp
+9247_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_pnp
+9247_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_pnp
+9247_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_pnp
+9247_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_npn
+9247_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_npn
+9247_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_npn
+9247_gpdk045_bipolar.scs:include "gpdk045_bipolar.scs" section=bjt_npn
+9394_switch_resistance.scs:include "/cad/library/TSMC/65/lp/tsmcN65/../models/spectre/toplevel.scs" section=tt_lib 
+2973_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+2973_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+2973_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+2973_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+2973_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+2973_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+2973_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+2973_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+69319_Sau_CFCC_Pin_3:include "/home/soc/zhihc21/0_Cadence_Lib/T22/PDK/tsmcN22/../models/spectre/toplevel.scs" section=top_tt
+62699_input.scs:include "nmos1.scs" section=stat
+62699_input.scs:include "pmos1.scs" section=stat
+26049_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+26049_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+26049_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+26049_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+26049_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+26049_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+26049_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmoswo
+26049_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+32580_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+32580_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+32580_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+32580_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+32580_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+32580_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+32580_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmoswo
+32580_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+59638_input.scs:include "/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+59102_.includedModels:include "gpdk090_nmos1v.scs"
+59102_.includedModels:include "gpdk090_pmos1v.scs"
+8673_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06N.m"
+8673_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06P.m"
+8673_input.scs:include "/home/seas/jwcrandall/cadence/simulation/hw2_2_XNOR/spectre/extracted/netlist/stimuli/stimulus.txt"
+14360_input.scs:include "/afs/ir.stanford.edu/class/ee315/models/ee315.mod"
+37485_input.scs:include "/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+35830_demo.spi:include "~/cadence/cellcharacs/model18.spi"
+35830_demo.spi:include "~/cadence/cellcharacs/cell18.spi"
+8451_out_0.scs:include "/scratch/projects/erichang/cds_ff_mpt/ddr_cds_ff_mpt/cds_ff_mpt/netlist_setup/spectre_prim.scs"
+35232_input.scs:include "/tools/tstech16/CLN16FFC/PDK/tsmcN16/../models/toplevel.scs" section=top_tt
+83801_arizona_rram_1t1r.scs:// include "/opt/technology/tsmc40nm_18/models/spectre/toplevel.scs" section=top_localmconly
+83801_arizona_rram_1t1r.scs:include "/opt/technology/tsmc40nm_18/tsmcN40/../models/spectre/toplevel.scs" section=top_localmconly
+83801_arizona_rram_1t1r.scs:include "../ommit/arizona_rram_cells.scs"
+83801_arizona_rram_1t1r.scs:include "../ommit/driver_circuitry/full_range/1t1r_g_idx_5_loads_subcircuit.scs"
+83801_arizona_rram_1t1r.scs:include "nominal_simulation.scs"
+30203_include_ss.scs:// include process libraries
+30203_include_ss.scs:include "ami06.scs" section=SS
+13033_input.scs:include "/tools/tstech16/CLN16FFC/PDK/tsmcN16/../models/toplevel.scs" section=top_tt
+55118_sequential_v2_part1_65_PTM.scs:include "/shares/techfile/PTM/65nm/ptm65_nmos.sp"
+55118_sequential_v2_part1_65_PTM.scs:include "/shares/techfile/PTM/65nm/ptm65_pmos.sp"
+2653_tvlsi_2017_full_operation.scs:// should be included by the framework
+2653_tvlsi_2017_full_operation.scs:// include "/opt/technology/tsmc40nm_18/tsmcN40/../models/spectre/toplevel.scs" section=top_tt
+2653_tvlsi_2017_full_operation.scs:include "/opt/technology/tsmc40nm_18/tsmcN40/../models/spectre/toplevel.scs" section=top_globalmc_localmc
+2653_tvlsi_2017_full_operation.scs:ahdl_include "Control.va"
+2653_tvlsi_2017_full_operation.scs:include "rram_1t1r_nch_11_cell_custom_parasitics.scs"
+2653_tvlsi_2017_full_operation.scs:include "reset_comparator_module.scs"
+56853_fo_vce.sc:include "model-card-hicumL2V2p2.lib"
+56853_fo_vce.sc:ahdl_include "hicumL2V2p2.va"
+17123_ota1.sp:// include "/usr/local/packages/tsmc_40/pdk/tsmcN40/../models/spectre/toplevel.scs" section=top_tt
+53188_si.inp:include "/usr/local/cadence/IC618/tools.lnx86/dfII/local/ncsu-cdk-1.6.0.beta/models/spectre/standalone/ami06N.m"
+53188_si.inp:include "/usr/local/cadence/IC618/tools.lnx86/dfII/local/ncsu-cdk-1.6.0.beta/models/spectre/standalone/ami06P.m"
+14730_nmos.scs:include "nmos1.scs" section=stat
+25852_inverter_delaytable.spi:include "~/cadence/cellcharacs/model18.spi"
+25852_inverter_delaytable.spi:include "~/cadence/cellcharacs/cell18.spi"
+66309_loads_subcircuit.scs:ahdl_include "analog_mux.va"
+18513_input.scs:include "/misc/scratch/ajgrosze/lpr/schematics/models/32nm_LP.pm"
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_3m.scs" section=tt_3m
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_3v.scs" section=tt_3v
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_3vna.scs" section=tt_3vna
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_bbmvar.scs" section=tt_bbmvar
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_bip.scs" section=tt_bip
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_bip3.scs" section=tt_bip3
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_dio.scs" section=dio
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_dio3.scs" section=dio3
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_dio_dnw.scs" section=dio_dnw
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_m.scs" section=tt_m
+54196_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/cor_mc.scs" section=mc
+54196_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/cor_mc_3v.scs" section=mc_3v
+54196_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/cor_mc_rfmos.scs" section=mc_rfmos
+54196_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/cor_mc_rfmos33.scs" section=mc_rfmos33
+54196_icfspectre.init://TB, CD - mimcap sim //include "/CMC/kits/cmosp18/models/spectre/cor_mim.scs" section=tt_mim
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_na.scs" section=tt_na
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_res.scs" section=tt_res
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfesd.scs" section=tt_rfesd
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfind.scs" section=tt_rfind
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfjvar.scs" section=tt_rfjvar
+54196_icfspectre.init://TB, CD - mimcap sim //include "/CMC/kits/cmosp18/models/spectre/cor_rfmim.scs" section=tt_rfmim
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfmos.scs" section=tt_rfmos
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfmos33.scs" section=tt_rfmos33
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfmvar.scs" section=tt_rfmvar
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfres_hri.scs" section=tt_rfres_hri
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfres_rpo.scs" section=tt_rfres_rpo
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfres_sa.scs" section=tt_rfres_sa
+54196_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_std_mos.scs" section=tt
+54196_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_mixed/mm018.scs" section=tt
+54196_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_mixed/mm018.scs" section=tt_3v
+54196_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_mixed/mm018.scs" section=tt_na
+54196_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_mixed/mm018.scs" section=tt_3vna
+54196_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_mixed/mm018.scs" section=tt_bip
+54196_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_mixed/mm018.scs" section=tt_bip3   
+54196_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_mixed/mm018.scs" section=dio
+54196_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_mixed/mm018.scs" section=dio3
+54196_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_logical/log018.scs" section=res
+54196_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_logical/log018.scs" section=tt
+35250_tb_comparator_p.scs:include "/home/qiaochuz/workarea_ee536a/Techfile_45nm.scs"
+89668_.includedModels:include "nmos.scs"
+89668_.includedModels:include "pmos.scs"
+99933_COMPARATOR_2LEVEL_BIDIRECTIONAL_MAC_SKEW_test.sp:include "toplevel.scs" section=top_tt
+99933_COMPARATOR_2LEVEL_BIDIRECTIONAL_MAC_SKEW_test.sp:include "COMPARATOR_2LEVEL_BIDIRECTIONAL_MAC_SKEW.sp"
+89414_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06N.m"
+89414_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06P.m"
+89414_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami16N.m"
+89414_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami16P.m"
+60015_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20N.m"
+60015_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20P.m"
+37016_input.scs:include "/tools/tstech16/CLN16FFC/PDK/tsmcN16/../models/toplevel.scs" section=top_tt
+24062_input.scs:include "nmos1.scs"     section=stat
+24062_input.scs:include "pmos1.scs"     section=stat
+24062_input.scs:include "resistor.scs"  section=res
+24062_input.scs:include "capacitor.scs" section=cap
+60231_.includedModels:include "tsmc20N.scs"
+60231_.includedModels:include "tsmc20P.scs"
+72447_BUFFER_VREFP_ud_test.sp:include "toplevel.scs" section=top_tt
+72447_BUFFER_VREFP_ud_test.sp:include "BUFFER_VREFP_ud.sp"
+80288_input.scs:include "/home/ecelrc/students/st/cadence/models/spectre/nmos.m"
+80288_input.scs:include "/home/ecelrc/students/st/cadence/models/spectre/pmos.m"
+32389_spiceModels.scs:include "/software/cadence/ncsu-FreePDK15/PTM-MG/smodels.scs" amsd_subckt_bind=yes
+75662_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+75662_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+75662_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+75662_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+75662_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+75662_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+75662_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmoswz
+75662_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+9366_1t1r_g_idx_4_loads_subcircuit.scs:ahdl_include "1t1r_g_idx_4_analog_mux.va"
+69111_.includedModels:include "ami12N.scs"
+69111_.includedModels:include "ami12P.scs"
+48813_sdc.sp:include "/home/grads/dharx027/All_research/model_files/nmosedu_50nm/model_file_50nm.inc"
+48813_sdc.sp:include "./save_param.scs"
+48813_sdc.sp:include "./7nm_TT_160803.pm"
+80776_input.scs:include "/uusoc/facility/cad_common/local/class/6710/F13/cadence/Spectre/T89Y.scs"
+1080_input.scs:include "/misc/scratch/ajgrosze/lpr/schematics/models/32nm_LP.pm"
+84419_ESD_CDM.scs:ahdl_include "../models/BESD_1_0_0.va"
+75827_tvlsi_2017_multilevel_reset.scs:// ahdl_include "/opt/technology/rram/arizona_imec/rram.va"
+75827_tvlsi_2017_multilevel_reset.scs:include "rram_1t1r_cell_custom_parasitics.scs"
+75827_tvlsi_2017_multilevel_reset.scs:// should be included by the framework
+75827_tvlsi_2017_multilevel_reset.scs:include "/opt/technology/tsmc40nm_18/tsmcN40/../models/spectre/toplevel.scs" section=top_tt
+75827_tvlsi_2017_multilevel_reset.scs://include "/opt/technology/tsmc40nm_25/tsmcN40/../models/spectre/toplevel.scs" section=top_tt
+74198_.includedModels:include "nfet.scs"
+74198_.includedModels:include "pfet.scs"
+91711_si.inp:include "/home/ecelrc/students/agroszewski/lpr/hw1/test/32nm_LP_NMOS.pm"
+91711_si.inp://include "/home/ecelrc/students/agroszewski/lpr/hw1/test/32nm_LP_PMOS.pm"
+26393_XOR2.spi:include "~/cadence/cellcharacs/model18.spi"
+26393_XOR2.spi:include "~/cadence/cellcharacs/cell18.spi"
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_3m.scs" section=tt_3m
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_3v.scs" section=tt_3v
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_3vna.scs" section=tt_3vna
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_bbmvar.scs" section=tt_bbmvar
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_bip.scs" section=tt_bip
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_bip3.scs" section=tt_bip3
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_dio.scs" section=dio
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_dio3.scs" section=dio3
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_dio_dnw.scs" section=dio_dnw
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_m.scs" section=tt_m
+13481_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/cor_mc.scs" section=mc
+13481_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/cor_mc_3v.scs" section=mc_3v
+13481_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/cor_mc_rfmos.scs" section=mc_rfmos
+13481_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/cor_mc_rfmos33.scs" section=mc_rfmos33
+13481_icfspectre.init://TB, CD - mimcap sim //include "/CMC/kits/cmosp18/models/spectre/cor_mim.scs" section=tt_mim
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_na.scs" section=tt_na
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_res.scs" section=tt_res
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfesd.scs" section=tt_rfesd
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfind.scs" section=tt_rfind
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfjvar.scs" section=tt_rfjvar
+13481_icfspectre.init://TB, CD - mimcap sim //include "/CMC/kits/cmosp18/models/spectre/cor_rfmim.scs" section=tt_rfmim
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfmos.scs" section=tt_rfmos
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfmos33.scs" section=tt_rfmos33
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfmvar.scs" section=tt_rfmvar
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfres_hri.scs" section=tt_rfres_hri
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfres_rpo.scs" section=tt_rfres_rpo
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_rfres_sa.scs" section=tt_rfres_sa
+13481_icfspectre.init:include "/CMC/kits/cmosp18/models/spectre/cor_std_mos.scs" section=tt
+13481_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_mixed/mm018.scs" section=tt
+13481_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_mixed/mm018.scs" section=tt_3v
+13481_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_mixed/mm018.scs" section=tt_na
+13481_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_mixed/mm018.scs" section=tt_3vna
+13481_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_mixed/mm018.scs" section=tt_bip
+13481_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_mixed/mm018.scs" section=tt_bip3   
+13481_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_mixed/mm018.scs" section=dio
+13481_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_mixed/mm018.scs" section=dio3
+13481_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_logical/log018.scs" section=res
+13481_icfspectre.init://include "/CMC/kits/cmosp18/models/spectre/spectre445_logical/log018.scs" section=tt
+81399__includedModels:include "ami06N.scs"
+81399__includedModels:include "ami06P.scs"
+21779_tb_sandh_parameters.scs:include "/home/subhajit/workarea_PTM_45/Techfile_45nm.scs"
+84157_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20N.m"
+84157_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20P.m"
+40666_testbench.scs:* include "biolek.scs"
+40666_testbench.scs:* include "pershin-current-threshold/memristor.scs"
+40666_testbench.scs:* include "c-spin-imtj/MTJ_model.inc"
+40666_testbench.scs:* .include "c-spin-pmtj/MTJ_model.inc"
+40666_testbench.scs:include "verilog-pmtj/mtj_subcircuit.scs"
+84473_input.scs:include "/misc/scratch/ajgrosze/lpr/schematics/models/32nm_LP.pm"
+99413_Qu_LEC_Pin_3:include "/home/soc/zhihc21/0_Cadence_Lib/T22/PDK/tsmcN22/../models/spectre/toplevel.scs" section=top_tt
+79757_CM_pss.scs:include "/cad/library/TSMC/65/lp/tsmcN65/../models/spectre/toplevel.scs" section=tt_lib
+79757_CM_pss.scs:ahdl_include "/cad/tools/cadencetools/IC618/tools/dfII/samples/artist/rfLib/balun/veriloga/veriloga.va"
+15029_simcap.spi:include "~/cadence/cellcharacs/model18.spi"
+15029_simcap.spi:include "~/cadence/cellcharacs/cell18.spi"
+25637_input.scs:include "/tools/tstech16/CLN16FFC/PDK/tsmcN16/../models/toplevel.scs" section=top_tt
+1291_1t1r_g_idx_5_loads_subcircuit.scs:ahdl_include "1t1r_g_idx_5_analog_mux.va"
+49628_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+49628_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+49628_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+49628_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+49628_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+49628_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+49628_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmoswo
+49628_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+57648_typical_D0000_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/BUFX8.design/simulate/subckt"
+57648_typical_D0000_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/AMI06N.device/simulate/model"
+57648_typical_D0000_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/AMI06P.device/simulate/model"
+79045_scheme.scs:include "memristor.scs"
+17528_si.inp:include "/usr/local/cadence/IC618/tools.lnx86/dfII/local/ncsu-cdk-1.6.0.beta/models/spectre/standalone/ami06N.m"
+17528_si.inp:include "/usr/local/cadence/IC618/tools.lnx86/dfII/local/ncsu-cdk-1.6.0.beta/models/spectre/standalone/ami06P.m"
+67577_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+67577_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+67577_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+67577_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+67577_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+67577_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+67577_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+67577_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+80434_netlist:.include '../../../../library.sp'
+56661_CTDSM_CORE_NEW_test.sp:include "toplevel.scs" section=top_tt
+56661_CTDSM_CORE_NEW_test.sp:include "CTDSM_CORE_NEW.sp"
+29128_1t1r_g_idx_2_loads_subcircuit.scs:ahdl_include "1t1r_g_idx_2_analog_mux.va"
+75144_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+75144_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+75144_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+75144_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+75144_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+75144_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+75144_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+75144_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+85298_pb1.scs:include "/cad/freepdk/FreePDK15/hspice/models/fet.inc" section=CMG
+2891_CTDSM_TOP_test.sp:include "toplevel.scs" section=top_tt
+2891_CTDSM_TOP_test.sp:include "CTDSM_TOP.sp"
+79769_.includedModels:include "nmos.scs"
+79769_.includedModels:include "pmos.scs"
+41129_include_ff.scs:// include process libraries
+41129_include_ff.scs:include "ami06.scs" section=FF
+54879_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+54879_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+54879_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+54879_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+54879_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+54879_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+54879_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+54879_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+15278_testbench_cspin_imtj.scs:include "model/MTJ_model.scs"
+42332_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20P.m"
+42332_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20N.m"
+67472_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+67472_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+67472_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+67472_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+67472_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+67472_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+67472_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmoswp
+67472_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+42139_dut.scs%7E:include "/uusoc/facility/cad_common/local/class/6710/F13/cadence/Spectre/T89Y.scs"
+49040_inverter_delaytable.spi:include "~/cadence/cellcharacs/model18.spi"
+49040_inverter_delaytable.spi:include "~/cadence/cellcharacs/cell18.spi"
+22261_netlist:.include '../../../../../../library.sp'
+4970_input.scs:include "/tools/tstech16/CLN16FFC/PDK/tsmcN16/../models/toplevel.scs" section=top_tt
+86527_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+86527_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+86527_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+86527_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+86527_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+86527_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+86527_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+86527_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+30525_netlist:.include '../../../../library.sp'
+49652_inverter_ring.scs:include "q35d4h5.modsp" section=tt
+49652_inverter_ring.scs:    include "q35d4h5.modsp" section=ss
+49652_inverter_ring.scs:    include "q35d4h5.modsp" section=ff
+71922_simcap.spi:include "~/cadence/cellcharacs/model18.spi"
+71922_simcap.spi:include "~/cadence/cellcharacs/cell18.spi"
+63509_scheme.scs://					include "memristor_nominal.scs"
+63509_scheme.scs://					include "memristor_nominal_temperature.scs"
+63509_scheme.scs://					include "memristor_nominal_pristine.scs"
+63509_scheme.scs://					include "memristor_multilevel.scs"
+63509_scheme.scs://					include "memristor_rtn.scs"
+63509_scheme.scs://					include "memristor_rtn_pristine.scs"
+63509_scheme.scs://					include "memristor_full_variability.scs"
+63509_scheme.scs:include "memristor_nominal.scs"
+63509_scheme.scs:// include "memristor_nominal_temperature.scs"
+63509_scheme.scs:// include "memristor_nominal_pristine.scs"
+63509_scheme.scs:// include "memristor_multilevel.scs"
+63509_scheme.scs:// include "memristor_rtn.scs"
+63509_scheme.scs:// include "memristor_rtn_pristine.scs"
+63509_scheme.scs:// include "memristor_full_variability.scs"
+84080_arizona_rram_1t1r.scs:// include "/opt/technology/tsmc40nm_18/models/spectre/toplevel.scs" section=top_localmconly
+84080_arizona_rram_1t1r.scs:include "/opt/technology/tsmc40nm_18/tsmcN40/../models/spectre/toplevel.scs" section=top_localmconly
+84080_arizona_rram_1t1r.scs:include "../ommit/arizona_rram_cells.scs"
+84080_arizona_rram_1t1r.scs:include "../ommit/driver_characterization_circuitry/loads_subcircuit.scs"
+84080_arizona_rram_1t1r.scs:include "driver_characterization_simulations.scs"
+38719_459_lab1.scs:include "YOUR_GPDK_LIBRARY.scs" section=tt
+95651_.includedModels:include "nch_lvt_mac.scs"
+95651_.includedModels:include "pch_lvt_mac.scs"
+37071_sdc.sp:include "./model_file_50nm.inc"
+62002_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06N.m"
+62002_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06P.m"
+64630_RankingR3_Fig10_amplJTLchain_r6to8.scs:include "<path/to/model/files>"
+55742_test_reset.scs:// should be included by the framework
+55742_test_reset.scs:// include "/opt/technology/tsmc40nm_18/tsmcN40/../models/spectre/toplevel.scs" section=top_tt
+55742_test_reset.scs:include "/opt/technology/tsmc40nm_18/tsmcN40/../models/spectre/toplevel.scs" section=top_tt
+55742_test_reset.scs:// include "/opt/technology/tsmc40nm_18/tsmcN40/../models/spectre/toplevel.scs" section=top_globalmc_localmc
+55742_test_reset.scs:// ahdl_include "Control.va"
+55742_test_reset.scs:include "rram_1t1r_nch_11_cell_custom_parasitics.scs"
+55742_test_reset.scs:// include "reset_comparator_module.scs"
+71356_statistics_line.cir.spectre://include "/usr/local/cadence/ic-5.1.41usr5/tools/dfII/samples/artist/ahdlLib/quantity.spectre"
+19673_ILO_TB.scs:include "MODEL_PATH"
+19673_ILO_TB.scs:ahdl_include "./IdealDAC.va"
+10120_input.scs:include "/uusoc/facility/cad_common/local/class/6710/F13/cadence/Spectre/T89Y.scs"
+45084_simcap.spi:include "~/cadence/cellcharacs/model18.spi"
+45084_simcap.spi:include "~/cadence/cellcharacs/cell18.spi"
+80676_.includedModels:include "nch_lvt_mac.scs"
+80676_.includedModels:include "pch_lvt_mac.scs"
+1107_netlist:.include '../../../../../../library.sp'
+85432_arizona_rram_1r.scs:include "/opt/technology/tsmc40nm_18/tsmcN40/../models/spectre/toplevel.scs" section=top_localmconly
+85432_arizona_rram_1r.scs:include "../ommit/arizona_rram_cells.scs"
+85432_arizona_rram_1r.scs:include "rram_characterization_simulation.scs"
+59178_input.scs:include "/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+14396_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06N.m"
+14396_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06P.m"
+90468_input.scs:include "/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/smodels.scs"
+84183_rlc.cir.spectre://include "/usr/local/cadence/ic-5.1.41usr5/tools/dfII/samples/artist/ahdlLib/quantity.spectre"
+73389_input.scs:include "nmos1.scs" section=stat
+73389_input.scs:include "pmos1.scs" section=stat
+61785_XOR2_delaytable.spi:include "~/cadence/cellcharacs/model18.spi"
+61785_XOR2_delaytable.spi:include "~/cadence/cellcharacs/cell18.spi"
+23236_COMPARATOR_PRE_AMP_test.sp:include "toplevel.scs" section=top_tt
+23236_COMPARATOR_PRE_AMP_test.sp:include "COMPARATOR_PRE_AMP.sp"
+55683_tb_sandhbw.scs:include "/home/subhajit/workarea_PTM_45/Techfile_45nm.scs"
+46225_memristor_full_variability.scs:include "variability.scs"
+23254_adder.sp:include "./model_file_50nm.inc"
+4950_Reference_buffer_core_test.sp:include "toplevel.scs" section=top_tt
+4950_Reference_buffer_core_test.sp:include "Reference_buffer_core.sp"
+72290_switch_resistance.scs:include "/cad/library/TSMC/65/lp/tsmcN65/../models/spectre/toplevel.scs" section=tt_lib 
+7139_ctle.sp:.include "7nm_TT_160803.pm"
+7139_ctle.sp:.include "save.scs"
+53957_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+53957_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+53957_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+53957_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+53957_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+53957_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+53957_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+53957_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+2759_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+2759_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+2759_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+2759_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+2759_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+2759_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+2759_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+2759_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+52215_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06N.m"
+52215_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06P.m"
+52215_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami16N.m"
+52215_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami16P.m"
+33520_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06N.m"
+33520_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06P.m"
+81711_mtj_lib.scs:include "mtj_subcircuit.scs"
+87893_testbench.scs:include "./op.scs"
+94712_simcap.spi:include "~/cadence/cellcharacs/model18.spi"
+94712_simcap.spi:include "~/cadence/cellcharacs/cell18.spi"
+66552_sequential_v1_part2_65_PTM.scs%7E:include "/home/techfile/PTM/65nm/ptm65_nmos.sp"
+66552_sequential_v1_part2_65_PTM.scs%7E:include "/home/techfile/PTM/65nm/ptm65_pmos.sp"
+96010_input.scs:include "/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+8563_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20N.m"
+8563_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20P.m"
+93328_input.scs:include "/tools/tstech16/CLN16FFC/PDK/tsmcN16/../models/toplevel.scs" section=top_tt
+6656_netlist:.include '../../../../../../library.sp'
+88983_memristor_degradation_and_variability.scs:include "variability.scs"
+13181_simcap.spi:include "~/cadence/cellcharacs/model18.spi"
+13181_simcap.spi:include "~/cadence/cellcharacs/cell18.spi"
+56965_2021-10-11-l2_manufacturing.markdown:include "$PROJECT/lib/spectre/common.scs" section=Gt
+56965_2021-10-11-l2_manufacturing.markdown:include "$PROJECT/lib/spectre/mos.scs" section=Mtt
+56965_2021-10-11-l2_manufacturing.markdown:include "$PROJECT/lib/spectre/res.scs" section=Rt
+56965_2021-10-11-l2_manufacturing.markdown:include "$PROJECT/lib/spectre/cap.scs" section=Ct
+56965_2021-10-11-l2_manufacturing.markdown:include "$PROJECT/lib/spectre/temperature.scs" section=Tt
+56965_2021-10-11-l2_manufacturing.markdown:include "$PROJECT/lib/spectre/supply.scs" section=Vt
+56965_2021-10-11-l2_manufacturing.markdown:include "$PROJECT/lib/spectre/bjt.scs" section=Bt
+56965_2021-10-11-l2_manufacturing.markdown:include "$PROJECT/lib/spectre/diode.scs" section=Dt
+63077_testbench.scs:pspice_include "./%TRANSISTOR%.pspice"
+57094_netlist:.include '../../../../../../library.sp'
+33178_input.scs:include "/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+68341_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+68341_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+68341_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+68341_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+68341_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+68341_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+68341_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+68341_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+62134_459_lab2.scs:include "YOUR_GPDK_LIBRARY.scs" section=tt
+82092_testbench_biolek.scs:include "model/biolek.scs"
+2814_.includedModels:include "nfet.scs"
+2814_.includedModels:include "pfet.scs"
+99528_459_lab0.scs:include "YOUR_GPDK_LIBRARY.scs" section=tt
+86531_Peng_ACBC_Pin_3:include "/home/soc/zhihc21/0_Cadence_Lib/T22/PDK/tsmcN22/../models/spectre/toplevel.scs" section=top_tt
+27813_mtj_subcircuit.scs:ahdl_include "llg_spherical_solver.va"
+10767_gmid_sweep.scs:include "./ptm_hspice/130nm_bulk.pm"
+49134_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+49134_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+49134_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+49134_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+49134_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+49134_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+49134_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+49134_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+87780_Peng_IAC_Pin_3:include "/home/soc/zhihc21/0_Cadence_Lib/T22/PDK/tsmcN22/../models/spectre/toplevel.scs" section=top_tt
+8993_comparator.scs:include "/home/techfile/IBM65nm/IBM_PDK/cmos10lpe/V1.6.0.0RF/Spectre/models/design.scs"
+22956_dut.scs%7E:include "/uusoc/facility/cad_common/local/class/6710/F13/cadence/Spectre/T89Y.scs"
+49725_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+49725_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+49725_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+49725_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+49725_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+49725_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+49725_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmoswz
+49725_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+31823_simcap.spi:include "~/cadence/cellcharacs/model18.spi"
+31823_simcap.spi:include "~/cadence/cellcharacs/cell18.spi"
+34487_arizona_rram_1r.scs:// include "/opt/technology/tsmc40nm_18/models/spectre/toplevel.scs" section=top_localmconly
+34487_arizona_rram_1r.scs:include "/opt/technology/tsmc40nm_18/tsmcN40/../models/spectre/toplevel.scs" section=top_localmconly
+34487_arizona_rram_1r.scs:include "../ommit/arizona_rram_cells.scs"
+34487_arizona_rram_1r.scs:include "../ommit/driver_characterization_circuitry/loads_subcircuit.scs"
+34487_arizona_rram_1r.scs:include "driver_characterization_simulations.scs"
+36757_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+36757_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+36757_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+36757_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+36757_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+36757_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+36757_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+36757_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+47821_input.scs:include "/tools/tstech16/CLN16FFC/PDK/tsmcN16/../models/toplevel.scs" section=top_tt
+79937_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+79937_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+79937_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+79937_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+79937_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+79937_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+79937_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmoswo
+79937_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+61168_MIXER_TB.scs:include "Model_path" section=tt
+90194_input.scs:include "/home/ic5.1/tools/dfII/samples/artist/ahdlLib/quantity.spectre"
+90194_input.scs:include "/home/AMS_3.70/spectre/s35/mcparams.scs"
+90194_input.scs:include "/home/AMS_3.70/spectre/s35/cmos53.scs" section=cmostm
+90194_input.scs:include "/home/AMS_3.70/spectre/s35/res.scs" section=restm
+90194_input.scs:include "/home/AMS_3.70/spectre/s35/cap.scs" section=captm
+90194_input.scs:include "/home/AMS_3.70/spectre/s35/vbic.scs" section=biptm
+90194_input.scs:include "/home/AMS_3.70/spectre/s35/ind.scs" section=indtm
+395_input.scs:include "/afs/ir.stanford.edu/class/ee315/models/ee315.mod"
+95238_Si.inp:include "/usr/local/cadence/IC618/tools.lnx86/dfII/local/ncsu-cdk-1.6.0.beta/models/spectre/standalone/ami06N.m"
+95238_Si.inp:include "/usr/local/cadence/IC618/tools.lnx86/dfII/local/ncsu-cdk-1.6.0.beta/models/spectre/standalone/ami06P.m"
+84061_tvlsi_2017_multilevel_set.scs:include "ommit/rram_1t1r_cell_custom_parasitics.scs"
+84061_tvlsi_2017_multilevel_set.scs:// should be included by the framework
+84061_tvlsi_2017_multilevel_set.scs:// include "/opt/technology/tsmc40nm_18/tsmcN40/../models/spectre/toplevel.scs" section=top_tt
+84061_tvlsi_2017_multilevel_set.scs:// include "/opt/technology/tsmc40nm_25/tsmcN40/../models/spectre/toplevel.scs" section=top_tt
+44333_.includedModels:include "ami06N.scs"
+44333_.includedModels:include "ami06P.scs"
+26677_.includedModels:include "nfet.scs"
+26677_.includedModels:include "pfet.scs"
+60079_input_buf2.scs:include "/home/mohsen/workarea_TSMC_MS_65_9M/tsmcN65_mc_shares.scs" section=TT
+21242_HoiLee_AFFC_Pin_3:include "/home/soc/zhihc21/0_Cadence_Lib/T22/PDK/tsmcN22/../models/spectre/toplevel.scs" section=top_tt
+75972_typical_D0001_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/BUFX4.design/simulate/subckt"
+75972_typical_D0001_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/AMI06N.device/simulate/model"
+75972_typical_D0001_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/AMI06P.device/simulate/model"
+61563_pmos.scs:include "pmos1.scs" section=stat
+25680_include_ff.scs:// include process libraries
+25680_include_ff.scs:include "ami06.scs" section=FF
+83068_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+83068_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+83068_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+83068_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+83068_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+83068_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+83068_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+83068_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+92248_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06N.m"
+92248_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06P.m"
+2746_simcap.spi:include "~/lchenjie/cadence/lab3/model18.spi"
+2746_simcap.spi:include "~/lchenjie/cadence/lab3/cell18.spi"
+17335_typical_D0000_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/BUFX4.design/simulate/subckt"
+17335_typical_D0000_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/AMI06N.device/simulate/model"
+17335_typical_D0000_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/AMI06P.device/simulate/model"
+16798_netlist:.include '../../../../library.sp'
+28373_input.scs:include "/afs/ir.stanford.edu/class/ee315a/models/ee315a.mod"
+18792_demo.spi:include "~/cadence/cellcharacs/model18.spi"
+18792_demo.spi:include "~/cadence/cellcharacs/cell18.spi"
+28501_include_tt.scs:// include process libraries
+28501_include_tt.scs:include "KTH_P20_FET_v1.scs"
+26024_typical_D0000_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/BUFX4.design/simulate/subckt"
+26024_typical_D0000_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/AMI06N.device/simulate/model"
+26024_typical_D0000_tr.sp:include "/home/nathan/5710/elc/lib11-13/foo.ipdb/AMI06P.device/simulate/model"
+22848_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+22848_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+22848_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+22848_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+22848_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+22848_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+22848_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmosws
+22848_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+44057_pwl_sources.cir.spectre://include "/usr/local/cadence/ic-5.1.41usr5/tools/dfII/samples/artist/ahdlLib/quantity.spectre"
+38343_memristor_pristine.scs:include "variability.scs"
+43817_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+43817_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+43817_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+43817_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+43817_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+43817_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+43817_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+43817_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+70866_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+70866_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+70866_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+70866_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+70866_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+70866_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+70866_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+70866_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+15295_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+15295_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+15295_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+15295_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+15295_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+15295_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+15295_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmoswp
+15295_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+79409_memristor_full_variability.scs:include "variability.scs"
+74969_RankingR3_FO3_wsplitters.scs:include "<path/to/model/files>"
+31727_input.scs:include "/tools/tstech16/CLN16FFC/PDK/tsmcN16/../models/toplevel.scs" section=top_tt
+49726_1t1r_g_idx_4_loads_subcircuit.scs:ahdl_include "1t1r_g_idx_4_analog_mux.va"
+52626__includedModels:include "ami06N.scs"
+52626__includedModels:include "ami06P.scs"
+50944_case_sensitive_names.cir.spectre://include "/usr/local/cadence/ic-5.1.41usr5/tools/dfII/samples/artist/ahdlLib/quantity.spectre"
+8973_netlist:.include '../../../../../../library.sp'
+36963_input.scs:include "/root/Desktop/Cadence/ncsu-cdk-1.6.0.beta/models/spectre/PTM/PTM180nm_bulk.scs"
+88094_xor2_delaytable.spi:include "~/cadence/cellcharacs/model18.spi"
+88094_xor2_delaytable.spi:include "~/cadence/cellcharacs/cell18.spi"
+24272_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+24272_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+24272_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+24272_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+24272_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+24272_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+24272_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+24272_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+91072_netlist:.include '../../../../library.sp'
+67600_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+67600_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+67600_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+67600_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+67600_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+67600_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+67600_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+67600_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+85533_input.scs:include "/home/work/gpdk090_v4.6/libs.oa22/gpdk090/../../models/spectre/gpdk090.scs" section=NN
+85533_input.scs:include "/home/work/gpdk045_v_5_0/gpdk045/../models/spectre/gpdk045.scs" section=mc
+65577_tb_SHBS.scs:include "/home/qiaochuz/workarea_ee536a/Techfile_45nm.scs"
+356_.includedModels:include "modn.scs"
+356_.includedModels:include "modp.scs"
+356_.includedModels:include "npn143h5.scs"
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_hvt
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_hvt
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_hvt
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_hvt
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_lvt
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_lvt
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_lvt
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_lvt
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_18
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_18
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_18
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_18
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_na
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_na
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_na
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_na
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_na18
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_na18
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_na18
+55138_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_na18
+86560_testbench_biolek.scs:include "model/biolek.scs"
+57551_input.scs:include "/software/cadence/ncsu-FreePDK15/hspice_16nm_hp.include"
+23822_tb_vco_c2mos_PEX.sp:include "/home/ff/ee241/spring20-labs/asap7PDK_r1p5/models/hspice/7nm_FF.pm"
+23822_tb_vco_c2mos_PEX.sp:ahdl_include "bin2therm4to16.va"
+23822_tb_vco_c2mos_PEX.sp:ahdl_include "bin2therm3to8.va"
+23822_tb_vco_c2mos_PEX.sp:ahdl_include "adc_3bit.va"
+23822_tb_vco_c2mos_PEX.sp:ahdl_include "adc_8bit.va"
+76289_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+76289_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+76289_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+76289_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+76289_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+76289_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+76289_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmoswz
+76289_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+23821_opamp.scs:include "PDK_lib.scs" section=SS
+94905_netlistHeader:include "/home/ic5.1/tools/dfII/samples/artist/ahdlLib/quantity.spectre"
+1241__includedModels:include "ami16N.scs"
+1241__includedModels:include "ami16P.scs"
+58437_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20N.m"
+58437_input.scs:include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20P.m"
+56901_si.inp:include "/usr/local/cadence/IC618/tools.lnx86/dfII/local/ncsu-cdk-1.6.0.beta/models/spectre/standalone/ami06N.m"
+56901_si.inp:include "/usr/local/cadence/IC618/tools.lnx86/dfII/local/ncsu-cdk-1.6.0.beta/models/spectre/standalone/ami06P.m"
+4523_si.inp:include "$CDK_DIR/models/spectre/standalone/ami06N.m"
+4523_si.inp:include "$CDK_DIR/models/spectre/standalone/ami06P.m"
+6428_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/mismatch.scs" section=no
+6428_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/mismatch_switch.scs" section=alignment
+6428_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/rgateswitch_all.scs" section=no
+6428_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/common_go1.scs" section=TT
+6428_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/common_poly_cd.scs" section=TT
+6428_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/common_poly_res.scs" section=TT
+6428_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/common_active_cd.scs" section=TT
+6428_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/common_active_res.scs" section=TT
+6428_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/svtlp.scs" section=TT
+6428_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/svtgp.scs" section=TT
+6428_st65.scs:include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/diodeiso.scs" section=typ
+3878_include_ff.scs:// include process libraries
+3878_include_ff.scs:include "ami06.scs" section=FF
+61616_test_varactor.sp:ahdl_include "ctle_varactor.va"
+78099_Yan_AZ_Pin_3:include "/home/soc/zhihc21/0_Cadence_Lib/T22/PDK/tsmcN22/../models/spectre/toplevel.scs" section=top_tt
+32299_VM_NF.scs:include "/cad/library/TSMC/65/lp/tsmcN65/../models/spectre/toplevel.scs" section=tt_lib 
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_hvt
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_hvt
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_hvt
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_hvt
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_lvt
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_lvt
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_lvt
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_lvt
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_18
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_18
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_18
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_18
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_na
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_na
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_na
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_na
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_na18
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_na18
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_na18
+27311_gpdk045_diode.scs:include "gpdk045_diode.scs" section=dio_na18
+9322_nand2.spi:include "~/cadence/cellcharacs/model18.spi"
+9322_nand2.spi:include "~/cadence/cellcharacs/cell18.spi"
+87109_rram_synapse.scs:ahdl_include "/opt/technology/rram/arizona_imec/rram.va"
+67858_ota1.sp:// include "/usr/local/packages/tsmc_40/pdk/tsmcN40/../models/spectre/toplevel.scs" section=top_tt
+545_input.scs:include "/root/Desktop/Cadence/ncsu-FreePDK15/PTM-MG/Spectre/smodels.scs"
+88187_OTA_4_test.sp:include "toplevel.scs" section=top_tt
+88187_OTA_4_test.sp:include "OTA_4.sp"
+4370_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+4370_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+4370_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+4370_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+4370_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+4370_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+4370_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmosws
+4370_input.scs:include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+68981_.includedModels:include "nmos.scs"
+68981_.includedModels:include "pmos.scs"
+11574_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06N.m"
+11574_input.scs:include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06P.m"
+43221_RankingR3_Fig11_r6to8_FO3.scs:include "<path/to/model/files>"

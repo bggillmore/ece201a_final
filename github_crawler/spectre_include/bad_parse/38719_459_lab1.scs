@@ -1,0 +1,39 @@
+simulator lang=spectre
+
+*spectre 459_lab1.scs +log 459_lab1.log
+
+include "YOUR_GPDK_LIBRARY.scs" section=tt
+parameters w_p=300n
+parameters w_n=300n 
+parameters l_p=100n 
+parameters l_n=100n
+
+parameters vdd=1.1 
+parameters step_custom=0.01
+ 
+parameters vg_n=vdd
+parameters vd_n=vdd
+parameters vb_n=0 
+
+global 0 vdd!
+ 
+mn0 (d_n g_n 0 b_n) 	g45n1svt w=w_n l=l_n
+ 
+vd_n_inst (d_n 0) vsource dc=vd_n
+vg_n_inst (g_n 0) vsource dc=vg_n
+vb_n_inst (b_n 0) vsource dc=vb_n
+ 
+simOptions options temp=25
+*write="spectre.dc"
+*Ids vs Vds
+dc_sweep_nmos_q1_0 sweep param=vg_n start=0 stop=vdd step=0.2  
+{
+dc_sweep_nmos_q1_1 dc param=vd_n start=0 stop=vdd step=step_custom   print=yes oppoint=logfile 
+}
+
+*ids (A)           Resistive drain-to-source current.
+save mp0:ids 
+save mn0:ids
+
+outputInfo info what=output where=logfile 
+element info what=inst where=logfile

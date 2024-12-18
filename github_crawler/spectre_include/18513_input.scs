@@ -1,0 +1,50 @@
+// Generated for: spectre
+// Generated on: Mar  8 18:36:38 2018
+// Design library name: ajgrosze_scratch
+// Design cell name: inv_chain
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters vdc=0 vsource=0.6
+include "/misc/scratch/ajgrosze/lpr/schematics/models/32nm_LP.pm"
+
+// Library name: ajgrosze_scratch
+// Cell name: inv
+// View name: schematic
+subckt inv in out vdd
+    M0 (out in 0 0) nmos w=128n l=32n
+    M1 (out in vdd vdd) pmos w=256n l=32n
+ends inv
+// End of subcircuit definition.
+
+// Library name: ajgrosze_scratch
+// Cell name: inv_chain
+// View name: schematic
+V2 (vdd! 0) vsource dc=vdc type=dc
+V1 (net017 0) vsource dc=vsource type=dc
+V0 (net014 0) vsource type=pulse val0=0 val1=vsource period=6n width=1n
+inv9 (net03 out net017) inv
+inv8 (net05 net03 net017) inv
+inv7 (net06 net05 net017) inv
+inv6 (net04 net06 net017) inv
+inv5 (net07 net04 net017) inv
+inv4 (net08 net07 net017) inv
+inv3 (net09 net08 net017) inv
+inv2 (net010 net09 net017) inv
+inv1 (net012 net010 net017) inv
+inv0 (net014 net012 net017) inv
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=6n write="spectre.ic" writefinal="spectre.fc" \
+    annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save V1:p V1:p 
+saveOptions options save=allpub

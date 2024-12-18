@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Sep 18 17:04:31 2018
+// Design library name: Digial
+// Design cell name: inv_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!

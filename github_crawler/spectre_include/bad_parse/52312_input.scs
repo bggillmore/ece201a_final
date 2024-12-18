@@ -1,0 +1,102 @@
+// Generated for: spectre
+// Generated on: Mar  1 22:55:30 2023
+// Design library name: Design
+// Design cell name: XOR_schematic
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters pF fF
+include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20P.m"
+include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20N.m"
+
+// Library name: Design
+// Cell name: XOR
+// View name: extracted
+// View type: maskLayout
+subckt XOR A B GND VDD out
+    \+11 (VDD A 9 VDD) tsmc20P w=2e-06 l=2e-07 as=1e-12 ad=1e-12 ps=3e-06 \
+        pd=3e-06 m=1 region=sat
+    \+10 (10 9 out VDD) tsmc20P w=2e-06 l=2e-07 as=6e-13 ad=1e-12 ps=6e-07 \
+        pd=3e-06 m=1 region=sat
+    \+9 (out A 11 VDD) tsmc20P w=2e-06 l=2e-07 as=6e-13 ad=6e-13 ps=6e-07 \
+        pd=6e-07 m=1 region=sat
+    \+8 (11 6 VDD VDD) tsmc20P w=2e-06 l=2e-07 as=6e-13 ad=6e-13 ps=6e-07 \
+        pd=6e-07 m=1 region=sat
+    \+7 (VDD B 10 VDD) tsmc20P w=2e-06 l=2e-07 as=1e-12 ad=6e-13 ps=3e-06 \
+        pd=6e-07 m=1 region=sat
+    \+6 (6 B VDD VDD) tsmc20P w=2e-06 l=2e-07 as=1e-12 ad=1e-12 ps=3e-06 \
+        pd=3e-06 m=1 region=sat
+    \+46 (GND 9) capacitor c=1.2125e-16 m=1
+    \+45 (GND 6) capacitor c=6.208e-17 m=1
+    \+44 (B GND) capacitor c=3.1428e-16 m=1
+    \+43 (A GND) capacitor c=2.425e-16 m=1
+    \+42 (VDD 9) capacitor c=3.88e-17 m=1
+    \+41 (VDD 6) capacitor c=3.88e-17 m=1
+    \+40 (VDD B) capacitor c=7.76e-17 m=1
+    \+39 (VDD A) capacitor c=7.76e-17 m=1
+    \+38 (GND 9) capacitor c=2.714e-16 m=1
+    \+37 (GND 6) capacitor c=3.9716e-16 m=1
+    \+36 (B 6) capacitor c=1.838e-16 m=1
+    \+35 (out GND) capacitor c=2.542e-16 m=1
+    \+34 (VDD 9) capacitor c=9.136e-17 m=1
+    \+33 (VDD 6) capacitor c=9.136e-17 m=1
+    \+32 (VDD GND) capacitor c=8.49495e-16 m=1
+    \+31 (VDD out) capacitor c=9.136e-17 m=1
+    \+30 (10 11) capacitor c=8.536e-17 m=1
+    \+29 (9 10) capacitor c=4.688e-17 m=1
+    \+28 (7 9) capacitor c=4.688e-17 m=1
+    \+27 (7 8) capacitor c=8.536e-17 m=1
+    \+26 (6 10) capacitor c=4.688e-17 m=1
+    \+25 (6 7) capacitor c=4.688e-17 m=1
+    \+24 (GND 7) capacitor c=8.536e-17 m=1
+    \+23 (B 10) capacitor c=4.688e-17 m=1
+    \+22 (B 7) capacitor c=4.688e-17 m=1
+    \+21 (A 10) capacitor c=4.688e-17 m=1
+    \+20 (A 9) capacitor c=1.3072e-16 m=1
+    \+19 (A 7) capacitor c=4.688e-17 m=1
+    \+18 (A GND) capacitor c=1.4784e-16 m=1
+    \+17 (out 10) capacitor c=8.536e-17 m=1
+    \+16 (out 9) capacitor c=1.3072e-16 m=1
+    \+15 (out 7) capacitor c=8.536e-17 m=1
+    \+14 (out GND) capacitor c=3.5584e-16 m=1
+    \+13 (out A) capacitor c=1.3072e-16 m=1
+    \+12 (VDD 10) capacitor c=8.536e-17 m=1
+    \+5 (GND A 9 GND) tsmc20N w=5e-07 l=2e-07 as=2.5e-13 ad=2.5e-13 \
+        ps=1.5e-06 pd=1.5e-06 m=1 region=sat
+    \+4 (7 9 out GND) tsmc20N w=5e-07 l=2e-07 as=1.5e-13 ad=2.5e-13 \
+        ps=6e-07 pd=1.5e-06 m=1 region=sat
+    \+3 (out A 8 GND) tsmc20N w=5e-07 l=2e-07 as=1.5e-13 ad=1.5e-13 \
+        ps=6e-07 pd=6e-07 m=1 region=sat
+    \+2 (8 B GND GND) tsmc20N w=5e-07 l=2e-07 as=1.5e-13 ad=1.5e-13 \
+        ps=6e-07 pd=6e-07 m=1 region=sat
+    \+1 (GND 6 7 GND) tsmc20N w=5e-07 l=2e-07 as=2.5e-13 ad=1.5e-13 \
+        ps=1.5e-06 pd=6e-07 m=1 region=sat
+    \+0 (6 B GND GND) tsmc20N w=5e-07 l=2e-07 as=2.5e-13 ad=2.5e-13 \
+        ps=1.5e-06 pd=1.5e-06 m=1 region=sat
+ends XOR
+// End of subcircuit definition.
+
+// Library name: Design
+// Cell name: XOR_schematic
+// View name: schematic
+I0 (inA inB 0 vdd! out) XOR
+C0 (out 0) capacitor c=50f m=1
+V2 (inB 0) vsource type=pulse dc=1.8 val0=0 val1=0 period=12n delay=3n \
+        rise=100p fall=100p width=10n
+V3 (inA 0) vsource type=pulse dc=1.8 val0=0 val1=1.8 period=12n delay=3n \
+        rise=100p fall=100p width=5n
+V1 (vdd! 0) vsource type=dc dc=1.8
+simulatorOptions options psfversion="1.1.0" reltol=1e-3 vabstol=1e-6 \
+    iabstol=1e-12 temp=27 tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+tran tran stop=30n write="spectre.ic" writefinal="spectre.fc" \
+    annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

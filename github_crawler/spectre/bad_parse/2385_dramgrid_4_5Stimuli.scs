@@ -1,0 +1,158 @@
+simulator lang=spectre 
+parameters VDD = 1.8
+//tr is (transition time)/2
+parameters tr = 50p 
+//f is the fall time 
+//parameters f = 100p
+//K is the signal period 
+parameters K = 5n 
+
+vVdd (vdd 0) vsource dc=VDD
+vGnd (gnd 0) vsource dc=0
+
+vConfig (config 0) vsource type=pwl wave=\[  
++ (0*K   ) VDD  (1*K-tr) VDD 
++ (1*K+tr) VDD  (2*K-tr) VDD 
++ (2*K+tr) VDD  (3*K-tr) VDD 
++ (3*K+tr) VDD  (4*K-tr) VDD
++ (4*K+tr) VDD  (5*K-tr) VDD  
++ (5*K+tr) 0    (6*K-tr) 0 
++ (6*K+tr) 0    (7*K-tr) 0
++ (7*K+tr) 0    (8*K-tr) 0 
++ (8*K+tr) 0    (9*K-tr) 0 
++ ] 
+vConfig_ (config_ 0) vsource type=pwl wave=\[  
++ (0*K   ) 0    (1*K-tr) 0 
++ (1*K+tr) 0    (2*K-tr) 0 
++ (2*K+tr) 0    (3*K-tr) 0 
++ (3*K+tr) 0    (4*K-tr) 0
++ (4*K+tr) 0    (5*K-tr) 0  
++ (5*K+tr) VDD  (6*K-tr) VDD 
++ (6*K+tr) VDD  (7*K-tr) VDD
++ (7*K+tr) VDD  (8*K-tr) VDD 
++ (8*K+tr) VDD  (9*K-tr) VDD 
++ ] 
+
+vWL1 (WL1 0) vsource type=pwl wave=\[  
++ (0*K   ) 0    (1*K-tr) 0 
++ (1*K+tr) 0    (2*K-tr) 0 
++ (2*K+tr) VDD  (3*K-tr) VDD 
++ (3*K+tr) VDD  (4*K-tr) VDD
++ (4*K+tr) 0    (5*K-tr) 0  
++ (5*K+tr) 0    (6*K-tr) 0 
++ (6*K+tr) VDD  (7*K-tr) VDD
++ (7*K+tr) VDD  (8*K-tr) VDD 
++ (8*K+tr) 0    (9*K-tr) 0 
++ ] 
+vWL2 (WL2 0) vsource type=pwl wave=\[  
++ (0*K   ) 0    (1*K-tr) 0 
++ (1*K+tr) 0    (2*K-tr) 0 
++ (2*K+tr) 0    (3*K-tr) 0 
++ (3*K+tr) 0    (4*K-tr) 0
++ (4*K+tr) 0    (5*K-tr) 0  
++ (5*K+tr) 0    (6*K-tr) 0 
++ (6*K+tr) 0    (7*K-tr) 0
++ (7*K+tr) 0    (8*K-tr) 0 
++ (8*K+tr) 0    (9*K-tr) 0 
++ ] 
+vWL3 (WL3 0) vsource type=pwl wave=\[  
++ (0*K   ) 0    (1*K-tr) 0 
++ (1*K+tr) 0    (2*K-tr) 0 
++ (2*K+tr) 0    (3*K-tr) 0 
++ (3*K+tr) 0    (4*K-tr) 0
++ (4*K+tr) 0    (5*K-tr) 0  
++ (5*K+tr) 0    (6*K-tr) 0 
++ (6*K+tr) 0    (7*K-tr) 0
++ (7*K+tr) 0    (8*K-tr) 0 
++ (8*K+tr) 0    (9*K-tr) 0 
++ ] 
+vWL4 (WL4 0) vsource type=pwl wave=\[  
++ (0*K   ) 0    (1*K-tr) 0 
++ (1*K+tr) 0    (2*K-tr) 0 
++ (2*K+tr) 0    (3*K-tr) 0 
++ (3*K+tr) 0    (4*K-tr) 0
++ (4*K+tr) 0    (5*K-tr) 0  
++ (5*K+tr) 0    (6*K-tr) 0 
++ (6*K+tr) 0    (7*K-tr) 0
++ (7*K+tr) 0    (8*K-tr) 0 
++ (8*K+tr) 0    (9*K-tr) 0 
++ ] 
+vWL5 (WL5 0) vsource type=pwl wave=\[  
++ (0*K   ) 0    (1*K-tr) 0 
++ (1*K+tr) 0    (2*K-tr) 0 
++ (2*K+tr) 0    (3*K-tr) 0 
++ (3*K+tr) 0    (4*K-tr) 0
++ (4*K+tr) 0    (5*K-tr) 0  
++ (5*K+tr) 0    (6*K-tr) 0 
++ (6*K+tr) 0    (7*K-tr) 0
++ (7*K+tr) 0    (8*K-tr) 0 
++ (8*K+tr) 0    (9*K-tr) 0 
++ ] 
+
+vBL1 (BL1 0) vsource type=pwl wave=\[
++ (0*K   ) 0    (1*K-tr) 0 
++ (1*K+tr) 0    (2*K-tr) 0 
++ (2*K+tr) 0    (3*K-tr) 0
++ (3*K+tr) VDD  (4*K-tr) VDD
++ (4*K+tr) VDD  (5*K-tr) VDD
++ (5*K+tr) VDD  (6*K-tr) VDD 
++ (6*K+tr) 0    (7*K-tr) 0
++ (7*K+tr) 0    (8*K-tr) 0 
++ (8*K+tr) 0    (9*K-tr) 0 
++ ]  
+vBL2 (BL2 0) vsource type=pwl wave=\[
++ (0*K   ) 0    (1*K-tr) 0 
++ (1*K+tr) VDD  (2*K-tr) VDD 
++ (2*K+tr) VDD  (3*K-tr) VDD
++ (3*K+tr) 0    (4*K-tr) 0 
++ (4*K+tr) 0    (5*K-tr) 0
++ ]  
+vBL3 (BL3 0) vsource type=pwl wave=\[
++ (0*K   ) 0    (1*K-tr) 0 
++ (1*K+tr) VDD  (2*K-tr) VDD 
++ (2*K+tr) VDD  (3*K-tr) VDD
++ (3*K+tr) 0    (4*K-tr) 0 
++ (4*K+tr) 0    (5*K-tr) 0
++ ]  
+vBL4 (BL4 0) vsource type=pwl wave=\[
++ (0*K   ) 0    (1*K-tr) 0 
++ (1*K+tr) VDD  (2*K-tr) VDD 
++ (2*K+tr) VDD  (3*K-tr) VDD
++ (3*K+tr) 0    (4*K-tr) 0 
++ (4*K+tr) 0    (5*K-tr) 0
++ ]  
+
+
+vBL_1 (BL_1 0) vsource type=pwl wave=\[
++ (0*K   ) VDD  (1*K-tr) VDD 
++ (1*K+tr) VDD  (2*K-tr) VDD 
++ (2*K+tr) VDD  (3*K-tr) VDD
++ (3*K+tr) 0    (4*K-tr) 0
++ (4*K+tr) 0    (5*K-tr) 0
++ (5*K+tr) 0    (6*K-tr) 0 
++ (6*K+tr) VDD  (7*K-tr) VDD
++ (7*K+tr) VDD  (8*K-tr) VDD 
++ (8*K+tr) VDD  (9*K-tr) VDD 
++ ]  
+vBL_2 (BL_2 0) vsource type=pwl wave=\[
++ (0*K   ) VDD  (1*K-tr) VDD 
++ (1*K+tr) 0    (2*K-tr) 0 
++ (2*K+tr) 0    (3*K-tr) 0
++ (3*K+tr) VDD  (4*K-tr) VDD
++ (4*K+tr) VDD  (5*K-tr) VDD
++ ]  
+vBL_3 (BL_3 0) vsource type=pwl wave=\[
++ (0*K   ) VDD  (1*K-tr) VDD 
++ (1*K+tr) 0    (2*K-tr) 0 
++ (2*K+tr) 0    (3*K-tr) 0
++ (3*K+tr) VDD  (4*K-tr) VDD
++ (4*K+tr) VDD  (5*K-tr) VDD
++ ]  
+vBL_4 (BL_4 0) vsource type=pwl wave=\[
++ (0*K   ) VDD  (1*K-tr) VDD 
++ (1*K+tr) 0    (2*K-tr) 0 
++ (2*K+tr) 0    (3*K-tr) 0
++ (3*K+tr) VDD  (4*K-tr) VDD
++ (4*K+tr) VDD  (5*K-tr) VDD
++ ]  
+

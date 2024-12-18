@@ -1,0 +1,9 @@
+**  MITLL 90nm SOI     12_21_2011
+**  template model for evaluation purposes only
+** simulator lang=spectre
+model nslc_poly resistor
+
++l = 5u
++w = 2u
++rsh = 15
+

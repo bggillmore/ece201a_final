@@ -1,0 +1,130 @@
+// Generated for: spectre
+// Generated on: Mar  8 23:10:11 2023
+// Design library name: Design
+// Design cell name: 4bitAdder_simulation
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20N.m"
+include "/home/ugrads/h/hbritton/cadence/models/spectre/tsmc20P.m"
+
+// Library name: Design
+// Cell name: inverter
+// View name: schematic
+subckt inverter GND VDD in out
+    P0 (out in VDD VDD) tsmc20P w=900n l=200n as=4.5e-13 ad=4.5e-13 \
+        ps=2.8u pd=2.8u m=1 region=sat
+    N0 (out in GND GND) tsmc20N w=300n l=200n as=1.5e-13 ad=1.5e-13 \
+        ps=1.6u pd=1.6u m=1 region=sat
+ends inverter
+// End of subcircuit definition.
+
+// Library name: Design
+// Cell name: XOR
+// View name: schematic
+subckt XOR A B GND VDD out
+    P3 (out A net29 VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 ps=5u pd=5u \
+        m=1 region=sat
+    P2 (net29 net13 VDD VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 ps=5u \
+        pd=5u m=1 region=sat
+    P1 (out net22 net30 VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 ps=5u \
+        pd=5u m=1 region=sat
+    P0 (net30 B VDD VDD) tsmc20P w=2u l=200n as=1e-12 ad=1e-12 ps=5u pd=5u \
+        m=1 region=sat
+    N3 (net27 B GND GND) tsmc20N w=500n l=200n as=2.5e-13 ad=2.5e-13 ps=2u \
+        pd=2u m=1 region=sat
+    N2 (out A net27 GND) tsmc20N w=500n l=200n as=2.5e-13 ad=2.5e-13 ps=2u \
+        pd=2u m=1 region=sat
+    N1 (net28 net13 GND GND) tsmc20N w=500n l=200n as=2.5e-13 ad=2.5e-13 \
+        ps=2u pd=2u m=1 region=sat
+    N0 (out net22 net28 GND) tsmc20N w=500n l=200n as=2.5e-13 ad=2.5e-13 \
+        ps=2u pd=2u m=1 region=sat
+    I1 (GND VDD B net13) inverter
+    I0 (GND VDD A net22) inverter
+ends XOR
+// End of subcircuit definition.
+
+// Library name: Design
+// Cell name: NAND
+// View name: schematic
+subckt NAND A B GND VDD Y
+    N1 (net14 B GND GND) tsmc20N w=300n l=200n as=1.5e-13 ad=1.5e-13 \
+        ps=1.6u pd=1.6u m=1 region=sat
+    N0 (Y A net14 GND) tsmc20N w=300n l=200n as=1.5e-13 ad=1.5e-13 ps=1.6u \
+        pd=1.6u m=1 region=sat
+    P1 (Y B VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 ps=2.2u \
+        pd=2.2u m=1 region=sat
+    P0 (Y A VDD VDD) tsmc20P w=600n l=200n as=3e-13 ad=3e-13 ps=2.2u \
+        pd=2.2u m=1 region=sat
+ends NAND
+// End of subcircuit definition.
+
+// Library name: Design
+// Cell name: singlebitadder
+// View name: schematic
+subckt singlebitadder A B C Carry GND Sum VDD
+    I1 (net8 C GND VDD Sum) XOR
+    I0 (A B GND VDD net8) XOR
+    I4 (net14 net18 GND VDD Carry) NAND
+    I3 (A B GND VDD net18) NAND
+    I2 (net8 C GND VDD net14) NAND
+ends singlebitadder
+// End of subcircuit definition.
+
+// Library name: Design
+// Cell name: 4bitAdder_schematic
+// View name: schematic
+subckt Design_4bitAdder_schematic_schematic A\<3\> A\<2\> A\<1\> A\<0\> \
+        B\<3\> B\<2\> B\<1\> B\<0\> Cin Cout GND Sum\<3\> Sum\<2\> \
+        Sum\<1\> Sum\<0\> VDD
+    I3 (A\<3\> B\<3\> net12 Cout GND Sum\<3\> VDD) singlebitadder
+    I2 (A\<2\> B\<2\> net16 net12 GND Sum\<2\> VDD) singlebitadder
+    I1 (A\<1\> B\<1\> net21 net16 GND Sum\<1\> VDD) singlebitadder
+    I0 (A\<0\> B\<0\> Cin net21 GND Sum\<0\> VDD) singlebitadder
+ends Design_4bitAdder_schematic_schematic
+// End of subcircuit definition.
+
+// Library name: Design
+// Cell name: 4bitAdder_simulation
+// View name: schematic
+I0 (A\<3\> A\<2\> A\<1\> A\<0\> B\<3\> B\<2\> B\<1\> B\<0\> Cin Cout 0 \
+        Sum\<3\> Sum\<2\> Sum\<1\> Sum\<0\> vdd!) \
+        Design_4bitAdder_schematic_schematic
+V0 (vdd! 0) vsource type=dc dc=1.8
+V13 (A\<3\> 0) vsource type=pulse dc=1.8 val0=0 val1=1.8 period=10n \
+        delay=3n rise=100p fall=100p width=5n
+V12 (A\<2\> 0) vsource type=pulse dc=1.8 val0=0 val1=1.8 period=10n \
+        delay=3n rise=100p fall=100p width=5n
+V11 (A\<1\> 0) vsource type=pulse dc=1.8 val0=0 val1=1.8 period=10n \
+        delay=3n rise=100p fall=100p width=5n
+V10 (A\<0\> 0) vsource type=pulse dc=1.8 val0=0 val1=1.8 period=10n \
+        delay=3n rise=100p fall=100p width=5n
+V8 (B\<2\> 0) vsource type=pulse dc=1.8 val0=1.8 val1=0 period=10n \
+        delay=3n rise=100p fall=100p width=5n
+V6 (B\<1\> 0) vsource type=pulse dc=1.8 val0=1.8 val1=0 period=10n \
+        delay=3n rise=100p fall=100p width=5n
+V9 (B\<3\> 0) vsource type=pulse dc=1.8 val0=1.8 val1=0 period=10n \
+        delay=3n rise=100p fall=100p width=5n
+V7 (B\<0\> 0) vsource type=pulse dc=1.8 val0=1.8 val1=0 period=10n \
+        delay=3n rise=100p fall=100p width=5n
+V14 (Cin 0) vsource type=pulse dc=1.8 val0=1.8 val1=0 period=10n delay=3n \
+        rise=100p fall=100p width=5n
+C4 (Sum\<3\> 0) capacitor c=50f m=1
+C3 (Sum\<2\> 0) capacitor c=50f m=1
+C2 (Sum\<1\> 0) capacitor c=50f m=1
+C1 (Sum\<0\> 0) capacitor c=50f m=1
+C0 (Cout 0) capacitor c=50f m=1
+simulatorOptions options psfversion="1.1.0" reltol=1e-3 vabstol=1e-6 \
+    iabstol=1e-12 temp=27 tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+tran tran stop=30n write="spectre.ic" writefinal="spectre.fc" \
+    annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

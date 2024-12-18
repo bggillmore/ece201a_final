@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Design Netlist Generated on: Apr 15 14:56:22 2024
+// Design library name: lab2024
+// Design cell name: tb_ycircuitcustom
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!

@@ -1,0 +1,60 @@
+// Generated for: spectre
+// Generated on: Oct 27 12:12:37 2010
+// Design library name: sigmadelta_local
+// Design cell name: test_v_diff_i_uni
+// Design view name: schematic
+simulator lang=spectre
+global 0
+include "/home/ic5.1/tools/dfII/samples/artist/ahdlLib/quantity.spectre"
+parameters w2=1e-5 w1=1e-5 Vsupp=3.3 Vsin=0 voutdc=2 vout=0 Vmin=-0.1 \
+    Vmax=0.1 Vindc=1 Vin=0 per_tr=1e-8 l2=5e-7 l1=5e-7 I0=0.0002 g3=0 \
+    g2=-1 g1=1
+include "/home/AMS_3.70/spectre/s35/mcparams.scs"
+include "/home/AMS_3.70/spectre/s35/cmos53.scs" section=cmostm
+include "/home/AMS_3.70/spectre/s35/res.scs" section=restm
+include "/home/AMS_3.70/spectre/s35/cap.scs" section=captm
+include "/home/AMS_3.70/spectre/s35/vbic.scs" section=biptm
+include "/home/AMS_3.70/spectre/s35/ind.scs" section=indtm
+
+// Library name: sigmadelta_local
+// Cell name: simect_v_diff_i_uni_sch
+// View name: schematic
+subckt simect_v_diff_i_uni_sch Iout Vin\+ Vin\- Vsupp gnd
+    MN1 (Iout Vin\- net20 gnd) modn w=w1 l=l1 as=1.1e-11 ad=1.1e-11 \
+        ps=12.2u pd=12.2u nrd=0.06 nrs=0.06 ng=1
+    MN0 (net19 Vin\+ net20 gnd) modn w=w1 l=l1 as=1.1e-11 ad=1.1e-11 \
+        ps=12.2u pd=12.2u nrd=0.06 nrs=0.06 ng=1
+    I0 (net20 gnd) isource dc=I0 type=dc
+    MN2 (net19 net19 Vsupp Vsupp) modp w=w2 l=l2 as=1.1e-11 ad=1.1e-11 \
+        ps=12.2u pd=12.2u nrd=0.06 nrs=0.06 ng=1
+    MP0 (Iout net19 Vsupp Vsupp) modp w=w2 l=l2 as=1.1e-11 ad=1.1e-11 \
+        ps=12.2u pd=12.2u nrd=0.06 nrs=0.06 ng=1
+ends simect_v_diff_i_uni_sch
+// End of subcircuit definition.
+
+// Library name: sigmadelta_local
+// Cell name: test_v_diff_i_uni
+// View name: schematic
+I44 (Vout Vin1 Vin2 net0106 0) simect_v_diff_i_uni_sch
+V3 (net019 0) vsource type=sine ampl=Vsin freq=1/per_tr
+V1 (net026 net019) vsource dc=Vin mag=1 type=pulse val0=Vmin val1=Vmax \
+        period=per_tr width=per_tr/2
+E1 (Vin2 net028 net026 0) vcvs gain=g2
+E0 (Vin1 net028 net026 0) vcvs gain=g1
+E2 (Vout net043 net029 0) vcvs gain=g3
+V9 (net043 0) vsource dc=voutdc type=dc
+V10 (net029 0) vsource dc=vout mag=1 type=dc
+V5 (net028 0) vsource dc=Vindc type=dc
+V0 (net0106 0) vsource dc=Vsupp type=dc
+simulatorOptions options reltol=100e-6 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 homotopy=all limit=delta scalem=1.0 scale=1.0 \
+    compatible=spice2 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 digits=5 \
+    cols=80 pivrel=1e-3 sensfile="../psf/sens.output" checklimitdest=psf 
+tran tran stop=100n errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts  where=rawfile
+save E2:p E1:p E0:p 
+saveOptions options save=allpub

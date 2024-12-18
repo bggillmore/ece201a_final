@@ -1,0 +1,112 @@
+// Point Netlist Generated on: Apr 15 16:19:34 2024
+// Generated for: spectre
+// Design Netlist Generated on: Apr 15 16:19:32 2024
+// Design library name: lab2024
+// Design cell name: tb_ycircuitcustom
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+parameters temperature=27
+include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+
+// Library name: lab2024
+// Cell name: ycircuitcustom
+// View name: schematic
+subckt ycircuitcustom A B C D out
+parameters Wp=1u Wn=1u
+    MPD (out D vdd! vdd!) modp w=Wp/1 l=0.35u \
+        as=(8.5e-07*Wp/1*(2-fmod(1,2))+int((1-1)/2)*2*5e-07*Wp/1)/1 \
+        ad=(8.5e-07*Wp/1*fmod(1,2)+int(1/2)*2*5e-07*Wp/1)/1 \
+        ps=((2*8.5e-07+Wp/1)*(2-fmod(1,2))+int((1-1)/2)*4*5e-07)/1 \
+        pd=((2*8.5e-07+Wp/1)*fmod(1,2)+int(1/2)*4*5e-07)/1 nrd=5e-07/Wp/1 \
+        nrs=5e-07/Wp/1 ng=1
+    MPC (out C net1 net1) modp w=(2*Wp)/1 l=0.35u \
+        as=(8.5e-07*((2*Wp)/1)*(2-fmod(1,2))+int((1-1)/2)*2*5e-07*((2*Wp)/1))/1 \
+        ad=(8.5e-07*((2*Wp)/1)*fmod(1,2)+int(1/2)*2*5e-07*((2*Wp)/1))/1 \
+        ps=((2*8.5e-07+((2*Wp)/1))*(2-fmod(1,2))+int((1-1)/2)*4*5e-07)/1 \
+        pd=((2*8.5e-07+((2*Wp)/1))*fmod(1,2)+int(1/2)*4*5e-07)/1 \
+        nrd=5e-07/((2*Wp)/1) nrs=5e-07/((2*Wp)/1) ng=1
+    MPB (net1 B vdd! vdd!) modp w=(2*Wp)/1 l=0.35u \
+        as=(8.5e-07*((2*Wp)/1)*(2-fmod(1,2))+int((1-1)/2)*2*5e-07*((2*Wp)/1))/1 \
+        ad=(8.5e-07*((2*Wp)/1)*fmod(1,2)+int(1/2)*2*5e-07*((2*Wp)/1))/1 \
+        ps=((2*8.5e-07+((2*Wp)/1))*(2-fmod(1,2))+int((1-1)/2)*4*5e-07)/1 \
+        pd=((2*8.5e-07+((2*Wp)/1))*fmod(1,2)+int(1/2)*4*5e-07)/1 \
+        nrd=5e-07/((2*Wp)/1) nrs=5e-07/((2*Wp)/1) ng=1
+    MPA (net1 A vdd! vdd!) modp w=(2*Wp)/1 l=0.35u \
+        as=(8.5e-07*((2*Wp)/1)*(2-fmod(1,2))+int((1-1)/2)*2*5e-07*((2*Wp)/1))/1 \
+        ad=(8.5e-07*((2*Wp)/1)*fmod(1,2)+int(1/2)*2*5e-07*((2*Wp)/1))/1 \
+        ps=((2*8.5e-07+((2*Wp)/1))*(2-fmod(1,2))+int((1-1)/2)*4*5e-07)/1 \
+        pd=((2*8.5e-07+((2*Wp)/1))*fmod(1,2)+int(1/2)*4*5e-07)/1 \
+        nrd=5e-07/((2*Wp)/1) nrs=5e-07/((2*Wp)/1) ng=1
+    MNC (net3 C 0 0) modn w=(2*Wn)/1 l=0.35u \
+        as=(8.5e-07*((2*Wn)/1)*(2-fmod(1,2))+int((1-1)/2)*2*5e-07*((2*Wn)/1))/1 \
+        ad=(8.5e-07*((2*Wn)/1)*fmod(1,2)+int(1/2)*2*5e-07*((2*Wn)/1))/1 \
+        ps=((2*8.5e-07+((2*Wn)/1))*(2-fmod(1,2))+int((1-1)/2)*4*5e-07)/1 \
+        pd=((2*8.5e-07+((2*Wn)/1))*fmod(1,2)+int(1/2)*4*5e-07)/1 \
+        nrd=5e-07/((2*Wn)/1) nrs=5e-07/((2*Wn)/1) ng=1
+    MNB (net2 B 0 0) modn w=(4*Wn)/1 l=0.35u \
+        as=(8.5e-07*((4*Wn)/1)*(2-fmod(1,2))+int((1-1)/2)*2*5e-07*((4*Wn)/1))/1 \
+        ad=(8.5e-07*((4*Wn)/1)*fmod(1,2)+int(1/2)*2*5e-07*((4*Wn)/1))/1 \
+        ps=((2*8.5e-07+((4*Wn)/1))*(2-fmod(1,2))+int((1-1)/2)*4*5e-07)/1 \
+        pd=((2*8.5e-07+((4*Wn)/1))*fmod(1,2)+int(1/2)*4*5e-07)/1 \
+        nrd=5e-07/((4*Wn)/1) nrs=5e-07/((4*Wn)/1) ng=1
+    MNA (net3 A net2 net2) modn w=(4*Wn)/1 l=0.35u \
+        as=(8.5e-07*((4*Wn)/1)*(2-fmod(1,2))+int((1-1)/2)*2*5e-07*((4*Wn)/1))/1 \
+        ad=(8.5e-07*((4*Wn)/1)*fmod(1,2)+int(1/2)*2*5e-07*((4*Wn)/1))/1 \
+        ps=((2*8.5e-07+((4*Wn)/1))*(2-fmod(1,2))+int((1-1)/2)*4*5e-07)/1 \
+        pd=((2*8.5e-07+((4*Wn)/1))*fmod(1,2)+int(1/2)*4*5e-07)/1 \
+        nrd=5e-07/((4*Wn)/1) nrs=5e-07/((4*Wn)/1) ng=1
+    MND (out D net3 net3) modn w=(2*Wn)/1 l=0.35u \
+        as=(8.5e-07*((2*Wn)/1)*(2-fmod(1,2))+int((1-1)/2)*2*5e-07*((2*Wn)/1))/1 \
+        ad=(8.5e-07*((2*Wn)/1)*fmod(1,2)+int(1/2)*2*5e-07*((2*Wn)/1))/1 \
+        ps=((2*8.5e-07+((2*Wn)/1))*(2-fmod(1,2))+int((1-1)/2)*4*5e-07)/1 \
+        pd=((2*8.5e-07+((2*Wn)/1))*fmod(1,2)+int(1/2)*4*5e-07)/1 \
+        nrd=5e-07/((2*Wn)/1) nrs=5e-07/((2*Wn)/1) ng=1
+ends ycircuitcustom
+// End of subcircuit definition.
+
+// Library name: lab2024
+// Cell name: tb_ycircuitcustom
+// View name: schematic
+I4 (net4 net3 net2 net1 net5) ycircuitcustom Wp=1u Wn=1u
+VD (net1 0) vsource type=pulse val0=0 val1=3.3 period=5n delay=0 rise=100p \
+        fall=100p width=1n
+VC (net2 0) vsource type=pulse val0=0 val1=3.3 period=4n delay=1n \
+        rise=100p fall=100p width=1n
+VB (net3 0) vsource type=pulse val0=0 val1=3.3 period=2n rise=100p \
+        fall=100p width=1n
+VA (net4 0) vsource type=pulse val0=0 val1=3.3 period=4n delay=2n \
+        rise=100p fall=100p width=1n
+C0 (net5 0) capacitor c=10f
+V (vdd! 0) vsource dc=3.3 type=dc
+simulatorOptions options psfversion="1.4.0" reltol=100e-6 vabstol=1e-6 \
+    iabstol=1e-12 temp=27 tnom=27 homotopy=all limit=delta scalem=1.0 \
+    scale=1.0 compatible=spice2 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf enable_pre_ver=yes ignorezerovar=yes 
+mc1 montecarlo numruns=100 seed=12345 variations=all sampling=standard \
+    donominal=yes scalarfile="../monteCarlo/mcdata" \
+    paramfile="../monteCarlo/mcparam" saveprocessparams=yes \
+    processparamfile="../monteCarlo/processParam" \
+    processscalarfile="../monteCarlo/processData" savemismatchparams=no \
+    dut=[ I4 ]  paramdumpmode=yes savefamilyplots=yes \
+    savedatainseparatedir=yes wfseparation=yes {
+tran tran stop=20n errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+}
+save V:p 
+saveOptions options save=allpub

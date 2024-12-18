@@ -1,0 +1,27 @@
+// this is variations.scs
+
+simulator lang=spectre
+
+parameters statr=1 
+parameters statc=1 
+
+inline subckt rvague (a b) 
+       parameters r 
+       rvague (a b) resistor r=r*statr
+ends rvague
+
+inline subckt cvague (a b) 
+       parameters c
+       cvague (a b) capacitor c=c*statc
+ends cvague
+
+statistics {
+    mismatch {
+        vary statr dist=gauss std=1 percent=yes 
+        vary statc dist=gauss std=1 percent=yes 
+    }
+    process {
+        vary statr dist=gauss std=1 percent=yes 
+        vary statc dist=gauss std=5 percent=yes 
+    }
+}

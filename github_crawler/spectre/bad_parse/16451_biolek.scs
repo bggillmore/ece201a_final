@@ -1,0 +1,36 @@
+************************************************************************************
+************************************************************************************
+** Title:  biolek.scs
+** Adapted by: Paulo Klaudat, Laboratório de Prototipação e Teste @ UFRGS
+** Email:  pauloklaudat@gmail.com
+************************************************************************************
+** HP Memristor SPICE Model - Biolek Window
+************************************************************************************
+* Connections:
+* TE:  Top electrode
+* BE:  Bottom electrode
+* XSV: External connection to plot state variable
+*      that is not used otherwise
+simulator lang=spectre
+
+parameters Ron=100 Roff=1K x0=0.076 D=16N uv=40F p=7
+
+real stp(real a) {
+    return a>0?1.0:0.0
+}
+
+real f1(real v1, real i1) {
+    return (1-pow((v1-stp(-i1)),(2*p)))
+}
+
+real f2(real v1, real v2) {
+    return (v1/(Ron*v2 + Roff*(1-v2)))
+}
+
+subckt biolek (TE BE)
+* * Circuit to determine state variable
+    Gx 0 XSV bsource i=(i(Gmem)*Ron*uv*f1(v(XSV),i(Gmem))/pow(D,2))
+    Cx XSV 0 capacitor c=1 ic=x0
+* * Current source representing memristor
+    Gmem TE BE bsource i=f2(v(TE)-v(BE),v(XSV))
+ends biolek

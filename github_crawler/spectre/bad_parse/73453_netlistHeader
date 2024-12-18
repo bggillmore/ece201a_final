@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Apr 19 18:09:40 2015
+// Design library name: 16nm_Tests
+// Design cell name: inv_test
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!

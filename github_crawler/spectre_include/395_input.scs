@@ -1,0 +1,28 @@
+// Generated for: spectre
+// Generated on: Oct  5 21:18:49 2017
+// Design library name: example
+// Design cell name: rc_lpf
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters V=0 vdc=1
+include "/afs/ir.stanford.edu/class/ee315/models/ee315.mod"
+
+// Library name: example
+// Cell name: rc_lpf
+// View name: schematic
+R0 (in out) resistor r=500K
+C0 (out 0) capacitor c=10p
+V0 (in 0) vsource dc=vdc mag=1V type=dc
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+ac ac start=1 stop=100G annotate=status 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts  where=rawfile
+saveOptions options save=allpub

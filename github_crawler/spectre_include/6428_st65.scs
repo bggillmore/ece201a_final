@@ -1,0 +1,18 @@
+simulator lang=spectre insensitive=yes
+
+parameters gflag__noisedev__all__cmos065 = 0
+
+include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/mismatch.scs" section=no
+include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/mismatch_switch.scs" section=alignment
+include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/rgateswitch_all.scs" section=no
+
+include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/common_go1.scs" section=TT
+include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/common_poly_cd.scs" section=TT
+include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/common_poly_res.scs" section=TT
+include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/common_active_cd.scs" section=TT
+include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/common_active_res.scs" section=TT
+
+include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/svtlp.scs" section=TT
+include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/svtgp.scs" section=TT
+
+include "/soft64/design-kits/stm/65nm-cmos065_536/DK_cmos065lpgp_7m4x0y2z_2V51V8@5.3.6/DATA/SPECTRE/CORNERS/diodeiso.scs" section=typ

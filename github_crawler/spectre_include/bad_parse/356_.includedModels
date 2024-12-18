@@ -1,0 +1,4 @@
+simulator lang=spectre
+include "modn.scs"
+include "modp.scs"
+include "npn143h5.scs"

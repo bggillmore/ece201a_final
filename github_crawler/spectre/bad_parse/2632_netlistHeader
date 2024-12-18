@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Oct 18 00:20:03 2017
+// Design library name: ee315_wrk
+// Design cell name: example_pss
+// Design view name: schematic
+simulator lang=spectre
+global 0

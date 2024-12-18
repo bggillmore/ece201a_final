@@ -1,0 +1,41 @@
+// Generated for: spectre
+// Generated on: Mar  8 21:02:48 2018
+// Design library name: ajgrosze_scratch
+// Design cell name: single_inv_sim
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters vdc=1.2
+include "/misc/scratch/ajgrosze/lpr/schematics/models/32nm_LP.pm"
+
+// Library name: ajgrosze_scratch
+// Cell name: inv
+// View name: schematic
+subckt inv in out vdd
+    M0 (out in 0 0) nmos w=128n l=32n
+    M1 (out in vdd vdd) pmos w=256n l=32n
+ends inv
+// End of subcircuit definition.
+
+// Library name: ajgrosze_scratch
+// Cell name: single_inv_sim
+// View name: schematic
+I0 (net5 vout net3) inv
+V1 (net3 0) vsource dc=vdc type=dc
+V0 (net5 0) vsource dc=0 type=dc
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+dcOp dc write="spectre.dc" maxiters=150 maxsteps=10000 annotate=status
+dcOpInfo info what=oppoint where=rawfile
+dc dc param=vdc start=0 stop=1.2 step=0.01 oppoint=rawfile maxiters=150 \
+    maxsteps=10000 annotate=status
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+save I0.M0:s vout I0:1 I0:2 I0:3 
+saveOptions options save=allpub

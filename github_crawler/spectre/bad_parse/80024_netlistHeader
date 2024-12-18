@@ -1,0 +1,7 @@
+// Generated for: spectre
+// Generated on: Apr 15 20:52:28 2018
+// Design library name: analog_ece6218
+// Design cell name: OTA
+// Design view name: schematic
+simulator lang=spectre
+global 0

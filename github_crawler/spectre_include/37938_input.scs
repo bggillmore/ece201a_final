@@ -1,0 +1,94 @@
+// Generated for: spectre
+// Generated on: Apr 24 12:07:40 2024
+// Design library name: lab2024
+// Design cell name: tb_xort
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+include "/eda/cadence/ams/4.10/spectre/c35/soac/soac.scs"
+include "/eda/cadence/ams/4.10/spectre/c35/soac/processOption.scs"
+include "/eda/cadence/ams/4.10/spectre/c35/soac/cmos53.scs" section=cmostm
+include "/eda/cadence/ams/4.10/spectre/c35/soac/res.scs" section=restm
+include "/eda/cadence/ams/4.10/spectre/c35/soac/cap.scs" section=captm
+include "/eda/cadence/ams/4.10/spectre/c35/soac/bip.scs" section=biptm
+include "/eda/cadence/ams/4.10/spectre/c35/soac/ind.scs" section=indtm
+include "/eda/cadence/ams/4.10/spectre/c35/soac/esddiode.scs" section=esddiodetm
+
+// Library name: lab2024
+// Cell name: invParam
+// View name: schematic
+subckt invParam in out
+parameters Wn=1u Wp=1u
+    MN0 (out in 0 0) modn w=Wn/1 l=0.35u \
+        as=(8.5e-07*Wn/1*(2-fmod(1,2))+int((1-1)/2)*2*5e-07*Wn/1)/1 \
+        ad=(8.5e-07*Wn/1*fmod(1,2)+int(1/2)*2*5e-07*Wn/1)/1 \
+        ps=((2*8.5e-07+Wn/1)*(2-fmod(1,2))+int((1-1)/2)*4*5e-07)/1 \
+        pd=((2*8.5e-07+Wn/1)*fmod(1,2)+int(1/2)*4*5e-07)/1 nrd=5e-07/Wn/1 \
+        nrs=5e-07/Wn/1 ng=1
+    MP0 (out in vdd! vdd!) modp w=Wp/1 l=0.35u \
+        as=(8.5e-07*Wp/1*(2-fmod(1,2))+int((1-1)/2)*2*5e-07*Wp/1)/1 \
+        ad=(8.5e-07*Wp/1*fmod(1,2)+int(1/2)*2*5e-07*Wp/1)/1 \
+        ps=((2*8.5e-07+Wp/1)*(2-fmod(1,2))+int((1-1)/2)*4*5e-07)/1 \
+        pd=((2*8.5e-07+Wp/1)*fmod(1,2)+int(1/2)*4*5e-07)/1 nrd=5e-07/Wp/1 \
+        nrs=5e-07/Wp/1 ng=1
+ends invParam
+// End of subcircuit definition.
+
+// Library name: lab2024
+// Cell name: xort
+// View name: schematic
+subckt xort A B out
+parameters Wp=1u Wn=1u
+    MP1 (out A B vdd!) modp w=Wp/1 l=0.35u \
+        as=(8.5e-07*Wp/1*(2-fmod(1,2))+int((1-1)/2)*2*5e-07*Wp/1)/1 \
+        ad=(8.5e-07*Wp/1*fmod(1,2)+int(1/2)*2*5e-07*Wp/1)/1 \
+        ps=((2*8.5e-07+Wp/1)*(2-fmod(1,2))+int((1-1)/2)*4*5e-07)/1 \
+        pd=((2*8.5e-07+Wp/1)*fmod(1,2)+int(1/2)*4*5e-07)/1 nrd=5e-07/Wp/1 \
+        nrs=5e-07/Wp/1 ng=1
+    MP0 (A B out vdd!) modp w=Wp/1 l=0.35u \
+        as=(8.5e-07*Wp/1*(2-fmod(1,2))+int((1-1)/2)*2*5e-07*Wp/1)/1 \
+        ad=(8.5e-07*Wp/1*fmod(1,2)+int(1/2)*2*5e-07*Wp/1)/1 \
+        ps=((2*8.5e-07+Wp/1)*(2-fmod(1,2))+int((1-1)/2)*4*5e-07)/1 \
+        pd=((2*8.5e-07+Wp/1)*fmod(1,2)+int(1/2)*4*5e-07)/1 nrd=5e-07/Wp/1 \
+        nrs=5e-07/Wp/1 ng=1
+    MN1 (out A net1 0) modn w=Wn/1 l=0.35u \
+        as=(8.5e-07*Wn/1*(2-fmod(1,2))+int((1-1)/2)*2*5e-07*Wn/1)/1 \
+        ad=(8.5e-07*Wn/1*fmod(1,2)+int(1/2)*2*5e-07*Wn/1)/1 \
+        ps=((2*8.5e-07+Wn/1)*(2-fmod(1,2))+int((1-1)/2)*4*5e-07)/1 \
+        pd=((2*8.5e-07+Wn/1)*fmod(1,2)+int(1/2)*4*5e-07)/1 nrd=5e-07/Wn/1 \
+        nrs=5e-07/Wn/1 ng=1
+    MN0 (A net1 out 0) modn w=Wn/1 l=0.35u \
+        as=(8.5e-07*Wn/1*(2-fmod(1,2))+int((1-1)/2)*2*5e-07*Wn/1)/1 \
+        ad=(8.5e-07*Wn/1*fmod(1,2)+int(1/2)*2*5e-07*Wn/1)/1 \
+        ps=((2*8.5e-07+Wn/1)*(2-fmod(1,2))+int((1-1)/2)*4*5e-07)/1 \
+        pd=((2*8.5e-07+Wn/1)*fmod(1,2)+int(1/2)*4*5e-07)/1 nrd=5e-07/Wn/1 \
+        nrs=5e-07/Wn/1 ng=1
+    I0 (B net1) invParam Wn=1u Wp=1u
+ends xort
+// End of subcircuit definition.
+
+// Library name: lab2024
+// Cell name: tb_xort
+// View name: schematic
+I0 (net2 net1 net3) xort Wp=1u Wn=1u
+C0 (net3 0) capacitor c=1f
+VB (net1 0) vsource type=pulse val0=3.3 val1=0 period=4n rise=100p \
+        fall=100p width=2n
+VA (net2 0) vsource type=pulse val0=3.3 val1=0 period=8n rise=100p \
+        fall=100p width=4n
+V (vdd! 0) vsource dc=3.3 type=dc
+simulatorOptions options psfversion="1.4.0" reltol=100e-6 vabstol=1e-6 \
+    iabstol=1e-12 temp=27 tnom=27 homotopy=all limit=delta scalem=1.0 \
+    scale=1.0 compatible=spice2 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf enable_pre_ver=yes ignorezerovar=yes 
+tran tran stop=8n errpreset=conservative write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

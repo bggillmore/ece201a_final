@@ -1,0 +1,75 @@
+// Generated for: spectre
+// Generated on: Feb 16 10:22:10 2015
+// Design library name: MYLIB
+// Design cell name: tutorial3
+// Design view name: config
+simulator lang=spectre
+global 0 vdd!
+include "/auto/ee2/Cadence/local/designkits/BYU/lib/AMI12/models/spectre/allModels.scs"
+
+// Library name: MYLIB
+// Cell name: inv_1x
+// View name: analog_extracted
+// Inherited view list: spectre cmos_sch cmos.sch schematic veriloga ahdl
+subckt inv_1x A Y
+    \+1 (Y A vdd! vdd!) ami12P w=1.2e-05 l=1.2e-06 as=4.32e-11 ad=3.96e-11 \
+        ps=1.92e-05 pd=1.86e-05 m=1 region=sat
+    \+0 (Y A 0 0) ami12N w=6e-06 l=1.2e-06 as=1.98e-11 ad=1.98e-11 \
+        ps=1.26e-05 pd=1.26e-05 m=1 region=sat
+ends inv_1x
+// End of subcircuit definition.
+
+// Library name: MYLIB
+// Cell name: aoi21_1x
+// View name: analog_extracted
+// Inherited view list: spectre cmos_sch cmos.sch schematic veriloga ahdl
+subckt aoi21_1x A B C Y
+    \+4 (7 B vdd! vdd!) ami12P w=2.4e-05 l=1.2e-06 as=4.32e-11 ad=4.68e-11 \
+        ps=3.6e-06 pd=3.9e-06 m=1 region=sat
+    \+5 (Y C 7 vdd!) ami12P w=2.4e-05 l=1.2e-06 as=4.68e-11 ad=7.92e-11 \
+        ps=3.9e-06 pd=3.06e-05 m=1 region=sat
+    \+3 (vdd! A 7 vdd!) ami12P w=2.4e-05 l=1.2e-06 as=7.92e-11 ad=4.32e-11 \
+        ps=3.06e-05 pd=3.6e-06 m=1 region=sat
+    \+1 (Y B 8 0) ami12N w=1.2e-05 l=1.2e-06 as=7.2e-12 ad=2.16e-11 \
+        ps=1.2e-06 pd=6.9e-06 m=1 region=sat
+    \+0 (8 A 0 0) ami12N w=1.2e-05 l=1.2e-06 as=3.96e-11 ad=7.2e-12 \
+        ps=1.86e-05 pd=1.2e-06 m=1 region=sat
+    \+2 (0 C Y 0) ami12N w=6e-06 l=1.2e-06 as=2.16e-11 ad=2.34e-11 \
+        ps=6.9e-06 pd=1.38e-05 m=1 region=sat
+ends aoi21_1x
+// End of subcircuit definition.
+
+// Library name: MYLIB
+// Cell name: tutorial3
+// View name: schematic
+// Inherited view list: spectre cmos_sch cmos.sch schematic veriloga ahdl
+I20 (0 net4) inv_1x
+I19 (net4 net33) inv_1x
+I14 (net7 net36) inv_1x
+I13 (0 net7) inv_1x
+I12 (0 net12) inv_1x
+I11 (net12 net35) inv_1x
+I6 (net14 net13) inv_1x
+I5 (OUTPUT net14) inv_1x
+I4 (vdd! net20) inv_1x
+I3 (net20 \5V) inv_1x
+I2 (net23 INPUT) inv_1x
+I0 (net29 net23) inv_1x
+I1 (\5V 0 INPUT OUTPUT) aoi21_1x
+V0 (net29 0) vsource type=pulse val0=0 val1=5 period=50n delay=0 rise=100p \
+        fall=100p width=25n
+V1 (vdd! 0) vsource type=dc dc=5
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=150n errpreset=moderate write="spectre.ic" \
+    writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts  where=rawfile
+saveOptions options save=allpub

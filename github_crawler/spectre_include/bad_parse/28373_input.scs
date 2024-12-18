@@ -1,0 +1,149 @@
+// Generated for: spectre
+// Generated on: Oct 25 11:51:01 2017
+// Design library name: hw4
+// Design cell name: hw4_cds_starter
+// Design view name: schematic
+simulator lang=spectre
+global 0 p2! p1!
+parameters vdd=1.8 fs=10M p1_duty=0.5 trise=100p tnov=200p tfall=100p \
+    cf=1p cs=2p swnoise=1 M=100 t0_phase=2 cl=2p init_v=(t0_phase-1)*vdd \
+    rons=1/2/fs/M/cs ronf=1/2/fs/M/cf
+include "/afs/ir.stanford.edu/class/ee315a/models/ee315a.mod"
+
+// Library name: ee315
+// Cell name: clock_gen_e
+// View name: schematic
+subckt clock_gen_e p1 p1b p1e p1eb p2 p2b p2e vdd
+    F9 (vdd 0) cccs gain=-0.5 abs=on probe=E4
+    F8 (vdd 0) cccs gain=0.5 probe=E4
+    F7 (vdd 0) cccs gain=-0.5 abs=on probe=E3
+    F5 (vdd 0) cccs gain=0.5 probe=E3
+    F4 (vdd 0) cccs gain=-0.5 abs=on probe=E1
+    F3 (vdd 0) cccs gain=0.5 probe=E1
+    F2 (vdd 0) cccs gain=-0.5 abs=on probe=E2
+    F1 (vdd 0) cccs gain=0.5 probe=E2
+    F0 (vdd 0) cccs gain=-0.5 abs=on probe=E0
+    G0 (vdd 0) cccs gain=0.5 probe=E0
+    R6 (net083 net027) resistor r=50 isnoisy=no
+    R5 (net085 net029) resistor r=50 isnoisy=no
+    R4 (net060 net072) resistor r=50 isnoisy=no
+    R3 (net050 net018) resistor r=50 isnoisy=no
+    R2 (net036 net012) resistor r=50 isnoisy=no
+    R1 (net09 net013) resistor r=50 isnoisy=no
+    R0 (net7 net9) resistor r=50 isnoisy=no
+    V6 (net083 0) vsource type=pulse val0=vdd-init_v val1=init_v \
+        period=1/fs delay=(1-p1_duty)/fs-trise-2*tnov rise=tfall \
+        fall=trise width=(1-p1_duty)/fs-trise+2*tnov
+    V5 (net085 0) vsource type=pulse val0=vdd-init_v val1=init_v \
+        period=1/fs delay=(1-p1_duty)/fs-trise-tnov rise=tfall fall=trise \
+        width=(1-p1_duty)/fs-trise+tnov
+    V3 (net060 0) vsource type=pulse val0=vdd-init_v val1=init_v \
+        period=1/fs delay=(1-p1_duty)/fs-trise rise=trise fall=tfall \
+        width=(1-p1_duty)/fs-trise-tnov
+    V4 (net050 0) vsource type=pulse val0=init_v val1=vdd-init_v \
+        period=1/fs delay=(1-p1_duty)/fs- trise rise=trise fall=tfall \
+        width=(1-p1_duty)/fs-trise-2*tnov
+    V0 (net036 0) vsource type=pulse val0=init_v val1=vdd-init_v \
+        period=1/fs delay=(1-p1_duty)/fs-trise-2*tnov rise=tfall \
+        fall=trise width=(1-p1_duty)/fs-trise+2*tnov
+    Vp2 (net09 0) vsource type=pulse val0=init_v val1=vdd-init_v \
+        period=1/fs delay=(1-p1_duty)/fs- trise rise=trise fall=tfall \
+        width=(1-p1_duty)/fs-trise-tnov
+    Vp1 (net7 0) vsource type=pulse val0=init_v val1=vdd-init_v \
+        period=1/fs delay=(1-p1_duty)/fs-trise-tnov rise=tfall fall=trise \
+        width=(1-p1_duty)/fs-trise+tnov
+    C6 (net027 0) capacitor c=1p
+    C5 (net029 0) capacitor c=1p
+    C4 (net072 0) capacitor c=1p
+    C3 (net018 0) capacitor c=1p
+    C2 (net012 0) capacitor c=1p
+    C1 (net013 0) capacitor c=1p
+    C0 (net9 0) capacitor c=1p
+    E6 (p1e 0 net027 0) vcvs gain=1.0
+    E5 (p1 0 net029 0) vcvs gain=1.0
+    E4 (p2b 0 net072 0) vcvs gain=1.0
+    E3 (p2e 0 net018 0) vcvs gain=1.0
+    E2 (p1eb 0 net012 0) vcvs gain=1.0
+    E1 (p2 0 net013 0) vcvs gain=1.0
+    E0 (p1b 0 net9 0) vcvs gain=1.0
+ends clock_gen_e
+// End of subcircuit definition.
+
+// Library name: ee315
+// Cell name: OTA1_diff_in
+// View name: schematic
+subckt OTA1_diff_in vin vout vip
+parameters Gm ft a0 alpha
+    C0 (vin vip) capacitor c=abs(Gm/(2*3.14159*ft))
+    F0 (vout 0) cccs gain=1.0 probe=V0
+    G0 (vout 0 vin vip) vccs gm=Gm
+    V0 (net12 0) vsource dc=0 type=dc
+    R1 (vout 0) resistor r=abs(a0/Gm) isnoisy=no
+    R0 (net12 0) resistor r=abs(1/(alpha*Gm)) isnoisy=yes
+ends OTA1_diff_in
+// End of subcircuit definition.
+
+// Library name: ee315
+// Cell name: p1_switch
+// View name: schematic
+subckt p1_switch s1 s2
+parameters Ron=1 SwitchNoise=1
+    p1switch (s1 net014 p1! 0) relay vt1=400m vt2=800m ropen=100G \
+        rclosed=1
+    R5 (net07 0) resistor r=Ron isnoisy=yes
+    R4 (net014 s2) resistor r=Ron isnoisy=no
+    F0 (net014 s2) cccs gain=SwitchNoise probe=V0
+    V0 (net07 0) vsource type=dc
+    C1 (net014 0) capacitor c=100.0a
+    C0 (s1 0) capacitor c=100.0a
+ends p1_switch
+// End of subcircuit definition.
+
+// Library name: ee315
+// Cell name: p2_switch
+// View name: schematic
+subckt p2_switch s1 s2
+parameters Ron=1 SwitchNoise=1
+    p1switch (s1 net014 p2! 0) relay vt1=400m vt2=800m ropen=100G \
+        rclosed=1
+    R5 (net07 0) resistor r=Ron isnoisy=yes
+    R4 (net014 s2) resistor r=Ron isnoisy=no
+    F0 (net014 s2) cccs gain=SwitchNoise probe=V0
+    V0 (net07 0) vsource type=dc
+    C1 (net014 0) capacitor c=100.0a
+    C0 (s1 0) capacitor c=100.0a
+ends p2_switch
+// End of subcircuit definition.
+
+// Library name: hw4
+// Cell name: hw4_cds_starter
+// View name: schematic
+I31 (p1! net020 net018 net026 p2! net016 net017 net08) clock_gen_e
+C3 (vo 0) capacitor c=cl
+Cs (vx vs) capacitor c=cs
+Cf (vx vy) capacitor c=cf
+E2 (qx net019 vx vs) vcvs gain=cs
+E0 (net019 0 vx vy) vcvs gain=cf
+I1 (vx net014 0) OTA1_diff_in Gm=1m ft=1e15 a0=1e9 alpha=3
+I10 (0 vs) p1_switch Ron=rons SwitchNoise=swnoise
+I20 (vy 0) p1_switch Ron=ronf SwitchNoise=swnoise
+I18 (vx net014) p1_switch Ron=ronf SwitchNoise=swnoise
+V1 (vi 0) vsource dc=0 type=dc
+V0 (net08 0) vsource dc=vdd type=dc
+I28 (net014 vo) p2_switch Ron=ronf SwitchNoise=swnoise
+I11 (vi vs) p2_switch Ron=rons SwitchNoise=swnoise
+I19 (vy net014) p2_switch Ron=ronf SwitchNoise=swnoise
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+dcOp dc write="spectre.dc" maxiters=150 maxsteps=10000 annotate=status
+dcOpInfo info what=oppoint where=rawfile
+noise ( vo gnd! ) noise start=1e3 stop=1e12 iprobe=V1 annotate=status 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts  where=rawfile
+saveOptions options save=allpub

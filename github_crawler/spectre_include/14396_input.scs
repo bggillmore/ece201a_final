@@ -1,0 +1,61 @@
+// Generated for: spectre
+// Generated on: Nov 13 14:45:26 2018
+// Design library name: ECE_6240_Digial
+// Design cell name: hw2_2_XOR_tb
+// Design view name: schematic
+simulator lang=spectre
+global 0 vdd!
+parameters p5vonly=0
+include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06N.m"
+include "/apps/design_kits/ncsu-cdk-1.6.0.beta/models/spectre/nom/ami06P.m"
+
+// Library name: ECE_6240_Digial
+// Cell name: hw1_3_CMOS_2_Input_NAND
+// View name: schematic
+subckt hw1_3_CMOS_2_Input_NAND A B Out
+    P0 (Out A vdd! vdd!) ami06P w=1.5u l=600n as=2.25e-12 ad=2.25e-12 \
+        ps=6u pd=6u m=1 region=sat
+    P1 (Out B vdd! vdd!) ami06P w=1.5u l=600n as=2.25e-12 ad=2.25e-12 \
+        ps=6u pd=6u m=1 region=sat
+    N1 (net14 B 0 0) ami06N w=1.5u l=600n as=2.25e-12 ad=2.25e-12 ps=6u \
+        pd=6u m=1 region=sat
+    N0 (Out A net14 0) ami06N w=1.5u l=600n as=2.25e-12 ad=2.25e-12 ps=6u \
+        pd=6u m=1 region=sat
+ends hw1_3_CMOS_2_Input_NAND
+// End of subcircuit definition.
+
+// Library name: ECE_6240_Digial
+// Cell name: hw2_2_XOR
+// View name: schematic
+subckt hw2_2_XOR A B Out
+    I3 (net9 net8 Out) hw1_3_CMOS_2_Input_NAND
+    I2 (net7 B net8) hw1_3_CMOS_2_Input_NAND
+    I1 (A net7 net9) hw1_3_CMOS_2_Input_NAND
+    I0 (A B net7) hw1_3_CMOS_2_Input_NAND
+ends hw2_2_XOR
+// End of subcircuit definition.
+
+// Library name: ECE_6240_Digial
+// Cell name: hw2_2_XOR_tb
+// View name: schematic
+V0 (vdd! 0) vsource type=dc dc=5
+I7 (A B Out) hw2_2_XOR
+C0 (Out 0) capacitor c=4p m=1
+V1 (A 0) vsource type=pulse val0=0 val1=5 period=50u delay=0 rise=500f \
+        fall=500f width=25u
+V2 (B 0) vsource type=pulse val0=0 val1=5 period=100u delay=0 rise=500f \
+        fall=500f width=50u
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=25 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 sensfile="../psf/sens.output" \
+    checklimitdest=psf 
+tran tran stop=200u write="spectre.ic" writefinal="spectre.fc" \
+    annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub
